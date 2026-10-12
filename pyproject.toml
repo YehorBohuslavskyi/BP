@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "context-audit"
+version = "0.1.0"
+description = "Context-aware smart contract analysis using LLMs."
+requires-python = ">=3.12"
+dependencies = [
+    "slither-analyzer",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
