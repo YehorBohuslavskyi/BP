@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-17T17:51:18.557301+00:00",
+  "dataset_url": "https://github.com/gsalzer/cgt",
+  "dataset_commit": null,
+  "python_version": "3.12.3",
+  "slither_version": "0.11.6",
+  "schema": "CGT contract/property assessments",
+  "inference_label_policy": "explicit reviewed finding link; never category-positive propagation",
+  "runner_sha256": "4ece88ecf1bd35e89df864d1e83b93eefbc56c0672b79bff1429187314cd9ca1",
+  "api_calls_made": 0,
+  "csv_sha256": "306f91a45c783494cbc9b6010c3e044ffcfcd9a67e80165f6d896528fa1d94ba",
+  "review_manifest_sha256": "1d9f5a1745d5c8af312b886dc84f6a7c7fa4a18b5a28614c3f9d39b3a89eb2b1"
+}

@@ -1,0 +1,16 @@
+{
+  "status": "blocked",
+  "attempted_command": [
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "https://github.com/gsalzer/cgt.git",
+    "datasets/cgt"
+  ],
+  "exit_code": 128,
+  "error": "Could not resolve host: github.com",
+  "web_fallback": "Raw consolidated.csv rejected at 4194305+ byte reader limit; GitHub file view does not render 5.07 MB CSV",
+  "dataset_commit": null,
+  "actual_records_acquired": 0
+}

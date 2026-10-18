@@ -1,0 +1,999 @@
+[
+  {
+    "validation_file": "slither_tx_result.csv",
+    "row": 2,
+    "category": "tx_result",
+    "original_label": "TP",
+    "file": "test118.json",
+    "contract": "TokenSale",
+    "issues": [
+      "label_conflict"
+    ],
+    "label": true,
+    "assessment_key": [
+      "Doublade",
+      "0x07c1c8c2bce6290daa554118b7d208041615ce54-TokenSale-tx_result",
+      "tx_result"
+    ],
+    "historical_warning_count": 1,
+    "historical_indices": [
+      4
+    ],
+    "original_source": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/source_code/test118.sol",
+    "source_sha256": "e455157570bec44acc8df756745d1b604d592839a9f5bf086d59c7e9adfc2852",
+    "raw_path": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/outputs/slither/test118.json",
+    "raw_sha256": "b42fe660435e042fdc1b175d2983047de5f402112c540d80686e4b4af4dc7b69",
+    "validation_sha256": "96db3b9e3d728a5a89c3aee1440d95ba811c4f5a7b09efc9eea649545d697548",
+    "consolidated_label": false,
+    "consolidated_source": "/home/coca-cola/projects/BP/datasets/cgt/source/6ddcf7e5e762cbd2fb9411dd6c4f5879.sol",
+    "consolidated_source_sha256": "fef23c4e12d21b81bc92e05a1d2ba4bc2813d56912269754997e6b4e9331bc14",
+    "function": "addMeByRC()",
+    "detector": "tx-origin",
+    "historical_lines": [
+      652
+    ],
+    "status": "unresolved",
+    "live_status": "not_attempted"
+  },
+  {
+    "validation_file": "slither_tx_result.csv",
+    "row": 3,
+    "category": "tx_result",
+    "original_label": "TP",
+    "file": "test2956.json",
+    "contract": "TokenSale",
+    "issues": [
+      "no_unique_consolidated_assessment"
+    ],
+    "label": true,
+    "assessment_key": [
+      "Doublade",
+      "0xc26677571d41ff2cffc1775f259e54827a1e162b-TokenSale-tx_result",
+      "tx_result"
+    ],
+    "historical_warning_count": 1,
+    "historical_indices": [
+      3
+    ],
+    "original_source": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/source_code/test2956.sol",
+    "source_sha256": "6155e907370b71d1002edce07ac0da9c86c4be61cc87ad700e7e3b998c6b4873",
+    "raw_path": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/outputs/slither/test2956.json",
+    "raw_sha256": "7f07ea28360c59875141a73683a4f975a088470b2cc45747acfaded3b9627b69",
+    "validation_sha256": "96db3b9e3d728a5a89c3aee1440d95ba811c4f5a7b09efc9eea649545d697548",
+    "function": "addMeByRC()",
+    "detector": "tx-origin",
+    "historical_lines": [
+      319
+    ],
+    "status": "unresolved",
+    "live_status": "not_attempted"
+  },
+  {
+    "validation_file": "slither_tx_result.csv",
+    "row": 4,
+    "category": "tx_result",
+    "original_label": "TP",
+    "file": "test352.json",
+    "contract": "TokenSale",
+    "issues": [
+      "no_unique_consolidated_assessment"
+    ],
+    "label": true,
+    "assessment_key": [
+      "Doublade",
+      "0x1779715743db83628e3cd5f2aeea3177ab415621-TokenSale-tx_result",
+      "tx_result"
+    ],
+    "historical_warning_count": 1,
+    "historical_indices": [
+      3
+    ],
+    "original_source": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/source_code/test352.sol",
+    "source_sha256": "6155e907370b71d1002edce07ac0da9c86c4be61cc87ad700e7e3b998c6b4873",
+    "raw_path": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/outputs/slither/test352.json",
+    "raw_sha256": "999cd302879382e1dc086c0d776e256799465a36c18c2db15c5556d89276b5ab",
+    "validation_sha256": "96db3b9e3d728a5a89c3aee1440d95ba811c4f5a7b09efc9eea649545d697548",
+    "function": "addMeByRC()",
+    "detector": "tx-origin",
+    "historical_lines": [
+      319
+    ],
+    "status": "unresolved",
+    "live_status": "not_attempted"
+  },
+  {
+    "validation_file": "slither_tx_result.csv",
+    "row": 5,
+    "category": "tx_result",
+    "original_label": "TP",
+    "file": "test3747.json",
+    "contract": "TokenSale",
+    "issues": [
+      "no_unique_consolidated_assessment"
+    ],
+    "label": true,
+    "assessment_key": [
+      "Doublade",
+      "0xf62afd17037be692a00b181e959e3c9931076138-TokenSale-tx_result",
+      "tx_result"
+    ],
+    "historical_warning_count": 1,
+    "historical_indices": [
+      3
+    ],
+    "original_source": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/source_code/test3747.sol",
+    "source_sha256": "6155e907370b71d1002edce07ac0da9c86c4be61cc87ad700e7e3b998c6b4873",
+    "raw_path": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/outputs/slither/test3747.json",
+    "raw_sha256": "92ffc1d25516c4cd4f15fc2a67ead503644351757e4625c193054c81892d2f55",
+    "validation_sha256": "96db3b9e3d728a5a89c3aee1440d95ba811c4f5a7b09efc9eea649545d697548",
+    "function": "addMeByRC()",
+    "detector": "tx-origin",
+    "historical_lines": [
+      319
+    ],
+    "status": "unresolved",
+    "live_status": "not_attempted"
+  },
+  {
+    "validation_file": "slither_tx_result.csv",
+    "row": 6,
+    "category": "tx_result",
+    "original_label": "FP",
+    "file": "test701.json",
+    "contract": "Tokens",
+    "issues": [],
+    "label": false,
+    "assessment_key": [
+      "Doublade",
+      "0x2cc6ca9c3023a6a876fd54a03f68281c7aad0e8b-Tokens-tx_result",
+      "tx_result"
+    ],
+    "historical_warning_count": 1,
+    "historical_indices": [
+      0
+    ],
+    "original_source": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/source_code/test701.sol",
+    "source_sha256": "f2c4e03010e00521a79758433152cba98dd9139985ef24b27b8fb05b5384ef3e",
+    "raw_path": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/outputs/slither/test701.json",
+    "raw_sha256": "ee6885e4321b7379557aab877bbd1e92a082df64fe2efd69c9111b2c7c7d02e0",
+    "validation_sha256": "96db3b9e3d728a5a89c3aee1440d95ba811c4f5a7b09efc9eea649545d697548",
+    "consolidated_label": false,
+    "consolidated_source": "/home/coca-cola/projects/BP/datasets/cgt/source/f9fd336ff8ee40adcc4d448645593a3a.sol",
+    "consolidated_source_sha256": "f2c4e03010e00521a79758433152cba98dd9139985ef24b27b8fb05b5384ef3e",
+    "function": "refundTokens(address,uint256)",
+    "detector": "tx-origin",
+    "historical_lines": [
+      964,
+      965,
+      966,
+      967,
+      968,
+      969
+    ],
+    "status": "needs_source_and_semantic_review",
+    "live_status": "unique_expression_match",
+    "compiler_version": "0.4.25",
+    "command": [
+      "slither",
+      "/home/coca-cola/projects/BP/datasets/cgt/source/f9fd336ff8ee40adcc4d448645593a3a.sol",
+      "--detect",
+      "tx-origin",
+      "--json",
+      "-",
+      "--fail-none"
+    ],
+    "slither_json": "/home/coca-cola/projects/BP/results/cgt_linkage/raw/f9fd336ff8ee40adcc4d448645593a3a.tx-origin.json",
+    "live_matches": 1,
+    "finding": {
+      "id": "9ce4fe14b515973e9d153e7e8fde9c30ab483eeb91aea8505704ca615d74c854",
+      "detector": "tx-origin",
+      "impact": "Medium",
+      "confidence": "Medium",
+      "description": "Tokens.refundTokens(address,uint256) (datasets/cgt/source/f9fd336ff8ee40adcc4d448645593a3a.sol#963-989) uses tx.origin for authorization: tx.origin != _from (datasets/cgt/source/f9fd336ff8ee40adcc4d448645593a3a.sol#964)\n",
+      "contract": "Tokens",
+      "function_signature": "refundTokens(address,uint256)",
+      "file": "datasets/cgt/source/f9fd336ff8ee40adcc4d448645593a3a.sol",
+      "lines": [
+        964
+      ],
+      "function_start": 30321,
+      "function_length": 942,
+      "locations": [
+        {
+          "start": 30449,
+          "length": 18,
+          "filename_relative": "datasets/cgt/source/f9fd336ff8ee40adcc4d448645593a3a.sol",
+          "filename_absolute": "/home/coca-cola/projects/BP/datasets/cgt/source/f9fd336ff8ee40adcc4d448645593a3a.sol",
+          "filename_short": "datasets/cgt/source/f9fd336ff8ee40adcc4d448645593a3a.sol",
+          "is_dependency": false,
+          "lines": [
+            964
+          ],
+          "starting_column": 13,
+          "ending_column": 31
+        }
+      ],
+      "function_locations": [
+        {
+          "start": 30321,
+          "length": 942,
+          "filename_relative": "datasets/cgt/source/f9fd336ff8ee40adcc4d448645593a3a.sol",
+          "filename_absolute": "/home/coca-cola/projects/BP/datasets/cgt/source/f9fd336ff8ee40adcc4d448645593a3a.sol",
+          "filename_short": "datasets/cgt/source/f9fd336ff8ee40adcc4d448645593a3a.sol",
+          "is_dependency": false,
+          "lines": [
+            963,
+            964,
+            965,
+            966,
+            967,
+            968,
+            969,
+            970,
+            971,
+            972,
+            973,
+            974,
+            975,
+            976,
+            977,
+            978,
+            979,
+            980,
+            981,
+            982,
+            983,
+            984,
+            985,
+            986,
+            987,
+            988,
+            989
+          ],
+          "starting_column": 2,
+          "ending_column": 3
+        }
+      ]
+    },
+    "slither_json_sha256": "f5ea4b95da45582359c5433c828989e6e580e18a7c685e575fd305ec5bceec93",
+    "expression_keys": [
+      "tx.origin!=_from"
+    ],
+    "function_source": "function refundTokens(address _from, uint256 _amount) public notTimeLocked stopInEmergency returns (bool success) {\n        if (tx.origin != _from) {\n            error('refundTokens: tx.origin did not request the refund directly');\n            return false;\n        }\n\n        if (addressSCICO != msg.sender) {\n            error('refundTokens: caller is not the current ICO address');\n            return false;\n        }\n\n        if (balances[_from] < _amount) {\n            error('refundTokens: the amount to transfer is higher than your token balance');\n            return false;\n        }\n\n        if(!SCComplianceService.validate(_from, addressSCICO, _amount)) {\n\t\t\terror('transfer: not allowed by the compliance service');\n\t\t\treturn false;\n\t\t}\n\n\t\tbalances[_from] = balances[_from].sub(_amount);\n\t\tbalances[addressSCICO] = balances[addressSCICO].add(_amount);\n\t\temit Transfer(_from, addressSCICO, _amount); // Event log\n\n\t\treturn true;\n\t}"
+  },
+  {
+    "validation_file": "slither_tx_result.csv",
+    "row": 7,
+    "category": "tx_result",
+    "original_label": "FP",
+    "file": "test941.json",
+    "contract": "Tokens",
+    "issues": [],
+    "label": false,
+    "assessment_key": [
+      "Doublade",
+      "0x3bb3354f82654dd609300e92c92cf2c7c1bf3171-Tokens-tx_result",
+      "tx_result"
+    ],
+    "historical_warning_count": 1,
+    "historical_indices": [
+      0
+    ],
+    "original_source": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/source_code/test941.sol",
+    "source_sha256": "824846ba9146db42d156ea523dd4760d05a182791f0ffda7482294b331b92177",
+    "raw_path": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/outputs/slither/test941.json",
+    "raw_sha256": "5640ddc857384af55c15337bf3b55bb18916513fc50fc3595dd0080ec053a739",
+    "validation_sha256": "96db3b9e3d728a5a89c3aee1440d95ba811c4f5a7b09efc9eea649545d697548",
+    "consolidated_label": false,
+    "consolidated_source": "/home/coca-cola/projects/BP/datasets/cgt/source/5e9f0a854ba9ec437a9ed124a9f687d8.sol",
+    "consolidated_source_sha256": "824846ba9146db42d156ea523dd4760d05a182791f0ffda7482294b331b92177",
+    "function": "refundTokens(address,uint256)",
+    "detector": "tx-origin",
+    "historical_lines": [
+      542,
+      543,
+      544,
+      545,
+      546
+    ],
+    "status": "needs_source_and_semantic_review",
+    "live_status": "unique_expression_match",
+    "compiler_version": "0.4.25",
+    "command": [
+      "slither",
+      "/home/coca-cola/projects/BP/datasets/cgt/source/5e9f0a854ba9ec437a9ed124a9f687d8.sol",
+      "--detect",
+      "tx-origin",
+      "--json",
+      "-",
+      "--fail-none"
+    ],
+    "slither_json": "/home/coca-cola/projects/BP/results/cgt_linkage/raw/5e9f0a854ba9ec437a9ed124a9f687d8.tx-origin.json",
+    "live_matches": 1,
+    "finding": {
+      "id": "266a1adf2d50adcb4fa215c39985658fe99a87bfaf1ca657877bea008e0ebb5f",
+      "detector": "tx-origin",
+      "impact": "Medium",
+      "confidence": "Medium",
+      "description": "Tokens.refundTokens(address,uint256) (datasets/cgt/source/5e9f0a854ba9ec437a9ed124a9f687d8.sol#541-567) uses tx.origin for authorization: tx.origin != _from (datasets/cgt/source/5e9f0a854ba9ec437a9ed124a9f687d8.sol#542)\n",
+      "contract": "Tokens",
+      "function_signature": "refundTokens(address,uint256)",
+      "file": "datasets/cgt/source/5e9f0a854ba9ec437a9ed124a9f687d8.sol",
+      "lines": [
+        542
+      ],
+      "function_start": 16073,
+      "function_length": 942,
+      "locations": [
+        {
+          "start": 16201,
+          "length": 18,
+          "filename_relative": "datasets/cgt/source/5e9f0a854ba9ec437a9ed124a9f687d8.sol",
+          "filename_absolute": "/home/coca-cola/projects/BP/datasets/cgt/source/5e9f0a854ba9ec437a9ed124a9f687d8.sol",
+          "filename_short": "datasets/cgt/source/5e9f0a854ba9ec437a9ed124a9f687d8.sol",
+          "is_dependency": false,
+          "lines": [
+            542
+          ],
+          "starting_column": 13,
+          "ending_column": 31
+        }
+      ],
+      "function_locations": [
+        {
+          "start": 16073,
+          "length": 942,
+          "filename_relative": "datasets/cgt/source/5e9f0a854ba9ec437a9ed124a9f687d8.sol",
+          "filename_absolute": "/home/coca-cola/projects/BP/datasets/cgt/source/5e9f0a854ba9ec437a9ed124a9f687d8.sol",
+          "filename_short": "datasets/cgt/source/5e9f0a854ba9ec437a9ed124a9f687d8.sol",
+          "is_dependency": false,
+          "lines": [
+            541,
+            542,
+            543,
+            544,
+            545,
+            546,
+            547,
+            548,
+            549,
+            550,
+            551,
+            552,
+            553,
+            554,
+            555,
+            556,
+            557,
+            558,
+            559,
+            560,
+            561,
+            562,
+            563,
+            564,
+            565,
+            566,
+            567
+          ],
+          "starting_column": 2,
+          "ending_column": 3
+        }
+      ]
+    },
+    "slither_json_sha256": "dd11a7d6a3a8d63acfba999ca6539c1acb461d2ea1eb00aba769b0da60b18620",
+    "expression_keys": [
+      "tx.origin!=_from"
+    ],
+    "function_source": "function refundTokens(address _from, uint256 _amount) public notTimeLocked stopInEmergency returns (bool success) {\n        if (tx.origin != _from) {\n            error('refundTokens: tx.origin did not request the refund directly');\n            return false;\n        }\n\n        if (addressSCICO != msg.sender) {\n            error('refundTokens: caller is not the current ICO address');\n            return false;\n        }\n\n        if (balances[_from] < _amount) {\n            error('refundTokens: the amount to transfer is higher than your token balance');\n            return false;\n        }\n\n        if(!SCComplianceService.validate(_from, addressSCICO, _amount)) {\n\t\t\terror('transfer: not allowed by the compliance service');\n\t\t\treturn false;\n\t\t}\n\n\t\tbalances[_from] = balances[_from].sub(_amount);\n\t\tbalances[addressSCICO] = balances[addressSCICO].add(_amount);\n\t\temit Transfer(_from, addressSCICO, _amount); // Event log\n\n\t\treturn true;\n\t}"
+  },
+  {
+    "validation_file": "slither_tx_result.csv",
+    "row": 8,
+    "category": "tx_result",
+    "original_label": "FP",
+    "file": "test2059.json",
+    "contract": "RefStorage",
+    "issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ],
+    "label": false,
+    "assessment_key": [
+      "Doublade",
+      "0x865ee5df064bc1f4a39b95b75e612dd86011d35b-RefStorage-tx_result",
+      "tx_result"
+    ],
+    "historical_warning_count": 2,
+    "historical_indices": [
+      3,
+      4
+    ],
+    "original_source": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/source_code/test2059.sol",
+    "source_sha256": "0079f1327ac006c94db0d2c5f25f1b5b98dd70e5f5d8de08744873fa5bbd2e41",
+    "raw_path": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/outputs/slither/test2059.json",
+    "raw_sha256": "2e300b385e7f272e8af2481b91e3945f651e7e53423c9505bb44da0ac1c259cb",
+    "validation_sha256": "96db3b9e3d728a5a89c3aee1440d95ba811c4f5a7b09efc9eea649545d697548",
+    "consolidated_label": true,
+    "consolidated_source": "/home/coca-cola/projects/BP/datasets/cgt/source/1b1bfab3b26b94f0cfc340fde62736c8.sol",
+    "consolidated_source_sha256": "a6879c6526cf340f909cd0a477c93eda79454423359d2cc0325ce828b225e629",
+    "status": "unresolved",
+    "live_status": "not_attempted"
+  },
+  {
+    "validation_file": "slither_tx_result.csv",
+    "row": 9,
+    "category": "tx_result",
+    "original_label": "FP",
+    "file": "test2329.json",
+    "contract": "RefStorage",
+    "issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ],
+    "label": false,
+    "assessment_key": [
+      "Doublade",
+      "0x978275d7652a35dc8df9ce6b62822aea6a97589d-RefStorage-tx_result",
+      "tx_result"
+    ],
+    "historical_warning_count": 2,
+    "historical_indices": [
+      0,
+      1
+    ],
+    "original_source": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/source_code/test2329.sol",
+    "source_sha256": "93995e65441f567404497be41ff22fa68c1600b8b9f88039d9512227d59ba13a",
+    "raw_path": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/outputs/slither/test2329.json",
+    "raw_sha256": "7c76588060fabc259f183e89e698b17a662adc4f619af8f81f41bc7868475686",
+    "validation_sha256": "96db3b9e3d728a5a89c3aee1440d95ba811c4f5a7b09efc9eea649545d697548",
+    "consolidated_label": true,
+    "consolidated_source": "/home/coca-cola/projects/BP/datasets/cgt/source/a168eace6972245ace67bab1421e7cab.sol",
+    "consolidated_source_sha256": "91d31671e00330bdcf62ebe2920656788254be5064c0fa921b741cf8586ba397",
+    "status": "unresolved",
+    "live_status": "not_attempted"
+  },
+  {
+    "validation_file": "slither_tx_result.csv",
+    "row": 10,
+    "category": "tx_result",
+    "original_label": "FP",
+    "file": "test2697.json",
+    "contract": "RefStorage",
+    "issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ],
+    "label": false,
+    "assessment_key": [
+      "Doublade",
+      "0xb02ae0bd0e1431337fce668d76a6ba4b6ecadd84-RefStorage-tx_result",
+      "tx_result"
+    ],
+    "historical_warning_count": 2,
+    "historical_indices": [
+      3,
+      4
+    ],
+    "original_source": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/source_code/test2697.sol",
+    "source_sha256": "5f1b49920f8e58a2d5f9df9de9215e7f8197e9800613ef170af39d26f5533d5f",
+    "raw_path": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/outputs/slither/test2697.json",
+    "raw_sha256": "0bf7474af02d23f4308626eb4abe3a6a897b3a748c132e3b6f9544d7de394b78",
+    "validation_sha256": "96db3b9e3d728a5a89c3aee1440d95ba811c4f5a7b09efc9eea649545d697548",
+    "consolidated_label": true,
+    "consolidated_source": "/home/coca-cola/projects/BP/datasets/cgt/source/0a657914023ad144786c19dd4d3c02c8.sol",
+    "consolidated_source_sha256": "1ee3dd04a238737c6afddd3ab23627754f69c22354c4d2831e892c01214edeb2",
+    "status": "unresolved",
+    "live_status": "not_attempted"
+  },
+  {
+    "validation_file": "slither_tx_result.csv",
+    "row": 11,
+    "category": "tx_result",
+    "original_label": "FP",
+    "file": "test314.json",
+    "contract": "RefStorage",
+    "issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ],
+    "label": false,
+    "assessment_key": [
+      "Doublade",
+      "0x150dbfc384ba5c13c304efd2efee73cc57cc2c16-RefStorage-tx_result",
+      "tx_result"
+    ],
+    "historical_warning_count": 2,
+    "historical_indices": [
+      3,
+      4
+    ],
+    "original_source": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/source_code/test314.sol",
+    "source_sha256": "aa80772e80d76c5ba9ccf42808d8ba7c912f12c7752047848f3df67682b0681a",
+    "raw_path": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/outputs/slither/test314.json",
+    "raw_sha256": "412bd7657a06229f2de031cf72c90a1940e5615e80b53264ed8bf0f3dc6910f1",
+    "validation_sha256": "96db3b9e3d728a5a89c3aee1440d95ba811c4f5a7b09efc9eea649545d697548",
+    "consolidated_label": true,
+    "consolidated_source": "/home/coca-cola/projects/BP/datasets/cgt/source/05fecfbf66b19b64ef7b468b71052fd5.sol",
+    "consolidated_source_sha256": "4857203fd39dd648cc1ab7a79efd2c7444b4c221badd1b4c942374957a198a64",
+    "status": "unresolved",
+    "live_status": "not_attempted"
+  },
+  {
+    "validation_file": "slither_tx_result.csv",
+    "row": 12,
+    "category": "tx_result",
+    "original_label": "FP",
+    "file": "test1747.json",
+    "contract": "Oraclize",
+    "issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ],
+    "label": false,
+    "assessment_key": [
+      "Doublade",
+      "0x6f28b146804dba2d6f944c03528a8fdbc673df2c-Oraclize-tx_result",
+      "tx_result"
+    ],
+    "historical_warning_count": 2,
+    "historical_indices": [
+      0,
+      1
+    ],
+    "original_source": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/source_code/test1747.sol",
+    "source_sha256": "410deb2d906619b4bfec635aed790d7305ca4331469b26377ac758da92025f49",
+    "raw_path": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/outputs/slither/test1747.json",
+    "raw_sha256": "8cafc4f3482a7094e3fb28b7917e8df9ea3d7d8323ff14bccf5b868be4ed271e",
+    "validation_sha256": "96db3b9e3d728a5a89c3aee1440d95ba811c4f5a7b09efc9eea649545d697548",
+    "consolidated_label": true,
+    "consolidated_source": "/home/coca-cola/projects/BP/datasets/cgt/source/1149b94c18c82d758c7807100f960103.sol",
+    "consolidated_source_sha256": "4df8b06fbbd1399cd3cb0bc60ab4c51719b4e74b61d83651741d55dd80624d45",
+    "status": "unresolved",
+    "live_status": "not_attempted"
+  },
+  {
+    "validation_file": "slither_tx_result.csv",
+    "row": 13,
+    "category": "tx_result",
+    "original_label": "FP",
+    "file": "test308.json",
+    "contract": "MultiMonday",
+    "issues": [],
+    "label": false,
+    "assessment_key": [
+      "Doublade",
+      "0x14d4661c507ed8a3c7641e08f3b3c6c69792ba14-MultiMonday-tx_result",
+      "tx_result"
+    ],
+    "historical_warning_count": 1,
+    "historical_indices": [
+      0
+    ],
+    "original_source": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/source_code/test308.sol",
+    "source_sha256": "468ae115f2bde8001893228435ffff9afa8cecd943415b46622a8906f0599ff2",
+    "raw_path": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/outputs/slither/test308.json",
+    "raw_sha256": "d5dddcbd506ee0a9f7cdf45376f975ea8fdbf1c7c00191ea46d7a8478a20e824",
+    "validation_sha256": "96db3b9e3d728a5a89c3aee1440d95ba811c4f5a7b09efc9eea649545d697548",
+    "consolidated_label": false,
+    "consolidated_source": "/home/coca-cola/projects/BP/datasets/cgt/source/1624d9e1c8e1da02b7c60e3ff0c65287.sol",
+    "consolidated_source_sha256": "468ae115f2bde8001893228435ffff9afa8cecd943415b46622a8906f0599ff2",
+    "function": "Today()",
+    "detector": "tx-origin",
+    "historical_lines": [
+      10,
+      11,
+      12
+    ],
+    "status": "needs_source_and_semantic_review",
+    "live_status": "unique_expression_match",
+    "compiler_version": "0.4.25",
+    "command": [
+      "slither",
+      "/home/coca-cola/projects/BP/datasets/cgt/source/1624d9e1c8e1da02b7c60e3ff0c65287.sol",
+      "--detect",
+      "tx-origin",
+      "--json",
+      "-",
+      "--fail-none"
+    ],
+    "slither_json": "/home/coca-cola/projects/BP/results/cgt_linkage/raw/1624d9e1c8e1da02b7c60e3ff0c65287.tx-origin.json",
+    "live_matches": 1,
+    "finding": {
+      "id": "307a8f607ad3a3bed52619b6803ac5d54e8f46dad4a94efcebcd394ace27b57b",
+      "detector": "tx-origin",
+      "impact": "Medium",
+      "confidence": "Medium",
+      "description": "MultiMonday.Today() (datasets/cgt/source/1624d9e1c8e1da02b7c60e3ff0c65287.sol#9-13) uses tx.origin for authorization: msg.value >= this.balance || tx.origin == O (datasets/cgt/source/1624d9e1c8e1da02b7c60e3ff0c65287.sol#10)\n",
+      "contract": "MultiMonday",
+      "function_signature": "Today()",
+      "file": "datasets/cgt/source/1624d9e1c8e1da02b7c60e3ff0c65287.sol",
+      "lines": [
+        10
+      ],
+      "function_start": 115,
+      "function_length": 154,
+      "locations": [
+        {
+          "start": 161,
+          "length": 43,
+          "filename_relative": "datasets/cgt/source/1624d9e1c8e1da02b7c60e3ff0c65287.sol",
+          "filename_absolute": "/home/coca-cola/projects/BP/datasets/cgt/source/1624d9e1c8e1da02b7c60e3ff0c65287.sol",
+          "filename_short": "datasets/cgt/source/1624d9e1c8e1da02b7c60e3ff0c65287.sol",
+          "is_dependency": false,
+          "lines": [
+            10
+          ],
+          "starting_column": 13,
+          "ending_column": 56
+        }
+      ],
+      "function_locations": [
+        {
+          "start": 115,
+          "length": 154,
+          "filename_relative": "datasets/cgt/source/1624d9e1c8e1da02b7c60e3ff0c65287.sol",
+          "filename_absolute": "/home/coca-cola/projects/BP/datasets/cgt/source/1624d9e1c8e1da02b7c60e3ff0c65287.sol",
+          "filename_short": "datasets/cgt/source/1624d9e1c8e1da02b7c60e3ff0c65287.sol",
+          "is_dependency": false,
+          "lines": [
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "starting_column": 5,
+          "ending_column": 6
+        }
+      ]
+    },
+    "slither_json_sha256": "0a1ca32b08104700965100f6183e231ca986589f3e10bb28f169e41464ddd611",
+    "expression_keys": [
+      "msg.value>=this.balance||tx.origin==O"
+    ],
+    "function_source": "function Today() public payable {\n        if (msg.value >= this.balance || tx.origin == O) {\n            tx.origin.transfer(this.balance);\n        }\n    }"
+  },
+  {
+    "validation_file": "slither_tx_result.csv",
+    "row": 14,
+    "category": "tx_result",
+    "original_label": "FP",
+    "file": "test83.json",
+    "contract": "GrungeTuesday",
+    "issues": [],
+    "label": false,
+    "assessment_key": [
+      "Doublade",
+      "0x05cd27a978fc9f9919a5f4c5c03e5947ed7d4c4d-GrungeTuesday-tx_result",
+      "tx_result"
+    ],
+    "historical_warning_count": 1,
+    "historical_indices": [
+      1
+    ],
+    "original_source": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/source_code/test83.sol",
+    "source_sha256": "3a5e631a890869e8fd10e21cbf06158bd8796204e4ae56e0948dfcb93157cc32",
+    "raw_path": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/outputs/slither/test83.json",
+    "raw_sha256": "6f065b2496c0ae44e38792c1b98cf5fdf6bdf096030717c7ea32a42229caf550",
+    "validation_sha256": "96db3b9e3d728a5a89c3aee1440d95ba811c4f5a7b09efc9eea649545d697548",
+    "consolidated_label": false,
+    "consolidated_source": "/home/coca-cola/projects/BP/datasets/cgt/source/e86c705eaa1cfb3683460d5ec80a6bc3.sol",
+    "consolidated_source_sha256": "3a5e631a890869e8fd10e21cbf06158bd8796204e4ae56e0948dfcb93157cc32",
+    "function": "multi_x()",
+    "detector": "tx-origin",
+    "historical_lines": [
+      10,
+      11,
+      12
+    ],
+    "status": "needs_source_and_semantic_review",
+    "live_status": "unique_expression_match",
+    "compiler_version": "0.4.25",
+    "command": [
+      "slither",
+      "/home/coca-cola/projects/BP/datasets/cgt/source/e86c705eaa1cfb3683460d5ec80a6bc3.sol",
+      "--detect",
+      "tx-origin",
+      "--json",
+      "-",
+      "--fail-none"
+    ],
+    "slither_json": "/home/coca-cola/projects/BP/results/cgt_linkage/raw/e86c705eaa1cfb3683460d5ec80a6bc3.tx-origin.json",
+    "live_matches": 1,
+    "finding": {
+      "id": "9d418674af502451a2442a3fa7bc5fcf61587bf77706f8ae86bde9f91d8a4f27",
+      "detector": "tx-origin",
+      "impact": "Medium",
+      "confidence": "Medium",
+      "description": "GrungeTuesday.multi_x() (datasets/cgt/source/e86c705eaa1cfb3683460d5ec80a6bc3.sol#9-13) uses tx.origin for authorization: msg.value >= this.balance || tx.origin == O (datasets/cgt/source/e86c705eaa1cfb3683460d5ec80a6bc3.sol#10)\n",
+      "contract": "GrungeTuesday",
+      "function_signature": "multi_x()",
+      "file": "datasets/cgt/source/e86c705eaa1cfb3683460d5ec80a6bc3.sol",
+      "lines": [
+        10
+      ],
+      "function_start": 117,
+      "function_length": 147,
+      "locations": [
+        {
+          "start": 165,
+          "length": 43,
+          "filename_relative": "datasets/cgt/source/e86c705eaa1cfb3683460d5ec80a6bc3.sol",
+          "filename_absolute": "/home/coca-cola/projects/BP/datasets/cgt/source/e86c705eaa1cfb3683460d5ec80a6bc3.sol",
+          "filename_short": "datasets/cgt/source/e86c705eaa1cfb3683460d5ec80a6bc3.sol",
+          "is_dependency": false,
+          "lines": [
+            10
+          ],
+          "starting_column": 13,
+          "ending_column": 56
+        }
+      ],
+      "function_locations": [
+        {
+          "start": 117,
+          "length": 147,
+          "filename_relative": "datasets/cgt/source/e86c705eaa1cfb3683460d5ec80a6bc3.sol",
+          "filename_absolute": "/home/coca-cola/projects/BP/datasets/cgt/source/e86c705eaa1cfb3683460d5ec80a6bc3.sol",
+          "filename_short": "datasets/cgt/source/e86c705eaa1cfb3683460d5ec80a6bc3.sol",
+          "is_dependency": false,
+          "lines": [
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "starting_column": 5,
+          "ending_column": 6
+        }
+      ]
+    },
+    "slither_json_sha256": "39f4420d168551e0b4e55c918a87f4a2b9664756ac491ede7cfe57228fdbee8d",
+    "expression_keys": [
+      "msg.value>=this.balance||tx.origin==O"
+    ],
+    "function_source": "function multi_x() public payable {\n        if (msg.value >= this.balance || tx.origin == O) {\n            selfdestruct(tx.origin);\n        }\n    }"
+  },
+  {
+    "validation_file": "slither_tx_result.csv",
+    "row": 15,
+    "category": "tx_result",
+    "original_label": "FP",
+    "file": "test1812.json",
+    "contract": "EtherTime",
+    "issues": [
+      "label_conflict"
+    ],
+    "label": false,
+    "assessment_key": [
+      "Doublade",
+      "0x73f2fd0df4bf82a1137c03e0d4656e5c35b03177-EtherTime-tx_result",
+      "tx_result"
+    ],
+    "historical_warning_count": 1,
+    "historical_indices": [
+      1
+    ],
+    "original_source": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/source_code/test1812.sol",
+    "source_sha256": "0e12017ed820c24aa3fd6d38965d13deabd14e980c60430dc725854b5bf7b023",
+    "raw_path": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/outputs/slither/test1812.json",
+    "raw_sha256": "4d3808b219cc19c32ab2dcec3dd785a5eace53d25757833f9b7f8615d1f8c6bf",
+    "validation_sha256": "96db3b9e3d728a5a89c3aee1440d95ba811c4f5a7b09efc9eea649545d697548",
+    "consolidated_label": true,
+    "consolidated_source": "/home/coca-cola/projects/BP/datasets/cgt/source/e454860ba550e21f69b1cef56d7ee793.sol",
+    "consolidated_source_sha256": "f6d21d3f40576adccc39eb4d1df799d689a9a6a43d97b8f9490ce9d3cd0878dd",
+    "function": "Xply()",
+    "detector": "tx-origin",
+    "historical_lines": [
+      10,
+      11,
+      12
+    ],
+    "status": "unresolved",
+    "live_status": "not_attempted"
+  },
+  {
+    "validation_file": "slither_tx_result.csv",
+    "row": 16,
+    "category": "tx_result",
+    "original_label": "TP",
+    "file": "test2878.json",
+    "contract": "CoinCrowdICO",
+    "issues": [],
+    "label": true,
+    "assessment_key": [
+      "Doublade",
+      "0xbd3696b01a487b012ba99628b06a1a7859f5ca23-CoinCrowdICO-tx_result",
+      "tx_result"
+    ],
+    "historical_warning_count": 1,
+    "historical_indices": [
+      1
+    ],
+    "original_source": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/source_code/test2878.sol",
+    "source_sha256": "a6c710481838238d8b079a8a6816fd3766c7c820a4eb702b3ae85e873935e527",
+    "raw_path": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/outputs/slither/test2878.json",
+    "raw_sha256": "6b026350611702862a2a670fd2683c647c2471b9604b8680e2b8b9f3a7f4af70",
+    "validation_sha256": "96db3b9e3d728a5a89c3aee1440d95ba811c4f5a7b09efc9eea649545d697548",
+    "consolidated_label": true,
+    "consolidated_source": "/home/coca-cola/projects/BP/datasets/cgt/source/af09bbd76f52399f5a770684f8037795.sol",
+    "consolidated_source_sha256": "a6c710481838238d8b079a8a6816fd3766c7c820a4eb702b3ae85e873935e527",
+    "function": "addMeByRC(address)",
+    "detector": "tx-origin",
+    "historical_lines": [
+      292,
+      293
+    ],
+    "status": "needs_source_and_semantic_review",
+    "live_status": "unique_expression_match",
+    "compiler_version": "0.4.25",
+    "command": [
+      "slither",
+      "/home/coca-cola/projects/BP/datasets/cgt/source/af09bbd76f52399f5a770684f8037795.sol",
+      "--detect",
+      "tx-origin",
+      "--json",
+      "-",
+      "--fail-none"
+    ],
+    "slither_json": "/home/coca-cola/projects/BP/results/cgt_linkage/raw/af09bbd76f52399f5a770684f8037795.tx-origin.json",
+    "live_matches": 1,
+    "finding": {
+      "id": "177498327f6b091e48ff4075dabf703e0b8e51cd8959023bd55bddf99079d874",
+      "detector": "tx-origin",
+      "impact": "Medium",
+      "confidence": "Medium",
+      "description": "CoinCrowdICO.addMeByRC(address) (datasets/cgt/source/af09bbd76f52399f5a770684f8037795.sol#291-297) uses tx.origin for authorization: require(bool)(tx.origin == owner) (datasets/cgt/source/af09bbd76f52399f5a770684f8037795.sol#292)\n",
+      "contract": "CoinCrowdICO",
+      "function_signature": "addMeByRC(address)",
+      "file": "datasets/cgt/source/af09bbd76f52399f5a770684f8037795.sol",
+      "lines": [
+        292
+      ],
+      "function_start": 10812,
+      "function_length": 227,
+      "locations": [
+        {
+          "start": 10873,
+          "length": 27,
+          "filename_relative": "datasets/cgt/source/af09bbd76f52399f5a770684f8037795.sol",
+          "filename_absolute": "/home/coca-cola/projects/BP/datasets/cgt/source/af09bbd76f52399f5a770684f8037795.sol",
+          "filename_short": "datasets/cgt/source/af09bbd76f52399f5a770684f8037795.sol",
+          "is_dependency": false,
+          "lines": [
+            292
+          ],
+          "starting_column": 9,
+          "ending_column": 36
+        }
+      ],
+      "function_locations": [
+        {
+          "start": 10812,
+          "length": 227,
+          "filename_relative": "datasets/cgt/source/af09bbd76f52399f5a770684f8037795.sol",
+          "filename_absolute": "/home/coca-cola/projects/BP/datasets/cgt/source/af09bbd76f52399f5a770684f8037795.sol",
+          "filename_short": "datasets/cgt/source/af09bbd76f52399f5a770684f8037795.sol",
+          "is_dependency": false,
+          "lines": [
+            291,
+            292,
+            293,
+            294,
+            295,
+            296,
+            297
+          ],
+          "starting_column": 5,
+          "ending_column": 6
+        }
+      ]
+    },
+    "slither_json_sha256": "8079bf35a25d3d4ffbf8ad6596334816855428f59bd4104031c64336b60bca5c",
+    "expression_keys": [
+      "require(bool)(tx.origin==owner)"
+    ],
+    "function_source": "function addMeByRC(address _ambassadorAddr) public {\n        require(tx.origin == owner);\n        \n        ambassadorAddressOf[ msg.sender ]  = _ambassadorAddr;\n        \n        NewAmbassador(_ambassadorAddr, msg.sender);\n    }"
+  },
+  {
+    "validation_file": "slither_tx_result.csv",
+    "row": 17,
+    "category": "tx_result",
+    "original_label": "TP",
+    "file": "test2956.json",
+    "contract": "CardSale",
+    "issues": [
+      "no_unique_consolidated_assessment"
+    ],
+    "label": true,
+    "assessment_key": [
+      "Doublade",
+      "0xc26677571d41ff2cffc1775f259e54827a1e162b-CardSale-tx_result",
+      "tx_result"
+    ],
+    "historical_warning_count": 1,
+    "historical_indices": [
+      2
+    ],
+    "original_source": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/source_code/test2956.sol",
+    "source_sha256": "6155e907370b71d1002edce07ac0da9c86c4be61cc87ad700e7e3b998c6b4873",
+    "raw_path": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/outputs/slither/test2956.json",
+    "raw_sha256": "7f07ea28360c59875141a73683a4f975a088470b2cc45747acfaded3b9627b69",
+    "validation_sha256": "96db3b9e3d728a5a89c3aee1440d95ba811c4f5a7b09efc9eea649545d697548",
+    "function": "addMeByRC()",
+    "detector": "tx-origin",
+    "historical_lines": [
+      203
+    ],
+    "status": "unresolved",
+    "live_status": "not_attempted"
+  },
+  {
+    "validation_file": "slither_tx_result.csv",
+    "row": 18,
+    "category": "tx_result",
+    "original_label": "TP",
+    "file": "test352.json",
+    "contract": "CardSale",
+    "issues": [
+      "no_unique_consolidated_assessment"
+    ],
+    "label": true,
+    "assessment_key": [
+      "Doublade",
+      "0x1779715743db83628e3cd5f2aeea3177ab415621-CardSale-tx_result",
+      "tx_result"
+    ],
+    "historical_warning_count": 1,
+    "historical_indices": [
+      2
+    ],
+    "original_source": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/source_code/test352.sol",
+    "source_sha256": "6155e907370b71d1002edce07ac0da9c86c4be61cc87ad700e7e3b998c6b4873",
+    "raw_path": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/outputs/slither/test352.json",
+    "raw_sha256": "999cd302879382e1dc086c0d776e256799465a36c18c2db15c5556d89276b5ab",
+    "validation_sha256": "96db3b9e3d728a5a89c3aee1440d95ba811c4f5a7b09efc9eea649545d697548",
+    "function": "addMeByRC()",
+    "detector": "tx-origin",
+    "historical_lines": [
+      203
+    ],
+    "status": "unresolved",
+    "live_status": "not_attempted"
+  },
+  {
+    "validation_file": "slither_tx_result.csv",
+    "row": 19,
+    "category": "tx_result",
+    "original_label": "TP",
+    "file": "test3747.json",
+    "contract": "CardSale",
+    "issues": [
+      "no_unique_consolidated_assessment"
+    ],
+    "label": true,
+    "assessment_key": [
+      "Doublade",
+      "0xf62afd17037be692a00b181e959e3c9931076138-CardSale-tx_result",
+      "tx_result"
+    ],
+    "historical_warning_count": 1,
+    "historical_indices": [
+      2
+    ],
+    "original_source": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/source_code/test3747.sol",
+    "source_sha256": "6155e907370b71d1002edce07ac0da9c86c4be61cc87ad700e7e3b998c6b4873",
+    "raw_path": "/home/coca-cola/projects/BP/datasets/cgt/construction/originalSets/Doublade/outputs/slither/test3747.json",
+    "raw_sha256": "92ffc1d25516c4cd4f15fc2a67ead503644351757e4625c193054c81892d2f55",
+    "validation_sha256": "96db3b9e3d728a5a89c3aee1440d95ba811c4f5a7b09efc9eea649545d697548",
+    "function": "addMeByRC()",
+    "detector": "tx-origin",
+    "historical_lines": [
+      203
+    ],
+    "status": "unresolved",
+    "live_status": "not_attempted"
+  }
+]

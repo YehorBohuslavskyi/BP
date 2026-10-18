@@ -1,0 +1,20 @@
+{
+  "model": "gpt-5.6-luna",
+  "max_rounds": 4,
+  "prompt_sha256": "55aafc968492a56ac97f423a5496799ad8ee026c843155cafa141029a82699c6",
+  "candidate_ids": [
+    "reentrancy-test1916-PrivateDeposit",
+    "selfdestruct_result-test3061-ValueTrader",
+    "selfdestruct_result-test120-TokenERC20",
+    "tx_result-test701-Tokens",
+    "tx_result-test2878-CoinCrowdICO",
+    "selfdestruct_result-test3575-PredictionMarket",
+    "lowlevelcall_result-test1009-WhaleGiveaway2",
+    "tx_result-test941-Tokens",
+    "reentrancy-test2073-BancorBuyer",
+    "selfdestruct_result-test3575-Question"
+  ],
+  "selection": "alternating labels and cycling sorted detector families, then sorted IDs; sample-only comparison",
+  "context_policy": "existing selective context; comment stripping and neutral ID/file aliases",
+  "token_estimator": "ceil(characters / 4), planning heuristic, not model tokenizer"
+}

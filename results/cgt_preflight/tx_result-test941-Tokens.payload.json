@@ -1,0 +1,157 @@
+{
+  "task": "verify_static_analysis_finding",
+  "finding": {
+    "tool": "slither",
+    "detector": "tx-origin",
+    "impact": "Medium",
+    "confidence": "Medium",
+    "description": "Tokens.refundTokens(address,uint256) (source.sol#541-567) uses tx.origin for authorization: tx.origin != _from (source.sol#542)\n",
+    "contract": "Tokens",
+    "function": "refundTokens(address,uint256)",
+    "lines": [
+      542
+    ],
+    "id": "candidate",
+    "file": "source.sol"
+  },
+  "target": {
+    "id": "fragment_0000",
+    "signature": "refundTokens(address,uint256)",
+    "visibility": "public",
+    "source": "function refundTokens(address _from, uint256 _amount) public notTimeLocked stopInEmergency returns (bool success) {\n        if (tx.origin != _from) {\n            error('refundTokens: tx.origin did not request the refund directly');\n            return false;\n        }\n\n        if (addressSCICO != msg.sender) {\n            error('refundTokens: caller is not the current ICO address');\n            return false;\n        }\n\n        if (balances[_from] < _amount) {\n            error('refundTokens: the amount to transfer is higher than your token balance');\n            return false;\n        }\n\n        if(!SCComplianceService.validate(_from, addressSCICO, _amount)) {\n\t\t\terror('transfer: not allowed by the compliance service');\n\t\t\treturn false;\n\t\t}\n\n\t\tbalances[_from] = balances[_from].sub(_amount);\n\t\tbalances[addressSCICO] = balances[addressSCICO].add(_amount);\n\t\temit Transfer(_from, addressSCICO, _amount);             \n\n\t\treturn true;\n\t}"
+  },
+  "available_context": [
+    {
+      "id": "fragment_0001",
+      "kind": "modifier",
+      "name": "notTimeLocked()",
+      "reasons": [
+        "modifier"
+      ]
+    },
+    {
+      "id": "fragment_0002",
+      "kind": "modifier",
+      "name": "stopInEmergency()",
+      "reasons": [
+        "modifier"
+      ]
+    },
+    {
+      "id": "fragment_0003",
+      "kind": "state_variable",
+      "name": "Haltable.halted",
+      "reasons": [
+        "state variable declaration: halted"
+      ]
+    },
+    {
+      "id": "fragment_0004",
+      "kind": "function",
+      "name": "halt()",
+      "reasons": [
+        "direct writer of state variable: halted"
+      ]
+    },
+    {
+      "id": "fragment_0005",
+      "kind": "function",
+      "name": "unhalt()",
+      "reasons": [
+        "direct writer of state variable: halted"
+      ]
+    },
+    {
+      "id": "fragment_0006",
+      "kind": "state_variable",
+      "name": "Tokens.SCComplianceService",
+      "reasons": [
+        "state variable declaration: SCComplianceService"
+      ]
+    },
+    {
+      "id": "fragment_0007",
+      "kind": "function",
+      "name": "constructor(address,address)",
+      "reasons": [
+        "direct writer of state variable: SCComplianceService",
+        "direct writer of state variable: addressSCEscrow",
+        "direct writer of state variable: balances",
+        "direct writer of state variable: timelockEndTime"
+      ]
+    },
+    {
+      "id": "fragment_0008",
+      "kind": "function",
+      "name": "setComplianceService(address)",
+      "reasons": [
+        "direct writer of state variable: SCComplianceService"
+      ]
+    },
+    {
+      "id": "fragment_0009",
+      "kind": "state_variable",
+      "name": "Tokens.addressSCEscrow",
+      "reasons": [
+        "state variable declaration: addressSCEscrow"
+      ]
+    },
+    {
+      "id": "fragment_0010",
+      "kind": "state_variable",
+      "name": "Tokens.addressSCICO",
+      "reasons": [
+        "state variable declaration: addressSCICO"
+      ]
+    },
+    {
+      "id": "fragment_0011",
+      "kind": "function",
+      "name": "setMyICOContract(address)",
+      "reasons": [
+        "direct writer of state variable: addressSCICO"
+      ]
+    },
+    {
+      "id": "fragment_0012",
+      "kind": "state_variable",
+      "name": "Tokens.balances",
+      "reasons": [
+        "state variable declaration: balances"
+      ]
+    },
+    {
+      "id": "fragment_0013",
+      "kind": "function",
+      "name": "transfer(address,uint256)",
+      "reasons": [
+        "direct writer of state variable: balances"
+      ]
+    },
+    {
+      "id": "fragment_0014",
+      "kind": "function",
+      "name": "transferFrom(address,address,uint256)",
+      "reasons": [
+        "direct writer of state variable: balances"
+      ]
+    },
+    {
+      "id": "fragment_0015",
+      "kind": "state_variable",
+      "name": "Tokens.timelockEndTime",
+      "reasons": [
+        "state variable declaration: timelockEndTime"
+      ]
+    },
+    {
+      "id": "fragment_0016",
+      "kind": "function",
+      "name": "updateTimeLock(uint256)",
+      "reasons": [
+        "direct writer of state variable: timelockEndTime"
+      ]
+    }
+  ],
+  "context_complete": false
+}

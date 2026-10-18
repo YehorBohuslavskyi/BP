@@ -1,0 +1,42 @@
+{
+  "task": "verify_static_analysis_finding",
+  "finding": {
+    "tool": "slither",
+    "detector": "unchecked-lowlevel",
+    "impact": "Medium",
+    "confidence": "Medium",
+    "description": "Base.WithdrawToken(address,uint256) (source.sol#73-80) ignores return value by token.call(bytes4(sha3()(transfer(address,uint256))),creator,amount) (source.sol#78)\n",
+    "contract": "Base",
+    "function": "WithdrawToken(address,uint256)",
+    "lines": [
+      78
+    ],
+    "id": "candidate",
+    "file": "source.sol"
+  },
+  "target": {
+    "id": "fragment_0000",
+    "signature": "WithdrawToken(address,uint256)",
+    "visibility": "public",
+    "source": "function WithdrawToken(address token, uint256 amount)\n    public \n    {\n        if(msg.sender==creator)\n        {\n            token.call(bytes4(sha3(\"transfer(address,uint256)\")),creator,amount); \n        }\n    }"
+  },
+  "available_context": [
+    {
+      "id": "fragment_0001",
+      "kind": "state_variable",
+      "name": "Base.creator",
+      "reasons": [
+        "state variable declaration: creator"
+      ]
+    },
+    {
+      "id": "fragment_0002",
+      "kind": "function",
+      "name": "slitherConstructorVariables()",
+      "reasons": [
+        "direct writer of state variable: creator"
+      ]
+    }
+  ],
+  "context_complete": false
+}

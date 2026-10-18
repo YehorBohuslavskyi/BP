@@ -5,3 +5,15 @@ __pycache__/
 .pytest_cache/
 *.egg-info/
 runs/
+
+# Downloaded CGT sources and original benchmark collections
+datasets/cgt/
+
+# Full CGT row exports are reproducible; keep compact evidence in results.
+results/**/assessments.csv
+
+# Local credentials and interactive runtime output
+.env
+.env.*
+.streamlit/secrets.toml
+runtime/

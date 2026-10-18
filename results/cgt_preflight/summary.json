@@ -1,0 +1,47 @@
+{
+  "api_calls_made": 0,
+  "actual_api_usage": null,
+  "reviewed_candidates": 27,
+  "ready": 27,
+  "preflight_failures": 0,
+  "estimation_method": "ceil(characters/4), includes prompt and schema; not model tokenizer or billed usage",
+  "model": null,
+  "pricing_estimate": null,
+  "pilot_ids": [
+    "reentrancy-test1916-PrivateDeposit",
+    "selfdestruct_result-test3061-ValueTrader",
+    "selfdestruct_result-test120-TokenERC20",
+    "tx_result-test701-Tokens",
+    "tx_result-test2878-CoinCrowdICO",
+    "selfdestruct_result-test3575-PredictionMarket",
+    "lowlevelcall_result-test1009-WhaleGiveaway2",
+    "tx_result-test941-Tokens",
+    "reentrancy-test2073-BancorBuyer",
+    "selfdestruct_result-test3575-Question"
+  ],
+  "pilot": {
+    "findings": 10,
+    "positive": 5,
+    "negative": 5,
+    "api_calls_min": 10,
+    "api_calls_max": 40,
+    "first_round_input_tokens_estimate": 11961,
+    "four_round_input_tokens_estimate_upper": 88492,
+    "output_tokens_configured_cap": 160000
+  },
+  "full_cohort": {
+    "findings": 27,
+    "positive": 22,
+    "negative": 5,
+    "api_calls_min": 27,
+    "api_calls_max": 108,
+    "first_round_input_tokens_estimate": 30080,
+    "four_round_input_tokens_estimate_upper": 237036,
+    "output_tokens_configured_cap": 432000
+  },
+  "sample_policy": "alternate labels, round-robin detector families, sorted review IDs",
+  "sample_selector_sha256": "3e813642fb9f9104e224e3476bda6544e1faa8e3741a739bfaf4a62fe8397d66",
+  "manifest_sha256": "1d9f5a1745d5c8af312b886dc84f6a7c7fa4a18b5a28614c3f9d39b3a89eb2b1",
+  "preflight_sha256": "9d3f849769e391f7704ee928cd40516746e2dc00bd94c3e88eb58d4cdf9a3d78",
+  "approval_required": "User explicitly requested a checkpoint before ANY paid LLM run"
+}

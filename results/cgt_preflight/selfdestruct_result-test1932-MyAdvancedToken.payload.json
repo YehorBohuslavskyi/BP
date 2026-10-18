@@ -1,0 +1,52 @@
+{
+  "task": "verify_static_analysis_finding",
+  "finding": {
+    "tool": "slither",
+    "detector": "suicidal",
+    "impact": "High",
+    "confidence": "High",
+    "description": "MyAdvancedToken.selfdestructs() (source.sol#258-260) allows anyone to destruct the contract\n",
+    "contract": "MyAdvancedToken",
+    "function": "selfdestructs()",
+    "lines": [
+      258,
+      259,
+      260
+    ],
+    "id": "candidate",
+    "file": "source.sol"
+  },
+  "target": {
+    "id": "fragment_0000",
+    "signature": "selfdestructs()",
+    "visibility": "public",
+    "source": "function selfdestructs() payable public {\n    \t\tselfdestruct(owner);\n    }"
+  },
+  "available_context": [
+    {
+      "id": "fragment_0001",
+      "kind": "state_variable",
+      "name": "owned.owner",
+      "reasons": [
+        "state variable declaration: owner"
+      ]
+    },
+    {
+      "id": "fragment_0002",
+      "kind": "function",
+      "name": "owned()",
+      "reasons": [
+        "direct writer of state variable: owner"
+      ]
+    },
+    {
+      "id": "fragment_0003",
+      "kind": "function",
+      "name": "transferOwnership(address)",
+      "reasons": [
+        "direct writer of state variable: owner"
+      ]
+    }
+  ],
+  "context_complete": false
+}

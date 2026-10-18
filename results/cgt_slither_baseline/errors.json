@@ -1,0 +1,6 @@
+[
+  {
+    "kind": "blocked",
+    "error": "[Errno 2] No such file or directory: '/home/coca-cola/projects/BP/datasets/cgt/consolidated.csv'"
+  }
+]

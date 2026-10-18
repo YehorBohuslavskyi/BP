@@ -1,0 +1,67 @@
+{
+  "task": "verify_static_analysis_finding",
+  "finding": {
+    "tool": "slither",
+    "detector": "reentrancy-eth",
+    "impact": "High",
+    "confidence": "Medium",
+    "description": "Reentrancy in PrivateDeposit.CashOut(uint256) (source.sol#41-51):\n\tExternal calls:\n\t- msg.sender.call.value(_am)() (source.sol#45)\n\tState variables written after the call(s):\n\t- balances[msg.sender] -= _am (source.sol#47)\n\tPrivateDeposit.balances (source.sol#5) can be used in cross function reentrancies:\n\t- PrivateDeposit.CashOut(uint256) (source.sol#41-51)\n\t- PrivateDeposit.Deposit() (source.sol#30-39)\n\t- PrivateDeposit.balances (source.sol#5)\n",
+    "contract": "PrivateDeposit",
+    "function": "CashOut(uint256)",
+    "lines": [
+      45,
+      47
+    ],
+    "id": "candidate",
+    "file": "source.sol"
+  },
+  "target": {
+    "id": "fragment_0000",
+    "signature": "CashOut(uint256)",
+    "visibility": "public",
+    "source": "function CashOut(uint _am)\n    {\n        if(_am<=balances[msg.sender])\n        {            \n            if(msg.sender.call.value(_am)())\n            {\n                balances[msg.sender]-=_am;\n                TransferLog.AddMessage(msg.sender,_am,\"CashOut\");\n            }\n        }\n    }"
+  },
+  "available_context": [
+    {
+      "id": "fragment_0001",
+      "kind": "state_variable",
+      "name": "PrivateDeposit.TransferLog",
+      "reasons": [
+        "state variable declaration: TransferLog"
+      ]
+    },
+    {
+      "id": "fragment_0002",
+      "kind": "function",
+      "name": "PrivateDeposit()",
+      "reasons": [
+        "direct writer of state variable: TransferLog"
+      ]
+    },
+    {
+      "id": "fragment_0003",
+      "kind": "function",
+      "name": "setLog(address)",
+      "reasons": [
+        "direct writer of state variable: TransferLog"
+      ]
+    },
+    {
+      "id": "fragment_0004",
+      "kind": "state_variable",
+      "name": "PrivateDeposit.balances",
+      "reasons": [
+        "state variable declaration: balances"
+      ]
+    },
+    {
+      "id": "fragment_0005",
+      "kind": "function",
+      "name": "Deposit()",
+      "reasons": [
+        "direct writer of state variable: balances"
+      ]
+    }
+  ],
+  "context_complete": false
+}

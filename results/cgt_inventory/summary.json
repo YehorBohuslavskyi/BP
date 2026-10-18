@@ -1,0 +1,35 @@
+{
+  "status": "inventory_only",
+  "assessment_rows": 20455,
+  "reviewed_eligible_findings": 0,
+  "sample_actual_tokens": null,
+  "estimated_full_run_tokens": null,
+  "baseline": null,
+  "parsed_assessments": 20455,
+  "invalid_rows": 0,
+  "original_labels": {
+    "f": 14836,
+    "t": 5619
+  },
+  "contributing_datasets": {
+    "CodeSmells": 10395,
+    "SolidiFI": 343,
+    "ContractFuzzer": 367,
+    "SBcurated": 129,
+    "JiuZhou": 165,
+    "Doublade": 276,
+    "SWCregistry": 116,
+    "EthRacer": 109,
+    "EverEvolvingG": 292,
+    "NPChecker": 212,
+    "NotSoSmartC": 34,
+    "Zeus": 7315,
+    "eThor": 702
+  },
+  "source_status": {
+    "available": 19456,
+    "not_provided": 999
+  },
+  "distinct_source_fingerprints": 3103,
+  "tool_filter_supported": false
+}

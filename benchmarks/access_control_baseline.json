@@ -1,0 +1,914 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-17T13:38:24.109883+00:00",
+  "category": "access_control",
+  "python_version": "3.12.3",
+  "slither_version": "0.11.6",
+  "solc_select_version": "1.2.0",
+  "metadata_sha256": "2a7c119406b1c56df6087fbfb041f5d3aacbb07a82ee350e2220b51f429646bc",
+  "evaluation_sha256": "26611a9857427658cb8143d402ac3e5cfeb9c4bfd362a9e48a1f10406f5c21d3",
+  "findings_parser_sha256": "b335a7e70328572f5463ef31026b6c2c97b224d19b8206b582d6e22fbf145163",
+  "runner_sha256": "26bcb56c69cb38d369633197f58a72e6b552726a6b8676f2355d6b8f3f69839b",
+  "category_detector_map": {
+    "access_control": [
+      "controlled-array-length",
+      "controlled-delegatecall",
+      "protected-vars",
+      "suicidal",
+      "tautology",
+      "tx-origin",
+      "unprotected-upgrade"
+    ]
+  },
+  "function_scope_detectors": [
+    "controlled-array-length"
+  ],
+  "summary": {
+    "selected_contracts": 18,
+    "successfully_analyzed": 18,
+    "failed_contracts": 0,
+    "ground_truth_total": 21,
+    "ground_truth_analyzed": 21,
+    "ground_truth_unanalyzed": 0,
+    "detected": 9,
+    "missed": 12,
+    "recall": 0.42857142857142855,
+    "recall_on_analyzed": 0.42857142857142855
+  },
+  "vulnerabilities": [
+    {
+      "contract": "FibonacciBalance.sol",
+      "pragma": "0.4.22",
+      "source_sha256": "784009c0758940079bd3a7402a3acdf60e3a9a659012e19b0aa21dbc9c0a35ab",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        31
+      ],
+      "detected": true,
+      "matched_detectors": [
+        "controlled-delegatecall"
+      ],
+      "matching_methods": [
+        "exact_line"
+      ],
+      "slither_findings_count": 15,
+      "manual_classification": null,
+      "audit_note": null
+    },
+    {
+      "contract": "FibonacciBalance.sol",
+      "pragma": "0.4.22",
+      "source_sha256": "784009c0758940079bd3a7402a3acdf60e3a9a659012e19b0aa21dbc9c0a35ab",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        38
+      ],
+      "detected": true,
+      "matched_detectors": [
+        "controlled-delegatecall"
+      ],
+      "matching_methods": [
+        "exact_line"
+      ],
+      "slither_findings_count": 15,
+      "manual_classification": null,
+      "audit_note": null
+    },
+    {
+      "contract": "arbitrary_location_write_simple.sol",
+      "pragma": "0.4.25",
+      "source_sha256": "bbbdb5367463fd3d1e11b2c569695d8b4734e3f88fcf937a34469a23121b01ab",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        27
+      ],
+      "detected": true,
+      "matched_detectors": [
+        "tautology"
+      ],
+      "matching_methods": [
+        "exact_line"
+      ],
+      "slither_findings_count": 8,
+      "manual_classification": null,
+      "audit_note": null
+    },
+    {
+      "contract": "incorrect_constructor_name1.sol",
+      "pragma": "0.4.24",
+      "source_sha256": "d918731cebddf34ad385dd799691237e0ec1aab09f34ce7eb6bbe83ec86cd8c8",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        20
+      ],
+      "detected": false,
+      "matched_detectors": [],
+      "matching_methods": [
+        "none"
+      ],
+      "slither_findings_count": 3,
+      "manual_classification": "slither_false_negative",
+      "audit_note": "Public wrong-name constructor assigns owner; version/naming findings do not identify ownership takeover."
+    },
+    {
+      "contract": "incorrect_constructor_name2.sol",
+      "pragma": "0.4.24",
+      "source_sha256": "d210fc21c6fdf273cfe2af52408b09ec82df89ebdea554b0c6356ad8b5d8796d",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        18
+      ],
+      "detected": false,
+      "matched_detectors": [],
+      "matching_methods": [
+        "none"
+      ],
+      "slither_findings_count": 2,
+      "manual_classification": "slither_false_negative",
+      "audit_note": "Wrong-case constructor is publicly callable and assigns owner; only compiler-version findings."
+    },
+    {
+      "contract": "incorrect_constructor_name3.sol",
+      "pragma": "0.4.24",
+      "source_sha256": "a1a505f4d25449a4a566b9a84b8c51ecdc2cbe768f9d1f041900d90a530807a6",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        17
+      ],
+      "detected": false,
+      "matched_detectors": [],
+      "matching_methods": [
+        "none"
+      ],
+      "slither_findings_count": 3,
+      "manual_classification": "slither_false_negative",
+      "audit_note": "Wrong-name constructor permits ownership takeover; version/naming findings do not identify it."
+    },
+    {
+      "contract": "mapping_write.sol",
+      "pragma": "0.4.24",
+      "source_sha256": "a4c6ab0924feb97c929511f65e9f86a82ca5efa307aa29dcae69a21d2fc0fbd6",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        20
+      ],
+      "detected": true,
+      "matched_detectors": [
+        "controlled-array-length"
+      ],
+      "matching_methods": [
+        "function_scope"
+      ],
+      "slither_findings_count": 5,
+      "manual_classification": null,
+      "audit_note": null
+    },
+    {
+      "contract": "multiowned_vulnerable.sol",
+      "pragma": "0.4.23",
+      "source_sha256": "ee0df823e630dd8fc538222bfb82ad97fd563b9f1185e3eba3d02dfefd812fc6",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        38
+      ],
+      "detected": false,
+      "matched_detectors": [],
+      "matching_methods": [
+        "none"
+      ],
+      "slither_findings_count": 4,
+      "manual_classification": "slither_false_negative",
+      "audit_note": "newOwner lacks onlyOwner, allowing self-registration followed by withdrawAll. Only version/naming findings; naming at the same line is unrelated."
+    },
+    {
+      "contract": "mycontract.sol",
+      "pragma": "0.4.24",
+      "source_sha256": "5bdf79f5c7565c26dfe7437e94c354a6d6b2d353101f6d4dbe0ce8a36c4e1df1",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        20
+      ],
+      "detected": true,
+      "matched_detectors": [
+        "tx-origin"
+      ],
+      "matching_methods": [
+        "exact_line"
+      ],
+      "slither_findings_count": 5,
+      "manual_classification": null,
+      "audit_note": null
+    },
+    {
+      "contract": "parity_wallet_bug_1.sol",
+      "pragma": "0.4.9",
+      "source_sha256": "ca6d797c809ab8f67d8833e1208a16d7f284307ed0418fdd29a171d0b6e7cec9",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        223
+      ],
+      "detected": false,
+      "matched_detectors": [],
+      "matching_methods": [
+        "none"
+      ],
+      "slither_findings_count": 90,
+      "manual_classification": "slither_false_negative",
+      "audit_note": "Public initWallet calls initDaylimit and initMultiowned without authorization. external-function and naming findings concern visibility/style, not reinitialization; suicidal concerns kill at 229-231."
+    },
+    {
+      "contract": "parity_wallet_bug_1.sol",
+      "pragma": "0.4.9",
+      "source_sha256": "ca6d797c809ab8f67d8833e1208a16d7f284307ed0418fdd29a171d0b6e7cec9",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        437
+      ],
+      "detected": false,
+      "matched_detectors": [],
+      "matching_methods": [
+        "none"
+      ],
+      "slither_findings_count": 90,
+      "manual_classification": "slither_false_negative",
+      "audit_note": "Fallback forwards arbitrary calldata to a constant library. unchecked-lowlevel reports ignored return status and low-level-calls reports call usage, neither identifies unauthorized initialization through delegation. suicidal concerns a different function."
+    },
+    {
+      "contract": "parity_wallet_bug_2.sol",
+      "pragma": "0.4.9",
+      "source_sha256": "3026bd9ff80d0a4b7d166c0d4d2aad07063d05a67e3df9267d9580933d1a529e",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        226
+      ],
+      "detected": false,
+      "matched_detectors": [],
+      "matching_methods": [
+        "none"
+      ],
+      "slither_findings_count": 66,
+      "manual_classification": "slither_false_negative",
+      "audit_note": "only_uninitialized prevents repeat initialization but permits anyone to initialize the library itself. No finding identifies this initializer vulnerability; suicidal identifies kill at 233-235 and matches the separate GT at 233."
+    },
+    {
+      "contract": "parity_wallet_bug_2.sol",
+      "pragma": "0.4.9",
+      "source_sha256": "3026bd9ff80d0a4b7d166c0d4d2aad07063d05a67e3df9267d9580933d1a529e",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        233
+      ],
+      "detected": true,
+      "matched_detectors": [
+        "suicidal"
+      ],
+      "matching_methods": [
+        "exact_line"
+      ],
+      "slither_findings_count": 66,
+      "manual_classification": null,
+      "audit_note": null
+    },
+    {
+      "contract": "phishable.sol",
+      "pragma": "0.4.22",
+      "source_sha256": "8525b9c841c6378acc4771ef8e5139aee074c1b508b68f1129120b4d19b79e8a",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        20
+      ],
+      "detected": true,
+      "matched_detectors": [
+        "tx-origin"
+      ],
+      "matching_methods": [
+        "exact_line"
+      ],
+      "slither_findings_count": 7,
+      "manual_classification": null,
+      "audit_note": null
+    },
+    {
+      "contract": "proxy.sol",
+      "pragma": "0.4.24",
+      "source_sha256": "3016dcfca8050200ae9e64d9bfced9bfb6cb106268c10d714aa13d386c1d1e11",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        19
+      ],
+      "detected": true,
+      "matched_detectors": [
+        "controlled-delegatecall"
+      ],
+      "matching_methods": [
+        "exact_line"
+      ],
+      "slither_findings_count": 6,
+      "manual_classification": null,
+      "audit_note": null
+    },
+    {
+      "contract": "rubixi.sol",
+      "pragma": "0.4.15",
+      "source_sha256": "a4c33aa1b035feff8e114e5afab6a15e524636d4ea4660459d3b5909272eabed",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        23,
+        24
+      ],
+      "detected": false,
+      "matched_detectors": [],
+      "matching_methods": [
+        "none"
+      ],
+      "slither_findings_count": 34,
+      "manual_classification": "slither_false_negative",
+      "audit_note": "DynamicPyramid is a public wrong-name constructor assigning creator. naming-convention at 23-25 is style only. controlled-array-length at 61 belongs to addPayout at 59-79; events-access and missing-zero-check concern changeOwner at 108-110."
+    },
+    {
+      "contract": "simple_suicide.sol",
+      "pragma": "0.4.0",
+      "source_sha256": "07ab4f0b502c4d91859f2446f4dd3edf8330000c9e21ddb9940bb70580526300",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        12,
+        13
+      ],
+      "detected": true,
+      "matched_detectors": [
+        "suicidal"
+      ],
+      "matching_methods": [
+        "exact_line"
+      ],
+      "slither_findings_count": 3,
+      "manual_classification": null,
+      "audit_note": null
+    },
+    {
+      "contract": "unprotected0.sol",
+      "pragma": "0.4.15",
+      "source_sha256": "8cfc8702a1a0afe407c2ea83e0c48e97909f66af1955ee5e1321f1dc2818a045",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        25
+      ],
+      "detected": false,
+      "matched_detectors": [],
+      "matching_methods": [
+        "none"
+      ],
+      "slither_findings_count": 4,
+      "manual_classification": "slither_false_negative",
+      "audit_note": "Public changeOwner lacks onlyowner. missing-zero-check at 28 concerns a zero address, not caller authorization; naming at 25 and version warnings are unrelated."
+    },
+    {
+      "contract": "wallet_02_refund_nosub.sol",
+      "pragma": "0.4.24",
+      "source_sha256": "3bf849eea5a234dcf2755aa526f934b3edfa560ee7eac3d70385887e3bc6ff79",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        36
+      ],
+      "detected": false,
+      "matched_detectors": [],
+      "matching_methods": [
+        "none"
+      ],
+      "slither_findings_count": 4,
+      "manual_classification": "slither_false_negative",
+      "audit_note": "refund transfers the recorded balance without clearing it, allowing repeated withdrawals. reentrancy-unlimited-gas concerns withdraw at 28-32, not refund; missing-zero-check concerns migrateTo."
+    },
+    {
+      "contract": "wallet_03_wrong_constructor.sol",
+      "pragma": "0.4.24",
+      "source_sha256": "6f5e18f2dbfb404c4bece60b475d17bd49d66ad3da34cffee8a47f7326ae0aa9",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        19,
+        20
+      ],
+      "detected": false,
+      "matched_detectors": [],
+      "matching_methods": [
+        "none"
+      ],
+      "slither_findings_count": 4,
+      "manual_classification": "slither_false_negative",
+      "audit_note": "Public initWallet assigns creator and enables migrateTo takeover. Findings concern withdraw reentrancy, migrateTo zero-check, and compiler version, not initialization."
+    },
+    {
+      "contract": "wallet_04_confused_sign.sol",
+      "pragma": "0.4.24",
+      "source_sha256": "5ec3d85c76b1f1a15ec1295085087f1d969742bdc2aaf9c6fb1a79bfffa8735d",
+      "status": "ok",
+      "category": "access_control",
+      "lines": [
+        30
+      ],
+      "detected": false,
+      "matched_detectors": [],
+      "matching_methods": [
+        "none"
+      ],
+      "slither_findings_count": 4,
+      "manual_classification": "slither_false_negative",
+      "audit_note": "withdraw uses amount >= balance instead of <=. reentrancy-unlimited-gas in the same function concerns transfer followed by state update, not the reversed comparison; zero-check/version findings are unrelated."
+    }
+  ],
+  "contracts": [
+    {
+      "contract": "FibonacciBalance.sol",
+      "pragma": "0.4.22",
+      "source_sha256": "784009c0758940079bd3a7402a3acdf60e3a9a659012e19b0aa21dbc9c0a35ab",
+      "command": [
+        "slither",
+        "/home/coca-cola/projects/BP/datasets/smartbugs-curated/dataset/access_control/FibonacciBalance.sol",
+        "--json",
+        "-",
+        "--fail-none"
+      ],
+      "compiler": "solc, the solidity compiler commandline interface\nVersion: 0.4.22+commit.4cb486ee.Linux.g++",
+      "raw_json_sha256": "fb1bcc985bbe38e08ef9fd387d8f0dc603a952e28af31db5b17dfdb0472e1f5f",
+      "status": "ok",
+      "slither_findings_count": 15,
+      "unmatched_findings_count": 13,
+      "matches": [
+        {
+          "ground_truth_category": "access_control",
+          "ground_truth_lines": [
+            31
+          ],
+          "detector": "controlled-delegatecall",
+          "finding_lines": [
+            31
+          ],
+          "matched_lines": [
+            31
+          ],
+          "matching_method": "exact_line",
+          "finding_id": "ebf727ddaa6087b6b167bbe8265258f9fa64962df518bc2a46ac0dc8115491a3"
+        },
+        {
+          "ground_truth_category": "access_control",
+          "ground_truth_lines": [
+            38
+          ],
+          "detector": "controlled-delegatecall",
+          "finding_lines": [
+            38
+          ],
+          "matched_lines": [
+            38
+          ],
+          "matching_method": "exact_line",
+          "finding_id": "fc845ad834c181a503261b22e00104cc456eff9fa09cba110faed4d62a8ce4c1"
+        }
+      ]
+    },
+    {
+      "contract": "arbitrary_location_write_simple.sol",
+      "pragma": "0.4.25",
+      "source_sha256": "bbbdb5367463fd3d1e11b2c569695d8b4734e3f88fcf937a34469a23121b01ab",
+      "command": [
+        "slither",
+        "/home/coca-cola/projects/BP/datasets/smartbugs-curated/dataset/access_control/arbitrary_location_write_simple.sol",
+        "--json",
+        "-",
+        "--fail-none"
+      ],
+      "compiler": "solc, the solidity compiler commandline interface\nVersion: 0.4.25+commit.59dbf8f1.Linux.g++",
+      "raw_json_sha256": "f2c3b1de1b55326e71e3546b0964b20633155ce58dd5b9be456260d5bea04a8b",
+      "status": "ok",
+      "slither_findings_count": 8,
+      "unmatched_findings_count": 7,
+      "matches": [
+        {
+          "ground_truth_category": "access_control",
+          "ground_truth_lines": [
+            27
+          ],
+          "detector": "tautology",
+          "finding_lines": [
+            27
+          ],
+          "matched_lines": [
+            27
+          ],
+          "matching_method": "exact_line",
+          "finding_id": "5fd2dc23aeb57ba54efdc34d0e95ed6dd6f8086b33a18143470ae92b4c63779f"
+        }
+      ]
+    },
+    {
+      "contract": "incorrect_constructor_name1.sol",
+      "pragma": "0.4.24",
+      "source_sha256": "d918731cebddf34ad385dd799691237e0ec1aab09f34ce7eb6bbe83ec86cd8c8",
+      "command": [
+        "slither",
+        "/home/coca-cola/projects/BP/datasets/smartbugs-curated/dataset/access_control/incorrect_constructor_name1.sol",
+        "--json",
+        "-",
+        "--fail-none"
+      ],
+      "compiler": "solc, the solidity compiler commandline interface\nVersion: 0.4.24+commit.e67f0147.Linux.g++",
+      "raw_json_sha256": "1c150f1850ffda67060703bed2a1c59c0c4c5cf805112e3124983917b8de7667",
+      "status": "ok",
+      "slither_findings_count": 3,
+      "unmatched_findings_count": 3,
+      "matches": []
+    },
+    {
+      "contract": "incorrect_constructor_name2.sol",
+      "pragma": "0.4.24",
+      "source_sha256": "d210fc21c6fdf273cfe2af52408b09ec82df89ebdea554b0c6356ad8b5d8796d",
+      "command": [
+        "slither",
+        "/home/coca-cola/projects/BP/datasets/smartbugs-curated/dataset/access_control/incorrect_constructor_name2.sol",
+        "--json",
+        "-",
+        "--fail-none"
+      ],
+      "compiler": "solc, the solidity compiler commandline interface\nVersion: 0.4.24+commit.e67f0147.Linux.g++",
+      "raw_json_sha256": "4717a9bb35a79e09d187a04d70ae035b4d82972969b36557ad990f27fe10a450",
+      "status": "ok",
+      "slither_findings_count": 2,
+      "unmatched_findings_count": 2,
+      "matches": []
+    },
+    {
+      "contract": "incorrect_constructor_name3.sol",
+      "pragma": "0.4.24",
+      "source_sha256": "a1a505f4d25449a4a566b9a84b8c51ecdc2cbe768f9d1f041900d90a530807a6",
+      "command": [
+        "slither",
+        "/home/coca-cola/projects/BP/datasets/smartbugs-curated/dataset/access_control/incorrect_constructor_name3.sol",
+        "--json",
+        "-",
+        "--fail-none"
+      ],
+      "compiler": "solc, the solidity compiler commandline interface\nVersion: 0.4.24+commit.e67f0147.Linux.g++",
+      "raw_json_sha256": "a996db3c91a1e00bfb41123f00eebf7ed891ecf5daf17a3c58694ad79238f627",
+      "status": "ok",
+      "slither_findings_count": 3,
+      "unmatched_findings_count": 3,
+      "matches": []
+    },
+    {
+      "contract": "mapping_write.sol",
+      "pragma": "0.4.24",
+      "source_sha256": "a4c6ab0924feb97c929511f65e9f86a82ca5efa307aa29dcae69a21d2fc0fbd6",
+      "command": [
+        "slither",
+        "/home/coca-cola/projects/BP/datasets/smartbugs-curated/dataset/access_control/mapping_write.sol",
+        "--json",
+        "-",
+        "--fail-none"
+      ],
+      "compiler": "solc, the solidity compiler commandline interface\nVersion: 0.4.24+commit.e67f0147.Linux.g++",
+      "raw_json_sha256": "72ad229eea4c7d6160c7cf6373a4f45e1ce8a34444847b05964a901d03177b05",
+      "status": "ok",
+      "slither_findings_count": 5,
+      "unmatched_findings_count": 4,
+      "matches": [
+        {
+          "ground_truth_category": "access_control",
+          "ground_truth_lines": [
+            20
+          ],
+          "detector": "controlled-array-length",
+          "finding_lines": [
+            17
+          ],
+          "matched_lines": [
+            20
+          ],
+          "matching_method": "function_scope",
+          "finding_id": "38ccdb0390efa6ca8b502075fdec8daff25763594e421172700609408de0f8b3"
+        }
+      ]
+    },
+    {
+      "contract": "multiowned_vulnerable.sol",
+      "pragma": "0.4.23",
+      "source_sha256": "ee0df823e630dd8fc538222bfb82ad97fd563b9f1185e3eba3d02dfefd812fc6",
+      "command": [
+        "slither",
+        "/home/coca-cola/projects/BP/datasets/smartbugs-curated/dataset/access_control/multiowned_vulnerable.sol",
+        "--json",
+        "-",
+        "--fail-none"
+      ],
+      "compiler": "solc, the solidity compiler commandline interface\nVersion: 0.4.23+commit.124ca40d.Linux.g++",
+      "raw_json_sha256": "519c08ad7ed90d00911cfe8a8ede784865f3853fa2bb55a1135b2f84ff1f81e3",
+      "status": "ok",
+      "slither_findings_count": 4,
+      "unmatched_findings_count": 4,
+      "matches": []
+    },
+    {
+      "contract": "mycontract.sol",
+      "pragma": "0.4.24",
+      "source_sha256": "5bdf79f5c7565c26dfe7437e94c354a6d6b2d353101f6d4dbe0ce8a36c4e1df1",
+      "command": [
+        "slither",
+        "/home/coca-cola/projects/BP/datasets/smartbugs-curated/dataset/access_control/mycontract.sol",
+        "--json",
+        "-",
+        "--fail-none"
+      ],
+      "compiler": "solc, the solidity compiler commandline interface\nVersion: 0.4.24+commit.e67f0147.Linux.g++",
+      "raw_json_sha256": "a9638af26a4e41df7cc2d4ed853bb66f4f751310ac301e3cf4b7bbf23be1b1e8",
+      "status": "ok",
+      "slither_findings_count": 5,
+      "unmatched_findings_count": 4,
+      "matches": [
+        {
+          "ground_truth_category": "access_control",
+          "ground_truth_lines": [
+            20
+          ],
+          "detector": "tx-origin",
+          "finding_lines": [
+            20
+          ],
+          "matched_lines": [
+            20
+          ],
+          "matching_method": "exact_line",
+          "finding_id": "13177634eba897988369c6d937265af12ca7468ef78313ab3eaf50fa821c29d9"
+        }
+      ]
+    },
+    {
+      "contract": "parity_wallet_bug_1.sol",
+      "pragma": "0.4.9",
+      "source_sha256": "ca6d797c809ab8f67d8833e1208a16d7f284307ed0418fdd29a171d0b6e7cec9",
+      "command": [
+        "slither",
+        "/home/coca-cola/projects/BP/datasets/smartbugs-curated/dataset/access_control/parity_wallet_bug_1.sol",
+        "--json",
+        "-",
+        "--fail-none"
+      ],
+      "compiler": "solc, the solidity compiler commandline interface\nVersion: 0.4.9+commit.364da425.Linux.g++",
+      "raw_json_sha256": "4658081c0cf3148fcf696b382de12d31b57e287d3bfdd0169c766bd1d9f1027f",
+      "status": "ok",
+      "slither_findings_count": 90,
+      "unmatched_findings_count": 90,
+      "matches": []
+    },
+    {
+      "contract": "parity_wallet_bug_2.sol",
+      "pragma": "0.4.9",
+      "source_sha256": "3026bd9ff80d0a4b7d166c0d4d2aad07063d05a67e3df9267d9580933d1a529e",
+      "command": [
+        "slither",
+        "/home/coca-cola/projects/BP/datasets/smartbugs-curated/dataset/access_control/parity_wallet_bug_2.sol",
+        "--json",
+        "-",
+        "--fail-none"
+      ],
+      "compiler": "solc, the solidity compiler commandline interface\nVersion: 0.4.9+commit.364da425.Linux.g++",
+      "raw_json_sha256": "5f591edf89e2f0f71fe1d256c74b689d8fa534dd57318f30a6117cd259e9d217",
+      "status": "ok",
+      "slither_findings_count": 66,
+      "unmatched_findings_count": 65,
+      "matches": [
+        {
+          "ground_truth_category": "access_control",
+          "ground_truth_lines": [
+            233
+          ],
+          "detector": "suicidal",
+          "finding_lines": [
+            233,
+            234,
+            235
+          ],
+          "matched_lines": [
+            233
+          ],
+          "matching_method": "exact_line",
+          "finding_id": "e146efa96f7ab727401a37eb17e8fd93f389c386d4112334b28020eebdf23b3f"
+        }
+      ]
+    },
+    {
+      "contract": "phishable.sol",
+      "pragma": "0.4.22",
+      "source_sha256": "8525b9c841c6378acc4771ef8e5139aee074c1b508b68f1129120b4d19b79e8a",
+      "command": [
+        "slither",
+        "/home/coca-cola/projects/BP/datasets/smartbugs-curated/dataset/access_control/phishable.sol",
+        "--json",
+        "-",
+        "--fail-none"
+      ],
+      "compiler": "solc, the solidity compiler commandline interface\nVersion: 0.4.22+commit.4cb486ee.Linux.g++",
+      "raw_json_sha256": "5baf2db6e8cc744911b55d69218389b6afa4ad7f5d51601ffd4a28c3b2c49653",
+      "status": "ok",
+      "slither_findings_count": 7,
+      "unmatched_findings_count": 6,
+      "matches": [
+        {
+          "ground_truth_category": "access_control",
+          "ground_truth_lines": [
+            20
+          ],
+          "detector": "tx-origin",
+          "finding_lines": [
+            20
+          ],
+          "matched_lines": [
+            20
+          ],
+          "matching_method": "exact_line",
+          "finding_id": "66695d1ec2315a4f7d06ecf8f7089a062e4da1e86dc97243db775e290564e4bc"
+        }
+      ]
+    },
+    {
+      "contract": "proxy.sol",
+      "pragma": "0.4.24",
+      "source_sha256": "3016dcfca8050200ae9e64d9bfced9bfb6cb106268c10d714aa13d386c1d1e11",
+      "command": [
+        "slither",
+        "/home/coca-cola/projects/BP/datasets/smartbugs-curated/dataset/access_control/proxy.sol",
+        "--json",
+        "-",
+        "--fail-none"
+      ],
+      "compiler": "solc, the solidity compiler commandline interface\nVersion: 0.4.24+commit.e67f0147.Linux.g++",
+      "raw_json_sha256": "63fef29948aec7a602eaf6ae43890dfc0599ed497fd1a303c25b89d09773991f",
+      "status": "ok",
+      "slither_findings_count": 6,
+      "unmatched_findings_count": 5,
+      "matches": [
+        {
+          "ground_truth_category": "access_control",
+          "ground_truth_lines": [
+            19
+          ],
+          "detector": "controlled-delegatecall",
+          "finding_lines": [
+            19
+          ],
+          "matched_lines": [
+            19
+          ],
+          "matching_method": "exact_line",
+          "finding_id": "a8f3a0aa35ace9cf7c91790f7e189dec294627107f54f046bf3f8fd1c6dcfe99"
+        }
+      ]
+    },
+    {
+      "contract": "rubixi.sol",
+      "pragma": "0.4.15",
+      "source_sha256": "a4c33aa1b035feff8e114e5afab6a15e524636d4ea4660459d3b5909272eabed",
+      "command": [
+        "slither",
+        "/home/coca-cola/projects/BP/datasets/smartbugs-curated/dataset/access_control/rubixi.sol",
+        "--json",
+        "-",
+        "--fail-none"
+      ],
+      "compiler": "solc, the solidity compiler commandline interface\nVersion: 0.4.15+commit.8b45bddb.Linux.g++",
+      "raw_json_sha256": "f52d60602d5063a8630f47f7da11fbe7f7dc06fff9152be7c742893c51aa3c10",
+      "status": "ok",
+      "slither_findings_count": 34,
+      "unmatched_findings_count": 34,
+      "matches": []
+    },
+    {
+      "contract": "simple_suicide.sol",
+      "pragma": "0.4.0",
+      "source_sha256": "07ab4f0b502c4d91859f2446f4dd3edf8330000c9e21ddb9940bb70580526300",
+      "command": [
+        "slither",
+        "/home/coca-cola/projects/BP/datasets/smartbugs-curated/dataset/access_control/simple_suicide.sol",
+        "--json",
+        "-",
+        "--fail-none"
+      ],
+      "compiler": "solc, the solidity compiler commandline interface\nVersion: 0.4.0+commit.acd334c9.Linux.g++",
+      "raw_json_sha256": "11edafa0688f58cd2b4c1cd8866727f881b8bff741ef58ec437be1921542106c",
+      "status": "ok",
+      "slither_findings_count": 3,
+      "unmatched_findings_count": 2,
+      "matches": [
+        {
+          "ground_truth_category": "access_control",
+          "ground_truth_lines": [
+            12,
+            13
+          ],
+          "detector": "suicidal",
+          "finding_lines": [
+            12,
+            13,
+            14
+          ],
+          "matched_lines": [
+            12,
+            13
+          ],
+          "matching_method": "exact_line",
+          "finding_id": "69eb6b7405159092b2daa327018c42016cb70a30fb833f163e8c8e863c2b938e"
+        }
+      ]
+    },
+    {
+      "contract": "unprotected0.sol",
+      "pragma": "0.4.15",
+      "source_sha256": "8cfc8702a1a0afe407c2ea83e0c48e97909f66af1955ee5e1321f1dc2818a045",
+      "command": [
+        "slither",
+        "/home/coca-cola/projects/BP/datasets/smartbugs-curated/dataset/access_control/unprotected0.sol",
+        "--json",
+        "-",
+        "--fail-none"
+      ],
+      "compiler": "solc, the solidity compiler commandline interface\nVersion: 0.4.15+commit.8b45bddb.Linux.g++",
+      "raw_json_sha256": "76d500d2f84ee6e377547381e30fcb271da972e261930c5990a4ec5f15b530f2",
+      "status": "ok",
+      "slither_findings_count": 4,
+      "unmatched_findings_count": 4,
+      "matches": []
+    },
+    {
+      "contract": "wallet_02_refund_nosub.sol",
+      "pragma": "0.4.24",
+      "source_sha256": "3bf849eea5a234dcf2755aa526f934b3edfa560ee7eac3d70385887e3bc6ff79",
+      "command": [
+        "slither",
+        "/home/coca-cola/projects/BP/datasets/smartbugs-curated/dataset/access_control/wallet_02_refund_nosub.sol",
+        "--json",
+        "-",
+        "--fail-none"
+      ],
+      "compiler": "solc, the solidity compiler commandline interface\nVersion: 0.4.24+commit.e67f0147.Linux.g++",
+      "raw_json_sha256": "bbc796d2b7abe31780d6d3997dfd9bbee8efa20afbb50211e200706e9cfdcb49",
+      "status": "ok",
+      "slither_findings_count": 4,
+      "unmatched_findings_count": 4,
+      "matches": []
+    },
+    {
+      "contract": "wallet_03_wrong_constructor.sol",
+      "pragma": "0.4.24",
+      "source_sha256": "6f5e18f2dbfb404c4bece60b475d17bd49d66ad3da34cffee8a47f7326ae0aa9",
+      "command": [
+        "slither",
+        "/home/coca-cola/projects/BP/datasets/smartbugs-curated/dataset/access_control/wallet_03_wrong_constructor.sol",
+        "--json",
+        "-",
+        "--fail-none"
+      ],
+      "compiler": "solc, the solidity compiler commandline interface\nVersion: 0.4.24+commit.e67f0147.Linux.g++",
+      "raw_json_sha256": "984b9d0ae58906706dfd635d0f41e589013ffeb18338d09f9fe04094da57557c",
+      "status": "ok",
+      "slither_findings_count": 4,
+      "unmatched_findings_count": 4,
+      "matches": []
+    },
+    {
+      "contract": "wallet_04_confused_sign.sol",
+      "pragma": "0.4.24",
+      "source_sha256": "5ec3d85c76b1f1a15ec1295085087f1d969742bdc2aaf9c6fb1a79bfffa8735d",
+      "command": [
+        "slither",
+        "/home/coca-cola/projects/BP/datasets/smartbugs-curated/dataset/access_control/wallet_04_confused_sign.sol",
+        "--json",
+        "-",
+        "--fail-none"
+      ],
+      "compiler": "solc, the solidity compiler commandline interface\nVersion: 0.4.24+commit.e67f0147.Linux.g++",
+      "raw_json_sha256": "2e7aacd58c95a830ff55ac5c582268a017729658cda04d691ee52ec3dc06f300",
+      "status": "ok",
+      "slither_findings_count": 4,
+      "unmatched_findings_count": 4,
+      "matches": []
+    }
+  ]
+}

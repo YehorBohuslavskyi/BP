@@ -1,0 +1,61 @@
+{
+  "task": "verify_static_analysis_finding",
+  "finding": {
+    "tool": "slither",
+    "detector": "suicidal",
+    "impact": "High",
+    "confidence": "High",
+    "description": "PredictionMarket.kill(address) (source.sol#2068-2071) allows anyone to destruct the contract\n",
+    "contract": "PredictionMarket",
+    "function": "kill(address)",
+    "lines": [
+      2068,
+      2069,
+      2070,
+      2071
+    ],
+    "id": "candidate",
+    "file": "source.sol"
+  },
+  "target": {
+    "id": "fragment_0000",
+    "signature": "kill(address)",
+    "visibility": "public",
+    "source": "function kill(address recipient) public onlyAdmin returns (bool ok) {\n        selfdestruct(recipient);\n        return true;\n    }"
+  },
+  "available_context": [
+    {
+      "id": "fragment_0001",
+      "kind": "modifier",
+      "name": "onlyAdmin()",
+      "reasons": [
+        "modifier"
+      ]
+    },
+    {
+      "id": "fragment_0002",
+      "kind": "state_variable",
+      "name": "MultiOwnable.isAdmin",
+      "reasons": [
+        "state variable declaration: isAdmin"
+      ]
+    },
+    {
+      "id": "fragment_0003",
+      "kind": "function",
+      "name": "addAdmin(address)",
+      "reasons": [
+        "direct writer of state variable: isAdmin"
+      ]
+    },
+    {
+      "id": "fragment_0004",
+      "kind": "function",
+      "name": "PredictionMarket()",
+      "reasons": [
+        "direct writer of state variable: isAdmin"
+      ]
+    }
+  ],
+  "context_complete": false
+}

@@ -1,0 +1,119 @@
+{
+  "task": "verify_static_analysis_finding",
+  "finding": {
+    "tool": "slither",
+    "detector": "unchecked-lowlevel",
+    "impact": "Medium",
+    "confidence": "Medium",
+    "description": "Etherhero.makeDeposit() (source.sol#222-245) ignores return value by stubF.call.value(calcStubFundPercent).gas(estGas)() (source.sol#239)\n",
+    "contract": "Etherhero",
+    "function": "makeDeposit()",
+    "lines": [
+      239
+    ],
+    "id": "candidate",
+    "file": "source.sol"
+  },
+  "target": {
+    "id": "fragment_0000",
+    "signature": "makeDeposit()",
+    "visibility": "private",
+    "source": "function makeDeposit() private {\n        uint value = msg.value;\n        uint calcProjectPercent = value.mul(percentProjectFund).div(100);\n        uint calcStubFundPercent = value.mul(percentStubFund).div(100);\n        \n        if (msg.value > 0) {\n                                        \n            require(msg.value >= minPayment, 'Minimum deposit 1 finney');\n            \n            if (userDeposit[msg.sender] == 0) {\n                emit NewInvestor(msg.sender, msg.value);\n            }\n            \n            userDeposit[msg.sender] = userDeposit[msg.sender].add(msg.value);\n            userTime[msg.sender] = now;\n            insertBeneficiaries(msg.sender, 0, 0, msg.value);\n            projectFund.transfer(calcProjectPercent);\n            stubF.call.value(calcStubFundPercent).gas(estGas)();\n            counterDeposits += msg.value;\n            emit NewDeposit(msg.sender, msg.value);\n        } else {\n            receivePercent();\n        }\n    }"
+  },
+  "available_context": [
+    {
+      "id": "fragment_0001",
+      "kind": "state_variable",
+      "name": "Etherhero.counterDeposits",
+      "reasons": [
+        "state variable declaration: counterDeposits"
+      ]
+    },
+    {
+      "id": "fragment_0002",
+      "kind": "state_variable",
+      "name": "Etherhero.estGas",
+      "reasons": [
+        "state variable declaration: estGas"
+      ]
+    },
+    {
+      "id": "fragment_0003",
+      "kind": "function",
+      "name": "slitherConstructorVariables()",
+      "reasons": [
+        "direct writer of state variable: estGas",
+        "direct writer of state variable: minPayment",
+        "direct writer of state variable: percentProjectFund",
+        "direct writer of state variable: percentStubFund",
+        "direct writer of state variable: projectFund",
+        "direct writer of state variable: stubF"
+      ]
+    },
+    {
+      "id": "fragment_0004",
+      "kind": "state_variable",
+      "name": "Etherhero.minPayment",
+      "reasons": [
+        "state variable declaration: minPayment"
+      ]
+    },
+    {
+      "id": "fragment_0005",
+      "kind": "state_variable",
+      "name": "Etherhero.percentProjectFund",
+      "reasons": [
+        "state variable declaration: percentProjectFund"
+      ]
+    },
+    {
+      "id": "fragment_0006",
+      "kind": "state_variable",
+      "name": "Etherhero.percentStubFund",
+      "reasons": [
+        "state variable declaration: percentStubFund"
+      ]
+    },
+    {
+      "id": "fragment_0007",
+      "kind": "state_variable",
+      "name": "Etherhero.projectFund",
+      "reasons": [
+        "state variable declaration: projectFund"
+      ]
+    },
+    {
+      "id": "fragment_0008",
+      "kind": "state_variable",
+      "name": "Etherhero.stubF",
+      "reasons": [
+        "state variable declaration: stubF"
+      ]
+    },
+    {
+      "id": "fragment_0009",
+      "kind": "state_variable",
+      "name": "Etherhero.userDeposit",
+      "reasons": [
+        "state variable declaration: userDeposit"
+      ]
+    },
+    {
+      "id": "fragment_0010",
+      "kind": "state_variable",
+      "name": "Etherhero.userTime",
+      "reasons": [
+        "state variable declaration: userTime"
+      ]
+    },
+    {
+      "id": "fragment_0011",
+      "kind": "function",
+      "name": "receivePercent()",
+      "reasons": [
+        "direct writer of state variable: userTime"
+      ]
+    }
+  ],
+  "context_complete": false
+}

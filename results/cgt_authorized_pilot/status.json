@@ -1,0 +1,73 @@
+{
+  "eligible_findings": 10,
+  "sample_size": 10,
+  "sample_completed": 10,
+  "api_calls_attempted": 16,
+  "average_rounds": 1.6,
+  "requested_fragments": 17,
+  "source_function_resolution_failures": 0,
+  "calls_with_unknown_usage": 0,
+  "actual_usage": {
+    "input_tokens": 18482,
+    "output_tokens": 3942,
+    "total_tokens": 22424
+  },
+  "projected_full_usage": {
+    "input_tokens": 18482,
+    "output_tokens": 3942,
+    "total_tokens": 22424
+  },
+  "projected_full_calls": 16.0,
+  "full_run_request_cap": 40,
+  "full_run_output_token_cap": 160000,
+  "comparison": {
+    "slither_candidate_baseline": {
+      "total": 10,
+      "decided": 10,
+      "TP": 5,
+      "FP": 5,
+      "TN": 0,
+      "FN": 0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1": 0.6666666666666666,
+      "false_positive_rate": 1.0,
+      "false_discovery_rate": 0.5,
+      "coverage": 1.0,
+      "abstention_rate": 0.0,
+      "error_rate": 0.0,
+      "verdict_counts": {
+        "confirmed": 10,
+        "false_positive": 0,
+        "inconclusive": 0,
+        "error": 0
+      }
+    },
+    "llm_non_abstained": {
+      "total": 10,
+      "decided": 10,
+      "TP": 5,
+      "FP": 2,
+      "TN": 3,
+      "FN": 0,
+      "precision": 0.7142857142857143,
+      "recall": 1.0,
+      "f1": 0.8333333333333334,
+      "false_positive_rate": 0.4,
+      "false_discovery_rate": 0.2857142857142857,
+      "coverage": 1.0,
+      "abstention_rate": 0.0,
+      "error_rate": 0.0,
+      "verdict_counts": {
+        "confirmed": 7,
+        "false_positive": 3,
+        "inconclusive": 0,
+        "error": 0
+      }
+    },
+    "conservative_retained_FP": 2,
+    "false_positive_reduction": 0.6,
+    "true_findings_incorrectly_filtered": 0,
+    "true_finding_rejection_rate": 0.0
+  }
+}

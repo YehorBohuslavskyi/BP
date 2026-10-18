@@ -1,0 +1,296 @@
+dataset,property,swc,property_holds,count
+CodeSmells,Block Info Dependency,120,f,484
+CodeSmells,Block Info Dependency,120,t,42
+CodeSmells,Compiler Version not fixed,103,f,42
+CodeSmells,Compiler Version not fixed,103,t,508
+CodeSmells,Deprecated APIs,,f,334
+CodeSmells,Deprecated APIs,,t,217
+CodeSmells,Dos Under external influence,113,f,527
+CodeSmells,Dos Under external influence,113,t,6
+CodeSmells,Greedy Contract,997,f,525
+CodeSmells,Greedy Contract,997,t,6
+CodeSmells,Hard Code Address,,f,467
+CodeSmells,Hard Code Address,,t,84
+CodeSmells,High Gas Consumption Data Type,,f,551
+CodeSmells,High Gas Consumption Function Type,,f,138
+CodeSmells,High Gas Consumption Function Type,,t,352
+CodeSmells,Misleading Data Location,,f,550
+CodeSmells,Misleading Data Location,,t,1
+CodeSmells,Missing Interrupter,,f,63
+CodeSmells,Missing Interrupter,,t,488
+CodeSmells,Missing Reminder,,f,524
+CodeSmells,Missing Reminder,,t,27
+CodeSmells,Missing Return statement,,f,320
+CodeSmells,Missing Return statement,,t,231
+CodeSmells,Nest Call,128,f,520
+CodeSmells,Nest Call,128,t,13
+CodeSmells,Reentrancy,107,f,469
+CodeSmells,Reentrancy,107,t,11
+CodeSmells,Transaction state Dependency,115,f,528
+CodeSmells,Transaction state Dependency,115,t,5
+CodeSmells,Unchecked External Call,104,f,508
+CodeSmells,Unchecked External Call,104,t,25
+CodeSmells,Unmatched ERC-20 standard,,f,167
+CodeSmells,Unmatched ERC-20 standard,,t,45
+CodeSmells,Unmatched type assignment,,f,529
+CodeSmells,Unmatched type assignment,,t,22
+CodeSmells,Unused statement,135,f,523
+CodeSmells,Unused statement,135,t,10
+CodeSmells,strict balance equality,132,f,528
+CodeSmells,strict balance equality,132,t,5
+ContractFuzzer,delegatecall_dangerous,112,t,24
+ContractFuzzer,exception_disorder,104,t,36
+ContractFuzzer,freezing_ether,997,t,79
+ContractFuzzer,gasless_send,134,t,17
+ContractFuzzer,numberdependency,120,t,84
+ContractFuzzer,reentrancy,107,t,11
+ContractFuzzer,timedependency,116,t,116
+Doublade,lowlevelcall_result,104,f,5
+Doublade,lowlevelcall_result,104,t,54
+Doublade,reentrancy,107,f,74
+Doublade,reentrancy,107,t,17
+Doublade,selfdestruct_result,132,f,35
+Doublade,selfdestruct_result,132,t,7
+Doublade,tx_result,115,f,29
+Doublade,tx_result,115,t,16
+Doublade,unexpectedrevert_result,113,f,11
+Doublade,unexpectedrevert_result,113,t,28
+EthRacer,EO offchain,114,f,4
+EthRacer,EO offchain,114,t,20
+EthRacer,EO onchain,114,f,41
+EthRacer,EO onchain,114,t,44
+EverEvolvingG,airdrop-hunting,,t,197
+EverEvolvingG,call-after-destruct,,t,30
+EverEvolvingG,honeypot,996,t,44
+EverEvolvingG,integer-overflow,101,t,15
+EverEvolvingG,reentrancy,107,t,6
+JiuZhou,Any type of specified function variable,127,f,1
+JiuZhou,Any type of specified function variable,127,t,1
+JiuZhou,Change the contract status in the view or constant function,,f,1
+JiuZhou,Change the contract status in the view or constant function,,t,1
+JiuZhou,Complex fallback function,,f,1
+JiuZhou,Complex fallback function,,t,1
+JiuZhou,DOS by gaslimit,128,f,7
+JiuZhou,DOS by gaslimit,128,t,4
+JiuZhou,DOS by non-existent address or contract,113,f,6
+JiuZhou,DOS by non-existent address or contract,113,t,3
+JiuZhou,Forced accept ethers,132,f,2
+JiuZhou,Forced accept ethers,132,t,1
+JiuZhou,Hash Collisions With Multiple Variable Length Arguments,133,f,1
+JiuZhou,Hash Collisions With Multiple Variable Length Arguments,133,t,1
+JiuZhou,Hidden built-in symbols,,f,2
+JiuZhou,Hidden built-in symbols,,t,1
+JiuZhou,Hide state variables,119,f,2
+JiuZhou,Hide state variables,119,t,1
+JiuZhou,Implicit visibility level,108,f,1
+JiuZhou,Implicit visibility level,108,t,2
+JiuZhou,Improper use of assert,110,f,1
+JiuZhou,Improper use of assert,110,t,1
+JiuZhou,Improper use of require,123,f,1
+JiuZhou,Improper use of require,123,t,1
+JiuZhou,Improper use of revert,,f,1
+JiuZhou,Improper use of revert,,t,1
+JiuZhou,Incorrect inheritance order,125,f,2
+JiuZhou,Incorrect inheritance order,125,t,1
+JiuZhou,Integer division,999,f,2
+JiuZhou,Integer division,999,t,1
+JiuZhou,Integer signedness,999,f,2
+JiuZhou,Integer signedness,999,t,1
+JiuZhou,Integer truncation,999,f,3
+JiuZhou,Integer truncation,999,t,1
+JiuZhou,Invariant in loop,,f,2
+JiuZhou,Invariant in loop,,t,1
+JiuZhou,Invariant is not declared constant,,f,1
+JiuZhou,Invariant is not declared constant,,t,1
+JiuZhou,Locked money,997,f,3
+JiuZhou,Locked money,997,t,1
+JiuZhou,Non-public variables are accessed by public or external function,136,f,1
+JiuZhou,Non-public variables are accessed by public or external function,136,t,1
+JiuZhou,Non-standard naming,,f,1
+JiuZhou,Non-standard naming,,t,1
+JiuZhou,Nonstandard token interface,,f,2
+JiuZhou,Nonstandard token interface,,t,2
+JiuZhou,Pre-sent ether,132,f,1
+JiuZhou,Pre-sent ether,132,t,1
+JiuZhou,Public data,136,f,1
+JiuZhou,Public data,136,t,1
+JiuZhou,Randomness affected by miners,120,f,1
+JiuZhou,Randomness affected by miners,120,t,1
+JiuZhou,Re-entrancy vulnerability,107,f,4
+JiuZhou,Re-entrancy vulnerability,107,t,3
+JiuZhou,Removes dynamic array elements,,f,2
+JiuZhou,Removes dynamic array elements,,t,1
+JiuZhou,Replay attack,117,f,1
+JiuZhou,Replay attack,117,t,2
+JiuZhou,Right-To-Left-Overridecontrolcharacter (U+202E),130,f,1
+JiuZhou,Right-To-Left-Overridecontrolcharacter (U+202E),130,t,1
+JiuZhou,Short address attack,995,f,1
+JiuZhou,Short address attack,995,t,1
+JiuZhou,Signature with wrong parameter,,f,1
+JiuZhou,Signature with wrong parameter,,t,1
+JiuZhou,Storage overlap attack,124,f,2
+JiuZhou,Storage overlap attack,124,t,1
+JiuZhou,Suicidal contract,106,f,2
+JiuZhou,Suicidal contract,106,t,1
+JiuZhou,The call address or data are externally controlled,112,f,4
+JiuZhou,The call address or data are externally controlled,112,t,2
+JiuZhou,Time affected by miners,116,f,1
+JiuZhou,Time affected by miners,116,t,2
+JiuZhou,Transaction order dependence,114,f,2
+JiuZhou,Transaction order dependence,114,t,1
+JiuZhou,Txorigin for authentication,115,f,2
+JiuZhou,Txorigin for authentication,115,t,1
+JiuZhou,Unhandled exceptions,104,f,3
+JiuZhou,Unhandled exceptions,104,t,1
+JiuZhou,Uninitialized local variables,,f,1
+JiuZhou,Uninitialized local variables,,t,1
+JiuZhou,Uninitialized state variables,109,f,1
+JiuZhou,Uninitialized state variables,109,t,1
+JiuZhou,Uninitialized storage variable,109,f,1
+JiuZhou,Uninitialized storage variable,109,t,1
+JiuZhou,Unlimited compiler versions,103,f,2
+JiuZhou,Unlimited compiler versions,103,t,2
+JiuZhou,Use assembly code return in the constructor,996,f,1
+JiuZhou,Use assembly code return in the constructor,996,t,1
+JiuZhou,Use deprecated built-in symbols,111,f,1
+JiuZhou,Use deprecated built-in symbols,111,t,1
+JiuZhou,Wasteful contract,105,f,3
+JiuZhou,Wasteful contract,105,t,1
+JiuZhou,Write the wrong constructor name,118,f,2
+JiuZhou,Write the wrong constructor name,118,t,2
+JiuZhou,Wrong operator,129,f,1
+JiuZhou,Wrong operator,129,t,1
+JiuZhou,byte[],,f,1
+JiuZhou,byte[],,t,1
+JiuZhou,continue in do-while,,f,3
+JiuZhou,continue in do-while,,t,1
+JiuZhou,integer overflow and underflow,101,f,4
+JiuZhou,integer overflow and underflow,101,t,2
+JiuZhou,too many digits,,f,2
+JiuZhou,too many digits,,t,1
+NPChecker,Failed Call,113,f,43
+NPChecker,Failed Call,113,t,1
+NPChecker,Reentrancy,107,f,41
+NPChecker,Reentrancy,107,t,1
+NPChecker,System Property Dependence,120,f,36
+NPChecker,System Property Dependence,120,t,6
+NPChecker,TOD,114,f,34
+NPChecker,TOD,114,t,9
+NPChecker,Unchecked Call,104,f,34
+NPChecker,Unchecked Call,104,t,7
+NotSoSmartC,Honeypot Balance disorder,996,t,1
+NotSoSmartC,Honeypot Hidden state update,996,t,1
+NotSoSmartC,Honeypot Inheritance disorder,996,t,1
+NotSoSmartC,Honeypot Straw man contract,996,t,1
+NotSoSmartC,Honeypot Type overflow,996,t,1
+NotSoSmartC,Honeypot Uninitialised struct,996,t,1
+NotSoSmartC,Incorrect interface,,f,1
+NotSoSmartC,Incorrect interface,,t,1
+NotSoSmartC,SWC-101,101,f,1
+NotSoSmartC,SWC-101,101,t,1
+NotSoSmartC,SWC-104,104,t,1
+NotSoSmartC,SWC-107,107,f,3
+NotSoSmartC,SWC-107,107,t,3
+NotSoSmartC,SWC-113,113,f,2
+NotSoSmartC,SWC-113,113,t,3
+NotSoSmartC,SWC-114,114,t,1
+NotSoSmartC,SWC-118,118,t,2
+NotSoSmartC,SWC-119,119,t,1
+NotSoSmartC,SWC-120,120,t,1
+NotSoSmartC,SWC-124,124,f,1
+NotSoSmartC,SWC-124,124,t,2
+NotSoSmartC,SWC-128,128,f,2
+NotSoSmartC,SWC-128,128,t,1
+NotSoSmartC,SWC-132,132,t,1
+SBcurated,access_control-105,105,t,5
+SBcurated,access_control-106,106,t,3
+SBcurated,access_control-112,112,t,2
+SBcurated,access_control-115,115,t,2
+SBcurated,access_control-118,118,t,3
+SBcurated,access_control-124,124,t,5
+SBcurated,arithmetic,101,t,15
+SBcurated,bad_randomness,120,t,8
+SBcurated,denial_of_service-113,113,t,2
+SBcurated,denial_of_service-128,128,t,4
+SBcurated,front_running,114,t,4
+SBcurated,other-109,109,t,3
+SBcurated,reentrancy,107,t,21
+SBcurated,short_addresses,995,t,1
+SBcurated,time_manipulation,116,t,5
+SBcurated,unchecked_low_level_calls,104,t,46
+SWCregistry,SWC-100,100,f,1
+SWCregistry,SWC-100,100,t,1
+SWCregistry,SWC-101,101,f,7
+SWCregistry,SWC-101,101,t,7
+SWCregistry,SWC-102,102,t,1
+SWCregistry,SWC-103,103,f,2
+SWCregistry,SWC-103,103,t,3
+SWCregistry,SWC-104,104,t,1
+SWCregistry,SWC-105,105,f,2
+SWCregistry,SWC-105,105,t,7
+SWCregistry,SWC-106,106,f,1
+SWCregistry,SWC-106,106,t,3
+SWCregistry,SWC-107,107,f,2
+SWCregistry,SWC-107,107,t,2
+SWCregistry,SWC-108,108,t,1
+SWCregistry,SWC-109,109,f,1
+SWCregistry,SWC-109,109,t,1
+SWCregistry,SWC-110,110,f,7
+SWCregistry,SWC-110,110,t,14
+SWCregistry,SWC-111,111,f,1
+SWCregistry,SWC-111,111,t,1
+SWCregistry,SWC-112,112,f,2
+SWCregistry,SWC-112,112,t,1
+SWCregistry,SWC-113,113,t,1
+SWCregistry,SWC-114,114,t,2
+SWCregistry,SWC-115,115,f,1
+SWCregistry,SWC-115,115,t,1
+SWCregistry,SWC-116,116,t,2
+SWCregistry,SWC-117,117,f,1
+SWCregistry,SWC-117,117,t,1
+SWCregistry,SWC-118,118,f,1
+SWCregistry,SWC-118,118,t,2
+SWCregistry,SWC-119,119,f,1
+SWCregistry,SWC-119,119,t,2
+SWCregistry,SWC-120,120,f,2
+SWCregistry,SWC-120,120,t,3
+SWCregistry,SWC-124,124,f,1
+SWCregistry,SWC-124,124,t,2
+SWCregistry,SWC-125,125,t,1
+SWCregistry,SWC-127,127,t,1
+SWCregistry,SWC-128,128,t,3
+SWCregistry,SWC-129,129,t,3
+SWCregistry,SWC-130,130,t,1
+SWCregistry,SWC-131,131,f,2
+SWCregistry,SWC-131,131,t,2
+SWCregistry,SWC-132,132,t,1
+SWCregistry,SWC-133,133,f,2
+SWCregistry,SWC-133,133,t,1
+SWCregistry,SWC-134,134,t,1
+SWCregistry,SWC-135,135,f,2
+SWCregistry,SWC-135,135,t,2
+SWCregistry,SWC-136,136,f,1
+SWCregistry,SWC-136,136,t,1
+SolidiFI,Overflow-Underflow,101,t,49
+SolidiFI,Re-entrancy,107,t,49
+SolidiFI,TOD,114,t,49
+SolidiFI,Timestamp-Dependency,116,t,49
+SolidiFI,Unchecked-Send,105,t,49
+SolidiFI,Unhandled-Exceptions,104,t,49
+SolidiFI,tx.origin,115,t,49
+Zeus,Blk_State_Dep,120,f,891
+Zeus,Blk_State_Dep,120,t,166
+Zeus,Failed_send,113,f,770
+Zeus,Failed_send,113,t,287
+Zeus,Int_overflow,101,f,310
+Zeus,Int_overflow,101,t,714
+Zeus,Reentrancy,107,f,973
+Zeus,Reentrancy,107,t,36
+Zeus,Tx_Order_Dep,114,f,641
+Zeus,Tx_Order_Dep,114,t,405
+Zeus,Tx_State_Dep,115,f,1059
+Zeus,Tx_State_Dep,115,t,5
+Zeus,Unchkd_send,104,f,849
+Zeus,Unchkd_send,104,t,209
+eThor,reentrancy,107,f,511
+eThor,reentrancy,107,t,191

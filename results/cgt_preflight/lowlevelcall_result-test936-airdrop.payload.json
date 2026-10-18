@@ -1,0 +1,25 @@
+{
+  "task": "verify_static_analysis_finding",
+  "finding": {
+    "tool": "slither",
+    "detector": "unchecked-lowlevel",
+    "impact": "Medium",
+    "confidence": "Medium",
+    "description": "airdrop.transfer(address,address,address[],uint256) (source.sol#5-16) ignores return value by caddress.call(id,from,_tos[i],v) (source.sol#10)\n",
+    "contract": "airdrop",
+    "function": "transfer(address,address,address[],uint256)",
+    "lines": [
+      10
+    ],
+    "id": "candidate",
+    "file": "source.sol"
+  },
+  "target": {
+    "id": "fragment_0000",
+    "signature": "transfer(address,address,address[],uint256)",
+    "visibility": "public",
+    "source": "function transfer(address from,address caddress,address[] _tos,uint v)public returns (bool){\n        require(_tos.length > 0);\n        if (msg.sender == from){\n            bytes4 id=bytes4(keccak256(\"transferFrom(address,address,uint256)\"));\n            for(uint i=0;i<_tos.length;i++){\n                caddress.call(id,from,_tos[i],v);\n                \n            }\n        return true;\n        }\n\n    }"
+  },
+  "available_context": [],
+  "context_complete": false
+}

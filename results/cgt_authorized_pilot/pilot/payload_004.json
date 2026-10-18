@@ -1,0 +1,58 @@
+{
+  "task": "verify_static_analysis_finding",
+  "finding": {
+    "tool": "slither",
+    "detector": "tx-origin",
+    "impact": "Medium",
+    "confidence": "Medium",
+    "description": "CoinCrowdICO.addMeByRC(address) (source.sol#291-297) uses tx.origin for authorization: require(bool)(tx.origin == owner) (source.sol#292)\n",
+    "contract": "CoinCrowdICO",
+    "function": "addMeByRC(address)",
+    "lines": [
+      292
+    ],
+    "id": "candidate",
+    "file": "source.sol"
+  },
+  "target": {
+    "id": "fragment_0000",
+    "signature": "addMeByRC(address)",
+    "visibility": "public",
+    "source": "function addMeByRC(address _ambassadorAddr) public {\n        require(tx.origin == owner);\n        \n        ambassadorAddressOf[ msg.sender ]  = _ambassadorAddr;\n        \n        NewAmbassador(_ambassadorAddr, msg.sender);\n    }"
+  },
+  "available_context": [
+    {
+      "id": "fragment_0001",
+      "kind": "state_variable",
+      "name": "CoinCrowdICO.ambassadorAddressOf",
+      "reasons": [
+        "state variable declaration: ambassadorAddressOf"
+      ]
+    },
+    {
+      "id": "fragment_0002",
+      "kind": "state_variable",
+      "name": "Ownable.owner",
+      "reasons": [
+        "state variable declaration: owner"
+      ]
+    },
+    {
+      "id": "fragment_0003",
+      "kind": "function",
+      "name": "Ownable()",
+      "reasons": [
+        "direct writer of state variable: owner"
+      ]
+    },
+    {
+      "id": "fragment_0004",
+      "kind": "function",
+      "name": "transferOwnership(address)",
+      "reasons": [
+        "direct writer of state variable: owner"
+      ]
+    }
+  ],
+  "context_complete": false
+}

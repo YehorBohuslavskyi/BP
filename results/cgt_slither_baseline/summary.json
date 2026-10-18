@@ -1,0 +1,8 @@
+{
+  "status": "blocked",
+  "assessment_rows": null,
+  "reviewed_eligible_findings": null,
+  "sample_actual_tokens": null,
+  "estimated_full_run_tokens": null,
+  "baseline": null
+}

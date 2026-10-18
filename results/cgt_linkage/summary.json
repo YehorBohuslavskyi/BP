@@ -1,0 +1,63 @@
+{
+  "inventory": {
+    "total_records": 20455,
+    "parsed_records": 20455,
+    "labels": {
+      "f": 14836,
+      "t": 5619
+    },
+    "unique_dataset_entries": 4190,
+    "unique_source_fingerprints": 3103,
+    "unique_source_contract_pairs": 3088,
+    "unique_chain_addresses": 2559,
+    "unique_property_names": 160,
+    "unique_dataset_properties": 178,
+    "source_files_on_disk": 3103,
+    "source_availability": {
+      "available": 19456,
+      "not_provided": 999
+    },
+    "issues": {
+      "source_not_provided": 999
+    }
+  },
+  "historical_validation_rows": 419,
+  "historical_group_baseline": {
+    "total": 419,
+    "decided": 419,
+    "TP": 84,
+    "FP": 335,
+    "TN": 0,
+    "FN": 0,
+    "precision": 0.20047732696897375,
+    "recall": 1.0,
+    "f1": 0.33399602385685884,
+    "false_positive_rate": 1.0,
+    "false_discovery_rate": 0.7995226730310262,
+    "coverage": 1.0,
+    "abstention_rate": 0.0,
+    "error_rate": 0.0,
+    "verdict_counts": {
+      "confirmed": 419,
+      "false_positive": 0,
+      "inconclusive": 0,
+      "error": 0
+    }
+  },
+  "historical_group_labels": {
+    "TP": 84,
+    "FP": 335
+  },
+  "archive_linkage_issues": {
+    "no_unique_consolidated_assessment": 324,
+    "label_conflict": 24,
+    "ambiguous_warning_group": 191
+  },
+  "unique_consistent_archive_groups": 43,
+  "live_status": {
+    "unique_expression_match": 37,
+    "not_attempted": 376,
+    "unresolved_expression_match": 6
+  },
+  "note": "Historical metrics are file/contract/property-group judgments, not 419 individual warnings. Live matches still require semantic review."
+}

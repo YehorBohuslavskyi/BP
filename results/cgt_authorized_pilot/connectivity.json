@@ -1,0 +1,6 @@
+{
+  "dns": "failed",
+  "error_type": "gaierror",
+  "error": "[Errno -3] Temporary failure in name resolution",
+  "credential_file_removed": true
+}

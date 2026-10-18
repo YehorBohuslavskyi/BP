@@ -1,0 +1,50 @@
+{
+  "task": "verify_static_analysis_finding",
+  "finding": {
+    "tool": "slither",
+    "detector": "unchecked-lowlevel",
+    "impact": "Medium",
+    "confidence": "Medium",
+    "description": "WhaleGiveaway1.Command(address,bytes) (source.sol#32-38) ignores return value by adr.call.value(msg.value)(data) (source.sol#37)\n",
+    "contract": "WhaleGiveaway1",
+    "function": "Command(address,bytes)",
+    "lines": [
+      37
+    ],
+    "id": "candidate",
+    "file": "source.sol"
+  },
+  "target": {
+    "id": "fragment_0000",
+    "signature": "Command(address,bytes)",
+    "visibility": "public",
+    "source": "function Command(address adr,bytes data)\n    payable\n    public\n    {\n        require(msg.sender == Owner);\n        adr.call.value(msg.value)(data);\n    }"
+  },
+  "available_context": [
+    {
+      "id": "fragment_0001",
+      "kind": "state_variable",
+      "name": "WhaleGiveaway1.Owner",
+      "reasons": [
+        "state variable declaration: Owner"
+      ]
+    },
+    {
+      "id": "fragment_0002",
+      "kind": "function",
+      "name": "withdraw()",
+      "reasons": [
+        "direct writer of state variable: Owner"
+      ]
+    },
+    {
+      "id": "fragment_0003",
+      "kind": "function",
+      "name": "slitherConstructorVariables()",
+      "reasons": [
+        "direct writer of state variable: Owner"
+      ]
+    }
+  ],
+  "context_complete": false
+}

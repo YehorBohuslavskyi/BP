@@ -1,0 +1,53 @@
+{
+  "task": "verify_static_analysis_finding",
+  "finding": {
+    "tool": "slither",
+    "detector": "suicidal",
+    "impact": "High",
+    "confidence": "High",
+    "description": "Question.kill(address) (source.sol#1904-1907) allows anyone to destruct the contract\n",
+    "contract": "Question",
+    "function": "kill(address)",
+    "lines": [
+      1904,
+      1905,
+      1906,
+      1907
+    ],
+    "id": "candidate",
+    "file": "source.sol"
+  },
+  "target": {
+    "id": "fragment_0000",
+    "signature": "kill(address)",
+    "visibility": "public",
+    "source": "function kill(address recipient) public onlyAdmin returns (bool ok) {\n        selfdestruct(recipient);\n        return true;\n    }"
+  },
+  "available_context": [
+    {
+      "id": "fragment_0001",
+      "kind": "modifier",
+      "name": "onlyAdmin()",
+      "reasons": [
+        "modifier"
+      ]
+    },
+    {
+      "id": "fragment_0002",
+      "kind": "state_variable",
+      "name": "Ownable.owner",
+      "reasons": [
+        "state variable declaration: owner"
+      ]
+    },
+    {
+      "id": "fragment_0003",
+      "kind": "function",
+      "name": "Ownable()",
+      "reasons": [
+        "direct writer of state variable: owner"
+      ]
+    }
+  ],
+  "context_complete": false
+}

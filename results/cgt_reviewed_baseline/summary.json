@@ -1,0 +1,56 @@
+{
+  "status": "reviewed_baseline",
+  "assessment_rows": 20455,
+  "reviewed_eligible_findings": 27,
+  "sample_actual_tokens": null,
+  "estimated_full_run_tokens": null,
+  "baseline": {
+    "total": 27,
+    "decided": 27,
+    "TP": 22,
+    "FP": 5,
+    "TN": 0,
+    "FN": 0,
+    "precision": 0.8148148148148148,
+    "recall": 1.0,
+    "f1": 0.8979591836734694,
+    "false_positive_rate": 1.0,
+    "false_discovery_rate": 0.18518518518518517,
+    "coverage": 1.0,
+    "abstention_rate": 0.0,
+    "error_rate": 0.0,
+    "verdict_counts": {
+      "confirmed": 27,
+      "false_positive": 0,
+      "inconclusive": 0,
+      "error": 0
+    }
+  },
+  "parsed_assessments": 20455,
+  "invalid_rows": 0,
+  "original_labels": {
+    "f": 14836,
+    "t": 5619
+  },
+  "contributing_datasets": {
+    "CodeSmells": 10395,
+    "SolidiFI": 343,
+    "ContractFuzzer": 367,
+    "SBcurated": 129,
+    "JiuZhou": 165,
+    "Doublade": 276,
+    "SWCregistry": 116,
+    "EthRacer": 109,
+    "EverEvolvingG": 292,
+    "NPChecker": 212,
+    "NotSoSmartC": 34,
+    "Zeus": 7315,
+    "eThor": 702
+  },
+  "source_status": {
+    "available": 19456,
+    "not_provided": 999
+  },
+  "distinct_source_fingerprints": 3103,
+  "tool_filter_supported": false
+}

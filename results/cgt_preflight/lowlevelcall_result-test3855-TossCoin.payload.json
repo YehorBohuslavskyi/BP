@@ -1,0 +1,25 @@
+{
+  "task": "verify_static_analysis_finding",
+  "finding": {
+    "tool": "slither",
+    "detector": "unchecked-lowlevel",
+    "impact": "Medium",
+    "confidence": "Medium",
+    "description": "TossCoin.__callback(bytes32,string) (source.sol#1303-1325) ignores return value by ethergames.call.value(games[id].bet / 100).gas(45000)() (source.sol#1321)\n",
+    "contract": "TossCoin",
+    "function": "__callback(bytes32,string)",
+    "lines": [
+      1321
+    ],
+    "id": "candidate",
+    "file": "source.sol"
+  },
+  "target": {
+    "id": "fragment_0000",
+    "signature": "__callback(bytes32,string)",
+    "visibility": "public",
+    "source": "function __callback(bytes32 myid, string result) public {\n            __callback(myid, result, new bytes(0));\n        }"
+  },
+  "available_context": [],
+  "context_complete": false
+}

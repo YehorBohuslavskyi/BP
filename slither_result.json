@@ -1,0 +1,345 @@
+{
+  "success": true,
+  "error": null,
+  "results": {
+    "detectors": [
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "setValue",
+            "source_mapping": {
+              "start": 262,
+              "length": 88,
+              "filename_relative": "examples/AccessDemoUnrestricted.sol",
+              "filename_absolute": "/home/coca-cola/projects/BP/examples/AccessDemoUnrestricted.sol",
+              "filename_short": "examples/AccessDemoUnrestricted.sol",
+              "is_dependency": false,
+              "lines": [
+                16,
+                17,
+                18
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "AccessDemoUnrestricted",
+                "source_mapping": {
+                  "start": 25,
+                  "length": 498,
+                  "filename_relative": "examples/AccessDemoUnrestricted.sol",
+                  "filename_absolute": "/home/coca-cola/projects/BP/examples/AccessDemoUnrestricted.sol",
+                  "filename_short": "examples/AccessDemoUnrestricted.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21,
+                    22,
+                    23,
+                    24,
+                    25,
+                    26,
+                    27,
+                    28
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 0
+                }
+              },
+              "signature": "setValue(uint256)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "value = newValue",
+            "source_mapping": {
+              "start": 327,
+              "length": 16,
+              "filename_relative": "examples/AccessDemoUnrestricted.sol",
+              "filename_absolute": "/home/coca-cola/projects/BP/examples/AccessDemoUnrestricted.sol",
+              "filename_short": "examples/AccessDemoUnrestricted.sol",
+              "is_dependency": false,
+              "lines": [
+                17
+              ],
+              "starting_column": 9,
+              "ending_column": 25
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "setValue",
+                "source_mapping": {
+                  "start": 262,
+                  "length": 88,
+                  "filename_relative": "examples/AccessDemoUnrestricted.sol",
+                  "filename_absolute": "/home/coca-cola/projects/BP/examples/AccessDemoUnrestricted.sol",
+                  "filename_short": "examples/AccessDemoUnrestricted.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    16,
+                    17,
+                    18
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "AccessDemoUnrestricted",
+                    "source_mapping": {
+                      "start": 25,
+                      "length": 498,
+                      "filename_relative": "examples/AccessDemoUnrestricted.sol",
+                      "filename_absolute": "/home/coca-cola/projects/BP/examples/AccessDemoUnrestricted.sol",
+                      "filename_short": "examples/AccessDemoUnrestricted.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 0
+                    }
+                  },
+                  "signature": "setValue(uint256)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "AccessDemoUnrestricted.setValue(uint256) (examples/AccessDemoUnrestricted.sol#16-18) should emit an event for: \n\t- value = newValue (examples/AccessDemoUnrestricted.sol#17) \n",
+        "markdown": "[AccessDemoUnrestricted.setValue(uint256)](examples/AccessDemoUnrestricted.sol#L16-L18) should emit an event for: \n\t- [value = newValue](examples/AccessDemoUnrestricted.sol#L17) \n",
+        "first_markdown_element": "examples/AccessDemoUnrestricted.sol#L16-L18",
+        "id": "e5138aa87691081d53240f890bd2178d065b4953cce6e0edc40ddec5ae500d5a",
+        "check": "events-maths",
+        "impact": "Low",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic"
+      },
+      {
+        "elements": [
+          {
+            "type": "variable",
+            "name": "newOwner",
+            "source_mapping": {
+              "start": 462,
+              "length": 16,
+              "filename_relative": "examples/AccessDemoUnrestricted.sol",
+              "filename_absolute": "/home/coca-cola/projects/BP/examples/AccessDemoUnrestricted.sol",
+              "filename_short": "examples/AccessDemoUnrestricted.sol",
+              "is_dependency": false,
+              "lines": [
+                24
+              ],
+              "starting_column": 26,
+              "ending_column": 42
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "changeOwner",
+                "source_mapping": {
+                  "start": 441,
+                  "length": 80,
+                  "filename_relative": "examples/AccessDemoUnrestricted.sol",
+                  "filename_absolute": "/home/coca-cola/projects/BP/examples/AccessDemoUnrestricted.sol",
+                  "filename_short": "examples/AccessDemoUnrestricted.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    24,
+                    25,
+                    26
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "AccessDemoUnrestricted",
+                    "source_mapping": {
+                      "start": 25,
+                      "length": 498,
+                      "filename_relative": "examples/AccessDemoUnrestricted.sol",
+                      "filename_absolute": "/home/coca-cola/projects/BP/examples/AccessDemoUnrestricted.sol",
+                      "filename_short": "examples/AccessDemoUnrestricted.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 0
+                    }
+                  },
+                  "signature": "changeOwner(address)"
+                }
+              }
+            }
+          },
+          {
+            "type": "node",
+            "name": "owner = newOwner",
+            "source_mapping": {
+              "start": 498,
+              "length": 16,
+              "filename_relative": "examples/AccessDemoUnrestricted.sol",
+              "filename_absolute": "/home/coca-cola/projects/BP/examples/AccessDemoUnrestricted.sol",
+              "filename_short": "examples/AccessDemoUnrestricted.sol",
+              "is_dependency": false,
+              "lines": [
+                25
+              ],
+              "starting_column": 9,
+              "ending_column": 25
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "changeOwner",
+                "source_mapping": {
+                  "start": 441,
+                  "length": 80,
+                  "filename_relative": "examples/AccessDemoUnrestricted.sol",
+                  "filename_absolute": "/home/coca-cola/projects/BP/examples/AccessDemoUnrestricted.sol",
+                  "filename_short": "examples/AccessDemoUnrestricted.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    24,
+                    25,
+                    26
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "AccessDemoUnrestricted",
+                    "source_mapping": {
+                      "start": 25,
+                      "length": 498,
+                      "filename_relative": "examples/AccessDemoUnrestricted.sol",
+                      "filename_absolute": "/home/coca-cola/projects/BP/examples/AccessDemoUnrestricted.sol",
+                      "filename_short": "examples/AccessDemoUnrestricted.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 0
+                    }
+                  },
+                  "signature": "changeOwner(address)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "AccessDemoUnrestricted.changeOwner(address).newOwner (examples/AccessDemoUnrestricted.sol#24) lacks a zero-check on :\n\t\t- owner = newOwner (examples/AccessDemoUnrestricted.sol#25)\n",
+        "markdown": "[AccessDemoUnrestricted.changeOwner(address).newOwner](examples/AccessDemoUnrestricted.sol#L24) lacks a zero-check on :\n\t\t- [owner = newOwner](examples/AccessDemoUnrestricted.sol#L25)\n",
+        "first_markdown_element": "examples/AccessDemoUnrestricted.sol#L24",
+        "id": "f504d30b14785966af36c199bb4e265d87244db097e2bcc0bbe6f279e89a7aa5",
+        "check": "missing-zero-check",
+        "impact": "Low",
+        "confidence": "Medium",
+        "reference": "https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation"
+      }
+    ]
+  }
+}

@@ -1,0 +1,4269 @@
+[
+  {
+    "file": "test1009.json",
+    "contract": "WhaleGiveaway2",
+    "category": "lowlevelcall_result",
+    "status": "accepted",
+    "review_id": "lowlevelcall_result-test1009-WhaleGiveaway2",
+    "reason": "Source inspection confirms the reported low-level call return value is discarded in Command(address,bytes). Same contract, signature and node expression in archived and current output; positive archived judgment agrees with consolidated CGT."
+  },
+  {
+    "file": "test3763.json",
+    "contract": "WhaleGiveaway2",
+    "category": "lowlevelcall_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1885.json",
+    "contract": "WhaleGiveaway1",
+    "category": "lowlevelcall_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1911.json",
+    "contract": "WhaleGiveaway1",
+    "category": "lowlevelcall_result",
+    "status": "accepted",
+    "review_id": "lowlevelcall_result-test1911-WhaleGiveaway1",
+    "reason": "Source inspection confirms the reported low-level call return value is discarded in Command(address,bytes). Same contract, signature and node expression in archived and current output; positive archived judgment agrees with consolidated CGT."
+  },
+  {
+    "file": "test3855.json",
+    "contract": "TossCoin",
+    "category": "lowlevelcall_result",
+    "status": "accepted",
+    "review_id": "lowlevelcall_result-test3855-TossCoin",
+    "reason": "Source inspection confirms the reported low-level call return value is discarded in __callback(bytes32,string). Same contract, signature and node expression in archived and current output; positive archived judgment agrees with consolidated CGT."
+  },
+  {
+    "file": "test2784.json",
+    "contract": "TERATO",
+    "category": "lowlevelcall_result",
+    "status": "accepted",
+    "review_id": "lowlevelcall_result-test2784-TERATO",
+    "reason": "Source inspection confirms the reported low-level call return value is discarded in transfer(address,uint256,bytes,string). Same contract, signature and node expression in archived and current output; positive archived judgment agrees with consolidated CGT."
+  },
+  {
+    "file": "test3058.json",
+    "contract": "Pie",
+    "category": "lowlevelcall_result",
+    "status": "accepted",
+    "review_id": "lowlevelcall_result-test3058-Pie",
+    "reason": "Source inspection confirms the reported low-level call return value is discarded in Command(address,bytes). Same contract, signature and node expression in archived and current output; positive archived judgment agrees with consolidated CGT."
+  },
+  {
+    "file": "test3206.json",
+    "contract": "Pie",
+    "category": "lowlevelcall_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test67.json",
+    "contract": "OMT",
+    "category": "lowlevelcall_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test989.json",
+    "contract": "MultiplicatorX4",
+    "category": "lowlevelcall_result",
+    "status": "accepted",
+    "review_id": "lowlevelcall_result-test989-MultiplicatorX4",
+    "reason": "Source inspection confirms the reported low-level call return value is discarded in Command(address,bytes). Same contract, signature and node expression in archived and current output; positive archived judgment agrees with consolidated CGT."
+  },
+  {
+    "file": "test3059.json",
+    "contract": "FruitFarm",
+    "category": "lowlevelcall_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test2681.json",
+    "contract": "Etheropt",
+    "category": "lowlevelcall_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test2022.json",
+    "contract": "Etherhero",
+    "category": "lowlevelcall_result",
+    "status": "accepted",
+    "review_id": "lowlevelcall_result-test2022-Etherhero",
+    "reason": "Source inspection confirms the reported low-level call return value is discarded in makeDeposit(). Same contract, signature and node expression in archived and current output; positive archived judgment agrees with consolidated CGT."
+  },
+  {
+    "file": "test86.json",
+    "contract": "Etherhero",
+    "category": "lowlevelcall_result",
+    "status": "accepted",
+    "review_id": "lowlevelcall_result-test86-Etherhero",
+    "reason": "Source inspection confirms the reported low-level call return value is discarded in makeDeposit(). Same contract, signature and node expression in archived and current output; positive archived judgment agrees with consolidated CGT."
+  },
+  {
+    "file": "test1867.json",
+    "contract": "ETHERCREDIT",
+    "category": "lowlevelcall_result",
+    "status": "accepted",
+    "review_id": "lowlevelcall_result-test1867-ETHERCREDIT",
+    "reason": "Source inspection confirms the reported low-level call return value is discarded in transfer(address,uint256,bytes,string). Same contract, signature and node expression in archived and current output; positive archived judgment agrees with consolidated CGT."
+  },
+  {
+    "file": "test1930.json",
+    "contract": "ETHedgeToken",
+    "category": "lowlevelcall_result",
+    "status": "accepted",
+    "review_id": "lowlevelcall_result-test1930-ETHedgeToken",
+    "reason": "Source inspection confirms the reported low-level call return value is discarded in takeCapital(). Same contract, signature and node expression in archived and current output; positive archived judgment agrees with consolidated CGT."
+  },
+  {
+    "file": "test2690.json",
+    "contract": "ETHedgeToken",
+    "category": "lowlevelcall_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test1764.json",
+    "contract": "ERC223TokenCompatible",
+    "category": "lowlevelcall_result",
+    "status": "accepted",
+    "review_id": "lowlevelcall_result-test1764-ERC223TokenCompatible",
+    "reason": "Source inspection confirms the reported low-level call return value is discarded in transfer(address,uint256,bytes,string). Same contract, signature and node expression in archived and current output; positive archived judgment agrees with consolidated CGT."
+  },
+  {
+    "file": "test2497.json",
+    "contract": "ERC223TokenCompatible",
+    "category": "lowlevelcall_result",
+    "status": "accepted",
+    "review_id": "lowlevelcall_result-test2497-ERC223TokenCompatible",
+    "reason": "Source inspection confirms the reported low-level call return value is discarded in transfer(address,uint256,bytes,string). Same contract, signature and node expression in archived and current output; positive archived judgment agrees with consolidated CGT."
+  },
+  {
+    "file": "test3214.json",
+    "contract": "EDProxy",
+    "category": "lowlevelcall_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2782.json",
+    "contract": "DrainMe",
+    "category": "lowlevelcall_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test825.json",
+    "contract": "DrainMe",
+    "category": "lowlevelcall_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test2404.json",
+    "contract": "CrowdSale",
+    "category": "lowlevelcall_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test838.json",
+    "contract": "CrowdSale",
+    "category": "lowlevelcall_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test3330.json",
+    "contract": "coinScheduleReferral",
+    "category": "lowlevelcall_result",
+    "status": "accepted",
+    "review_id": "lowlevelcall_result-test3330-coinScheduleReferral",
+    "reason": "Source inspection confirms the reported low-level call return value is discarded in fallback(). Same contract, signature and node expression in archived and current output; positive archived judgment agrees with consolidated CGT."
+  },
+  {
+    "file": "test2176.json",
+    "contract": "caller",
+    "category": "lowlevelcall_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1244.json",
+    "contract": "Base",
+    "category": "lowlevelcall_result",
+    "status": "accepted",
+    "review_id": "lowlevelcall_result-test1244-Base",
+    "reason": "Source inspection confirms the reported low-level call return value is discarded in WithdrawToken(address,uint256). Same contract, signature and node expression in archived and current output; positive archived judgment agrees with consolidated CGT."
+  },
+  {
+    "file": "test448.json",
+    "contract": "AKC",
+    "category": "lowlevelcall_result",
+    "status": "accepted",
+    "review_id": "lowlevelcall_result-test448-AKC",
+    "reason": "Source inspection confirms the reported low-level call return value is discarded in transferFrom(address,address,uint256,bytes,string). Same contract, signature and node expression in archived and current output; positive archived judgment agrees with consolidated CGT."
+  },
+  {
+    "file": "test936.json",
+    "contract": "airdrop",
+    "category": "lowlevelcall_result",
+    "status": "accepted",
+    "review_id": "lowlevelcall_result-test936-airdrop",
+    "reason": "Source inspection confirms the reported low-level call return value is discarded in transfer(address,address,address[],uint256). Same contract, signature and node expression in archived and current output; positive archived judgment agrees with consolidated CGT."
+  },
+  {
+    "file": "test3316.json",
+    "contract": "YggdrashCrowd",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1593.json",
+    "contract": "VNETTokenPreSale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1266.json",
+    "contract": "UnicornBreeding",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test3805.json",
+    "contract": "TribalWarfare",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3855.json",
+    "contract": "TossCoin",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1021.json",
+    "contract": "TEST_Crowdsale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2219.json",
+    "contract": "SysEscrow",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test3203.json",
+    "contract": "SX",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test374.json",
+    "contract": "SuperMegaIco",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3376.json",
+    "contract": "StarsICO",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2515.json",
+    "contract": "STARCrowdsale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2597.json",
+    "contract": "SmartPyramid",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test958.json",
+    "contract": "ShortOrder",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test2307.json",
+    "contract": "SellERC20BasicTokens",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test118.json",
+    "contract": "RCpro",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test118.json",
+    "contract": "RC",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2956.json",
+    "contract": "RC",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test352.json",
+    "contract": "RC",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3747.json",
+    "contract": "RC",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1916.json",
+    "contract": "PrivateDeposit",
+    "category": "reentrancy",
+    "status": "accepted",
+    "review_id": "reentrancy-test1916-PrivateDeposit",
+    "reason": "External value-bearing call occurs before decrementing caller balance in CashOut(uint256); reentrant calls can observe the pre-decrement balance. Archived/current expression sets and positive CGT assessment agree."
+  },
+  {
+    "file": "test554.json",
+    "contract": "PrivateBank",
+    "category": "reentrancy",
+    "status": "accepted",
+    "review_id": "reentrancy-test554-PrivateBank",
+    "reason": "External value-bearing call occurs before decrementing caller balance in CashOut(uint256); reentrant calls can observe the pre-decrement balance. Archived/current expression sets and positive CGT assessment agree."
+  },
+  {
+    "file": "test1183.json",
+    "contract": "PresalePool",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test1346.json",
+    "contract": "PresalePool",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test2488.json",
+    "contract": "PreICOProxyBuyer",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": []
+  },
+  {
+    "file": "test929.json",
+    "contract": "PreICOProxyBuyer",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1204.json",
+    "contract": "PonyAuction",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test276.json",
+    "contract": "PonyAuction",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test329.json",
+    "contract": "PonyAuction",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test784.json",
+    "contract": "PonyAuction",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2787.json",
+    "contract": "NOLLYCOINCrowdFund",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2168.json",
+    "contract": "NamiExchange",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3566.json",
+    "contract": "NamiExchange",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test799.json",
+    "contract": "NamiExchange",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1095.json",
+    "contract": "MifflinToken",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1950.json",
+    "contract": "MifflinToken",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1991.json",
+    "contract": "MifflinToken",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2601.json",
+    "contract": "MifflinToken",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test487.json",
+    "contract": "MifflinToken",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test624.json",
+    "contract": "MifflinToken",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3646.json",
+    "contract": "MDAPPSale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2059.json",
+    "contract": "Lottery1ETH",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test314.json",
+    "contract": "Lottery10ETH",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2697.json",
+    "contract": "Lottery100ETH",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2665.json",
+    "contract": "Lottery",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3641.json",
+    "contract": "LockEther",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1233.json",
+    "contract": "ListingsERC20",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2618.json",
+    "contract": "ListingsERC20",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test495.json",
+    "contract": "ListingsERC20",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test601.json",
+    "contract": "ListingsERC20",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2344.json",
+    "contract": "KlerosLiquid",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": []
+  },
+  {
+    "file": "test901.json",
+    "contract": "KlerosLiquid",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": []
+  },
+  {
+    "file": "test1095.json",
+    "contract": "KelevinKoin",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1950.json",
+    "contract": "KelevinKoin",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1991.json",
+    "contract": "KelevinKoin",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2601.json",
+    "contract": "KelevinKoin",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test487.json",
+    "contract": "KelevinKoin",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test624.json",
+    "contract": "KelevinKoin",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2524.json",
+    "contract": "IronHands",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": []
+  },
+  {
+    "file": "test3495.json",
+    "contract": "Hold",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test389.json",
+    "contract": "Hold",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1369.json",
+    "contract": "FoMo3Dlong",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1604.json",
+    "contract": "FMWorld",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2926.json",
+    "contract": "F3DPLUS",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3128.json",
+    "contract": "EthUp",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3673.json",
+    "contract": "EthercraftFarm",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3136.json",
+    "contract": "Etherama",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3730.json",
+    "contract": "Etherama",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1698.json",
+    "contract": "EnjinBuyer",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test447.json",
+    "contract": "DukeOfEther",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test403.json",
+    "contract": "Divies",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1236.json",
+    "contract": "Dice",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1948.json",
+    "contract": "Dice",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2099.json",
+    "contract": "Dice",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3377.json",
+    "contract": "Dice",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3516.json",
+    "contract": "Dice",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3714.json",
+    "contract": "Dice",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test470.json",
+    "contract": "Dice",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test981.json",
+    "contract": "Deposit",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test492.json",
+    "contract": "DataWalletCrowdsale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1221.json",
+    "contract": "CryptoSprites",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test197.json",
+    "contract": "CryptoSprites",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3182.json",
+    "contract": "CryptoSprites",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test424.json",
+    "contract": "CryptoSprites",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test804.json",
+    "contract": "CryptoSprites",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2692.json",
+    "contract": "CryptoBets",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2908.json",
+    "contract": "CrowdSaleDragonETH",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1373.json",
+    "contract": "CrowdsaleBase",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1890.json",
+    "contract": "CrowdsaleBase",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2675.json",
+    "contract": "CrowdsaleBase",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2959.json",
+    "contract": "CrowdsaleBase",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3011.json",
+    "contract": "CrowdsaleBase",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3181.json",
+    "contract": "CrowdsaleBase",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test685.json",
+    "contract": "CrowdsaleBase",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2128.json",
+    "contract": "Crowdsale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2844.json",
+    "contract": "Crowdsale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3495.json",
+    "contract": "Crowdsale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3584.json",
+    "contract": "Crowdsale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3609.json",
+    "contract": "Crowdsale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3812.json",
+    "contract": "Crowdsale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3883.json",
+    "contract": "Crowdsale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test910.json",
+    "contract": "Crowdsale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test935.json",
+    "contract": "Crowdsale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2696.json",
+    "contract": "Contribution",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3755.json",
+    "contract": "Contribution",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1516.json",
+    "contract": "ConstantinopleMasterNodes",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3705.json",
+    "contract": "Constantinople",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2878.json",
+    "contract": "CoinCrowdICO",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test781.json",
+    "contract": "ClitCrowdFunder",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2956.json",
+    "contract": "CardSale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test352.json",
+    "contract": "CardSale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3747.json",
+    "contract": "CardSale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1477.json",
+    "contract": "Bussiness",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2405.json",
+    "contract": "Bussiness",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2656.json",
+    "contract": "Bussiness",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test536.json",
+    "contract": "Bussiness",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test686.json",
+    "contract": "Bussiness",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test758.json",
+    "contract": "Bussiness",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2220.json",
+    "contract": "BonusCrowdsale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1599.json",
+    "contract": "BlocksquareSeedSale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test853.json",
+    "contract": "Blockjack",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1212.json",
+    "contract": "BitcoinPriceBetM",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2168.json",
+    "contract": "BinaryOption",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3566.json",
+    "contract": "BinaryOption",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test799.json",
+    "contract": "BinaryOption",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3532.json",
+    "contract": "Betting",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test977.json",
+    "contract": "Betting",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3537.json",
+    "contract": "BDSM_Crowdsale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3831.json",
+    "contract": "BDSM_Crowdsale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3492.json",
+    "contract": "BancorLender",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2073.json",
+    "contract": "BancorBuyer",
+    "category": "reentrancy",
+    "status": "accepted",
+    "review_id": "reentrancy-test2073-BancorBuyer",
+    "reason": "External value-bearing call occurs before decrementing caller balance in buyOne(ERC20,address,uint256,bytes); reentrant calls can observe the pre-decrement balance. Archived/current expression sets and positive CGT assessment agree."
+  },
+  {
+    "file": "test1169.json",
+    "contract": "BananaGame",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test2052.json",
+    "contract": "apexSolids",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3003.json",
+    "contract": "AgiCrowdsale",
+    "category": "reentrancy",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3295.json",
+    "contract": "Vault",
+    "category": "selfdestruct_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3061.json",
+    "contract": "ValueTrader",
+    "category": "selfdestruct_result",
+    "status": "accepted",
+    "review_id": "selfdestruct_result-test3061-ValueTrader",
+    "reason": "die() applies owned, whose assert(msg.sender == owner) gates destruction; owner is initialized in ValueTrader() and changed only through owned. burnBlock is an additional restriction. The anyone-can-destruct claim is unsupported, agreeing with both negative labels."
+  },
+  {
+    "file": "test120.json",
+    "contract": "TokenERC20",
+    "category": "selfdestruct_result",
+    "status": "accepted",
+    "review_id": "selfdestruct_result-test120-TokenERC20",
+    "reason": "Public selfdestructs() has no caller authorization and invokes selfdestruct(owner). Exact function-level suicidal finding corresponds to positive CGT and archived labels."
+  },
+  {
+    "file": "test3661.json",
+    "contract": "TeikhosBounty",
+    "category": "selfdestruct_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test84.json",
+    "contract": "TeikhosBounty",
+    "category": "selfdestruct_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test1606.json",
+    "contract": "SecureDeposit",
+    "category": "selfdestruct_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test993.json",
+    "contract": "SafeDeposit",
+    "category": "selfdestruct_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3575.json",
+    "contract": "Question",
+    "category": "selfdestruct_result",
+    "status": "accepted",
+    "review_id": "selfdestruct_result-test3575-Question",
+    "reason": "kill() applies onlyAdmin, requiring owner-market.isAdmin(msg.sender). Owner is set by Ownable constructor; deployed market controls administrator membership. The blanket anyone-can-destruct claim conflicts with this gate. Existing context retrieval may omit the external market implementation, so abstention is possible."
+  },
+  {
+    "file": "test3407.json",
+    "contract": "ProgressiveJackpotLottery",
+    "category": "selfdestruct_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3575.json",
+    "contract": "PredictionMarket",
+    "category": "selfdestruct_result",
+    "status": "accepted",
+    "review_id": "selfdestruct_result-test3575-PredictionMarket",
+    "reason": "kill() applies inherited onlyAdmin with require(isAdmin[msg.sender]); PredictionMarket constructor grants initial admin and addAdmin is itself gated. Both benchmark sources label the blanket suicidal finding false."
+  },
+  {
+    "file": "test1906.json",
+    "contract": "PiggyBank",
+    "category": "selfdestruct_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test267.json",
+    "contract": "PiggyBank",
+    "category": "selfdestruct_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test1932.json",
+    "contract": "MyAdvancedToken",
+    "category": "selfdestruct_result",
+    "status": "accepted",
+    "review_id": "selfdestruct_result-test1932-MyAdvancedToken",
+    "reason": "Public selfdestructs() has no caller authorization and invokes selfdestruct(owner). Exact function-level suicidal finding corresponds to positive CGT and archived labels."
+  },
+  {
+    "file": "test83.json",
+    "contract": "GrungeTuesday",
+    "category": "selfdestruct_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1812.json",
+    "contract": "EtherTime",
+    "category": "selfdestruct_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3260.json",
+    "contract": "DestroyableMultiOwner",
+    "category": "selfdestruct_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test781.json",
+    "contract": "ClitCrowdFunder",
+    "category": "selfdestruct_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test118.json",
+    "contract": "TokenSale",
+    "category": "tx_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test2956.json",
+    "contract": "TokenSale",
+    "category": "tx_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test352.json",
+    "contract": "TokenSale",
+    "category": "tx_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3747.json",
+    "contract": "TokenSale",
+    "category": "tx_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test701.json",
+    "contract": "Tokens",
+    "category": "tx_result",
+    "status": "accepted",
+    "review_id": "tx_result-test701-Tokens",
+    "reason": "refundTokens also checks addressSCICO == msg.sender and invokes a configured compliance service; tx.origin is an additional condition, not sole caller authorization. Both archived and consolidated negative labels apply to the sole tx-origin warning in Tokens. Preserve this trust assumption in error analysis."
+  },
+  {
+    "file": "test941.json",
+    "contract": "Tokens",
+    "category": "tx_result",
+    "status": "accepted",
+    "review_id": "tx_result-test941-Tokens",
+    "reason": "refundTokens also checks addressSCICO == msg.sender and invokes a configured compliance service; tx.origin is an additional condition, not sole caller authorization. Both archived and consolidated negative labels apply to the sole tx-origin warning in Tokens. Preserve this trust assumption in error analysis."
+  },
+  {
+    "file": "test2059.json",
+    "contract": "RefStorage",
+    "category": "tx_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test2329.json",
+    "contract": "RefStorage",
+    "category": "tx_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test2697.json",
+    "contract": "RefStorage",
+    "category": "tx_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test314.json",
+    "contract": "RefStorage",
+    "category": "tx_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test1747.json",
+    "contract": "Oraclize",
+    "category": "tx_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test308.json",
+    "contract": "MultiMonday",
+    "category": "tx_result",
+    "status": "unresolved",
+    "reason": "Benchmark negative hinges on funds returning to tx.origin; warning claims tx.origin authorization. Phishing/forced-action interpretation remains uncertain (similar EtherTime code has conflicting archive/consolidated labels). Exclude pending independent semantic adjudication.",
+    "upstream_issues": []
+  },
+  {
+    "file": "test83.json",
+    "contract": "GrungeTuesday",
+    "category": "tx_result",
+    "status": "unresolved",
+    "reason": "Benchmark negative hinges on funds returning to tx.origin; warning claims tx.origin authorization. Phishing/forced-action interpretation remains uncertain (similar EtherTime code has conflicting archive/consolidated labels). Exclude pending independent semantic adjudication.",
+    "upstream_issues": []
+  },
+  {
+    "file": "test1812.json",
+    "contract": "EtherTime",
+    "category": "tx_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test2878.json",
+    "contract": "CoinCrowdICO",
+    "category": "tx_result",
+    "status": "accepted",
+    "review_id": "tx_result-test2878-CoinCrowdICO",
+    "reason": "addMeByRC(address) authorizes using tx.origin == owner while writing the referral mapping for msg.sender, permitting a malicious intermediary invoked by owner. The exact warning matches both positive benchmark judgments."
+  },
+  {
+    "file": "test2956.json",
+    "contract": "CardSale",
+    "category": "tx_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test352.json",
+    "contract": "CardSale",
+    "category": "tx_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3747.json",
+    "contract": "CardSale",
+    "category": "tx_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3864.json",
+    "contract": "AgentContract",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1272.json",
+    "contract": "AgentContracteGalaxy",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1785.json",
+    "contract": "AirDrop",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test227.json",
+    "contract": "Airdrop",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test3588.json",
+    "contract": "Airdrop",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3707.json",
+    "contract": "AirDrop",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test936.json",
+    "contract": "airdrop",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2262.json",
+    "contract": "Airdropper",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3056.json",
+    "contract": "Airdropper",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2878.json",
+    "contract": "Ambassador",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1655.json",
+    "contract": "Ambix",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1087.json",
+    "contract": "ASTRDrop",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2073.json",
+    "contract": "BancorBuyer",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3230.json",
+    "contract": "BancorChanger",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3492.json",
+    "contract": "BancorChanger",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test587.json",
+    "contract": "BancorChanger",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test714.json",
+    "contract": "BancorChanger",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test407.json",
+    "contract": "BancorQuickConverter",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1171.json",
+    "contract": "BatchedPayments",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test530.json",
+    "contract": "BatchReleaser",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3801.json",
+    "contract": "BatchTransfer",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3862.json",
+    "contract": "batchTransfer",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "calls-loop reports external calls in loops; archived label assesses unexpected-revert DoS. Factual loop occurrence does not establish DoS. Do not transfer this label to the exact finding.",
+    "upstream_issues": []
+  },
+  {
+    "file": "test2233.json",
+    "contract": "BattleCore",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1387.json",
+    "contract": "BdpCalculator",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1696.json",
+    "contract": "BdpCalculator",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2444.json",
+    "contract": "BdpCalculator",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2592.json",
+    "contract": "BdpCalculator",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2753.json",
+    "contract": "BdpCalculator",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3704.json",
+    "contract": "BdpCalculator",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2619.json",
+    "contract": "BGD",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2168.json",
+    "contract": "BinaryOption",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3566.json",
+    "contract": "BinaryOption",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test799.json",
+    "contract": "BinaryOption",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2440.json",
+    "contract": "BitNauticCrowdsale",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2800.json",
+    "contract": "BitpaintingAuctions",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1675.json",
+    "contract": "BitpaintingEditions",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2335.json",
+    "contract": "BitpaintingPaintings",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2884.json",
+    "contract": "BoostContainer",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2409.json",
+    "contract": "BountyRegistry",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3197.json",
+    "contract": "BountyRegistry",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3232.json",
+    "contract": "Bursa",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3686.json",
+    "contract": "Caller",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test650.json",
+    "contract": "Caller",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1053.json",
+    "contract": "CCBank",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": []
+  },
+  {
+    "file": "test1947.json",
+    "contract": "CCCRSale",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2498.json",
+    "contract": "CelebrityBreederToken",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2830.json",
+    "contract": "CompoundReader",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test318.json",
+    "contract": "CompoundReader",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1514.json",
+    "contract": "Crowdsale",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2919.json",
+    "contract": "Crowdsale",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3495.json",
+    "contract": "Crowdsale",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2908.json",
+    "contract": "CrowdSaleDragonETH",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1230.json",
+    "contract": "CrowdsaleExt",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1537.json",
+    "contract": "CrowdsaleExt",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1961.json",
+    "contract": "CrowdsaleExt",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1979.json",
+    "contract": "CrowdsaleExt",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1981.json",
+    "contract": "CrowdsaleExt",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2164.json",
+    "contract": "CrowdsaleExt",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test230.json",
+    "contract": "CrowdsaleExt",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2422.json",
+    "contract": "CrowdsaleExt",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2893.json",
+    "contract": "CrowdsaleExt",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2922.json",
+    "contract": "CrowdsaleExt",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3472.json",
+    "contract": "CrowdsaleExt",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3702.json",
+    "contract": "CrowdsaleExt",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test432.json",
+    "contract": "CrowdsaleExt",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test623.json",
+    "contract": "CrowdsaleExt",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test665.json",
+    "contract": "CrowdsaleExt",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test736.json",
+    "contract": "CrowdsaleExt",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test202.json",
+    "contract": "CryptoBetOn",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2692.json",
+    "contract": "CryptoBets",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "calls-loop reports external calls in loops; archived label assesses unexpected-revert DoS. Factual loop occurrence does not establish DoS. Do not transfer this label to the exact finding.",
+    "upstream_issues": []
+  },
+  {
+    "file": "test1067.json",
+    "contract": "CryptoThingWithDescendants",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "calls-loop reports external calls in loops; archived label assesses unexpected-revert DoS. Factual loop occurrence does not establish DoS. Do not transfer this label to the exact finding.",
+    "upstream_issues": []
+  },
+  {
+    "file": "test821.json",
+    "contract": "DarknodeRegistry",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2463.json",
+    "contract": "DiceLuck100",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3549.json",
+    "contract": "DigitalGame",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test3235.json",
+    "contract": "Distribution",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test403.json",
+    "contract": "Divies",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test735.json",
+    "contract": "DunkPayToken",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "calls-loop reports external calls in loops; archived label assesses unexpected-revert DoS. Factual loop occurrence does not establish DoS. Do not transfer this label to the exact finding.",
+    "upstream_issues": []
+  },
+  {
+    "file": "test1281.json",
+    "contract": "ERC20Impl",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2139.json",
+    "contract": "ERC20Impl",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2858.json",
+    "contract": "ERC20Impl",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3434.json",
+    "contract": "ERC20Impl",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3580.json",
+    "contract": "ERC20Impl",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test959.json",
+    "contract": "EscrowChecker",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1684.json",
+    "contract": "EtheeraCrowdsale",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3136.json",
+    "contract": "EtheramaCore",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3730.json",
+    "contract": "EtheramaCore",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3673.json",
+    "contract": "EthercraftFarm",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2855.json",
+    "contract": "EtheremonRankBattle",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2932.json",
+    "contract": "EthereumLottery",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3689.json",
+    "contract": "EthVenturePlugin",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3530.json",
+    "contract": "ETLTokenPresale",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test604.json",
+    "contract": "FeeDisbursal",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2050.json",
+    "contract": "FlexiFarmv2",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3367.json",
+    "contract": "FlyDropToken",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1604.json",
+    "contract": "FMWorld",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1618.json",
+    "contract": "FountainTokenUpgrade",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test854.json",
+    "contract": "FourthBountyWPTpayoutCorrection",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1734.json",
+    "contract": "FourthBountyWPTpayoutPart1",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test881.json",
+    "contract": "FourthBountyWPTpayoutPart2",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test765.json",
+    "contract": "FUTB1",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1899.json",
+    "contract": "GameOfThrones",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2283.json",
+    "contract": "GameOfThrones",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2447.json",
+    "contract": "GameOfThrones",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3202.json",
+    "contract": "HelpMeTokenPart1",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3746.json",
+    "contract": "HelpMeTokenPart1",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3495.json",
+    "contract": "Hold",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test389.json",
+    "contract": "Hold",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test902.json",
+    "contract": "IkuraAssociation",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3065.json",
+    "contract": "InbestTokenDistributor",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2524.json",
+    "contract": "IronHands",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test263.json",
+    "contract": "ItemToken",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2001.json",
+    "contract": "KinTokenSale",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2145.json",
+    "contract": "KinTokenSale",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2461.json",
+    "contract": "KinTokenSale",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2344.json",
+    "contract": "KlerosLiquid",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test901.json",
+    "contract": "KlerosLiquid",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1367.json",
+    "contract": "ldoh",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1384.json",
+    "contract": "ldoh",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3042.json",
+    "contract": "ldoh",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3074.json",
+    "contract": "ldoh",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test638.json",
+    "contract": "ldoh",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1969.json",
+    "contract": "Ledger",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2564.json",
+    "contract": "Ledger",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2697.json",
+    "contract": "Lottery100ETH",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test314.json",
+    "contract": "Lottery10ETH",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2059.json",
+    "contract": "Lottery1ETH",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1322.json",
+    "contract": "LotteryRound",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3299.json",
+    "contract": "LotteryRound",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1536.json",
+    "contract": "LPPCappedMilestones",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1092.json",
+    "contract": "Luckyblock",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3807.json",
+    "contract": "MainframeTokenDistribution",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3508.json",
+    "contract": "MakerOtcSupportMethods",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3103.json",
+    "contract": "MassVestingSender",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3122.json",
+    "contract": "Mengudara",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2846.json",
+    "contract": "MicroDAO",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1061.json",
+    "contract": "MilkCoinToken",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "calls-loop reports external calls in loops; archived label assesses unexpected-revert DoS. Factual loop occurrence does not establish DoS. Do not transfer this label to the exact finding.",
+    "upstream_issues": []
+  },
+  {
+    "file": "test2694.json",
+    "contract": "MilkCoinToken",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3445.json",
+    "contract": "MilkCoinToken",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test496.json",
+    "contract": "MilkCoinToken",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "calls-loop reports external calls in loops; archived label assesses unexpected-revert DoS. Factual loop occurrence does not establish DoS. Do not transfer this label to the exact finding.",
+    "upstream_issues": []
+  },
+  {
+    "file": "test1170.json",
+    "contract": "Minewar",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test1269.json",
+    "contract": "MintHelper",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test843.json",
+    "contract": "MofasAirdrop",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1328.json",
+    "contract": "Multiplexer",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test61.json",
+    "contract": "Multiplexer",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test2570.json",
+    "contract": "Multisend",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2539.json",
+    "contract": "MultiSendCoinCrowd",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1401.json",
+    "contract": "MultiSendEth",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "calls-loop reports external calls in loops; archived label assesses unexpected-revert DoS. Factual loop occurrence does not establish DoS. Do not transfer this label to the exact finding.",
+    "upstream_issues": []
+  },
+  {
+    "file": "test761.json",
+    "contract": "NFToken",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test1731.json",
+    "contract": "OfferRegistry",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2010.json",
+    "contract": "OlympusLabsCore",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3267.json",
+    "contract": "PlayerBook",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test679.json",
+    "contract": "PlayerBook",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3004.json",
+    "contract": "preICO",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1834.json",
+    "contract": "PreSale",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test3636.json",
+    "contract": "Profiterole",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1568.json",
+    "contract": "R1Exchange",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test2324.json",
+    "contract": "Referral",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2898.json",
+    "contract": "Registry",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1230.json",
+    "contract": "ReservedTokensFinalizeAgent",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1537.json",
+    "contract": "ReservedTokensFinalizeAgent",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1961.json",
+    "contract": "ReservedTokensFinalizeAgent",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1979.json",
+    "contract": "ReservedTokensFinalizeAgent",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2164.json",
+    "contract": "ReservedTokensFinalizeAgent",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test230.json",
+    "contract": "ReservedTokensFinalizeAgent",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2422.json",
+    "contract": "ReservedTokensFinalizeAgent",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2893.json",
+    "contract": "ReservedTokensFinalizeAgent",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2922.json",
+    "contract": "ReservedTokensFinalizeAgent",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3472.json",
+    "contract": "ReservedTokensFinalizeAgent",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3702.json",
+    "contract": "ReservedTokensFinalizeAgent",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test432.json",
+    "contract": "ReservedTokensFinalizeAgent",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test623.json",
+    "contract": "ReservedTokensFinalizeAgent",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test665.json",
+    "contract": "ReservedTokensFinalizeAgent",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test736.json",
+    "contract": "ReservedTokensFinalizeAgent",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2270.json",
+    "contract": "Sale",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test127.json",
+    "contract": "ScamSeal",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test2655.json",
+    "contract": "ScamSeal",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test19.json",
+    "contract": "ScamStamp",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test300.json",
+    "contract": "ScamStamp",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1677.json",
+    "contract": "ShiftSale",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "calls-loop reports external calls in loops; archived label assesses unexpected-revert DoS. Factual loop occurrence does not establish DoS. Do not transfer this label to the exact finding.",
+    "upstream_issues": []
+  },
+  {
+    "file": "test1022.json",
+    "contract": "SimpleDistributor",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test326.json",
+    "contract": "SirinCrowdsale",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2210.json",
+    "contract": "SkinMinting",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2597.json",
+    "contract": "SmartPyramid",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test1072.json",
+    "contract": "SmartsToken",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2927.json",
+    "contract": "StarbaseCrowdsale",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2927.json",
+    "contract": "StarbaseCrowdsaleContractW",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3596.json",
+    "contract": "StructuredLinkedList",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test500.json",
+    "contract": "StructuredLinkedList",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test374.json",
+    "contract": "SuperMegaIco",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test655.json",
+    "contract": "SwapController",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1711.json",
+    "contract": "SweetTokenLogic",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3867.json",
+    "contract": "SweetTokenLogic",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3283.json",
+    "contract": "Team",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test327.json",
+    "contract": "TeaToken",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1300.json",
+    "contract": "TemplateCrowdsale",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test997.json",
+    "contract": "TheGame",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test406.json",
+    "contract": "TheImmortals",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1752.json",
+    "contract": "TokenAdder",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1908.json",
+    "contract": "TokenAdder",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3606.json",
+    "contract": "TokenAdder",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3630.json",
+    "contract": "TokenAdder",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test1165.json",
+    "contract": "TokenToken",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test2198.json",
+    "contract": "TokenToken",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test1645.json",
+    "contract": "TotlePrimary",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3157.json",
+    "contract": "TotlePrimary",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2716.json",
+    "contract": "TournamentCore",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2997.json",
+    "contract": "TwoXJackpot",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test3438.json",
+    "contract": "UBets",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test1266.json",
+    "contract": "UnicornBreeding",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test242.json",
+    "contract": "UnicornManagement",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test2714.json",
+    "contract": "UnilotTailEther",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test611.json",
+    "contract": "UnilotTailEther",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "label_conflict"
+    ]
+  },
+  {
+    "file": "test1672.json",
+    "contract": "untrustedChildWithdraw",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group",
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3654.json",
+    "contract": "WinEthFree",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test672.json",
+    "contract": "WinEthFree",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": []
+  },
+  {
+    "file": "test1248.json",
+    "contract": "Winner",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test1422.json",
+    "contract": "Winner",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test2137.json",
+    "contract": "Winner",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test634.json",
+    "contract": "Winner",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "ambiguous_warning_group"
+    ]
+  },
+  {
+    "file": "test3033.json",
+    "contract": "XRRfrozen",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3809.json",
+    "contract": "YoobaBatchTransfer",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  },
+  {
+    "file": "test3881.json",
+    "contract": "ZapCoordinator",
+    "category": "unexpectedrevert_result",
+    "status": "unresolved",
+    "reason": "Not a unique current reproduction, or unresolved archive/consolidated linkage.",
+    "upstream_issues": [
+      "no_unique_consolidated_assessment"
+    ]
+  }
+]

@@ -1,0 +1,94 @@
+{
+  "task": "verify_static_analysis_finding",
+  "finding": {
+    "tool": "slither",
+    "detector": "suicidal",
+    "impact": "High",
+    "confidence": "High",
+    "description": "ValueTrader.die() (source.sol#184-187) allows anyone to destruct the contract\n",
+    "contract": "ValueTrader",
+    "function": "die()",
+    "lines": [
+      184,
+      185,
+      186,
+      187
+    ],
+    "id": "candidate",
+    "file": "source.sol"
+  },
+  "target": {
+    "id": "fragment_0000",
+    "signature": "die()",
+    "visibility": "public",
+    "source": "function die() owned burnBlock{\n                                                                 \n        selfdestruct(owner);\n    }"
+  },
+  "available_context": [
+    {
+      "id": "fragment_0001",
+      "kind": "modifier",
+      "name": "owned()",
+      "reasons": [
+        "modifier"
+      ]
+    },
+    {
+      "id": "fragment_0002",
+      "kind": "modifier",
+      "name": "burnBlock()",
+      "reasons": [
+        "modifier"
+      ]
+    },
+    {
+      "id": "fragment_0003",
+      "kind": "state_variable",
+      "name": "ValueTrader.burning",
+      "reasons": [
+        "state variable declaration: burning"
+      ]
+    },
+    {
+      "id": "fragment_0004",
+      "kind": "function",
+      "name": "toggleBurn()",
+      "reasons": [
+        "direct writer of state variable: burning"
+      ]
+    },
+    {
+      "id": "fragment_0005",
+      "kind": "function",
+      "name": "ValueTrader()",
+      "reasons": [
+        "direct writer of state variable: burning",
+        "direct writer of state variable: owner"
+      ]
+    },
+    {
+      "id": "fragment_0006",
+      "kind": "function",
+      "name": "slitherConstructorVariables()",
+      "reasons": [
+        "direct writer of state variable: burning"
+      ]
+    },
+    {
+      "id": "fragment_0007",
+      "kind": "state_variable",
+      "name": "ValueTrader.owner",
+      "reasons": [
+        "state variable declaration: owner"
+      ]
+    },
+    {
+      "id": "fragment_0008",
+      "kind": "function",
+      "name": "changeOwner(address)",
+      "reasons": [
+        "direct writer of state variable: owner"
+      ]
+    }
+  ],
+  "context_complete": false
+}

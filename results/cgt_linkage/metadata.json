@@ -1,0 +1,11 @@
+{
+  "csv_sha256": "306f91a45c783494cbc9b6010c3e044ffcfcd9a67e80165f6d896528fa1d94ba",
+  "dataset_commit": null,
+  "dataset_version_note": "Local data copy has no .git; pinned by content hashes, not parent repository commit",
+  "slither_version": "0.11.6",
+  "runner_sha256": "abd19f682660a68c645de84487268da9ceb29d3c3f6cab0e25b8e428f779c36d",
+  "archive_parser_sha256": "5f488fc2154d6ecc050c9cf6aeebfca63e2cf887032f5f6cb6ddd7c34b11d7aa",
+  "historical_slither_version": "not recorded in archived JSON",
+  "live_scope": "all unique, CGT-consistent archive groups across five categories; exact expression reproduction only",
+  "api_calls": 0
+}

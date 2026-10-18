@@ -1,0 +1,26 @@
+{
+  "protected_files_checked": 195,
+  "changed": [],
+  "missing": [],
+  "new": [],
+  "baseline_inventory_sha256": "70256c708cc71f0d5d9e8b4e3b742b625736263ad4db1ec9893cffc56b80c6a7",
+  "tests": {
+    "discovered": 61,
+    "passed": 60,
+    "skipped": 1,
+    "skip_reason": "Streamlit not installed; AppTest runtime smoke test unavailable",
+    "runner": "unittest"
+  },
+  "pytest": "unavailable; module not installed",
+  "streamlit_runtime": "not executed; dependency installation blocked by DNS",
+  "real_slither_service_integration": "passed with mocked inference",
+  "context_equivalence": {
+    "reviewed_findings_compared": 27,
+    "identical_catalogs_and_payloads": 27
+  },
+  "prompt_unchanged": true,
+  "response_schema_unchanged": true,
+  "compileall": "passed",
+  "git_diff_check": "passed",
+  "paid_api_calls": 0
+}

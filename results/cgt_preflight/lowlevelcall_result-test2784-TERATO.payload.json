@@ -1,0 +1,25 @@
+{
+  "task": "verify_static_analysis_finding",
+  "finding": {
+    "tool": "slither",
+    "detector": "unchecked-lowlevel",
+    "impact": "Medium",
+    "confidence": "Medium",
+    "description": "TERATO.transfer(address,uint256,bytes,string) (source.sol#152-167) ignores return value by receiver.call.value(0)(bytes4(sha3()(_custom_fallback)),msg.sender,_value,_data) (source.sol#161)\n",
+    "contract": "TERATO",
+    "function": "transfer(address,uint256,bytes,string)",
+    "lines": [
+      161
+    ],
+    "id": "candidate",
+    "file": "source.sol"
+  },
+  "target": {
+    "id": "fragment_0000",
+    "signature": "transfer(address,uint256,bytes,string)",
+    "visibility": "public",
+    "source": "function transfer(address to, uint value, bytes data, string customFallback) public returns (bool ok);"
+  },
+  "available_context": [],
+  "context_complete": false
+}

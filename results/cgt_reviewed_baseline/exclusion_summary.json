@@ -1,0 +1,9 @@
+{
+  "accepted": 27,
+  "no_consolidated_counterpart": 324,
+  "conflicting_labels": 24,
+  "multiple_historical_warnings": 28,
+  "current_expression_mismatch": 6,
+  "uncertain_negative_label_semantics": 2,
+  "detector_vs_property_semantics": 8
+}

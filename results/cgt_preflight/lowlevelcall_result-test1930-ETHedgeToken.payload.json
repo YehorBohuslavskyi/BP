@@ -1,0 +1,84 @@
+{
+  "task": "verify_static_analysis_finding",
+  "finding": {
+    "tool": "slither",
+    "detector": "unchecked-lowlevel",
+    "impact": "Medium",
+    "confidence": "Medium",
+    "description": "ETHedgeToken.takeCapital() (source.sol#204-215) ignores return value by capital_.call.value(capitalAmountTrans)() (source.sol#211)\n",
+    "contract": "ETHedgeToken",
+    "function": "takeCapital()",
+    "lines": [
+      211
+    ],
+    "id": "candidate",
+    "file": "source.sol"
+  },
+  "target": {
+    "id": "fragment_0000",
+    "signature": "takeCapital()",
+    "visibility": "public",
+    "source": "function takeCapital() public{\n        require(capitalAmount_>0 && AdminRewardAmount_>0, \"No fundz, sorry!\");\n        uint256 capitalAmountTrans=capitalAmount_;\n        uint256 adminAmountTrans=AdminRewardAmount_;\n        capitalAmount_=0;\n        AdminRewardAmount_=0;\n                                                                    \n        capital_.call.value(capitalAmountTrans)();                                              \n        DevsInterface devContract_ = DevsInterface(devReward_);\n        devContract_.payDividends.value(adminAmountTrans)('ethedge.co source');\n        emit onTakeCapital(capital_,devReward_,capitalAmountTrans,adminAmountTrans,msg.sender,now);\n    }"
+  },
+  "available_context": [
+    {
+      "id": "fragment_0001",
+      "kind": "state_variable",
+      "name": "ETHedgeToken.AdminRewardAmount_",
+      "reasons": [
+        "state variable declaration: AdminRewardAmount_"
+      ]
+    },
+    {
+      "id": "fragment_0002",
+      "kind": "function",
+      "name": "purchaseTokens(uint256,address)",
+      "reasons": [
+        "direct writer of state variable: AdminRewardAmount_",
+        "direct writer of state variable: capitalAmount_"
+      ]
+    },
+    {
+      "id": "fragment_0003",
+      "kind": "state_variable",
+      "name": "ETHedgeToken.capitalAmount_",
+      "reasons": [
+        "state variable declaration: capitalAmount_"
+      ]
+    },
+    {
+      "id": "fragment_0004",
+      "kind": "state_variable",
+      "name": "ETHedgeToken.capital_",
+      "reasons": [
+        "state variable declaration: capital_"
+      ]
+    },
+    {
+      "id": "fragment_0005",
+      "kind": "function",
+      "name": "changeOuts(address)",
+      "reasons": [
+        "direct writer of state variable: capital_"
+      ]
+    },
+    {
+      "id": "fragment_0006",
+      "kind": "function",
+      "name": "slitherConstructorVariables()",
+      "reasons": [
+        "direct writer of state variable: capital_",
+        "direct writer of state variable: devReward_"
+      ]
+    },
+    {
+      "id": "fragment_0007",
+      "kind": "state_variable",
+      "name": "ETHedgeToken.devReward_",
+      "reasons": [
+        "state variable declaration: devReward_"
+      ]
+    }
+  ],
+  "context_complete": false
+}

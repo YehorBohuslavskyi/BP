@@ -1,16 +1,21 @@
+"""Build finding-specific requests and resolve allowlisted source fragments."""
 from context_audit.catalog import FragmentCatalog
+from context_audit.findings import Finding
 
-def build_initial_payload (
+
+def build_initial_payload(
         context: dict,
         catalog: FragmentCatalog,
-) -> dict :
+        finding: Finding
+) -> dict:
+    """Include target source and metadata for requestable dependencies, without their source."""
     target_id = context["fragment_id"]
     target = catalog.get(target_id)
 
     available = {}
 
     def add_available(fragment_id: str, reason: str) -> None:
-        if  fragment_id == target_id:
+        if fragment_id == target_id:
             return
         fragment = catalog.get(fragment_id)
 
@@ -36,22 +41,40 @@ def build_initial_payload (
         for writer in dependency["direct_writers"]:
             add_available(writer["fragment_id"], f"direct writer of state variable: {variable_name}")
 
-    return {
+    payload = {
         "target": {
             "id": target_id,
             "signature": context["signature"],
             "visibility": context["visibility"],
-            "source": target["source"],
+            "source": target["source"]
         },
         "available_context": list(available.values()),
         "context_complete": False,
     }
+
+    payload["task"] = "verify_static_analysis_finding"
+
+    payload["finding"] = {
+        "id": finding.id,
+        "tool": "slither",
+        "detector": finding.detector,
+        "impact": finding.impact,
+        "confidence": finding.confidence,
+        "description": finding.description,
+        "contract": finding.contract,
+        "function": finding.function_signature,
+        "file": finding.file,
+        "lines": finding.lines,
+    }
+
+    return payload
 
 def resolve_context_request(
         requested_ids: list[str],
         initial_payload: dict,
         catalog: FragmentCatalog,
 ) -> dict:
+    """Resolve allowed fragment IDs once, reporting unavailable IDs explicitly."""
     allowed_ids = {
         item["id"] for item in initial_payload["available_context"]
     }

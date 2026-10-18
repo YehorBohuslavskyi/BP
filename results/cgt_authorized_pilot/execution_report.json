@@ -1,0 +1,27 @@
+{
+  "status": "blocked_network",
+  "model": "gpt-5.6-luna",
+  "findings_attempted": 10,
+  "positive": 5,
+  "negative": 5,
+  "successful_assessments": 0,
+  "runtime_errors": 10,
+  "inconclusive": 0,
+  "confusion_outcomes": {
+    "TP": 0,
+    "FP": 0,
+    "TN": 0,
+    "FN": 0
+  },
+  "confusion_note": "No decided cases; no classification performance can be estimated.",
+  "actual_api_usage": null,
+  "usage_note": "All ten attempts lack usage responses. Zero counters in raw exports mean no reported tokens, not verified zero billing.",
+  "completed_rounds": 0,
+  "average_completed_rounds_per_attempted_finding": 0,
+  "average_rounds_per_successful_assessment": null,
+  "requested_fragments": 0,
+  "source_function_resolution_failures": 0,
+  "remaining_17_attempted": false,
+  "credential_file_removed": true,
+  "blocker": "api.openai.com DNS lookup fails: Temporary failure in name resolution"
+}

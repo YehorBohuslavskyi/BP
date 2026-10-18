@@ -1,0 +1,69 @@
+{
+  "task": "verify_static_analysis_finding",
+  "finding": {
+    "tool": "slither",
+    "detector": "unchecked-lowlevel",
+    "impact": "Medium",
+    "confidence": "Medium",
+    "description": "coinScheduleReferral.fallback() (source.sol#173-180) ignores return value by wwamICOcontractAddress.call.gas(300000).value(msg.value)() (source.sol#174)\n",
+    "contract": "coinScheduleReferral",
+    "function": "fallback()",
+    "lines": [
+      174
+    ],
+    "id": "candidate",
+    "file": "source.sol"
+  },
+  "target": {
+    "id": "fragment_0000",
+    "signature": "fallback()",
+    "visibility": "public",
+    "source": "function() payable {\n        wwamICOcontractAddress.call.gas(300000).value(msg.value)();\n        weiRaised = safeAdd(weiRaised, msg.value);\n        PricingStrategy pricingStrategy = PricingStrategy(pricingStrategyAddress);\n        uint tokenAmount = pricingStrategy.calculatePrice(msg.value, 0, 0, 0, 0);\n        StandardToken token = StandardToken(tokenAddress);\n        token.transfer(msg.sender, tokenAmount);\n    }"
+  },
+  "available_context": [
+    {
+      "id": "fragment_0001",
+      "kind": "state_variable",
+      "name": "coinScheduleReferral.pricingStrategyAddress",
+      "reasons": [
+        "state variable declaration: pricingStrategyAddress"
+      ]
+    },
+    {
+      "id": "fragment_0002",
+      "kind": "function",
+      "name": "slitherConstructorVariables()",
+      "reasons": [
+        "direct writer of state variable: pricingStrategyAddress",
+        "direct writer of state variable: tokenAddress",
+        "direct writer of state variable: weiRaised",
+        "direct writer of state variable: wwamICOcontractAddress"
+      ]
+    },
+    {
+      "id": "fragment_0003",
+      "kind": "state_variable",
+      "name": "coinScheduleReferral.tokenAddress",
+      "reasons": [
+        "state variable declaration: tokenAddress"
+      ]
+    },
+    {
+      "id": "fragment_0004",
+      "kind": "state_variable",
+      "name": "coinScheduleReferral.weiRaised",
+      "reasons": [
+        "state variable declaration: weiRaised"
+      ]
+    },
+    {
+      "id": "fragment_0005",
+      "kind": "state_variable",
+      "name": "coinScheduleReferral.wwamICOcontractAddress",
+      "reasons": [
+        "state variable declaration: wwamICOcontractAddress"
+      ]
+    }
+  ],
+  "context_complete": false
+}

@@ -1,7 +1,11 @@
+"""Dependency-aware metadata for a target function and its direct state dependencies."""
+from itertools import chain
+
 from slither.core.declarations import Function
 from context_audit.catalog import FragmentCatalog
 
 def build_function_context(function: Function, catalog: FragmentCatalog) -> dict:
+    """Build modifier, state-declaration, and direct-writer metadata for a function."""
     function_id = catalog.add(function, "function", function.full_name)
     modifiers = []
     related_variables ={}
@@ -37,20 +41,18 @@ def build_function_context(function: Function, catalog: FragmentCatalog) -> dict
 
         direct_writers = []
 
-        for candidate in function.contract.functions:
-            if variable in candidate.state_variables_written:
+        # Functions and modifiers can both write a dependency. Keep the original
+        # functions-first order because catalog order controls request metadata.
+        candidates = chain(
+            ((candidate, "function") for candidate in function.contract.functions),
+            ((modifier, "modifier") for modifier in function.contract.modifiers),
+        )
+        for writer, kind in candidates:
+            if variable in writer.state_variables_written:
                 direct_writers.append({
-                    "fragment_id": catalog.add(candidate, "function", candidate.full_name),
-                    "signature": candidate.full_name,
-                    "kind": "function",
-                })
-
-        for modifier in function.contract.modifiers:
-            if variable in modifier.state_variables_written:
-                direct_writers.append({
-                    "fragment_id": catalog.add(modifier, "modifier", modifier.full_name),
-                    "signature": modifier.full_name,
-                    "kind": "modifier",
+                    "fragment_id": catalog.add(writer, kind, writer.full_name),
+                    "signature": writer.full_name,
+                    "kind": kind,
                 })
 
         dependencies.append({

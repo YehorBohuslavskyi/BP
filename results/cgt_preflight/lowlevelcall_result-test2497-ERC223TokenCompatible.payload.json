@@ -1,0 +1,42 @@
+{
+  "task": "verify_static_analysis_finding",
+  "finding": {
+    "tool": "slither",
+    "detector": "unchecked-lowlevel",
+    "impact": "Medium",
+    "confidence": "Medium",
+    "description": "ERC223TokenCompatible.transfer(address,uint256,bytes,string) (source.sol#183-195) ignores return value by _to.call.value(0)(bytes4(keccak256()(_custom_fallback)),msg.sender,_value,_data) (source.sol#191)\n",
+    "contract": "ERC223TokenCompatible",
+    "function": "transfer(address,uint256,bytes,string)",
+    "lines": [
+      191
+    ],
+    "id": "candidate",
+    "file": "source.sol"
+  },
+  "target": {
+    "id": "fragment_0000",
+    "signature": "transfer(address,uint256,bytes,string)",
+    "visibility": "public",
+    "source": "function transfer(address _to, uint256 _value, bytes _data, string _custom_fallback) public returns (bool success) {\n\t\trequire(_to != address(0));\n        require(_to != address(this));\n\t\trequire(_value <= balances[msg.sender]);\n\t\t                                                          \n        balances[msg.sender] = balances[msg.sender].sub(_value);\n        balances[_to] = balances[_to].add(_value);\n\t\tif( isContract(_to) ) {\n\t\t _to.call.value(0)(bytes4(keccak256(_custom_fallback)), msg.sender, _value, _data);\n\t\t} \n\t\tTransfer(msg.sender, _to, _value, _data);\n\t\treturn true;\n\t}"
+  },
+  "available_context": [
+    {
+      "id": "fragment_0001",
+      "kind": "state_variable",
+      "name": "BasicToken.balances",
+      "reasons": [
+        "state variable declaration: balances"
+      ]
+    },
+    {
+      "id": "fragment_0002",
+      "kind": "function",
+      "name": "transferFunction(address,address,uint256)",
+      "reasons": [
+        "direct writer of state variable: balances"
+      ]
+    }
+  ],
+  "context_complete": false
+}

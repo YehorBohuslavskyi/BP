@@ -1,0 +1,25 @@
+{
+  "task": "verify_static_analysis_finding",
+  "finding": {
+    "tool": "slither",
+    "detector": "unchecked-lowlevel",
+    "impact": "Medium",
+    "confidence": "Medium",
+    "description": "AKC.transferFrom(address,address,uint256,bytes,string) (source.sol#477-498) ignores return value by receiver.call.value(0)(bytes4(keccak256()(_custom_fallback)),_from,_amount,_data) (source.sol#492)\n",
+    "contract": "AKC",
+    "function": "transferFrom(address,address,uint256,bytes,string)",
+    "lines": [
+      492
+    ],
+    "id": "candidate",
+    "file": "source.sol"
+  },
+  "target": {
+    "id": "fragment_0000",
+    "signature": "transferFrom(address,address,uint256,bytes,string)",
+    "visibility": "public",
+    "source": "function transferFrom(address from, address to, uint256 amount, bytes data, string custom_fallback) public returns (bool ok);"
+  },
+  "available_context": [],
+  "context_complete": false
+}

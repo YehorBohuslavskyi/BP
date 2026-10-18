@@ -1,0 +1,136 @@
+[
+  {
+    "contract": "incorrect_constructor_name1.sol",
+    "lines": [
+      20
+    ],
+    "category": "access_control",
+    "classification": "slither_false_negative",
+    "note": "Public wrong-name constructor assigns owner; version/naming findings do not identify ownership takeover.",
+    "source_sha256": "d918731cebddf34ad385dd799691237e0ec1aab09f34ce7eb6bbe83ec86cd8c8",
+    "slither_version": "0.11.6"
+  },
+  {
+    "contract": "incorrect_constructor_name2.sol",
+    "lines": [
+      18
+    ],
+    "category": "access_control",
+    "classification": "slither_false_negative",
+    "note": "Wrong-case constructor is publicly callable and assigns owner; only compiler-version findings.",
+    "source_sha256": "d210fc21c6fdf273cfe2af52408b09ec82df89ebdea554b0c6356ad8b5d8796d",
+    "slither_version": "0.11.6"
+  },
+  {
+    "contract": "incorrect_constructor_name3.sol",
+    "lines": [
+      17
+    ],
+    "category": "access_control",
+    "classification": "slither_false_negative",
+    "note": "Wrong-name constructor permits ownership takeover; version/naming findings do not identify it.",
+    "source_sha256": "a1a505f4d25449a4a566b9a84b8c51ecdc2cbe768f9d1f041900d90a530807a6",
+    "slither_version": "0.11.6"
+  },
+  {
+    "contract": "multiowned_vulnerable.sol",
+    "lines": [
+      38
+    ],
+    "category": "access_control",
+    "classification": "slither_false_negative",
+    "note": "newOwner lacks onlyOwner, allowing self-registration followed by withdrawAll. Only version/naming findings; naming at the same line is unrelated.",
+    "source_sha256": "ee0df823e630dd8fc538222bfb82ad97fd563b9f1185e3eba3d02dfefd812fc6",
+    "slither_version": "0.11.6"
+  },
+  {
+    "contract": "parity_wallet_bug_1.sol",
+    "lines": [
+      223
+    ],
+    "category": "access_control",
+    "classification": "slither_false_negative",
+    "note": "Public initWallet calls initDaylimit and initMultiowned without authorization. external-function and naming findings concern visibility/style, not reinitialization; suicidal concerns kill at 229-231.",
+    "source_sha256": "ca6d797c809ab8f67d8833e1208a16d7f284307ed0418fdd29a171d0b6e7cec9",
+    "slither_version": "0.11.6"
+  },
+  {
+    "contract": "parity_wallet_bug_1.sol",
+    "lines": [
+      437
+    ],
+    "category": "access_control",
+    "classification": "slither_false_negative",
+    "note": "Fallback forwards arbitrary calldata to a constant library. unchecked-lowlevel reports ignored return status and low-level-calls reports call usage, neither identifies unauthorized initialization through delegation. suicidal concerns a different function.",
+    "source_sha256": "ca6d797c809ab8f67d8833e1208a16d7f284307ed0418fdd29a171d0b6e7cec9",
+    "slither_version": "0.11.6"
+  },
+  {
+    "contract": "parity_wallet_bug_2.sol",
+    "lines": [
+      226
+    ],
+    "category": "access_control",
+    "classification": "slither_false_negative",
+    "note": "only_uninitialized prevents repeat initialization but permits anyone to initialize the library itself. No finding identifies this initializer vulnerability; suicidal identifies kill at 233-235 and matches the separate GT at 233.",
+    "source_sha256": "3026bd9ff80d0a4b7d166c0d4d2aad07063d05a67e3df9267d9580933d1a529e",
+    "slither_version": "0.11.6"
+  },
+  {
+    "contract": "rubixi.sol",
+    "lines": [
+      23,
+      24
+    ],
+    "category": "access_control",
+    "classification": "slither_false_negative",
+    "note": "DynamicPyramid is a public wrong-name constructor assigning creator. naming-convention at 23-25 is style only. controlled-array-length at 61 belongs to addPayout at 59-79; events-access and missing-zero-check concern changeOwner at 108-110.",
+    "source_sha256": "a4c33aa1b035feff8e114e5afab6a15e524636d4ea4660459d3b5909272eabed",
+    "slither_version": "0.11.6"
+  },
+  {
+    "contract": "unprotected0.sol",
+    "lines": [
+      25
+    ],
+    "category": "access_control",
+    "classification": "slither_false_negative",
+    "note": "Public changeOwner lacks onlyowner. missing-zero-check at 28 concerns a zero address, not caller authorization; naming at 25 and version warnings are unrelated.",
+    "source_sha256": "8cfc8702a1a0afe407c2ea83e0c48e97909f66af1955ee5e1321f1dc2818a045",
+    "slither_version": "0.11.6"
+  },
+  {
+    "contract": "wallet_02_refund_nosub.sol",
+    "lines": [
+      36
+    ],
+    "category": "access_control",
+    "classification": "slither_false_negative",
+    "note": "refund transfers the recorded balance without clearing it, allowing repeated withdrawals. reentrancy-unlimited-gas concerns withdraw at 28-32, not refund; missing-zero-check concerns migrateTo.",
+    "source_sha256": "3bf849eea5a234dcf2755aa526f934b3edfa560ee7eac3d70385887e3bc6ff79",
+    "slither_version": "0.11.6"
+  },
+  {
+    "contract": "wallet_03_wrong_constructor.sol",
+    "lines": [
+      19,
+      20
+    ],
+    "category": "access_control",
+    "classification": "slither_false_negative",
+    "note": "Public initWallet assigns creator and enables migrateTo takeover. Findings concern withdraw reentrancy, migrateTo zero-check, and compiler version, not initialization.",
+    "source_sha256": "6f5e18f2dbfb404c4bece60b475d17bd49d66ad3da34cffee8a47f7326ae0aa9",
+    "slither_version": "0.11.6"
+  },
+  {
+    "contract": "wallet_04_confused_sign.sol",
+    "lines": [
+      30
+    ],
+    "category": "access_control",
+    "classification": "slither_false_negative",
+    "note": "withdraw uses amount >= balance instead of <=. reentrancy-unlimited-gas in the same function concerns transfer followed by state update, not the reversed comparison; zero-check/version findings are unrelated.",
+    "source_sha256": "5ec3d85c76b1f1a15ec1295085087f1d969742bdc2aaf9c6fb1a79bfffa8735d",
+    "slither_version": "0.11.6"
+  }
+]

@@ -1,0 +1,86 @@
+{
+  "task": "verify_static_analysis_finding",
+  "finding": {
+    "tool": "slither",
+    "detector": "reentrancy-eth",
+    "impact": "High",
+    "confidence": "Medium",
+    "description": "Reentrancy in BancorBuyer.buyOne(ERC20,address,uint256,bytes) (source.sol#175-190):\n\tExternal calls:\n\t- tokenBalance = token.balanceOf(this) (source.sol#185)\n\t- require(bool)(_exchange.call.value(_value)(_data)) (source.sol#186)\n\tExternal calls sending eth:\n\t- require(bool)(_exchange.call.value(_value)(_data)) (source.sol#186)\n\tState variables written after the call(s):\n\t- balances[msg.sender] = balances[msg.sender].sub(_value) (source.sol#187)\n\tBancorBuyer.balances (source.sol#110) can be used in cross function reentrancies:\n\t- BancorBuyer.balances (source.sol#110)\n\t- BancorBuyer.buy1(address[],address[],uint256[],bytes) (source.sol#192-203)\n\t- BancorBuyer.buy2(address[],address[],uint256[],bytes,bytes) (source.sol#205-218)\n\t- BancorBuyer.buy3(address[],address[],uint256[],bytes,bytes,bytes) (source.sol#220-235)\n\t- BancorBuyer.buyOne(ERC20,address,uint256,bytes) (source.sol#175-190)\n\t- BancorBuyer.deposit(address,address[],uint256[]) (source.sol#119-133)\n\t- BancorBuyer.withdraw(address,uint256,address[],uint256[]) (source.sol#135-150)\n",
+    "contract": "BancorBuyer",
+    "function": "buyOne(ERC20,address,uint256,bytes)",
+    "lines": [
+      185,
+      186,
+      187
+    ],
+    "id": "candidate",
+    "file": "source.sol"
+  },
+  "target": {
+    "id": "fragment_0000",
+    "signature": "buyOne(ERC20,address,uint256,bytes)",
+    "visibility": "public",
+    "source": "function buyOne(\n        ERC20 token,\n        address _exchange,\n        uint256 _value,\n        bytes _data\n    ) \n        payable\n        public\n    {\n        balances[msg.sender] = balances[msg.sender].add(msg.value);\n        uint256 tokenBalance = token.balanceOf(this);\n        require(_exchange.call.value(_value)(_data));\n        balances[msg.sender] = balances[msg.sender].sub(_value);\n        tokenBalances[msg.sender][token] = tokenBalances[msg.sender][token]\n            .add(token.balanceOf(this).sub(tokenBalance));\n    }"
+  },
+  "available_context": [
+    {
+      "id": "fragment_0001",
+      "kind": "state_variable",
+      "name": "BancorBuyer.balances",
+      "reasons": [
+        "state variable declaration: balances"
+      ]
+    },
+    {
+      "id": "fragment_0002",
+      "kind": "function",
+      "name": "deposit(address,address[],uint256[])",
+      "reasons": [
+        "direct writer of state variable: balances",
+        "direct writer of state variable: tokenBalances"
+      ]
+    },
+    {
+      "id": "fragment_0003",
+      "kind": "function",
+      "name": "withdraw(address,uint256,address[],uint256[])",
+      "reasons": [
+        "direct writer of state variable: balances",
+        "direct writer of state variable: tokenBalances"
+      ]
+    },
+    {
+      "id": "fragment_0004",
+      "kind": "function",
+      "name": "buy1(address[],address[],uint256[],bytes)",
+      "reasons": [
+        "direct writer of state variable: balances"
+      ]
+    },
+    {
+      "id": "fragment_0005",
+      "kind": "function",
+      "name": "buy2(address[],address[],uint256[],bytes,bytes)",
+      "reasons": [
+        "direct writer of state variable: balances"
+      ]
+    },
+    {
+      "id": "fragment_0006",
+      "kind": "function",
+      "name": "buy3(address[],address[],uint256[],bytes,bytes,bytes)",
+      "reasons": [
+        "direct writer of state variable: balances"
+      ]
+    },
+    {
+      "id": "fragment_0007",
+      "kind": "state_variable",
+      "name": "BancorBuyer.tokenBalances",
+      "reasons": [
+        "state variable declaration: tokenBalances"
+      ]
+    }
+  ],
+  "context_complete": false
+}

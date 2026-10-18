@@ -1,0 +1,1646 @@
+[
+  {
+    "review_id": "reentrancy-test1916-PrivateDeposit",
+    "label": true,
+    "verdict": "confirmed",
+    "result": {
+      "finding": {
+        "id": "57157476dd65127f1350a9a6a42d440109a0d3f26c4743c82724c89e122519d8",
+        "detector": "reentrancy-eth",
+        "contract": "PrivateDeposit",
+        "function": "CashOut(uint256)",
+        "file": "datasets/cgt/source/b89b0de4c15fed659060c0f00cda7134.sol"
+      },
+      "assessment": {
+        "action": "final",
+        "requested_ids": [],
+        "verdict": "confirmed",
+        "explanation": "The function performs an external call to msg.sender before decrementing balances[msg.sender]. A reentrant caller can invoke CashOut again while the balance is still unchanged, allowing repeated withdrawals subject to the available balance. The reported reentrancy finding is therefore supported.",
+        "evidence_ids": [
+          "b89b0de4c15fed659060c0f00cda7134.sol:function:745:290",
+          "b89b0de4c15fed659060c0f00cda7134.sol:state_variable:56:41"
+        ]
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "result": {
+            "assessment": {
+              "action": "request_context",
+              "requested_ids": [
+                "b89b0de4c15fed659060c0f00cda7134.sol:state_variable:56:41",
+                "b89b0de4c15fed659060c0f00cda7134.sol:function:513:222"
+              ],
+              "verdict": "pending",
+              "explanation": "The finding concerns a state update after an external call and possible cross-function reentrancy through balances. The balances declaration and Deposit() implementation are relevant to determine whether reentrant interaction is possible.",
+              "evidence_ids": []
+            },
+            "model": "gpt-5.6-luna",
+            "response_id": "resp_07f9a83d7d894ee6016ad3cacf686487d290dedba7053b5790",
+            "usage": {
+              "input_tokens": 1057,
+              "input_tokens_details": {
+                "cache_write_tokens": 1054,
+                "cached_tokens": 0
+              },
+              "output_tokens": 109,
+              "output_tokens_details": {
+                "reasoning_tokens": 28
+              },
+              "total_tokens": 1166
+            }
+          }
+        },
+        {
+          "round": 2,
+          "result": {
+            "assessment": {
+              "action": "final",
+              "requested_ids": [],
+              "verdict": "confirmed",
+              "explanation": "The function performs an external call to msg.sender before decrementing balances[msg.sender]. A reentrant caller can invoke CashOut again while the balance is still unchanged, allowing repeated withdrawals subject to the available balance. The reported reentrancy finding is therefore supported.",
+              "evidence_ids": [
+                "b89b0de4c15fed659060c0f00cda7134.sol:function:745:290",
+                "b89b0de4c15fed659060c0f00cda7134.sol:state_variable:56:41"
+              ]
+            },
+            "model": "gpt-5.6-luna",
+            "response_id": "resp_0bc415f4a890228c016ad3cad1fdec87d29db264e99f9b0271",
+            "usage": {
+              "input_tokens": 1189,
+              "input_tokens_details": {
+                "cache_write_tokens": 1186,
+                "cached_tokens": 0
+              },
+              "output_tokens": 280,
+              "output_tokens_details": {
+                "reasoning_tokens": 187
+              },
+              "total_tokens": 1469
+            }
+          }
+        }
+      ],
+      "round_count": 2,
+      "provided_context": [
+        {
+          "id": "b89b0de4c15fed659060c0f00cda7134.sol:state_variable:56:41",
+          "kind": "state_variable",
+          "name": "PrivateDeposit.balances",
+          "file": "b89b0de4c15fed659060c0f00cda7134.sol",
+          "source": "mapping (address => uint) public balances"
+        },
+        {
+          "id": "b89b0de4c15fed659060c0f00cda7134.sol:function:513:222",
+          "kind": "function",
+          "name": "Deposit()",
+          "file": "b89b0de4c15fed659060c0f00cda7134.sol",
+          "source": "function Deposit()\n    public\n    payable\n    {\n        if(msg.value >= MinDeposit)\n        {\n            balances[msg.sender]+=msg.value;\n            TransferLog.AddMessage(msg.sender,msg.value,\"Deposit\");\n        }\n    }"
+        }
+      ]
+    },
+    "context_efficiency": {
+      "full_source_tokens": 380,
+      "initial_source_tokens": 73,
+      "initial_payload_tokens": 472,
+      "cumulative_input_tokens": 2246,
+      "initial_source_reduction": 0.8078947368421052,
+      "initial_payload_reduction": -0.24210526315789482,
+      "cumulative_input_reduction": -4.910526315789474
+    },
+    "source_bytes": 1519,
+    "source_LOC": 81,
+    "solidity_files": 1,
+    "context_requests": 1,
+    "requested_fragments": 2,
+    "explanation": "The function performs an external call to msg.sender before decrementing balances[msg.sender]. A reentrant caller can invoke CashOut again while the balance is still unchanged, allowing repeated withdrawals subject to the available balance. The reported reentrancy finding is therefore supported.",
+    "evidence_ids": [
+      "b89b0de4c15fed659060c0f00cda7134.sol:function:745:290",
+      "b89b0de4c15fed659060c0f00cda7134.sol:state_variable:56:41"
+    ],
+    "api_rounds": [
+      {
+        "assessment": {
+          "action": "request_context",
+          "requested_ids": [
+            "fragment_0004",
+            "fragment_0005"
+          ],
+          "verdict": "pending",
+          "explanation": "The finding concerns a state update after an external call and possible cross-function reentrancy through balances. The balances declaration and Deposit() implementation are relevant to determine whether reentrant interaction is possible.",
+          "evidence_ids": []
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_07f9a83d7d894ee6016ad3cacf686487d290dedba7053b5790",
+        "usage": {
+          "input_tokens": 1057,
+          "input_tokens_details": {
+            "cache_write_tokens": 1054,
+            "cached_tokens": 0
+          },
+          "output_tokens": 109,
+          "output_tokens_details": {
+            "reasoning_tokens": 28
+          },
+          "total_tokens": 1166
+        }
+      },
+      {
+        "assessment": {
+          "action": "final",
+          "requested_ids": [],
+          "verdict": "confirmed",
+          "explanation": "The function performs an external call to msg.sender before decrementing balances[msg.sender]. A reentrant caller can invoke CashOut again while the balance is still unchanged, allowing repeated withdrawals subject to the available balance. The reported reentrancy finding is therefore supported.",
+          "evidence_ids": [
+            "fragment_0000",
+            "fragment_0004"
+          ]
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_0bc415f4a890228c016ad3cad1fdec87d29db264e99f9b0271",
+        "usage": {
+          "input_tokens": 1189,
+          "input_tokens_details": {
+            "cache_write_tokens": 1186,
+            "cached_tokens": 0
+          },
+          "output_tokens": 280,
+          "output_tokens_details": {
+            "reasoning_tokens": 187
+          },
+          "total_tokens": 1469
+        }
+      }
+    ],
+    "requested_fragment_ids": [
+      "fragment_0004",
+      "fragment_0005"
+    ],
+    "input_tokens": 2246,
+    "output_tokens": 389,
+    "total_tokens": 2635,
+    "actual_usage": {
+      "input_tokens": 2246,
+      "output_tokens": 389,
+      "total_tokens": 2635
+    },
+    "round_count": 2
+  },
+  {
+    "review_id": "selfdestruct_result-test3061-ValueTrader",
+    "label": false,
+    "verdict": "false_positive",
+    "result": {
+      "finding": {
+        "id": "78e154ede06c6399d189e10030da70fcc9531ca51d12f87ff42798f4b3b04995",
+        "detector": "suicidal",
+        "contract": "ValueTrader",
+        "function": "die()",
+        "file": "datasets/cgt/source/efe5ebd718c6afa9c24214bb4373b40d.sol"
+      },
+      "assessment": {
+        "action": "final",
+        "requested_ids": [],
+        "verdict": "false_positive",
+        "explanation": "The finding claims anyone can destruct the contract, but `die()` uses the `owned` modifier. That modifier requires `msg.sender == owner` and reverts otherwise, so destruction is restricted to the owner (and additionally requires `burning` to be false via `burnBlock`).",
+        "evidence_ids": [
+          "efe5ebd718c6afa9c24214bb4373b40d.sol:function:6312:132",
+          "efe5ebd718c6afa9c24214bb4373b40d.sol:modifier:5779:71",
+          "efe5ebd718c6afa9c24214bb4373b40d.sol:modifier:5860:64"
+        ]
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "result": {
+            "assessment": {
+              "action": "request_context",
+              "requested_ids": [
+                "efe5ebd718c6afa9c24214bb4373b40d.sol:modifier:5779:71",
+                "efe5ebd718c6afa9c24214bb4373b40d.sol:modifier:5860:64"
+              ],
+              "verdict": "pending",
+              "explanation": "The finding depends on whether the `owned` and `burnBlock` modifiers restrict access to `die()`. Their source is required to determine whether anyone can invoke the self-destruct.",
+              "evidence_ids": []
+            },
+            "model": "gpt-5.6-luna",
+            "response_id": "resp_01967eed45ed7bf8016ad3cad6940087d2a4f67362c6cd5d48",
+            "usage": {
+              "input_tokens": 979,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 122,
+              "output_tokens_details": {
+                "reasoning_tokens": 42
+              },
+              "total_tokens": 1101
+            }
+          }
+        },
+        {
+          "round": 2,
+          "result": {
+            "assessment": {
+              "action": "final",
+              "requested_ids": [],
+              "verdict": "false_positive",
+              "explanation": "The finding claims anyone can destruct the contract, but `die()` uses the `owned` modifier. That modifier requires `msg.sender == owner` and reverts otherwise, so destruction is restricted to the owner (and additionally requires `burning` to be false via `burnBlock`).",
+              "evidence_ids": [
+                "efe5ebd718c6afa9c24214bb4373b40d.sol:function:6312:132",
+                "efe5ebd718c6afa9c24214bb4373b40d.sol:modifier:5779:71",
+                "efe5ebd718c6afa9c24214bb4373b40d.sol:modifier:5860:64"
+              ]
+            },
+            "model": "gpt-5.6-luna",
+            "response_id": "resp_04933d8e51a11b80016ad3cad8e80c87d2bc2aebcc613966e1",
+            "usage": {
+              "input_tokens": 1083,
+              "input_tokens_details": {
+                "cache_write_tokens": 1080,
+                "cached_tokens": 0
+              },
+              "output_tokens": 212,
+              "output_tokens_details": {
+                "reasoning_tokens": 106
+              },
+              "total_tokens": 1295
+            }
+          }
+        }
+      ],
+      "round_count": 2,
+      "provided_context": [
+        {
+          "id": "efe5ebd718c6afa9c24214bb4373b40d.sol:modifier:5779:71",
+          "kind": "modifier",
+          "name": "owned()",
+          "file": "efe5ebd718c6afa9c24214bb4373b40d.sol",
+          "source": "modifier owned(){\n        assert(msg.sender == owner);\n        _;\n    }"
+        },
+        {
+          "id": "efe5ebd718c6afa9c24214bb4373b40d.sol:modifier:5860:64",
+          "kind": "modifier",
+          "name": "burnBlock()",
+          "file": "efe5ebd718c6afa9c24214bb4373b40d.sol",
+          "source": "modifier burnBlock(){\n        assert(!burning);\n        _;\n    }"
+        }
+      ]
+    },
+    "context_efficiency": {
+      "full_source_tokens": 4188,
+      "initial_source_tokens": 33,
+      "initial_payload_tokens": 413,
+      "cumulative_input_tokens": 2062,
+      "initial_source_reduction": 0.9921203438395415,
+      "initial_payload_reduction": 0.9013849092645654,
+      "cumulative_input_reduction": 0.5076408787010507
+    },
+    "source_bytes": 16750,
+    "source_LOC": 489,
+    "solidity_files": 1,
+    "context_requests": 1,
+    "requested_fragments": 2,
+    "explanation": "The finding claims anyone can destruct the contract, but `die()` uses the `owned` modifier. That modifier requires `msg.sender == owner` and reverts otherwise, so destruction is restricted to the owner (and additionally requires `burning` to be false via `burnBlock`).",
+    "evidence_ids": [
+      "efe5ebd718c6afa9c24214bb4373b40d.sol:function:6312:132",
+      "efe5ebd718c6afa9c24214bb4373b40d.sol:modifier:5779:71",
+      "efe5ebd718c6afa9c24214bb4373b40d.sol:modifier:5860:64"
+    ],
+    "api_rounds": [
+      {
+        "assessment": {
+          "action": "request_context",
+          "requested_ids": [
+            "fragment_0001",
+            "fragment_0002"
+          ],
+          "verdict": "pending",
+          "explanation": "The finding depends on whether the `owned` and `burnBlock` modifiers restrict access to `die()`. Their source is required to determine whether anyone can invoke the self-destruct.",
+          "evidence_ids": []
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_01967eed45ed7bf8016ad3cad6940087d2a4f67362c6cd5d48",
+        "usage": {
+          "input_tokens": 979,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 122,
+          "output_tokens_details": {
+            "reasoning_tokens": 42
+          },
+          "total_tokens": 1101
+        }
+      },
+      {
+        "assessment": {
+          "action": "final",
+          "requested_ids": [],
+          "verdict": "false_positive",
+          "explanation": "The finding claims anyone can destruct the contract, but `die()` uses the `owned` modifier. That modifier requires `msg.sender == owner` and reverts otherwise, so destruction is restricted to the owner (and additionally requires `burning` to be false via `burnBlock`).",
+          "evidence_ids": [
+            "fragment_0000",
+            "fragment_0001",
+            "fragment_0002"
+          ]
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_04933d8e51a11b80016ad3cad8e80c87d2bc2aebcc613966e1",
+        "usage": {
+          "input_tokens": 1083,
+          "input_tokens_details": {
+            "cache_write_tokens": 1080,
+            "cached_tokens": 0
+          },
+          "output_tokens": 212,
+          "output_tokens_details": {
+            "reasoning_tokens": 106
+          },
+          "total_tokens": 1295
+        }
+      }
+    ],
+    "requested_fragment_ids": [
+      "fragment_0001",
+      "fragment_0002"
+    ],
+    "input_tokens": 2062,
+    "output_tokens": 334,
+    "total_tokens": 2396,
+    "actual_usage": {
+      "input_tokens": 2062,
+      "output_tokens": 334,
+      "total_tokens": 2396
+    },
+    "round_count": 2
+  },
+  {
+    "review_id": "selfdestruct_result-test120-TokenERC20",
+    "label": true,
+    "verdict": "confirmed",
+    "result": {
+      "finding": {
+        "id": "2fc473a86230a60b8c52db25ea66c6feb0c06ac1d3bafd2fcfc6206785669ec5",
+        "detector": "suicidal",
+        "contract": "TokenERC20",
+        "function": "selfdestructs()",
+        "file": "datasets/cgt/source/7bebeedee880cc4e2942ad723946ee70.sol"
+      },
+      "assessment": {
+        "action": "final",
+        "requested_ids": [],
+        "verdict": "confirmed",
+        "explanation": "The public `selfdestructs()` function has no access-control check or restricting modifier and directly executes `selfdestruct(owner)`. Therefore, any caller can invoke it and destruct the contract, with remaining funds sent to `owner`.",
+        "evidence_ids": [
+          "7bebeedee880cc4e2942ad723946ee70.sol:function:5475:74"
+        ]
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "result": {
+            "assessment": {
+              "action": "final",
+              "requested_ids": [],
+              "verdict": "confirmed",
+              "explanation": "The public `selfdestructs()` function has no access-control check or restricting modifier and directly executes `selfdestruct(owner)`. Therefore, any caller can invoke it and destruct the contract, with remaining funds sent to `owner`.",
+              "evidence_ids": [
+                "7bebeedee880cc4e2942ad723946ee70.sol:function:5475:74"
+              ]
+            },
+            "model": "gpt-5.6-luna",
+            "response_id": "resp_0326d15cd19b0b3b016ad3cadc227c87d2bd0ea34dd5cb35ed",
+            "usage": {
+              "input_tokens": 807,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 177,
+              "output_tokens_details": {
+                "reasoning_tokens": 92
+              },
+              "total_tokens": 984
+            }
+          }
+        }
+      ],
+      "round_count": 1,
+      "provided_context": []
+    },
+    "context_efficiency": {
+      "full_source_tokens": 1411,
+      "initial_source_tokens": 19,
+      "initial_payload_tokens": 246,
+      "cumulative_input_tokens": 807,
+      "initial_source_reduction": 0.9865343727852587,
+      "initial_payload_reduction": 0.8256555634301914,
+      "cumulative_input_reduction": 0.42806520198440823
+    },
+    "source_bytes": 5642,
+    "source_LOC": 196,
+    "solidity_files": 1,
+    "context_requests": 0,
+    "requested_fragments": 0,
+    "explanation": "The public `selfdestructs()` function has no access-control check or restricting modifier and directly executes `selfdestruct(owner)`. Therefore, any caller can invoke it and destruct the contract, with remaining funds sent to `owner`.",
+    "evidence_ids": [
+      "7bebeedee880cc4e2942ad723946ee70.sol:function:5475:74"
+    ],
+    "api_rounds": [
+      {
+        "assessment": {
+          "action": "final",
+          "requested_ids": [],
+          "verdict": "confirmed",
+          "explanation": "The public `selfdestructs()` function has no access-control check or restricting modifier and directly executes `selfdestruct(owner)`. Therefore, any caller can invoke it and destruct the contract, with remaining funds sent to `owner`.",
+          "evidence_ids": [
+            "fragment_0000"
+          ]
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_0326d15cd19b0b3b016ad3cadc227c87d2bd0ea34dd5cb35ed",
+        "usage": {
+          "input_tokens": 807,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 177,
+          "output_tokens_details": {
+            "reasoning_tokens": 92
+          },
+          "total_tokens": 984
+        }
+      }
+    ],
+    "requested_fragment_ids": [],
+    "input_tokens": 807,
+    "output_tokens": 177,
+    "total_tokens": 984,
+    "actual_usage": {
+      "input_tokens": 807,
+      "output_tokens": 177,
+      "total_tokens": 984
+    },
+    "round_count": 1
+  },
+  {
+    "review_id": "tx_result-test701-Tokens",
+    "label": false,
+    "verdict": "confirmed",
+    "result": {
+      "finding": {
+        "id": "9ce4fe14b515973e9d153e7e8fde9c30ab483eeb91aea8505704ca615d74c854",
+        "detector": "tx-origin",
+        "contract": "Tokens",
+        "function": "refundTokens(address,uint256)",
+        "file": "datasets/cgt/source/f9fd336ff8ee40adcc4d448645593a3a.sol"
+      },
+      "assessment": {
+        "action": "final",
+        "requested_ids": [],
+        "verdict": "confirmed",
+        "explanation": "The function explicitly authorizes the refund by requiring `tx.origin == _from` via `if (tx.origin != _from)`. Thus the reported use of `tx.origin` for authorization is present in the supplied code. The additional `msg.sender` check does not negate that finding.",
+        "evidence_ids": [
+          "f9fd336ff8ee40adcc4d448645593a3a.sol:function:30321:942"
+        ]
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "result": {
+            "assessment": {
+              "action": "final",
+              "requested_ids": [],
+              "verdict": "confirmed",
+              "explanation": "The function explicitly authorizes the refund by requiring `tx.origin == _from` via `if (tx.origin != _from)`. Thus the reported use of `tx.origin` for authorization is present in the supplied code. The additional `msg.sender` check does not negate that finding.",
+              "evidence_ids": [
+                "f9fd336ff8ee40adcc4d448645593a3a.sol:function:30321:942"
+              ]
+            },
+            "model": "gpt-5.6-luna",
+            "response_id": "resp_0d28029142eda427016ad3cadfc53887d2a3aae02aabe1f3be",
+            "usage": {
+              "input_tokens": 1579,
+              "input_tokens_details": {
+                "cache_write_tokens": 1576,
+                "cached_tokens": 0
+              },
+              "output_tokens": 181,
+              "output_tokens_details": {
+                "reasoning_tokens": 86
+              },
+              "total_tokens": 1760
+            }
+          }
+        }
+      ],
+      "round_count": 1,
+      "provided_context": []
+    },
+    "context_efficiency": {
+      "full_source_tokens": 8566,
+      "initial_source_tokens": 236,
+      "initial_payload_tokens": 972,
+      "cumulative_input_tokens": 1579,
+      "initial_source_reduction": 0.972449217837964,
+      "initial_payload_reduction": 0.886528134485174,
+      "cumulative_input_reduction": 0.8156665888395984
+    },
+    "source_bytes": 34267,
+    "source_LOC": 1094,
+    "solidity_files": 1,
+    "context_requests": 0,
+    "requested_fragments": 0,
+    "explanation": "The function explicitly authorizes the refund by requiring `tx.origin == _from` via `if (tx.origin != _from)`. Thus the reported use of `tx.origin` for authorization is present in the supplied code. The additional `msg.sender` check does not negate that finding.",
+    "evidence_ids": [
+      "f9fd336ff8ee40adcc4d448645593a3a.sol:function:30321:942"
+    ],
+    "api_rounds": [
+      {
+        "assessment": {
+          "action": "final",
+          "requested_ids": [],
+          "verdict": "confirmed",
+          "explanation": "The function explicitly authorizes the refund by requiring `tx.origin == _from` via `if (tx.origin != _from)`. Thus the reported use of `tx.origin` for authorization is present in the supplied code. The additional `msg.sender` check does not negate that finding.",
+          "evidence_ids": [
+            "fragment_0000"
+          ]
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_0d28029142eda427016ad3cadfc53887d2a3aae02aabe1f3be",
+        "usage": {
+          "input_tokens": 1579,
+          "input_tokens_details": {
+            "cache_write_tokens": 1576,
+            "cached_tokens": 0
+          },
+          "output_tokens": 181,
+          "output_tokens_details": {
+            "reasoning_tokens": 86
+          },
+          "total_tokens": 1760
+        }
+      }
+    ],
+    "requested_fragment_ids": [],
+    "input_tokens": 1579,
+    "output_tokens": 181,
+    "total_tokens": 1760,
+    "actual_usage": {
+      "input_tokens": 1579,
+      "output_tokens": 181,
+      "total_tokens": 1760
+    },
+    "round_count": 1
+  },
+  {
+    "review_id": "tx_result-test2878-CoinCrowdICO",
+    "label": true,
+    "verdict": "confirmed",
+    "result": {
+      "finding": {
+        "id": "177498327f6b091e48ff4075dabf703e0b8e51cd8959023bd55bddf99079d874",
+        "detector": "tx-origin",
+        "contract": "CoinCrowdICO",
+        "function": "addMeByRC(address)",
+        "file": "datasets/cgt/source/af09bbd76f52399f5a770684f8037795.sol"
+      },
+      "assessment": {
+        "action": "final",
+        "requested_ids": [],
+        "verdict": "confirmed",
+        "explanation": "The function directly authorizes access with `require(tx.origin == owner)`, so the reported tx.origin authorization finding applies.",
+        "evidence_ids": [
+          "af09bbd76f52399f5a770684f8037795.sol:function:10812:227"
+        ]
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "result": {
+            "assessment": {
+              "action": "final",
+              "requested_ids": [],
+              "verdict": "confirmed",
+              "explanation": "The function directly authorizes access with `require(tx.origin == owner)`, so the reported tx.origin authorization finding applies.",
+              "evidence_ids": [
+                "af09bbd76f52399f5a770684f8037795.sol:function:10812:227"
+              ]
+            },
+            "model": "gpt-5.6-luna",
+            "response_id": "resp_0c5a9979f2592bc3016ad3cae3baac87d2ba9ce097b5193285",
+            "usage": {
+              "input_tokens": 902,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 121,
+              "output_tokens_details": {
+                "reasoning_tokens": 60
+              },
+              "total_tokens": 1023
+            }
+          }
+        }
+      ],
+      "round_count": 1,
+      "provided_context": []
+    },
+    "context_efficiency": {
+      "full_source_tokens": 2939,
+      "initial_source_tokens": 57,
+      "initial_payload_tokens": 339,
+      "cumulative_input_tokens": 902,
+      "initial_source_reduction": 0.9806056481796529,
+      "initial_payload_reduction": 0.8846546444368832,
+      "cumulative_input_reduction": 0.693092888737666
+    },
+    "source_bytes": 11762,
+    "source_LOC": 319,
+    "solidity_files": 1,
+    "context_requests": 0,
+    "requested_fragments": 0,
+    "explanation": "The function directly authorizes access with `require(tx.origin == owner)`, so the reported tx.origin authorization finding applies.",
+    "evidence_ids": [
+      "af09bbd76f52399f5a770684f8037795.sol:function:10812:227"
+    ],
+    "api_rounds": [
+      {
+        "assessment": {
+          "action": "final",
+          "requested_ids": [],
+          "verdict": "confirmed",
+          "explanation": "The function directly authorizes access with `require(tx.origin == owner)`, so the reported tx.origin authorization finding applies.",
+          "evidence_ids": [
+            "fragment_0000"
+          ]
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_0c5a9979f2592bc3016ad3cae3baac87d2ba9ce097b5193285",
+        "usage": {
+          "input_tokens": 902,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 121,
+          "output_tokens_details": {
+            "reasoning_tokens": 60
+          },
+          "total_tokens": 1023
+        }
+      }
+    ],
+    "requested_fragment_ids": [],
+    "input_tokens": 902,
+    "output_tokens": 121,
+    "total_tokens": 1023,
+    "actual_usage": {
+      "input_tokens": 902,
+      "output_tokens": 121,
+      "total_tokens": 1023
+    },
+    "round_count": 1
+  },
+  {
+    "review_id": "selfdestruct_result-test3575-PredictionMarket",
+    "label": false,
+    "verdict": "false_positive",
+    "result": {
+      "finding": {
+        "id": "a84a6450756ddfa93041b3fba895332c5d74b72edd1e9fab6065d4596c05f98c",
+        "detector": "suicidal",
+        "contract": "PredictionMarket",
+        "function": "kill(address)",
+        "file": "datasets/cgt/source/cd0c01291be1ee8ae25897e1248050c2.sol"
+      },
+      "assessment": {
+        "action": "final",
+        "requested_ids": [],
+        "verdict": "false_positive",
+        "explanation": "The finding claims anyone can destruct the contract, but `kill(address)` is protected by `onlyAdmin`. That modifier requires `isAdmin[msg.sender]`; the constructor initializes only the deployer as an admin, and `addAdmin` is itself restricted to existing admins. Thus arbitrary callers cannot invoke `selfdestruct`, although an authorized admin can.",
+        "evidence_ids": [
+          "cd0c01291be1ee8ae25897e1248050c2.sol:function:77151:129",
+          "cd0c01291be1ee8ae25897e1248050c2.sol:modifier:70325:75",
+          "cd0c01291be1ee8ae25897e1248050c2.sol:function:70105:214",
+          "cd0c01291be1ee8ae25897e1248050c2.sol:function:77074:71"
+        ]
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "result": {
+            "assessment": {
+              "action": "request_context",
+              "requested_ids": [
+                "cd0c01291be1ee8ae25897e1248050c2.sol:modifier:70325:75",
+                "cd0c01291be1ee8ae25897e1248050c2.sol:state_variable:69999:39",
+                "cd0c01291be1ee8ae25897e1248050c2.sol:function:70105:214",
+                "cd0c01291be1ee8ae25897e1248050c2.sol:function:77074:71"
+              ],
+              "verdict": "pending",
+              "explanation": "The function can self-destruct the contract, but access is restricted by the onlyAdmin modifier. The modifier implementation and administrator state-management code are needed to determine whether anyone can satisfy that restriction.",
+              "evidence_ids": []
+            },
+            "model": "gpt-5.6-luna",
+            "response_id": "resp_04034d3afe71a57b016ad3cae833f087d2861efa25a0a9ccf7",
+            "usage": {
+              "input_tokens": 853,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 106,
+              "output_tokens_details": {
+                "reasoning_tokens": 15
+              },
+              "total_tokens": 959
+            }
+          }
+        },
+        {
+          "round": 2,
+          "result": {
+            "assessment": {
+              "action": "final",
+              "requested_ids": [],
+              "verdict": "false_positive",
+              "explanation": "The finding claims anyone can destruct the contract, but `kill(address)` is protected by `onlyAdmin`. That modifier requires `isAdmin[msg.sender]`; the constructor initializes only the deployer as an admin, and `addAdmin` is itself restricted to existing admins. Thus arbitrary callers cannot invoke `selfdestruct`, although an authorized admin can.",
+              "evidence_ids": [
+                "cd0c01291be1ee8ae25897e1248050c2.sol:function:77151:129",
+                "cd0c01291be1ee8ae25897e1248050c2.sol:modifier:70325:75",
+                "cd0c01291be1ee8ae25897e1248050c2.sol:function:70105:214",
+                "cd0c01291be1ee8ae25897e1248050c2.sol:function:77074:71"
+              ]
+            },
+            "model": "gpt-5.6-luna",
+            "response_id": "resp_08154be62c674532016ad3cae9e87887d297be91c0d54e094e",
+            "usage": {
+              "input_tokens": 1096,
+              "input_tokens_details": {
+                "cache_write_tokens": 1093,
+                "cached_tokens": 0
+              },
+              "output_tokens": 221,
+              "output_tokens_details": {
+                "reasoning_tokens": 98
+              },
+              "total_tokens": 1317
+            }
+          }
+        }
+      ],
+      "round_count": 2,
+      "provided_context": [
+        {
+          "id": "cd0c01291be1ee8ae25897e1248050c2.sol:modifier:70325:75",
+          "kind": "modifier",
+          "name": "onlyAdmin()",
+          "file": "cd0c01291be1ee8ae25897e1248050c2.sol",
+          "source": "modifier onlyAdmin {\n        require(isAdmin[msg.sender]);\n        _;\n    }"
+        },
+        {
+          "id": "cd0c01291be1ee8ae25897e1248050c2.sol:state_variable:69999:39",
+          "kind": "state_variable",
+          "name": "MultiOwnable.isAdmin",
+          "file": "cd0c01291be1ee8ae25897e1248050c2.sol",
+          "source": "mapping(address => bool) public isAdmin"
+        },
+        {
+          "id": "cd0c01291be1ee8ae25897e1248050c2.sol:function:70105:214",
+          "kind": "function",
+          "name": "addAdmin(address)",
+          "file": "cd0c01291be1ee8ae25897e1248050c2.sol",
+          "source": "function addAdmin(address admin) public onlyAdmin returns (bool ok)\n    {\n        require(isAdmin[admin] == false);\n        isAdmin[admin] = true;\n\n        LogAddAdmin(msg.sender, admin);\n        return true;\n    }"
+        },
+        {
+          "id": "cd0c01291be1ee8ae25897e1248050c2.sol:function:77074:71",
+          "kind": "function",
+          "name": "PredictionMarket()",
+          "file": "cd0c01291be1ee8ae25897e1248050c2.sol",
+          "source": "function PredictionMarket() {\n        isAdmin[msg.sender] = true;\n    }"
+        }
+      ]
+    },
+    "context_efficiency": {
+      "full_source_tokens": 19623,
+      "initial_source_tokens": 33,
+      "initial_payload_tokens": 291,
+      "cumulative_input_tokens": 1949,
+      "initial_source_reduction": 0.9983182999541355,
+      "initial_payload_reduction": 0.9851704632319217,
+      "cumulative_input_reduction": 0.9006777760790908
+    },
+    "source_bytes": 78489,
+    "source_LOC": 2109,
+    "solidity_files": 1,
+    "context_requests": 1,
+    "requested_fragments": 4,
+    "explanation": "The finding claims anyone can destruct the contract, but `kill(address)` is protected by `onlyAdmin`. That modifier requires `isAdmin[msg.sender]`; the constructor initializes only the deployer as an admin, and `addAdmin` is itself restricted to existing admins. Thus arbitrary callers cannot invoke `selfdestruct`, although an authorized admin can.",
+    "evidence_ids": [
+      "cd0c01291be1ee8ae25897e1248050c2.sol:function:77151:129",
+      "cd0c01291be1ee8ae25897e1248050c2.sol:modifier:70325:75",
+      "cd0c01291be1ee8ae25897e1248050c2.sol:function:70105:214",
+      "cd0c01291be1ee8ae25897e1248050c2.sol:function:77074:71"
+    ],
+    "api_rounds": [
+      {
+        "assessment": {
+          "action": "request_context",
+          "requested_ids": [
+            "fragment_0001",
+            "fragment_0002",
+            "fragment_0003",
+            "fragment_0004"
+          ],
+          "verdict": "pending",
+          "explanation": "The function can self-destruct the contract, but access is restricted by the onlyAdmin modifier. The modifier implementation and administrator state-management code are needed to determine whether anyone can satisfy that restriction.",
+          "evidence_ids": []
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_04034d3afe71a57b016ad3cae833f087d2861efa25a0a9ccf7",
+        "usage": {
+          "input_tokens": 853,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 106,
+          "output_tokens_details": {
+            "reasoning_tokens": 15
+          },
+          "total_tokens": 959
+        }
+      },
+      {
+        "assessment": {
+          "action": "final",
+          "requested_ids": [],
+          "verdict": "false_positive",
+          "explanation": "The finding claims anyone can destruct the contract, but `kill(address)` is protected by `onlyAdmin`. That modifier requires `isAdmin[msg.sender]`; the constructor initializes only the deployer as an admin, and `addAdmin` is itself restricted to existing admins. Thus arbitrary callers cannot invoke `selfdestruct`, although an authorized admin can.",
+          "evidence_ids": [
+            "fragment_0000",
+            "fragment_0001",
+            "fragment_0003",
+            "fragment_0004"
+          ]
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_08154be62c674532016ad3cae9e87887d297be91c0d54e094e",
+        "usage": {
+          "input_tokens": 1096,
+          "input_tokens_details": {
+            "cache_write_tokens": 1093,
+            "cached_tokens": 0
+          },
+          "output_tokens": 221,
+          "output_tokens_details": {
+            "reasoning_tokens": 98
+          },
+          "total_tokens": 1317
+        }
+      }
+    ],
+    "requested_fragment_ids": [
+      "fragment_0001",
+      "fragment_0002",
+      "fragment_0003",
+      "fragment_0004"
+    ],
+    "input_tokens": 1949,
+    "output_tokens": 327,
+    "total_tokens": 2276,
+    "actual_usage": {
+      "input_tokens": 1949,
+      "output_tokens": 327,
+      "total_tokens": 2276
+    },
+    "round_count": 2
+  },
+  {
+    "review_id": "lowlevelcall_result-test1009-WhaleGiveaway2",
+    "label": true,
+    "verdict": "confirmed",
+    "result": {
+      "finding": {
+        "id": "f1979071f6d418ca71ea622916c088233925c70d898b147cbc8f5a0546ac4633",
+        "detector": "unchecked-lowlevel",
+        "contract": "WhaleGiveaway2",
+        "function": "Command(address,bytes)",
+        "file": "datasets/cgt/source/da4c5eb90780078af0c90ee0fe6a68ab.sol"
+      },
+      "assessment": {
+        "action": "final",
+        "requested_ids": [],
+        "verdict": "confirmed",
+        "explanation": "The function executes `adr.call.value(msg.value)(data)` without capturing or checking its boolean return value. A failed low-level call could therefore be ignored, matching the reported unchecked-lowlevel finding.",
+        "evidence_ids": [
+          "da4c5eb90780078af0c90ee0fe6a68ab.sol:function:9143:154"
+        ]
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "result": {
+            "assessment": {
+              "action": "final",
+              "requested_ids": [],
+              "verdict": "confirmed",
+              "explanation": "The function executes `adr.call.value(msg.value)(data)` without capturing or checking its boolean return value. A failed low-level call could therefore be ignored, matching the reported unchecked-lowlevel finding.",
+              "evidence_ids": [
+                "da4c5eb90780078af0c90ee0fe6a68ab.sol:function:9143:154"
+              ]
+            },
+            "model": "gpt-5.6-luna",
+            "response_id": "resp_06f18f28b00e232a016ad3caed07dc87d285b5cec946fba49f",
+            "usage": {
+              "input_tokens": 838,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 122,
+              "output_tokens_details": {
+                "reasoning_tokens": 46
+              },
+              "total_tokens": 960
+            }
+          }
+        }
+      ],
+      "round_count": 1,
+      "provided_context": []
+    },
+    "context_efficiency": {
+      "full_source_tokens": 2325,
+      "initial_source_tokens": 39,
+      "initial_payload_tokens": 286,
+      "cumulative_input_tokens": 838,
+      "initial_source_reduction": 0.983225806451613,
+      "initial_payload_reduction": 0.8769892473118279,
+      "cumulative_input_reduction": 0.6395698924731184
+    },
+    "source_bytes": 9299,
+    "source_LOC": 40,
+    "solidity_files": 1,
+    "context_requests": 0,
+    "requested_fragments": 0,
+    "explanation": "The function executes `adr.call.value(msg.value)(data)` without capturing or checking its boolean return value. A failed low-level call could therefore be ignored, matching the reported unchecked-lowlevel finding.",
+    "evidence_ids": [
+      "da4c5eb90780078af0c90ee0fe6a68ab.sol:function:9143:154"
+    ],
+    "api_rounds": [
+      {
+        "assessment": {
+          "action": "final",
+          "requested_ids": [],
+          "verdict": "confirmed",
+          "explanation": "The function executes `adr.call.value(msg.value)(data)` without capturing or checking its boolean return value. A failed low-level call could therefore be ignored, matching the reported unchecked-lowlevel finding.",
+          "evidence_ids": [
+            "fragment_0000"
+          ]
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_06f18f28b00e232a016ad3caed07dc87d285b5cec946fba49f",
+        "usage": {
+          "input_tokens": 838,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 122,
+          "output_tokens_details": {
+            "reasoning_tokens": 46
+          },
+          "total_tokens": 960
+        }
+      }
+    ],
+    "requested_fragment_ids": [],
+    "input_tokens": 838,
+    "output_tokens": 122,
+    "total_tokens": 960,
+    "actual_usage": {
+      "input_tokens": 838,
+      "output_tokens": 122,
+      "total_tokens": 960
+    },
+    "round_count": 1
+  },
+  {
+    "review_id": "tx_result-test941-Tokens",
+    "label": false,
+    "verdict": "confirmed",
+    "result": {
+      "finding": {
+        "id": "266a1adf2d50adcb4fa215c39985658fe99a87bfaf1ca657877bea008e0ebb5f",
+        "detector": "tx-origin",
+        "contract": "Tokens",
+        "function": "refundTokens(address,uint256)",
+        "file": "datasets/cgt/source/5e9f0a854ba9ec437a9ed124a9f687d8.sol"
+      },
+      "assessment": {
+        "action": "final",
+        "requested_ids": [],
+        "verdict": "confirmed",
+        "explanation": "The function directly uses `tx.origin` in its authorization check: it requires `tx.origin == _from` and returns false otherwise. This supports the reported tx-origin finding.",
+        "evidence_ids": [
+          "5e9f0a854ba9ec437a9ed124a9f687d8.sol:function:16073:942"
+        ]
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "result": {
+            "assessment": {
+              "action": "final",
+              "requested_ids": [],
+              "verdict": "confirmed",
+              "explanation": "The function directly uses `tx.origin` in its authorization check: it requires `tx.origin == _from` and returns false otherwise. This supports the reported tx-origin finding.",
+              "evidence_ids": [
+                "5e9f0a854ba9ec437a9ed124a9f687d8.sol:function:16073:942"
+              ]
+            },
+            "model": "gpt-5.6-luna",
+            "response_id": "resp_098491e3d87edf58016ad3caf04b0887d293755d992637b1b0",
+            "usage": {
+              "input_tokens": 1579,
+              "input_tokens_details": {
+                "cache_write_tokens": 1576,
+                "cached_tokens": 0
+              },
+              "output_tokens": 146,
+              "output_tokens_details": {
+                "reasoning_tokens": 74
+              },
+              "total_tokens": 1725
+            }
+          }
+        }
+      ],
+      "round_count": 1,
+      "provided_context": []
+    },
+    "context_efficiency": {
+      "full_source_tokens": 4524,
+      "initial_source_tokens": 236,
+      "initial_payload_tokens": 972,
+      "cumulative_input_tokens": 1579,
+      "initial_source_reduction": 0.9478337754199824,
+      "initial_payload_reduction": 0.7851458885941645,
+      "cumulative_input_reduction": 0.650972590627763
+    },
+    "source_bytes": 18095,
+    "source_LOC": 603,
+    "solidity_files": 1,
+    "context_requests": 0,
+    "requested_fragments": 0,
+    "explanation": "The function directly uses `tx.origin` in its authorization check: it requires `tx.origin == _from` and returns false otherwise. This supports the reported tx-origin finding.",
+    "evidence_ids": [
+      "5e9f0a854ba9ec437a9ed124a9f687d8.sol:function:16073:942"
+    ],
+    "api_rounds": [
+      {
+        "assessment": {
+          "action": "final",
+          "requested_ids": [],
+          "verdict": "confirmed",
+          "explanation": "The function directly uses `tx.origin` in its authorization check: it requires `tx.origin == _from` and returns false otherwise. This supports the reported tx-origin finding.",
+          "evidence_ids": [
+            "fragment_0000"
+          ]
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_098491e3d87edf58016ad3caf04b0887d293755d992637b1b0",
+        "usage": {
+          "input_tokens": 1579,
+          "input_tokens_details": {
+            "cache_write_tokens": 1576,
+            "cached_tokens": 0
+          },
+          "output_tokens": 146,
+          "output_tokens_details": {
+            "reasoning_tokens": 74
+          },
+          "total_tokens": 1725
+        }
+      }
+    ],
+    "requested_fragment_ids": [],
+    "input_tokens": 1579,
+    "output_tokens": 146,
+    "total_tokens": 1725,
+    "actual_usage": {
+      "input_tokens": 1579,
+      "output_tokens": 146,
+      "total_tokens": 1725
+    },
+    "round_count": 1
+  },
+  {
+    "review_id": "reentrancy-test2073-BancorBuyer",
+    "label": true,
+    "verdict": "confirmed",
+    "result": {
+      "finding": {
+        "id": "9aa42f0f0d13c5e8d687199deec800c95192191ab8ff59e3d6b97c5dc1b54887",
+        "detector": "reentrancy-eth",
+        "contract": "BancorBuyer",
+        "function": "buyOne(ERC20,address,uint256,bytes)",
+        "file": "datasets/cgt/source/9c37399dda2acd29509968dabe802aba.sol"
+      },
+      "assessment": {
+        "action": "final",
+        "requested_ids": [],
+        "verdict": "confirmed",
+        "explanation": "The finding is supported. `buyOne` performs the unrestricted ETH-sending external call `_exchange.call.value(_value)(_data)` before decrementing `balances[msg.sender]`. During that call, reentrant execution can access functions such as `withdraw`, `buy1`, `buy2`, `buy3`, or another `buyOne`, all of which read or modify the shared `balances` mapping. Thus the reported cross-function reentrancy condition exists, with the balance update occurring after the external call.",
+        "evidence_ids": [
+          "9c37399dda2acd29509968dabe802aba.sol:function:5680:534",
+          "9c37399dda2acd29509968dabe802aba.sol:state_variable:2943:43",
+          "9c37399dda2acd29509968dabe802aba.sol:function:3320:667",
+          "9c37399dda2acd29509968dabe802aba.sol:function:3993:680",
+          "9c37399dda2acd29509968dabe802aba.sol:function:6224:312",
+          "9c37399dda2acd29509968dabe802aba.sol:function:6546:409",
+          "9c37399dda2acd29509968dabe802aba.sol:function:6965:506"
+        ]
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "result": {
+            "assessment": {
+              "action": "request_context",
+              "requested_ids": [
+                "9c37399dda2acd29509968dabe802aba.sol:state_variable:2943:43",
+                "9c37399dda2acd29509968dabe802aba.sol:function:3320:667",
+                "9c37399dda2acd29509968dabe802aba.sol:function:3993:680",
+                "9c37399dda2acd29509968dabe802aba.sol:function:6224:312",
+                "9c37399dda2acd29509968dabe802aba.sol:function:6546:409",
+                "9c37399dda2acd29509968dabe802aba.sol:function:6965:506"
+              ],
+              "verdict": "pending",
+              "explanation": "The target shows an external ETH-sending call before balances[msg.sender] is decremented, which is the reported reentrancy pattern. To determine whether the specific cross-function finding is supported, the relevant functions that read or write balances and may be entered during reentrancy are needed.",
+              "evidence_ids": []
+            },
+            "model": "gpt-5.6-luna",
+            "response_id": "resp_05c3f218d8fe1398016ad3caf32e8487d286654b77a02316bc",
+            "usage": {
+              "input_tokens": 1442,
+              "input_tokens_details": {
+                "cache_write_tokens": 1439,
+                "cached_tokens": 0
+              },
+              "output_tokens": 213,
+              "output_tokens_details": {
+                "reasoning_tokens": 93
+              },
+              "total_tokens": 1655
+            }
+          }
+        },
+        {
+          "round": 2,
+          "result": {
+            "assessment": {
+              "action": "final",
+              "requested_ids": [],
+              "verdict": "confirmed",
+              "explanation": "The finding is supported. `buyOne` performs the unrestricted ETH-sending external call `_exchange.call.value(_value)(_data)` before decrementing `balances[msg.sender]`. During that call, reentrant execution can access functions such as `withdraw`, `buy1`, `buy2`, `buy3`, or another `buyOne`, all of which read or modify the shared `balances` mapping. Thus the reported cross-function reentrancy condition exists, with the balance update occurring after the external call.",
+              "evidence_ids": [
+                "9c37399dda2acd29509968dabe802aba.sol:function:5680:534",
+                "9c37399dda2acd29509968dabe802aba.sol:state_variable:2943:43",
+                "9c37399dda2acd29509968dabe802aba.sol:function:3320:667",
+                "9c37399dda2acd29509968dabe802aba.sol:function:3993:680",
+                "9c37399dda2acd29509968dabe802aba.sol:function:6224:312",
+                "9c37399dda2acd29509968dabe802aba.sol:function:6546:409",
+                "9c37399dda2acd29509968dabe802aba.sol:function:6965:506"
+              ]
+            },
+            "model": "gpt-5.6-luna",
+            "response_id": "resp_0e456c24148c4ef9016ad3caf613c487d2a3be7b6f4e20d089",
+            "usage": {
+              "input_tokens": 2423,
+              "input_tokens_details": {
+                "cache_write_tokens": 2420,
+                "cached_tokens": 0
+              },
+              "output_tokens": 989,
+              "output_tokens_details": {
+                "reasoning_tokens": 820
+              },
+              "total_tokens": 3412
+            }
+          }
+        }
+      ],
+      "round_count": 2,
+      "provided_context": [
+        {
+          "id": "9c37399dda2acd29509968dabe802aba.sol:state_variable:2943:43",
+          "kind": "state_variable",
+          "name": "BancorBuyer.balances",
+          "file": "9c37399dda2acd29509968dabe802aba.sol",
+          "source": "mapping(address => uint256) public balances"
+        },
+        {
+          "id": "9c37399dda2acd29509968dabe802aba.sol:function:3320:667",
+          "kind": "function",
+          "name": "deposit(address,address[],uint256[])",
+          "file": "9c37399dda2acd29509968dabe802aba.sol",
+          "source": "function deposit(address _beneficiary, address[] _tokens, uint256[] _tokenValues) payable external {\n        if (msg.value > 0) {\n            balances[_beneficiary] = balances[_beneficiary].add(msg.value);\n        }\n\n        for (uint i = 0; i < _tokens.length; i++) {\n            ERC20 token = ERC20(_tokens[i]);\n            uint256 tokenValue = _tokenValues[i];\n\n            uint256 balance = token.balanceOf(this);\n            token.transferFrom(msg.sender, this, tokenValue);\n            require(token.balanceOf(this) == balance.add(tokenValue));\n            tokenBalances[_beneficiary][token] = tokenBalances[_beneficiary][token].add(tokenValue);\n        }\n    }"
+        },
+        {
+          "id": "9c37399dda2acd29509968dabe802aba.sol:function:3993:680",
+          "kind": "function",
+          "name": "withdraw(address,uint256,address[],uint256[])",
+          "file": "9c37399dda2acd29509968dabe802aba.sol",
+          "source": "function withdraw(address _to, uint256 _value, address[] _tokens, uint256[] _tokenValues) external {\n        if (_value > 0) {\n            _to.transfer(_value);\n            balances[msg.sender] = balances[msg.sender].sub(_value);\n        }\n\n        for (uint i = 0; i < _tokens.length; i++) {\n            ERC20 token = ERC20(_tokens[i]);\n            uint256 tokenValue = _tokenValues[i];\n\n            uint256 tokenBalance = token.balanceOf(this);\n            token.transfer(_to, tokenValue);\n            require(token.balanceOf(this) == tokenBalance.sub(tokenValue));\n            tokenBalances[msg.sender][token] = tokenBalances[msg.sender][token].sub(tokenValue);\n        }\n    }"
+        },
+        {
+          "id": "9c37399dda2acd29509968dabe802aba.sol:function:6224:312",
+          "kind": "function",
+          "name": "buy1(address[],address[],uint256[],bytes)",
+          "file": "9c37399dda2acd29509968dabe802aba.sol",
+          "source": "function buy1(\n        address[] _tokens,\n        address[] _exchanges,\n        uint256[] _values,\n        bytes _data1\n    ) \n        payable\n        public\n    {\n        balances[msg.sender] = balances[msg.sender].add(msg.value);\n        this.buyOne(ERC20(_tokens[0]), _exchanges[0], _values[0], _data1);\n    }"
+        },
+        {
+          "id": "9c37399dda2acd29509968dabe802aba.sol:function:6546:409",
+          "kind": "function",
+          "name": "buy2(address[],address[],uint256[],bytes,bytes)",
+          "file": "9c37399dda2acd29509968dabe802aba.sol",
+          "source": "function buy2(\n        address[] _tokens,\n        address[] _exchanges,\n        uint256[] _values,\n        bytes _data1,\n        bytes _data2\n    ) \n        payable\n        public\n    {\n        balances[msg.sender] = balances[msg.sender].add(msg.value);\n        this.buyOne(ERC20(_tokens[0]), _exchanges[0], _values[0], _data1);\n        this.buyOne(ERC20(_tokens[1]), _exchanges[1], _values[1], _data2);\n    }"
+        },
+        {
+          "id": "9c37399dda2acd29509968dabe802aba.sol:function:6965:506",
+          "kind": "function",
+          "name": "buy3(address[],address[],uint256[],bytes,bytes,bytes)",
+          "file": "9c37399dda2acd29509968dabe802aba.sol",
+          "source": "function buy3(\n        address[] _tokens,\n        address[] _exchanges,\n        uint256[] _values,\n        bytes _data1,\n        bytes _data2,\n        bytes _data3\n    ) \n        payable\n        public\n    {\n        balances[msg.sender] = balances[msg.sender].add(msg.value);\n        this.buyOne(ERC20(_tokens[0]), _exchanges[0], _values[0], _data1);\n        this.buyOne(ERC20(_tokens[1]), _exchanges[1], _values[1], _data2);\n        this.buyOne(ERC20(_tokens[2]), _exchanges[2], _values[2], _data3);\n    }"
+        }
+      ]
+    },
+    "context_efficiency": {
+      "full_source_tokens": 2568,
+      "initial_source_tokens": 134,
+      "initial_payload_tokens": 824,
+      "cumulative_input_tokens": 3865,
+      "initial_source_reduction": 0.9478193146417445,
+      "initial_payload_reduction": 0.6791277258566979,
+      "cumulative_input_reduction": -0.5050623052959502
+    },
+    "source_bytes": 10272,
+    "source_LOC": 318,
+    "solidity_files": 1,
+    "context_requests": 1,
+    "requested_fragments": 6,
+    "explanation": "The finding is supported. `buyOne` performs the unrestricted ETH-sending external call `_exchange.call.value(_value)(_data)` before decrementing `balances[msg.sender]`. During that call, reentrant execution can access functions such as `withdraw`, `buy1`, `buy2`, `buy3`, or another `buyOne`, all of which read or modify the shared `balances` mapping. Thus the reported cross-function reentrancy condition exists, with the balance update occurring after the external call.",
+    "evidence_ids": [
+      "9c37399dda2acd29509968dabe802aba.sol:function:5680:534",
+      "9c37399dda2acd29509968dabe802aba.sol:state_variable:2943:43",
+      "9c37399dda2acd29509968dabe802aba.sol:function:3320:667",
+      "9c37399dda2acd29509968dabe802aba.sol:function:3993:680",
+      "9c37399dda2acd29509968dabe802aba.sol:function:6224:312",
+      "9c37399dda2acd29509968dabe802aba.sol:function:6546:409",
+      "9c37399dda2acd29509968dabe802aba.sol:function:6965:506"
+    ],
+    "api_rounds": [
+      {
+        "assessment": {
+          "action": "request_context",
+          "requested_ids": [
+            "fragment_0001",
+            "fragment_0002",
+            "fragment_0003",
+            "fragment_0004",
+            "fragment_0005",
+            "fragment_0006"
+          ],
+          "verdict": "pending",
+          "explanation": "The target shows an external ETH-sending call before balances[msg.sender] is decremented, which is the reported reentrancy pattern. To determine whether the specific cross-function finding is supported, the relevant functions that read or write balances and may be entered during reentrancy are needed.",
+          "evidence_ids": []
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_05c3f218d8fe1398016ad3caf32e8487d286654b77a02316bc",
+        "usage": {
+          "input_tokens": 1442,
+          "input_tokens_details": {
+            "cache_write_tokens": 1439,
+            "cached_tokens": 0
+          },
+          "output_tokens": 213,
+          "output_tokens_details": {
+            "reasoning_tokens": 93
+          },
+          "total_tokens": 1655
+        }
+      },
+      {
+        "assessment": {
+          "action": "final",
+          "requested_ids": [],
+          "verdict": "confirmed",
+          "explanation": "The finding is supported. `buyOne` performs the unrestricted ETH-sending external call `_exchange.call.value(_value)(_data)` before decrementing `balances[msg.sender]`. During that call, reentrant execution can access functions such as `withdraw`, `buy1`, `buy2`, `buy3`, or another `buyOne`, all of which read or modify the shared `balances` mapping. Thus the reported cross-function reentrancy condition exists, with the balance update occurring after the external call.",
+          "evidence_ids": [
+            "fragment_0000",
+            "fragment_0001",
+            "fragment_0002",
+            "fragment_0003",
+            "fragment_0004",
+            "fragment_0005",
+            "fragment_0006"
+          ]
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_0e456c24148c4ef9016ad3caf613c487d2a3be7b6f4e20d089",
+        "usage": {
+          "input_tokens": 2423,
+          "input_tokens_details": {
+            "cache_write_tokens": 2420,
+            "cached_tokens": 0
+          },
+          "output_tokens": 989,
+          "output_tokens_details": {
+            "reasoning_tokens": 820
+          },
+          "total_tokens": 3412
+        }
+      }
+    ],
+    "requested_fragment_ids": [
+      "fragment_0001",
+      "fragment_0002",
+      "fragment_0003",
+      "fragment_0004",
+      "fragment_0005",
+      "fragment_0006"
+    ],
+    "input_tokens": 3865,
+    "output_tokens": 1202,
+    "total_tokens": 5067,
+    "actual_usage": {
+      "input_tokens": 3865,
+      "output_tokens": 1202,
+      "total_tokens": 5067
+    },
+    "round_count": 2
+  },
+  {
+    "review_id": "selfdestruct_result-test3575-Question",
+    "label": false,
+    "verdict": "false_positive",
+    "result": {
+      "finding": {
+        "id": "e4c534cc5259ea3c83158ca4772de686a9723a82080dc5ef4f0db0a6004e7969",
+        "detector": "suicidal",
+        "contract": "Question",
+        "function": "kill(address)",
+        "file": "datasets/cgt/source/cd0c01291be1ee8ae25897e1248050c2.sol"
+      },
+      "assessment": {
+        "action": "final",
+        "requested_ids": [],
+        "verdict": "false_positive",
+        "explanation": "The function does call selfdestruct, but it is protected by the onlyAdmin modifier. That modifier requires require(mkt.isAdmin(msg.sender)) before execution, so the supplied code does not support the finding's claim that anyone can destruct the contract.",
+        "evidence_ids": [
+          "cd0c01291be1ee8ae25897e1248050c2.sol:function:71797:129",
+          "cd0c01291be1ee8ae25897e1248050c2.sol:modifier:76594:137"
+        ]
+      },
+      "rounds": [
+        {
+          "round": 1,
+          "result": {
+            "assessment": {
+              "action": "request_context",
+              "requested_ids": [
+                "cd0c01291be1ee8ae25897e1248050c2.sol:modifier:76594:137"
+              ],
+              "verdict": "pending",
+              "explanation": "The finding depends on whether the onlyAdmin modifier restricts access to the function. Its source is required to determine whether anyone can invoke selfdestruct.",
+              "evidence_ids": []
+            },
+            "model": "gpt-5.6-luna",
+            "response_id": "resp_078900b0b685d662016ad3cb02915887d2a714d0155882fbf2",
+            "usage": {
+              "input_tokens": 809,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 108,
+              "output_tokens_details": {
+                "reasoning_tokens": 40
+              },
+              "total_tokens": 917
+            }
+          }
+        },
+        {
+          "round": 2,
+          "result": {
+            "assessment": {
+              "action": "request_context",
+              "requested_ids": [
+                "cd0c01291be1ee8ae25897e1248050c2.sol:state_variable:69805:20",
+                "cd0c01291be1ee8ae25897e1248050c2.sol:function:69832:54"
+              ],
+              "verdict": "pending",
+              "explanation": "The function is protected by onlyAdmin, which requires IPredictionMarket(owner).isAdmin(msg.sender). Determining whether anyone can satisfy that check may depend on how owner is set and whether it identifies the intended administration contract.",
+              "evidence_ids": [
+                "cd0c01291be1ee8ae25897e1248050c2.sol:function:71797:129",
+                "cd0c01291be1ee8ae25897e1248050c2.sol:modifier:76594:137"
+              ]
+            },
+            "model": "gpt-5.6-luna",
+            "response_id": "resp_041d06eb2e0eb408016ad3cb04e9b887d28793409d9803c2a0",
+            "usage": {
+              "input_tokens": 879,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 401,
+              "output_tokens_details": {
+                "reasoning_tokens": 303
+              },
+              "total_tokens": 1280
+            }
+          }
+        },
+        {
+          "round": 3,
+          "result": {
+            "assessment": {
+              "action": "final",
+              "requested_ids": [],
+              "verdict": "false_positive",
+              "explanation": "The function does call selfdestruct, but it is protected by the onlyAdmin modifier. That modifier requires require(mkt.isAdmin(msg.sender)) before execution, so the supplied code does not support the finding's claim that anyone can destruct the contract.",
+              "evidence_ids": [
+                "cd0c01291be1ee8ae25897e1248050c2.sol:function:71797:129",
+                "cd0c01291be1ee8ae25897e1248050c2.sol:modifier:76594:137"
+              ]
+            },
+            "model": "gpt-5.6-luna",
+            "response_id": "resp_0bf58dc0d173a48b016ad3cb096c9c87d2a469d0732f6a7887",
+            "usage": {
+              "input_tokens": 967,
+              "input_tokens_details": {
+                "cache_write_tokens": 0,
+                "cached_tokens": 0
+              },
+              "output_tokens": 434,
+              "output_tokens_details": {
+                "reasoning_tokens": 341
+              },
+              "total_tokens": 1401
+            }
+          }
+        }
+      ],
+      "round_count": 3,
+      "provided_context": [
+        {
+          "id": "cd0c01291be1ee8ae25897e1248050c2.sol:modifier:76594:137",
+          "kind": "modifier",
+          "name": "onlyAdmin()",
+          "file": "cd0c01291be1ee8ae25897e1248050c2.sol",
+          "source": "modifier onlyAdmin {\n        IPredictionMarket mkt = IPredictionMarket(owner);\n        require(mkt.isAdmin(msg.sender));\n        _;\n    }"
+        },
+        {
+          "id": "cd0c01291be1ee8ae25897e1248050c2.sol:state_variable:69805:20",
+          "kind": "state_variable",
+          "name": "Ownable.owner",
+          "file": "cd0c01291be1ee8ae25897e1248050c2.sol",
+          "source": "address public owner"
+        },
+        {
+          "id": "cd0c01291be1ee8ae25897e1248050c2.sol:function:69832:54",
+          "kind": "function",
+          "name": "Ownable()",
+          "file": "cd0c01291be1ee8ae25897e1248050c2.sol",
+          "source": "function Ownable() {\n        owner = msg.sender;\n    }"
+        }
+      ]
+    },
+    "context_efficiency": {
+      "full_source_tokens": 19623,
+      "initial_source_tokens": 33,
+      "initial_payload_tokens": 250,
+      "cumulative_input_tokens": 2655,
+      "initial_source_reduction": 0.9983182999541355,
+      "initial_payload_reduction": 0.9872598481373898,
+      "cumulative_input_reduction": 0.8646995872190797
+    },
+    "source_bytes": 78489,
+    "source_LOC": 2109,
+    "solidity_files": 1,
+    "context_requests": 2,
+    "requested_fragments": 3,
+    "explanation": "The function does call selfdestruct, but it is protected by the onlyAdmin modifier. That modifier requires require(mkt.isAdmin(msg.sender)) before execution, so the supplied code does not support the finding's claim that anyone can destruct the contract.",
+    "evidence_ids": [
+      "cd0c01291be1ee8ae25897e1248050c2.sol:function:71797:129",
+      "cd0c01291be1ee8ae25897e1248050c2.sol:modifier:76594:137"
+    ],
+    "api_rounds": [
+      {
+        "assessment": {
+          "action": "request_context",
+          "requested_ids": [
+            "fragment_0001"
+          ],
+          "verdict": "pending",
+          "explanation": "The finding depends on whether the onlyAdmin modifier restricts access to the function. Its source is required to determine whether anyone can invoke selfdestruct.",
+          "evidence_ids": []
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_078900b0b685d662016ad3cb02915887d2a714d0155882fbf2",
+        "usage": {
+          "input_tokens": 809,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 108,
+          "output_tokens_details": {
+            "reasoning_tokens": 40
+          },
+          "total_tokens": 917
+        }
+      },
+      {
+        "assessment": {
+          "action": "request_context",
+          "requested_ids": [
+            "fragment_0002",
+            "fragment_0003"
+          ],
+          "verdict": "pending",
+          "explanation": "The function is protected by onlyAdmin, which requires IPredictionMarket(owner).isAdmin(msg.sender). Determining whether anyone can satisfy that check may depend on how owner is set and whether it identifies the intended administration contract.",
+          "evidence_ids": [
+            "fragment_0000",
+            "fragment_0001"
+          ]
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_041d06eb2e0eb408016ad3cb04e9b887d28793409d9803c2a0",
+        "usage": {
+          "input_tokens": 879,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 401,
+          "output_tokens_details": {
+            "reasoning_tokens": 303
+          },
+          "total_tokens": 1280
+        }
+      },
+      {
+        "assessment": {
+          "action": "final",
+          "requested_ids": [],
+          "verdict": "false_positive",
+          "explanation": "The function does call selfdestruct, but it is protected by the onlyAdmin modifier. That modifier requires require(mkt.isAdmin(msg.sender)) before execution, so the supplied code does not support the finding's claim that anyone can destruct the contract.",
+          "evidence_ids": [
+            "fragment_0000",
+            "fragment_0001"
+          ]
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_0bf58dc0d173a48b016ad3cb096c9c87d2a469d0732f6a7887",
+        "usage": {
+          "input_tokens": 967,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 434,
+          "output_tokens_details": {
+            "reasoning_tokens": 341
+          },
+          "total_tokens": 1401
+        }
+      }
+    ],
+    "requested_fragment_ids": [
+      "fragment_0001",
+      "fragment_0002",
+      "fragment_0003"
+    ],
+    "input_tokens": 2655,
+    "output_tokens": 943,
+    "total_tokens": 3598,
+    "actual_usage": {
+      "input_tokens": 2655,
+      "output_tokens": 943,
+      "total_tokens": 3598
+    },
+    "round_count": 3
+  }
+]

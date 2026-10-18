@@ -1,16 +1,55 @@
+"""Resolve Solidity functions and inspect their selective-context catalogs."""
 import argparse 
 from pathlib import Path
 from slither.slither import Slither
+from slither.core.declarations import Function
 import json
 from context_audit.context import build_function_context
 from context_audit.catalog import FragmentCatalog
-from context_audit.payload import build_initial_payload
 
-def inspect_contract(source_path: Path, function_signature: str | None = None) -> dict:
+def find_function(
+    slither: Slither,
+    contract_name: str,
+    function_signature: str,
+    file: str | None = None,
+) -> Function | None:
+    """Resolve the exact contract and signature, optionally requiring file identity."""
+    for contract in slither.contracts:
+        if contract.name != contract_name:
+            continue
+
+        for function in contract.functions:
+            if function.full_name != function_signature:
+                continue
+
+            if file is not None:
+                function_file = Path(
+                    function.source_mapping.filename.relative
+                ).as_posix()
+
+                finding_file = Path(file).as_posix()
+
+                if function_file != finding_file:
+                    continue
+
+            return function
+
+    return None
+
+def inspect_contract(
+    source_path: Path,
+    function_signature: str | None = None,
+    project_root: Path | None = None,
+) -> dict:
+    """Compile a source and collect contexts for matching functions."""
     slither = Slither(str(source_path))
-    catalog = FragmentCatalog(source_path.parent)
+
+    if project_root is None:
+        project_root = source_path.parent
+
+    catalog = FragmentCatalog(project_root)
+
     found = False
-    initial_payloads = []
     contexts = []
 
     for contract in slither.contracts:
@@ -22,14 +61,14 @@ def inspect_contract(source_path: Path, function_signature: str | None = None) -
             context = build_function_context(function, catalog)
             context["contract"] = contract.name
             contexts.append(context)
-            initial_payloads.append(build_initial_payload(context, catalog))
 
     if function_signature is not None and not found:
         raise ValueError(f"Function  not found: {function_signature}")
 
-    return {"source": str(source_path), "functions": contexts, "catalog": catalog.to_dict(), "initial_payloads": initial_payloads}
+    return {"source": str(source_path), "functions": contexts, "catalog": catalog.to_dict()}
 
 def main() -> None:
+    """Parse command-line arguments and invoke the module entry point."""
     parser = argparse.ArgumentParser(
         description="Inspect the structure of a Solidity contract"
     )
