@@ -17,3 +17,9 @@ results/**/assessments.csv
 .env.*
 .streamlit/secrets.toml
 runtime/
+
+.agents/
+.claude/
+.streamlit/
+
+
