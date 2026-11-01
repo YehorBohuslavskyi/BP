@@ -1,0 +1,30 @@
+{
+  "incident_id": "xsurge",
+  "incident": "XSURGE / SurgeToken",
+  "chain": "BSC",
+  "victim_address": "0xE1E1Aa58983F6b8eE8E4eCD206ceA6578F036c21",
+  "contract_name": "SurgeToken",
+  "source_path": "examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol",
+  "source_sha256": "e71b6fd8657393926d2ac2e5791f46fd44d3fe0ddb76178e808ff4f1101dd3c7",
+  "pragma": "^0.8.0",
+  "compiler_version": "0.8.5",
+  "imports": [],
+  "source_status": "SOURCE_READY",
+  "compilation_status": "PASSED_EXISTING_LOCAL_EVIDENCE",
+  "slither_mode": "standard-json",
+  "slither_finding_count": 21,
+  "known_vulnerability_result": "DETECTED",
+  "known_vulnerability_class": "historical cross-function reentrancy",
+  "affected_function": "sell(uint256)",
+  "mapping_reason": "Documented cross-function reentrancy corresponds to sell external call at line 591 preceding _balances and _totalSupply writes at 594/596; detector identifies cross-function state use in purchase and calculatePrice.",
+  "corresponding_finding_id": "283e78f92682b97003c79c283ba78a6a978eb958c5d03c0c58416f345bf2ebc5",
+  "evidence_hashes": {
+    "compilation.txt": "0dc8298556fa63d9e1bf0a6cf8ebe33cd7b4f5a612cf0704a9cc26f3341061a3",
+    "slither.json": "8ca1aa6d8c04b0e4ed8c74cb94118cfbfbc743788ddc187583b443a96820082c"
+  },
+  "provenance_basis": "User-established victim identity and source snapshot; local official XSURGE PoC references same address.",
+  "limitations": [
+    "Existing local compilation and standard-json analysis evidence imported without rerunning tools.",
+    "Historical source/deployed-bytecode equivalence and original deployment compiler settings not independently reverified in this integration."
+  ]
+}

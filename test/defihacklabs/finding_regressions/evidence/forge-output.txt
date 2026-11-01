@@ -1,0 +1,14 @@
+Compiling 1 files with Solc 0.8.24
+Solc 0.8.24 finished in 58.13ms
+Compiler run successful!
+
+Ran 5 tests for FindingRegressions.t.sol:FindingRegressions
+[PASS] testFuzz_FP_exactHashRootIsRequired(bytes32,bytes32) (runs: 64, μ: 10092, ~: 10097)
+[PASS] test_FP_emptyProofRequiresExactRoot() (gas: 6685)
+[PASS] test_FP_sortedSiblingProofAcceptsOnlyReconstructedRoot() (gas: 14374)
+[PASS] test_TP_poolAcceptsNativeValueDespiteTokenAccounting() (gas: 2536685)
+[PASS] test_TP_poolDoesNotHaveConventionalNativeExitOrFallback() (gas: 2600938)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 17.63ms (5.84ms CPU time)
+
+Ran 1 test suite in 22.62ms (17.63ms CPU time): 5 tests passed, 0 failed, 0 skipped (5 total tests)
+PASS: original source hashes unchanged: {"LedgerChannel.sol": "501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0", "Victim.sol": "8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d"}

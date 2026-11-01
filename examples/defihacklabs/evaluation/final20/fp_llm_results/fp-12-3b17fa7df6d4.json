@@ -1,0 +1,144 @@
+{
+  "target_id": "fp-12-3b17fa7df6d4",
+  "case": "eleven",
+  "finding_id": "3b17fa7df6d46dd6f38e672c759cc3862bd948b157686032c03d60efb271a8f5",
+  "detector": "unchecked-transfer",
+  "status": "COMPLETED",
+  "verdict": "confirmed",
+  "explanation": "The function calls IERC20(_token).transfer(...) without checking or otherwise using its return value. This directly supports the reported unchecked-transfer finding, including the _amount branch identified by the analyzer.",
+  "evidence_ids": [
+    "ElevenNeverSellVault.sol:function:38694:321"
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "result": {
+        "assessment": {
+          "action": "final",
+          "requested_ids": [],
+          "verdict": "confirmed",
+          "explanation": "The function calls IERC20(_token).transfer(...) without checking or otherwise using its return value. This directly supports the reported unchecked-transfer finding, including the _amount branch identified by the analyzer.",
+          "evidence_ids": [
+            "ElevenNeverSellVault.sol:function:38694:321"
+          ]
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_024e1c05031f76c8016ae7af025e0887d2b4d18558227c5273",
+        "usage": {
+          "input_tokens": 915,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 190,
+          "output_tokens_details": {
+            "reasoning_tokens": 107
+          },
+          "total_tokens": 1105
+        }
+      }
+    }
+  ],
+  "requested_fragments": 0,
+  "input_tokens": 915,
+  "output_tokens": 190,
+  "total_tokens": 1105,
+  "api_calls_attempted": 1,
+  "model": "gpt-5.6-luna",
+  "result": {
+    "finding": {
+      "id": "3b17fa7df6d46dd6f38e672c759cc3862bd948b157686032c03d60efb271a8f5",
+      "detector": "unchecked-transfer",
+      "contract": "ElevenNeverSellVault",
+      "function": "safeTokenTransfer(address,address,uint256)",
+      "file": "examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol"
+    },
+    "assessment": {
+      "action": "final",
+      "requested_ids": [],
+      "verdict": "confirmed",
+      "explanation": "The function calls IERC20(_token).transfer(...) without checking or otherwise using its return value. This directly supports the reported unchecked-transfer finding, including the _amount branch identified by the analyzer.",
+      "evidence_ids": [
+        "ElevenNeverSellVault.sol:function:38694:321"
+      ]
+    },
+    "rounds": [
+      {
+        "round": 1,
+        "result": {
+          "assessment": {
+            "action": "final",
+            "requested_ids": [],
+            "verdict": "confirmed",
+            "explanation": "The function calls IERC20(_token).transfer(...) without checking or otherwise using its return value. This directly supports the reported unchecked-transfer finding, including the _amount branch identified by the analyzer.",
+            "evidence_ids": [
+              "ElevenNeverSellVault.sol:function:38694:321"
+            ]
+          },
+          "model": "gpt-5.6-luna",
+          "response_id": "resp_024e1c05031f76c8016ae7af025e0887d2b4d18558227c5273",
+          "usage": {
+            "input_tokens": 915,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 190,
+            "output_tokens_details": {
+              "reasoning_tokens": 107
+            },
+            "total_tokens": 1105
+          }
+        }
+      }
+    ],
+    "round_count": 1,
+    "provided_context": []
+  },
+  "summary": {
+    "finding_id": "3b17fa7df6d46dd6f38e672c759cc3862bd948b157686032c03d60efb271a8f5",
+    "detector": "unchecked-transfer",
+    "contract": "ElevenNeverSellVault",
+    "function": "safeTokenTransfer(address,address,uint256)",
+    "verdict": "confirmed",
+    "rounds": 1,
+    "requested_fragments": 0,
+    "input_tokens": 915,
+    "output_tokens": 190,
+    "total_tokens": 1105
+  },
+  "context_efficiency": {
+    "full_source_estimated_tokens": 10423,
+    "initial_selected_source_estimated_tokens": 81,
+    "additional_selected_source_estimated_tokens": 0,
+    "cumulative_selected_source_estimated_tokens": 81,
+    "source_context_reduction": 0.9922287249352394
+  },
+  "initial_payload": {
+    "target": {
+      "id": "ElevenNeverSellVault.sol:function:38694:321",
+      "kind": "function",
+      "contract": "ElevenNeverSellVault",
+      "signature": "safeTokenTransfer(address,address,uint256)",
+      "visibility": "internal",
+      "source": "function safeTokenTransfer(address _token, address _to, uint256 _amount) internal {\n        uint256 sushiBal = IERC20(_token).balanceOf(address(this));\n        if (_amount > sushiBal) {\n            IERC20(_token).transfer(_to, sushiBal);\n        } else {\n            IERC20(_token).transfer(_to, _amount);\n        }\n    }"
+    },
+    "available_context": [],
+    "context_complete": false,
+    "task": "verify_static_analysis_finding",
+    "finding": {
+      "id": "3b17fa7df6d46dd6f38e672c759cc3862bd948b157686032c03d60efb271a8f5",
+      "tool": "slither",
+      "detector": "unchecked-transfer",
+      "impact": "High",
+      "confidence": "Medium",
+      "description": "ElevenNeverSellVault.safeTokenTransfer(address,address,uint256) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1060-1067) ignores return value by IERC20(_token).transfer(_to,_amount) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1065)\n",
+      "contract": "ElevenNeverSellVault",
+      "function": "safeTokenTransfer(address,address,uint256)",
+      "file": "examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol",
+      "lines": [
+        1065
+      ]
+    }
+  }
+}

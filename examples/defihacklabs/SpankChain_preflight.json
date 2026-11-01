@@ -1,0 +1,146 @@
+{
+  "source": "examples/defihacklabs/SpankChain.sol",
+  "source_sha256": "501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0",
+  "compiler": "0.4.25+commit.59dbf8f1.Linux.g++",
+  "slither": "0.11.6",
+  "compilation": "passed",
+  "slither_success": true,
+  "full_slither_total_findings": 126,
+  "full_slither_counts": {
+    "arbitrary-send-eth": 1,
+    "reentrancy-eth": 2,
+    "constant-function-asm": 3,
+    "incorrect-equality": 8,
+    "reentrancy-no-eth": 4,
+    "tautology": 2,
+    "reentrancy-benign": 3,
+    "reentrancy-events": 6,
+    "timestamp": 11,
+    "assembly": 3,
+    "boolean-equal": 7,
+    "solc-version": 2,
+    "low-level-calls": 1,
+    "naming-convention": 60,
+    "reentrancy-unlimited-gas": 3,
+    "constable-states": 1,
+    "external-function": 9
+  },
+  "selected_finding": {
+    "id": "da49c1a96621ac0ec579d1887de3a8ce6ffd1be3d610c7819b78645f05e0e19f",
+    "detector": "reentrancy-eth",
+    "impact": "High",
+    "confidence": "Medium",
+    "contract": "LedgerChannel",
+    "function": "LCOpenTimeout(bytes32)",
+    "lines": [
+      699,
+      705,
+      713
+    ],
+    "description": "Reentrancy in LedgerChannel.LCOpenTimeout(bytes32) (examples/defihacklabs/SpankChain.sol#692-715):\n\tExternal calls:\n\t- require(bool,string)(Channels[_lcID].token.transfer(Channels[_lcID].partyAddresses[0],Channels[_lcID].erc20Balances[0]),CreateChannel: token transfer failure) (examples/defihacklabs/SpankChain.sol#705)\n\tExternal calls sending eth:\n\t- Channels[_lcID].partyAddresses[0].transfer(Channels[_lcID].ethBalances[0]) (examples/defihacklabs/SpankChain.sol#699)\n\tState variables written after the call(s):\n\t- delete Channels[_lcID] (examples/defihacklabs/SpankChain.sol#713)\n\tLedgerChannel.Channels (examples/defihacklabs/SpankChain.sol#622) can be used in cross function reentrancies:\n\t- LedgerChannel.Channels (examples/defihacklabs/SpankChain.sol#622)\n\t- LedgerChannel.LCOpenTimeout(bytes32) (examples/defihacklabs/SpankChain.sol#692-715)\n\t- LedgerChannel.byzantineCloseChannel(bytes32) (examples/defihacklabs/SpankChain.sol#1241-1337)\n\t- LedgerChannel.closeVirtualChannel(bytes32,bytes32) (examples/defihacklabs/SpankChain.sol#1192-1237)\n\t- LedgerChannel.consensusCloseChannel(bytes32,uint256,uint256[4],string,string) (examples/defihacklabs/SpankChain.sol#804-889)\n\t- LedgerChannel.createChannel(bytes32,address,uint256,address,uint256[2]) (examples/defihacklabs/SpankChain.sol#623-690)\n\t- LedgerChannel.deposit(bytes32,address,uint256,bool) (examples/defihacklabs/SpankChain.sol#757-800)\n\t- LedgerChannel.getChannel(bytes32) (examples/defihacklabs/SpankChain.sol#1366-1423)\n\t- LedgerChannel.initVCstate(bytes32,bytes32,bytes,address,address,uint256[2],uint256[4],string) (examples/defihacklabs/SpankChain.sol#1005-1077)\n\t- LedgerChannel.joinChannel(bytes32,uint256[2]) (examples/defihacklabs/SpankChain.sol#716-751)\n\t- LedgerChannel.settleVC(bytes32,bytes32,uint256,address,address,uint256[4],string) (examples/defihacklabs/SpankChain.sol#1085-1191)\n\t- LedgerChannel.updateLCstate(bytes32,uint256[6],bytes32,string,string) (examples/defihacklabs/SpankChain.sol#892-1001)\n"
+  },
+  "gui_upload_analysis_and_eligibility": "passed",
+  "selective_context_preparation": "passed",
+  "initial_source_characters": 706,
+  "full_source_characters": 29787,
+  "initial_payload": {
+    "target": {
+      "id": "SpankChain.sol:function:13743:706",
+      "kind": "function",
+      "contract": "LedgerChannel",
+      "signature": "LCOpenTimeout(bytes32)",
+      "visibility": "public",
+      "source": "function LCOpenTimeout(bytes32 _lcID) public {\n\nrequire(msg.sender == Channels[_lcID].partyAddresses[0] && Channels[_lcID].isOpen == false);\n\nrequire(now > Channels[_lcID].LCopenTimeout);\n\nif(Channels[_lcID].initialDeposit[0] != 0) {\nChannels[_lcID].partyAddresses[0].transfer(Channels[_lcID].ethBalances[0]);\n\n}\n\nif(Channels[_lcID].initialDeposit[1] != 0) {\n\nrequire(Channels[_lcID].token.transfer(Channels[_lcID].partyAddresses[0], Channels[_lcID].erc20Balances[0]),\"CreateChannel: token transfer failure\");\n\n}\n\nemit DidLCClose(_lcID, 0, Channels[_lcID].ethBalances[0], Channels[_lcID].erc20Balances[0], 0, 0);\n\n// only safe to delete since no action was taken on this channel\n\ndelete Channels[_lcID];\n\n}"
+    },
+    "available_context": [
+      {
+        "id": "SpankChain.sol:state_variable:12092:43",
+        "kind": "state_variable",
+        "name": "LedgerChannel.Channels",
+        "reasons": [
+          "state variable declaration: Channels"
+        ]
+      },
+      {
+        "id": "SpankChain.sol:function:12137:1604",
+        "kind": "function",
+        "name": "createChannel(bytes32,address,uint256,address,uint256[2])",
+        "reasons": [
+          "direct writer of state variable: Channels"
+        ]
+      },
+      {
+        "id": "SpankChain.sol:function:14450:816",
+        "kind": "function",
+        "name": "joinChannel(bytes32,uint256[2])",
+        "reasons": [
+          "direct writer of state variable: Channels"
+        ]
+      },
+      {
+        "id": "SpankChain.sol:function:15346:1103",
+        "kind": "function",
+        "name": "deposit(bytes32,address,uint256,bool)",
+        "reasons": [
+          "direct writer of state variable: Channels"
+        ]
+      },
+      {
+        "id": "SpankChain.sol:function:16577:1756",
+        "kind": "function",
+        "name": "consensusCloseChannel(bytes32,uint256,uint256[4],string,string)",
+        "reasons": [
+          "direct writer of state variable: Channels"
+        ]
+      },
+      {
+        "id": "SpankChain.sol:function:18358:1632",
+        "kind": "function",
+        "name": "updateLCstate(bytes32,uint256[6],bytes32,string,string)",
+        "reasons": [
+          "direct writer of state variable: Channels"
+        ]
+      },
+      {
+        "id": "SpankChain.sol:function:24198:1553",
+        "kind": "function",
+        "name": "closeVirtualChannel(bytes32,bytes32)",
+        "reasons": [
+          "direct writer of state variable: Channels"
+        ]
+      },
+      {
+        "id": "SpankChain.sol:function:25844:2194",
+        "kind": "function",
+        "name": "byzantineCloseChannel(bytes32)",
+        "reasons": [
+          "direct writer of state variable: Channels"
+        ]
+      }
+    ],
+    "context_complete": false,
+    "task": "verify_static_analysis_finding",
+    "finding": {
+      "id": "da49c1a96621ac0ec579d1887de3a8ce6ffd1be3d610c7819b78645f05e0e19f",
+      "tool": "slither",
+      "detector": "reentrancy-eth",
+      "impact": "High",
+      "confidence": "Medium",
+      "description": "Reentrancy in LedgerChannel.LCOpenTimeout(bytes32) (examples/defihacklabs/SpankChain.sol#692-715):\n\tExternal calls:\n\t- require(bool,string)(Channels[_lcID].token.transfer(Channels[_lcID].partyAddresses[0],Channels[_lcID].erc20Balances[0]),CreateChannel: token transfer failure) (examples/defihacklabs/SpankChain.sol#705)\n\tExternal calls sending eth:\n\t- Channels[_lcID].partyAddresses[0].transfer(Channels[_lcID].ethBalances[0]) (examples/defihacklabs/SpankChain.sol#699)\n\tState variables written after the call(s):\n\t- delete Channels[_lcID] (examples/defihacklabs/SpankChain.sol#713)\n\tLedgerChannel.Channels (examples/defihacklabs/SpankChain.sol#622) can be used in cross function reentrancies:\n\t- LedgerChannel.Channels (examples/defihacklabs/SpankChain.sol#622)\n\t- LedgerChannel.LCOpenTimeout(bytes32) (examples/defihacklabs/SpankChain.sol#692-715)\n\t- LedgerChannel.byzantineCloseChannel(bytes32) (examples/defihacklabs/SpankChain.sol#1241-1337)\n\t- LedgerChannel.closeVirtualChannel(bytes32,bytes32) (examples/defihacklabs/SpankChain.sol#1192-1237)\n\t- LedgerChannel.consensusCloseChannel(bytes32,uint256,uint256[4],string,string) (examples/defihacklabs/SpankChain.sol#804-889)\n\t- LedgerChannel.createChannel(bytes32,address,uint256,address,uint256[2]) (examples/defihacklabs/SpankChain.sol#623-690)\n\t- LedgerChannel.deposit(bytes32,address,uint256,bool) (examples/defihacklabs/SpankChain.sol#757-800)\n\t- LedgerChannel.getChannel(bytes32) (examples/defihacklabs/SpankChain.sol#1366-1423)\n\t- LedgerChannel.initVCstate(bytes32,bytes32,bytes,address,address,uint256[2],uint256[4],string) (examples/defihacklabs/SpankChain.sol#1005-1077)\n\t- LedgerChannel.joinChannel(bytes32,uint256[2]) (examples/defihacklabs/SpankChain.sol#716-751)\n\t- LedgerChannel.settleVC(bytes32,bytes32,uint256,address,address,uint256[4],string) (examples/defihacklabs/SpankChain.sol#1085-1191)\n\t- LedgerChannel.updateLCstate(bytes32,uint256[6],bytes32,string,string) (examples/defihacklabs/SpankChain.sol#892-1001)\n",
+      "contract": "LedgerChannel",
+      "function": "LCOpenTimeout(bytes32)",
+      "file": "examples/defihacklabs/SpankChain.sol",
+      "lines": [
+        699,
+        705,
+        713
+      ]
+    }
+  },
+  "llm_verifier": {
+    "status": "not_run",
+    "verdict": null,
+    "api_calls": 0
+  },
+  "other_findings_ground_truth": "not_assessed"
+}

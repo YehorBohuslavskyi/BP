@@ -1,0 +1,30 @@
+{
+  "incident_id": "spartan",
+  "project": "Spartan Protocol",
+  "source_status": "SOURCE_READY",
+  "baseline_classification": "MISSED",
+  "known_vulnerability_result": "MISSED",
+  "affected_contract": "Pool (liquidity-removal path; external UTILS calculation)",
+  "affected_function": "removeLiquidityForMember(address)",
+  "related_function": "removeLiquidity()",
+  "compiler": "0.6.8",
+  "source_sha256": "8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d",
+  "matched_slither_finding_ids": [],
+  "llm_target_created": false,
+  "cohort_role": "SUPPLEMENTAL_NOT_IN_NOMINATED_20",
+  "reason": "Documented liquidity-share calculation relies on externally manipulable current pool token balances before LP burning, yielding excessive underlying withdrawals. Supplied Slither findings do not identify this share-calculation/spot-balance flaw. Unrelated reentrancy, transfer and return-value warnings are not corresponding detections.",
+  "local_poc_path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2021-05/Spartan_exp.sol",
+  "local_poc_sha256": "7386f7bff4182bd1bf081c4fce990dea607d03692214cea0cf9f58c12c5e4ec2",
+  "evidence_hashes": {
+    "examples/defihacklabs/evaluation/final20/contracts/spartan/evidence/slither.txt": "6b9f989c282eab5d0d1cca63695e536d5277842e1b68ae6cae1b1b80332973c9",
+    "examples/defihacklabs/evaluation/final20/contracts/spartan/evidence/integration.json": "a8610c8d3946720eb18fb3b3c4462969cc9582512087405ba83ac0a7ba23f145",
+    "examples/defihacklabs/evaluation/final20/contracts/spartan/evidence/compilation.txt": "d123ca08dd8842a2af00117c216a87059d768b3b726dd7a56336b173001968eb",
+    "examples/defihacklabs/evaluation/final20/contracts/spartan/evidence/slither.json": "ca371f33b3c2e5d4746d7366cf3c9a4bf9e4e5950fd789a4f98bff16efdd5a93"
+  },
+  "limitations": [
+    "User-established historical root-cause adjudication; no compilation, Slither, inference or exploit reproduction rerun.",
+    "Existing technical integration.json remains immutable; this adjudication records the manual baseline decision.",
+    "The analyzed source calls an external UTILS calcLiquidityShare implementation; no independent deployment-equivalence or completeness claim is added for that external implementation.",
+    "Supplemental case; no nominated incident replaced and no cohort freeze or aggregate metrics."
+  ]
+}

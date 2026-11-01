@@ -6,8 +6,9 @@ import sys
 
 from openai import OpenAIError
 
-from context_audit.cgt_inference import estimated_tokens
-from context_audit.classification_metrics import context_efficiency
+from dataclasses import asdict
+
+from context_audit.app.presentation import source_context_efficiency
 from context_audit.findings import Finding
 from context_audit.verifier import prepare_finding, summarize_verification, verify_prepared_finding
 
@@ -19,11 +20,8 @@ def verify_request(request: dict) -> dict:
     payload, catalog = prepare_finding(source, source.parent, finding)
     result = verify_prepared_finding(finding, payload, catalog, request['max_rounds'])
     summary = summarize_verification(result)
-    efficiency = context_efficiency(
-        estimated_tokens(source.read_text()), estimated_tokens(payload['target']['source']),
-        estimated_tokens(json.dumps(payload)), summary['input_tokens'],
-    )
-    return {'result': result, 'summary': summary, 'initial_payload': payload,
+    efficiency = source_context_efficiency(source.read_text(), payload, result)
+    return {'finding': asdict(finding), 'result': result, 'summary': summary, 'initial_payload': payload,
             'model': os.environ.get('OPENAI_MODEL'), 'compiler': os.environ.get('SOLC_VERSION'),
             'context_efficiency': efficiency,
             'source_bytes': source.stat().st_size,

@@ -11,6 +11,7 @@ from tempfile import TemporaryDirectory
 
 from context_audit.app.compilers import code_tokens, compatible_compilers, detect_pragmas
 from context_audit.app.config import ApplicationError, MAX_UPLOAD_BYTES, VerificationSettings
+from context_audit.app.presentation import verification_ineligibility, verification_export
 from context_audit.app.slither_runner import process_environment, run_slither
 from context_audit.findings import Finding, parse_slither_findings
 
@@ -94,8 +95,9 @@ def verify_selected(upload: UploadWorkspace, analysis: Analysis, index: int,
     if type(index) is not int or not 0 <= index < len(analysis.findings):
         raise ApplicationError('Select a finding from the current analysis.')
     finding = analysis.findings[index]
-    if not finding.contract or not finding.function_signature:
-        raise ApplicationError('This warning has no resolvable contract/function and cannot be verified.')
+    reason = verification_ineligibility(finding, upload.source_path)
+    if reason:
+        raise ApplicationError(f'This warning has no resolvable supported target: {reason}')
     request = {'source': str(upload.source_path), 'finding': asdict(finding),
                'max_rounds': settings.max_rounds}
     environment = process_environment(analysis.compiler, settings.model)
@@ -124,8 +126,8 @@ def export_analysis(upload: UploadWorkspace, analysis: Analysis, verifications: 
     usage = {key: sum(item['summary'][key] for item in verifications)
              for key in ('input_tokens', 'output_tokens', 'total_tokens')}
     return json.dumps({
-        'schema_version': 1, 'source': upload.source, 'source_sha256': upload.digest,
+        'schema_version': 2, 'source': upload.source, 'source_sha256': upload.digest,
         'compiler': analysis.compiler, 'slither_findings': [asdict(item) for item in analysis.findings],
-        'verification': verifications, 'usage': usage,
+        'verification': [verification_export(item) for item in verifications], 'usage': usage,
         'usage_note': 'Sum of reported usage for exported successful verifier runs; failed calls may have unreported usage.',
     }, indent=2, ensure_ascii=False)

@@ -1,0 +1,19 @@
+{
+  "protected_inputs": {
+    "examples/defihacklabs/LICENSE-SpankChain.txt": "a710b594b2270782ec480bed86dc36b434889303c7be611cf7a29408c6a8911e",
+    "examples/defihacklabs/SpankChain.sol": "501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0",
+    "examples/defihacklabs/SpankChain_preflight.json": "59489a7c0d0ddb071c6a27d8a2578418056c46fc09275806cf21d045431a4f8a",
+    "examples/defihacklabs/SpankChain_slither.json": "d3da48c72a043526295927666e0304f3859e68ddacfb2ddd4563c131ebe26bb1",
+    "examples/defihacklabs/SpankChain_fp_validation.md": "264b6161621ef604ebcf4400118518130dc01838251fa6bd97a1fd5dc083d7b1",
+    "examples/defihacklabs/SpankChain_ground_truth.md": "4f894fe7992ec9b8aabf2467355aab3517494ebc374e8d063ca9111baae24832"
+  },
+  "outputs": {
+    "incident_inventory.csv": "89544456e50026248d225bf8042d23d87c031a1cc1fa1d32b606757a61e3a818",
+    "manifest.json": "c56dd34132d586d91d8e9b5251833d20b0a2148a7db233fa92849a2c693078c4",
+    "manifest.md": "f9c2d508d825bf7511a993e83a0a938d280b0503801046afcf556b017507c306",
+    "slither_baseline.json": "ed38a8cbfbd7212fc242294e945ccc44e13535183244c748d36fc5d76a24233d",
+    "slither_baseline.csv": "5dfa69199c6b95c8f1f320cffc622796ccdd3d59dd6f881fcd5c9270abb5c06d",
+    "verification_targets.json": "ee4ed7c0b34b848c755e5fe764f195e8ad7c102cf2f1a33d4bd6869159258101"
+  },
+  "victim_snapshot_sha256": "501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0"
+}

@@ -1,0 +1,28 @@
+{
+  "incident_id": "bearn",
+  "source_status": "SOURCE_READY",
+  "baseline_classification": "MISSED",
+  "known_vulnerability_result": "MISSED",
+  "affected_contract": "BvaultsBank",
+  "affected_function": "withdraw(uint256,uint256)",
+  "compiler": "0.6.12",
+  "reason": "Documented withdrawal accounting uses inconsistent asset denominations: BvaultsBank treats the amount as BUSD while BvaultsStrategy interprets it as ibBUSD. The supplied Slither warnings do not identify this cross-contract denomination mismatch.",
+  "matched_slither_finding_ids": [],
+  "llm_target_created": false,
+  "cohort_role": "SUPPLEMENTAL_NOT_IN_NOMINATED_20",
+  "evidence_hashes": {
+    "examples/defihacklabs/evaluation/final20/contracts/bearn/evidence/slither.txt": "4c0b32d885d08d89687085d308b007d696d14b6885e40b743932c76c1a54fc68",
+    "examples/defihacklabs/evaluation/final20/contracts/bearn/evidence/integration.json": "386a3f8ca44f3e5f46247fba8f80074c2a61a7c279a94e5cf3b3c76cf83aaaa6",
+    "examples/defihacklabs/evaluation/final20/contracts/bearn/evidence/compilation.txt": "6869f0291e862926b8fbaf4ca224a906cedb9105cd7c742936fdabfe399552f2",
+    "examples/defihacklabs/evaluation/final20/contracts/bearn/evidence/slither.json": "cb7d21af7ce8a86a5310187c3b105d8cdc9037e7f9144a44649f0fdda56e6d9b"
+  },
+  "source_hashes": {
+    "examples/defihacklabs/evaluation/final20/contracts/bearn/raw/Implementation.sol": "f414ef0d194592c357eef7c218551d6049e03813e1881a07ac1b04d57fe1f810",
+    "examples/defihacklabs/evaluation/final20/contracts/bearn/raw/Victim.sol": "2e5e1b856ab978784d39def7dade34e601e405fc9605719c8f4d3f4afffb161a"
+  },
+  "limitations": [
+    "User-established historical root-cause adjudication; no compilation, Slither or inference rerun.",
+    "Existing technical integration.json retained unchanged; this separate record supplies manual adjudication.",
+    "Incident-time proxy/implementation deployment equivalence not newly independently verified."
+  ]
+}

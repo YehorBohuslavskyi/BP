@@ -1,0 +1,259 @@
+{
+  "cohort_frozen": false,
+  "nominated_total": 20,
+  "source_ready_cases": [
+    {
+      "case": "spankchain",
+      "name": "SpankChain",
+      "cohort_role": "NOMINATED_PROVISIONAL",
+      "compiler": "0.4.25",
+      "source_status": "SOURCE_READY",
+      "slither_finding_count": 126,
+      "baseline_classification": "DETECTED",
+      "matched_findings": [
+        {
+          "detector": "reentrancy-eth",
+          "finding_id": "da49c1a96621ac0ec579d1887de3a8ce6ffd1be3d610c7819b78645f05e0e19f"
+        }
+      ],
+      "llm_target_created": true,
+      "target_scope": "LEGACY_PILOT",
+      "target_id": "case_001",
+      "llm_result_available": false,
+      "llm_verdict": null,
+      "llm_rounds": null,
+      "requested_fragments": null,
+      "api_input_tokens": null,
+      "api_output_tokens": null,
+      "api_total_tokens": null,
+      "missed_reason": null,
+      "limitations": [
+        "Detailed LLM result unavailable in final20; historical completion is not reconstructed as a result."
+      ]
+    },
+    {
+      "case": "xsurge",
+      "name": "XSURGE",
+      "cohort_role": "NOMINATED_PROVISIONAL",
+      "compiler": "0.8.5",
+      "source_status": "SOURCE_READY",
+      "slither_finding_count": 21,
+      "baseline_classification": "DETECTED",
+      "matched_findings": [
+        {
+          "detector": "reentrancy-eth",
+          "finding_id": "283e78f92682b97003c79c283ba78a6a978eb958c5d03c0c58416f345bf2ebc5"
+        }
+      ],
+      "llm_target_created": true,
+      "target_scope": "FINAL20",
+      "target_id": "xsurge-reentrancy-eth-283e78f92682",
+      "llm_result_available": true,
+      "llm_verdict": "confirmed",
+      "llm_rounds": 2,
+      "requested_fragments": 4,
+      "api_input_tokens": 6682,
+      "api_output_tokens": 1331,
+      "api_total_tokens": 8013,
+      "missed_reason": null,
+      "limitations": []
+    },
+    {
+      "case": "burgerswap",
+      "name": "BurgerSwap",
+      "cohort_role": "NOMINATED_PROVISIONAL",
+      "compiler": "0.6.6",
+      "source_status": "SOURCE_READY",
+      "slither_finding_count": 96,
+      "baseline_classification": "MISSED",
+      "matched_findings": [],
+      "llm_target_created": false,
+      "target_scope": null,
+      "target_id": null,
+      "llm_result_available": false,
+      "llm_verdict": null,
+      "llm_rounds": null,
+      "requested_fragments": null,
+      "api_input_tokens": null,
+      "api_output_tokens": null,
+      "api_total_tokens": null,
+      "missed_reason": "Known root cause is cross-function reentrancy invalidating precomputed swap amounts before _swap reuses them. The related reentrancy-events finding reports calls followed by SwapToken emission and does not establish stale-amount/reserve-state reuse. It is not a corresponding ground-truth detection.",
+      "limitations": []
+    },
+    {
+      "case": "visor-finance",
+      "name": "Visor Finance",
+      "cohort_role": "NOMINATED_PROVISIONAL",
+      "compiler": "0.7.6",
+      "source_status": "SOURCE_READY",
+      "slither_finding_count": 41,
+      "baseline_classification": "MISSED",
+      "matched_findings": [],
+      "llm_target_created": false,
+      "target_scope": null,
+      "target_id": null,
+      "llm_result_available": false,
+      "llm_verdict": null,
+      "llm_rounds": null,
+      "requested_fragments": null,
+      "api_input_tokens": null,
+      "api_output_tokens": null,
+      "api_total_tokens": null,
+      "missed_reason": "Caller-controlled from contract supplies owner/delegatedTransferERC20 behavior; deposit does not verify receipt before mint. Reported arbitrary-send-erc20 sink is the ELSE/non-contract safeTransferFrom branch, not this documented path.",
+      "limitations": []
+    },
+    {
+      "case": "eleven",
+      "name": "Eleven Finance",
+      "cohort_role": "SUPPLEMENTAL",
+      "compiler": "0.6.12",
+      "source_status": "SOURCE_READY",
+      "slither_finding_count": 58,
+      "baseline_classification": "MISSED",
+      "matched_findings": [],
+      "llm_target_created": false,
+      "target_scope": null,
+      "target_id": null,
+      "llm_result_available": false,
+      "llm_verdict": null,
+      "llm_rounds": null,
+      "requested_fragments": null,
+      "api_input_tokens": null,
+      "api_output_tokens": null,
+      "api_total_tokens": null,
+      "missed_reason": "Documented emergencyBurn transfers underlying assets without burning caller vault shares, unlike withdraw. No supplied Slither finding identifies that missing burn or equivalent accounting inconsistency; all 58 findings remain unlabeled additional findings.",
+      "limitations": []
+    },
+    {
+      "case": "bearn",
+      "name": "bEarn",
+      "cohort_role": "SUPPLEMENTAL",
+      "compiler": "0.6.12",
+      "source_status": "SOURCE_READY",
+      "slither_finding_count": 115,
+      "baseline_classification": "MISSED",
+      "matched_findings": [],
+      "llm_target_created": false,
+      "target_scope": null,
+      "target_id": null,
+      "llm_result_available": false,
+      "llm_verdict": null,
+      "llm_rounds": null,
+      "requested_fragments": null,
+      "api_input_tokens": null,
+      "api_output_tokens": null,
+      "api_total_tokens": null,
+      "missed_reason": "Documented withdrawal accounting uses inconsistent asset denominations: BvaultsBank treats the amount as BUSD while BvaultsStrategy interprets it as ibBUSD. The supplied Slither warnings do not identify this cross-contract denomination mismatch.",
+      "limitations": []
+    },
+    {
+      "case": "spartan",
+      "name": "Spartan Protocol",
+      "cohort_role": "SUPPLEMENTAL",
+      "compiler": "0.6.8",
+      "source_status": "SOURCE_READY",
+      "slither_finding_count": 76,
+      "baseline_classification": "MISSED",
+      "matched_findings": [],
+      "llm_target_created": false,
+      "target_scope": null,
+      "target_id": null,
+      "llm_result_available": false,
+      "llm_verdict": null,
+      "llm_rounds": null,
+      "requested_fragments": null,
+      "api_input_tokens": null,
+      "api_output_tokens": null,
+      "api_total_tokens": null,
+      "missed_reason": "Documented liquidity-share calculation relies on externally manipulable current pool token balances before LP burning, yielding excessive underlying withdrawals. Supplied Slither findings do not identify this share-calculation/spot-balance flaw. Unrelated reentrancy, transfer and return-value warnings are not corresponding detections.",
+      "limitations": []
+    }
+  ],
+  "metrics": {
+    "frozen_cohort": null,
+    "nominated_provisional": {
+      "source_ready": 4,
+      "detected": 2,
+      "missed": 2,
+      "baseline_recall": 0.5,
+      "baseline_recall_denominator": 4,
+      "known_vulnerability_llm_targets": 2,
+      "completed_llm_results": 1,
+      "unavailable_llm_results": 1,
+      "confirmed_known_vulnerabilities": 1,
+      "lost_known_vulnerabilities": 0,
+      "inconclusive_known_vulnerabilities": 0,
+      "retention_rate": 1.0,
+      "retention_denominator": 1
+    },
+    "supplemental": {
+      "source_ready": 3,
+      "detected": 0,
+      "missed": 3,
+      "baseline_recall": 0.0,
+      "baseline_recall_denominator": 3,
+      "known_vulnerability_llm_targets": 0,
+      "completed_llm_results": 0,
+      "unavailable_llm_results": 0,
+      "confirmed_known_vulnerabilities": 0,
+      "lost_known_vulnerabilities": 0,
+      "inconclusive_known_vulnerabilities": 0,
+      "retention_rate": null,
+      "retention_denominator": 0
+    },
+    "combined_descriptive": {
+      "source_ready": 7,
+      "detected": 2,
+      "missed": 5,
+      "baseline_recall": 0.2857142857142857,
+      "baseline_recall_denominator": 7,
+      "known_vulnerability_llm_targets": 2,
+      "completed_llm_results": 1,
+      "unavailable_llm_results": 1,
+      "confirmed_known_vulnerabilities": 1,
+      "lost_known_vulnerabilities": 0,
+      "inconclusive_known_vulnerabilities": 0,
+      "retention_rate": 1.0,
+      "retention_denominator": 1
+    }
+  },
+  "scope_notes": [
+    "Frozen-cohort headline metrics unavailable: cohort not frozen.",
+    "Baseline recall covers completed SOURCE_READY cases only, not all 20 nominations.",
+    "SpankChain baseline count/match and legacy target imported read-only from earlier evaluation files explicitly referenced here; all other case/result records come from final20.",
+    "LLM retention uses completed independently mapped detected findings only. Missing pilot result is not treated as a rejection or a completed confirmation.",
+    "Final20 target file has one target; legacy pilot target is separately recorded, making two eligible technical targets across both integrations."
+  ],
+  "supplemental_miss_reasons": [
+    {
+      "case": "burgerswap",
+      "reason": "Known root cause is cross-function reentrancy invalidating precomputed swap amounts before _swap reuses them. The related reentrancy-events finding reports calls followed by SwapToken emission and does not establish stale-amount/reserve-state reuse. It is not a corresponding ground-truth detection."
+    },
+    {
+      "case": "visor-finance",
+      "reason": "Caller-controlled from contract supplies owner/delegatedTransferERC20 behavior; deposit does not verify receipt before mint. Reported arbitrary-send-erc20 sink is the ELSE/non-contract safeTransferFrom branch, not this documented path."
+    },
+    {
+      "case": "eleven",
+      "reason": "Documented emergencyBurn transfers underlying assets without burning caller vault shares, unlike withdraw. No supplied Slither finding identifies that missing burn or equivalent accounting inconsistency; all 58 findings remain unlabeled additional findings."
+    },
+    {
+      "case": "bearn",
+      "reason": "Documented withdrawal accounting uses inconsistent asset denominations: BvaultsBank treats the amount as BUSD while BvaultsStrategy interprets it as ibBUSD. The supplied Slither warnings do not identify this cross-contract denomination mismatch."
+    },
+    {
+      "case": "spartan",
+      "reason": "Documented liquidity-share calculation relies on externally manipulable current pool token balances before LP burning, yielding excessive underlying withdrawals. Supplied Slither findings do not identify this share-calculation/spot-balance flaw. Unrelated reentrancy, transfer and return-value warnings are not corresponding detections."
+    }
+  ],
+  "input_hashes": {
+    "/home/coca-cola/projects/BP/examples/defihacklabs/evaluation/verification_targets.json": "ee4ed7c0b34b848c755e5fe764f195e8ad7c102cf2f1a33d4bd6869159258101",
+    "/home/coca-cola/projects/BP/examples/defihacklabs/evaluation/slither_baseline.json": "ed38a8cbfbd7212fc242294e945ccc44e13535183244c748d36fc5d76a24233d",
+    "/home/coca-cola/projects/BP/examples/defihacklabs/evaluation/final20/verification_targets.json": "f41d60117a2d39c1c5ddb6f412e3496079242b999c7218de4ec8be4edcb9b557",
+    "/home/coca-cola/projects/BP/examples/defihacklabs/evaluation/final20/slither_baseline.json": "3c4b0ba3f1aa2164e3d894f44c3b15da97c025b5c240b91b611eda0502263f58",
+    "/home/coca-cola/projects/BP/examples/defihacklabs/evaluation/final20/source_status.json": "889d1a2921e798534d24a6b32f73784a973a90e754287408dbc5a5fe2a8b0c16",
+    "/home/coca-cola/projects/BP/examples/defihacklabs/evaluation/catalog_v2/verification_targets.json": "c28a069bbeada18e469d2708f92f7aa13f198e107c8daab841ac94667e1fac57",
+    "/home/coca-cola/projects/BP/examples/defihacklabs/evaluation/catalog_v2/slither_baseline.json": "c193ff6f22db3dbddba22bca9d9e2dfa1525b67040b511ee663896237d6fa519",
+    "/home/coca-cola/projects/BP/examples/defihacklabs/evaluation/final20/llm_results/xsurge-reentrancy-eth-283e78f92682.json": "92c9569a04a5ef66ccf2415a48cb6698eaf7b6376f7e5fc35092267119ec7878"
+  }
+}

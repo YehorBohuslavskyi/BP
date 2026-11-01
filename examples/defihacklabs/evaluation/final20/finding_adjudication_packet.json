@@ -1,0 +1,979 @@
+{
+  "experimental_unit": "INDIVIDUAL_SLITHER_FINDING",
+  "rank_source": "finding_adjudication_candidates.md",
+  "allowed_final_labels": [
+    "VALIDATED_FP",
+    "KNOWN_TP",
+    "DISPUTED",
+    "UNLABELED"
+  ],
+  "instructions": "Questions are unanswered. Preserve current_label as imported; enter independent evidence in adjudication_notes and only then set final_label. A historical incident or model verdict alone does not validate an unrelated finding.",
+  "candidates": [
+    {
+      "rank": 1,
+      "case": "spartan",
+      "finding_id": "e0b32bd732a1c264102776aaadff912380062745caa2eef526f7ad911b9e44f5",
+      "detector": "unchecked-transfer",
+      "impact": "High",
+      "confidence": "Medium",
+      "contract": "Pool",
+      "function": "swapTo(address,address)",
+      "source_lines": [
+        265
+      ],
+      "exact_slither_claim": "Pool.swapTo(address,address) (Victim.sol#252-267) ignores return value by iBEP20(token).transfer(member,outputAmount) (Victim.sol#265)\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol",
+          "source_sha256": "8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 252,
+          "end_line": 268,
+          "source": "    function swapTo(address token, address member) public payable returns (uint outputAmount, uint fee) {\n        require((token == BASE || token == TOKEN), \"Must be BASE or TOKEN\");\n        address _fromToken; uint _amount;\n        if(token == BASE){\n            _fromToken = TOKEN;\n            _amount = _getAddedTokenAmount();\n            (outputAmount, fee) = _swapTokenToBase(_amount);\n        } else {\n            _fromToken = BASE;\n            _amount = _getAddedBaseAmount();\n            (outputAmount, fee) = _swapBaseToToken(_amount);\n        }\n        emit Swapped(_fromToken, token, _amount, outputAmount, fee, member);\n        iBEP20(token).transfer(member, outputAmount);\n        return (outputAmount, fee);\n    }\n"
+        }
+      ],
+      "related_source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol",
+          "source_sha256": "8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d",
+          "role": "local_function: _getAddedBaseAmount",
+          "start_line": 269,
+          "end_line": 277,
+          "source": "    function _getAddedBaseAmount() internal view returns(uint256 _actual){\n        uint _baseBalance = iBEP20(BASE).balanceOf(address(this)); \n        if(_baseBalance > baseAmount){\n            _actual = _baseBalance.sub(baseAmount);\n        } else {\n            _actual = 0;\n        }\n        return _actual;\n    }"
+        },
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol",
+          "source_sha256": "8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d",
+          "role": "local_function: _getAddedTokenAmount",
+          "start_line": 278,
+          "end_line": 286,
+          "source": "    function _getAddedTokenAmount() internal view returns(uint256 _actual){\n        uint _tokenBalance = iBEP20(TOKEN).balanceOf(address(this)); \n        if(_tokenBalance > tokenAmount){\n            _actual = _tokenBalance.sub(tokenAmount);\n        } else {\n            _actual = 0;\n        }\n        return _actual;\n    }"
+        },
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol",
+          "source_sha256": "8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d",
+          "role": "local_function: _swapBaseToToken",
+          "start_line": 288,
+          "end_line": 296,
+          "source": "    function _swapBaseToToken(uint256 _x) internal returns (uint256 _y, uint256 _fee){\n        uint256 _X = baseAmount;\n        uint256 _Y = tokenAmount;\n        _y =  _DAO().UTILS().calcSwapOutput(_x, _X, _Y);\n        _fee = _DAO().UTILS().calcSwapFee(_x, _X, _Y);\n        _setPoolAmounts(_X.add(_x), _Y.sub(_y));\n        _addPoolMetrics(_y+_fee, _fee, false);\n        return (_y, _fee);\n    }"
+        }
+      ],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "Can the referenced token transfer fail or return false while execution proceeds with an inconsistent asset/accounting state, or is successful transfer established by the shown call semantics and guards?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label.",
+        "Additional local context omitted: _swapTokenToBase, swapTo"
+      ]
+    },
+    {
+      "rank": 2,
+      "case": "visor-finance",
+      "finding_id": "5d3eca2555a2051ff6412cb4a9bffb2027fe752f63b717bf319dc6d7c96cb1cb",
+      "detector": "arbitrary-send-erc20",
+      "impact": "High",
+      "confidence": "High",
+      "contract": "RewardsHypervisor",
+      "function": "deposit(uint256,address,address)",
+      "source_lines": [
+        61
+      ],
+      "exact_slither_claim": "RewardsHypervisor.deposit(uint256,address,address) (RewardsHypervisor.sol#41-65) uses arbitrary from in transferFrom: visr.safeTransferFrom(from,address(this),visrDeposit) (RewardsHypervisor.sol#61)\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/visor-finance/analysis/RewardsHypervisor.sol",
+          "source_sha256": "525abbcec7d91448ad551d0062e7197cf20c7789e93866370dbc6f196e6948fe",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 41,
+          "end_line": 65,
+          "source": "    function deposit(\n        uint256 visrDeposit,\n        address payable from,\n        address to\n    ) external returns (uint256 shares) {\n        require(visrDeposit > 0, \"deposits must be nonzero\");\n        require(to != address(0) && to != address(this), \"to\");\n        require(from != address(0) && from != address(this), \"from\");\n\n        shares = visrDeposit;\n        if (vvisr.totalSupply() != 0) {\n          uint256 visrBalance = visr.balanceOf(address(this));\n          shares = shares.mul(vvisr.totalSupply()).div(visrBalance);\n        }\n\n        if(isContract(from)) {\n          require(IVisor(from).owner() == msg.sender); \n          IVisor(from).delegatedTransferERC20(address(visr), address(this), visrDeposit);\n        }\n        else {\n          visr.safeTransferFrom(from, address(this), visrDeposit);\n        }\n\n        vvisr.mint(to, shares);\n    }"
+        }
+      ],
+      "related_source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/visor-finance/analysis/RewardsHypervisor.sol",
+          "source_sha256": "525abbcec7d91448ad551d0062e7197cf20c7789e93866370dbc6f196e6948fe",
+          "role": "local_function: isContract",
+          "start_line": 99,
+          "end_line": 105,
+          "source": "    function isContract(address _addr) private returns (bool isContract){\n\t\t\t\tuint32 size;\n\t\t\t\tassembly {\n\t\t\t\t\tsize := extcodesize(_addr)\n\t\t\t\t}\n\t\t\t\treturn (size > 0);\n\t\t}"
+        }
+      ],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "For the exact reported transferFrom sink and its branch, can an unauthorized caller choose a different owner as from and spend that owner\u2019s approved tokens, or do the shown checks bind the caller to the owner?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    },
+    {
+      "rank": 3,
+      "case": "spankchain",
+      "finding_id": "a03eb32cf0cb25b5d913b9890d1e238c647156d1da44ca03a9c1c3676916782f",
+      "detector": "reentrancy-eth",
+      "impact": "High",
+      "confidence": "Medium",
+      "contract": "LedgerChannel",
+      "function": "byzantineCloseChannel(bytes32)",
+      "source_lines": [
+        1306,
+        1307,
+        1313,
+        1314,
+        1315,
+        1316,
+        1317,
+        1318,
+        1319,
+        1321,
+        1322,
+        1323,
+        1324,
+        1325,
+        1326,
+        1327,
+        1331
+      ],
+      "exact_slither_claim": "Reentrancy in LedgerChannel.byzantineCloseChannel(bytes32) (examples/defihacklabs/SpankChain.sol#1241-1337):\n\tExternal calls:\n\t- require(bool,string)(channel.token.transfer(channel.partyAddresses[0],tokenbalanceA),byzantineCloseChannel: token transfer failure) (examples/defihacklabs/SpankChain.sol#1313-1319)\n\t- require(bool,string)(channel.token.transfer(channel.partyAddresses[1],tokenbalanceI),byzantineCloseChannel: token transfer failure) (examples/defihacklabs/SpankChain.sol#1321-1327)\n\tExternal calls sending eth:\n\t- channel.partyAddresses[0].transfer(ethbalanceA) (examples/defihacklabs/SpankChain.sol#1306)\n\t- channel.partyAddresses[1].transfer(ethbalanceI) (examples/defihacklabs/SpankChain.sol#1307)\n\tState variables written after the call(s):\n\t- channel.isOpen = false (examples/defihacklabs/SpankChain.sol#1331)\n\tLedgerChannel.Channels (examples/defihacklabs/SpankChain.sol#622) can be used in cross function reentrancies:\n\t- LedgerChannel.Channels (examples/defihacklabs/SpankChain.sol#622)\n\t- LedgerChannel.LCOpenTimeout(bytes32) (examples/defihacklabs/SpankChain.sol#692-715)\n\t- LedgerChannel.byzantineCloseChannel(bytes32) (examples/defihacklabs/SpankChain.sol#1241-1337)\n\t- LedgerChannel.closeVirtualChannel(bytes32,bytes32) (examples/defihacklabs/SpankChain.sol#1192-1237)\n\t- LedgerChannel.consensusCloseChannel(bytes32,uint256,uint256[4],string,string) (examples/defihacklabs/SpankChain.sol#804-889)\n\t- LedgerChannel.createChannel(bytes32,address,uint256,address,uint256[2]) (examples/defihacklabs/SpankChain.sol#623-690)\n\t- LedgerChannel.deposit(bytes32,address,uint256,bool) (examples/defihacklabs/SpankChain.sol#757-800)\n\t- LedgerChannel.getChannel(bytes32) (examples/defihacklabs/SpankChain.sol#1366-1423)\n\t- LedgerChannel.initVCstate(bytes32,bytes32,bytes,address,address,uint256[2],uint256[4],string) (examples/defihacklabs/SpankChain.sol#1005-1077)\n\t- LedgerChannel.joinChannel(bytes32,uint256[2]) (examples/defihacklabs/SpankChain.sol#716-751)\n\t- LedgerChannel.settleVC(bytes32,bytes32,uint256,address,address,uint256[4],string) (examples/defihacklabs/SpankChain.sol#1085-1191)\n\t- LedgerChannel.updateLCstate(bytes32,uint256[6],bytes32,string,string) (examples/defihacklabs/SpankChain.sol#892-1001)\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/SpankChain.sol",
+          "source_sha256": "501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 1241,
+          "end_line": 1257,
+          "source": "function byzantineCloseChannel(bytes32 _lcID) public {\n\nChannel storage channel = Channels[_lcID];\n\n// check settlement flag\n\nrequire(channel.isOpen, \"Channel is not open\");\n\nrequire(channel.isUpdateLCSettling == true);\n\nrequire(channel.numOpenVC == 0);\nrequire(channel.updateLCtimeout < now, \"LC timeout over.\");\n\n// if off chain state update didnt reblance deposits, just return to deposit owner\n\nuint256 totalEthDeposit = channel.initialDeposit[0] + channel.ethBalances[2] + channel.ethBalances[3];\n"
+        },
+        {
+          "path": "examples/defihacklabs/SpankChain.sol",
+          "source_sha256": "501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 1303,
+          "end_line": 1337,
+          "source": "\nif(ethbalanceA != 0 || ethbalanceI != 0) {\n\nchannel.partyAddresses[0].transfer(ethbalanceA);\nchannel.partyAddresses[1].transfer(ethbalanceI);\n\n}\n\nif(tokenbalanceA != 0 || tokenbalanceI != 0) {\n\nrequire(\n\nchannel.token.transfer(channel.partyAddresses[0], tokenbalanceA),\n\n\"byzantineCloseChannel: token transfer failure\"\n\n);\n\nrequire(\n\nchannel.token.transfer(channel.partyAddresses[1], tokenbalanceI),\n\n\"byzantineCloseChannel: token transfer failure\"\n\n);\n\n}\n\nchannel.isOpen = false;\n\nnumChannels--;\n\nemit DidLCClose(_lcID, channel.sequence, ethbalanceA, ethbalanceI, tokenbalanceA, tokenbalanceI);\n\n}"
+        }
+      ],
+      "related_source_evidence": [],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "Does the external call permit attacker-controlled re-entry that can violate a relevant state invariant, or is the reported path harmless under the shown guards and state transitions?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    },
+    {
+      "rank": 4,
+      "case": "bearn",
+      "finding_id": "29e22b3a9cb0d2b5102fd039174b1b903cdf962a1f80edfd60a7b520bf0d47cc",
+      "detector": "unused-return",
+      "impact": "Medium",
+      "confidence": "Medium",
+      "contract": "BvaultsBank",
+      "function": "emergencyWithdraw(uint256)",
+      "source_lines": [
+        1101
+      ],
+      "exact_slither_claim": "BvaultsBank.emergencyWithdraw(uint256) (Implementation.sol#1090-1110) ignores return value by IStrategy(poolInfo[_pid].strategy).withdraw(msg.sender,amount) (Implementation.sol#1101)\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/bearn/raw/Implementation.sol",
+          "source_sha256": "f414ef0d194592c357eef7c218551d6049e03813e1881a07ac1b04d57fe1f810",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 1090,
+          "end_line": 1110,
+          "source": "    function emergencyWithdraw(uint256 _pid) public nonReentrant {\n        require(!pausePool[_pid], \"paused\");\n        require(!blacklistAccount[msg.sender], \"blacklisted\");\n\n        PoolInfo storage pool = poolInfo[_pid];\n        UserInfo storage user = userInfo[_pid][msg.sender];\n\n        uint256 wantLockedTotal = IStrategy(poolInfo[_pid].strategy).wantLockedTotal();\n        uint256 sharesTotal = IStrategy(poolInfo[_pid].strategy).sharesTotal();\n        uint256 amount = user.shares.mul(wantLockedTotal).div(sharesTotal);\n\n        IStrategy(poolInfo[_pid].strategy).withdraw(msg.sender, amount);\n\n        pool.want.safeTransfer(address(msg.sender), amount);\n        emit EmergencyWithdraw(msg.sender, _pid, amount);\n        user.shares = 0;\n        uint256 _rewardPoolLength = rewardPoolInfo.length;\n        for (uint256 _rewardPid = 0; _rewardPid < _rewardPoolLength; ++_rewardPid) {\n            user.rewardDebt[_rewardPid] = 0;\n        }\n    }"
+        }
+      ],
+      "related_source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/bearn/raw/Implementation.sol",
+          "source_sha256": "f414ef0d194592c357eef7c218551d6049e03813e1881a07ac1b04d57fe1f810",
+          "role": "local_modifier: nonReentrant",
+          "start_line": 672,
+          "end_line": 684,
+          "source": "    modifier nonReentrant() {\n        // On the first call to nonReentrant, _notEntered will be true\n        require(_status != _ENTERED, \"ReentrancyGuard: reentrant call\");\n\n        // Any calls to nonReentrant after this point will fail\n        _status = _ENTERED;\n\n        _;\n\n        // By storing the original value once again, a refund is triggered (see\n        // https://eips.ethereum.org/EIPS/eip-2200)\n        _status = _NOT_ENTERED;\n    }"
+        }
+      ],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "What does each discarded return value signify, and can ignoring it allow an unsuccessful or materially different operation to be treated as successful by this caller?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    },
+    {
+      "rank": 5,
+      "case": "xsurge",
+      "finding_id": "0d1056a6b05f35c0661820fd228845121f557c692860dd5fbbf953fb28675bea",
+      "detector": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High",
+      "contract": "SurgeToken",
+      "function": "purchase(address,uint256)",
+      "source_lines": [
+        560
+      ],
+      "exact_slither_claim": "SurgeToken.purchase(address,uint256) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#554-574) uses a dangerous strict equality:\n\t- prevBNBAmount == 0 (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#560)\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol",
+          "source_sha256": "e71b6fd8657393926d2ac2e5791f46fd44d3fe0ddb76178e808ff4f1101dd3c7",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 554,
+          "end_line": 574,
+          "source": "    function purchase(address buyer, uint256 bnbAmount) internal returns (bool) {\n        // make sure we don't buy more than the bnb in this contract\n        require(bnbAmount <= address(this).balance, 'purchase not included in balance');\n        // previous amount of BNB before we received any        \n        uint256 prevBNBAmount = (address(this).balance).sub(bnbAmount);\n        // if this is the first purchase, use current balance\n        prevBNBAmount = prevBNBAmount == 0 ? address(this).balance : prevBNBAmount;\n        // find the number of tokens we should mint to keep up with the current price\n        uint256 nShouldPurchase = hyperInflatePrice ? _totalSupply.mul(bnbAmount).div(address(this).balance) : _totalSupply.mul(bnbAmount).div(prevBNBAmount);\n        // apply our spread to tokens to inflate price relative to total supply\n        uint256 tokensToSend = nShouldPurchase.mul(spreadDivisor).div(10**2);\n        // revert if under 1\n        if (tokensToSend < 1) {\n            revert('Must Buy More Than One Surge');\n        }\n        \n        // mint the tokens we need to the buyer\n        mint(buyer, tokensToSend);\n        emit Transfer(address(this), buyer, tokensToSend);\n        return true;\n    }"
+        }
+      ],
+      "related_source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol",
+          "source_sha256": "e71b6fd8657393926d2ac2e5791f46fd44d3fe0ddb76178e808ff4f1101dd3c7",
+          "role": "local_function: mint",
+          "start_line": 610,
+          "end_line": 613,
+          "source": "    function mint(address receiver, uint amount) internal {\n        _balances[receiver] = _balances[receiver].add(amount);\n        _totalSupply = _totalSupply.add(amount);\n    }"
+        }
+      ],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "Is this exact equality required by the intended authorization, state, proof or accounting invariant, or can an independently changeable value make it unsafe or prevent a valid operation?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    },
+    {
+      "rank": 6,
+      "case": "eleven",
+      "finding_id": "259a3a4cd3d251a7b1fbfc8b02d3112f69a6958925ee805487f78233aba35d25",
+      "detector": "divide-before-multiply",
+      "impact": "Medium",
+      "confidence": "Medium",
+      "contract": "ElevenNeverSellVault",
+      "function": "pendingNerve(address)",
+      "source_lines": [
+        1028
+      ],
+      "exact_slither_claim": "ElevenNeverSellVault.pendingNerve(address) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1026-1031) performs a multiplication on the result of a division:\n\t- harvested11nrvPerShare_ = harvested11nrvPerShare.add(IMasterMind(mastermind).pendingNerve(nrvPid,address(this)).mul(1e18).div(pps).mul(1e12).div(totalSupply())) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1028)\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol",
+          "source_sha256": "97015d1e8c5b3b3bdaae0eb4ddf3d8450bdee18f2b91129cab912bab31e1329d",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 1025,
+          "end_line": 1031,
+          "source": "\n    function pendingNerve(address _user) public view returns (uint){\n        uint pps = Pps(nrv11).getPricePerFullShare();\n        uint harvested11nrvPerShare_ = harvested11nrvPerShare.add(IMasterMind(mastermind).pendingNerve(nrvPid, address(this)).mul(1e18).div(pps).mul(1e12).div(totalSupply()));\n        uint nrv11ToPay_ = harvested11nrvPerShare_.mul(balanceOf(_user)).div(1e12).sub(harvested11nrvPerUser[_user]);\n        return nrv11ToPay_;\n    }"
+        }
+      ],
+      "related_source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol",
+          "source_sha256": "97015d1e8c5b3b3bdaae0eb4ddf3d8450bdee18f2b91129cab912bab31e1329d",
+          "role": "local_function: balanceOf",
+          "start_line": 507,
+          "end_line": 509,
+          "source": "    function balanceOf(address account) public view override returns (uint256) {\n        return _balances[account];\n    }"
+        },
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol",
+          "source_sha256": "97015d1e8c5b3b3bdaae0eb4ddf3d8450bdee18f2b91129cab912bab31e1329d",
+          "role": "local_function: totalSupply",
+          "start_line": 500,
+          "end_line": 502,
+          "source": "    function totalSupply() public view override returns (uint256) {\n        return _totalSupply;\n    }"
+        }
+      ],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "Can the shown division-before-multiplication rounding materially violate the intended calculation for reachable inputs, or is the truncation acceptable under the relevant units and bounds?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    },
+    {
+      "rank": 7,
+      "case": "burgerswap",
+      "finding_id": "de6520f714d63694f73f233c8dde8ce42741bcd4d921f6cc4900c6c33d68deb8",
+      "detector": "unused-return",
+      "impact": "Medium",
+      "confidence": "Medium",
+      "contract": "DemaxPlatform",
+      "function": "migrateLiquidity(address,address,address,address[])",
+      "source_lines": [
+        1027
+      ],
+      "exact_slither_claim": "DemaxPlatform.migrateLiquidity(address,address,address,address[]) (examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol#1018-1034) ignores return value by IDemaxPair(newPair).mint(users[i]) (examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol#1027)\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol",
+          "source_sha256": "8d054c93b27839c772350ff454c91104e96e8a8000bb497fc477dad9f6418f38",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 1018,
+          "end_line": 1034,
+          "source": "    function migrateLiquidity(address pair, address tokenA, address tokenB, address[] calldata users) external onlyOwner {\n        if (IDemaxFactory(FACTORY).getPair(tokenA, tokenB) == address(0)) {\n            IDemaxFactory(FACTORY).createPair(tokenA, tokenB);\n        }\n        address newPair = IDemaxFactory(FACTORY).getPair(tokenA, tokenB);\n        for(uint i = 0; i < users.length; i++) {\n            uint liquidity = IDemaxPair(pair).balanceOf(users[i]);\n            if(liquidity > 0) {\n                IDemaxPair(pair).burn(users[i], newPair, liquidity);\n                IDemaxPair(newPair).mint(users[i]);\n                IDemaxFactory(FACTORY).addPlayerPair(users[i], newPair);\n            }\n        }\n\n        IDemaxTransferListener(TRANSFER_LISTENER).upgradeProdutivity(pair, newPair);\n        \n    }"
+        }
+      ],
+      "related_source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol",
+          "source_sha256": "8d054c93b27839c772350ff454c91104e96e8a8000bb497fc477dad9f6418f38",
+          "role": "local_modifier: onlyOwner",
+          "start_line": 22,
+          "end_line": 25,
+          "source": "    modifier onlyOwner() {\n        require(msg.sender == owner, 'Ownable: FORBIDDEN');\n        _;\n    }"
+        }
+      ],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "What does each discarded return value signify, and can ignoring it allow an unsuccessful or materially different operation to be treated as successful by this caller?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    },
+    {
+      "rank": 8,
+      "case": "spartan",
+      "finding_id": "3426dee9e8ef729ea3be1f7398d4d28fb04cd4158f433644d7058e127a547d3b",
+      "detector": "arbitrary-send-eth",
+      "impact": "High",
+      "confidence": "Medium",
+      "contract": "Router",
+      "function": "_handleTransferOut(address,uint256,address)",
+      "source_lines": [
+        586
+      ],
+      "exact_slither_claim": "Router._handleTransferOut(address,uint256,address) (Victim.sol#581-591) sends eth to arbitrary user\n\tDangerous calls:\n\t- address(_recipient).call{value: _amount}() (Victim.sol#586)\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol",
+          "source_sha256": "8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 581,
+          "end_line": 591,
+          "source": "    function _handleTransferOut(address _token, uint256 _amount, address _recipient) internal {\n        if(_amount > 0) {\n            if (_token == address(0)) {\n                // If BNB, then withdraw to BNB, then forward BNB to recipient\n                iWBNB(WBNB).withdraw(_amount);\n                payable(_recipient).call{value:_amount}(\"\"); \n            } else {\n                iBEP20(_token).transfer(_recipient, _amount);\n            }\n        }\n    }"
+        }
+      ],
+      "related_source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol",
+          "source_sha256": "8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d",
+          "role": "local_caller: removeLiquidityExactAndSwap",
+          "start_line": 478,
+          "end_line": 501,
+          "source": "    function removeLiquidityExactAndSwap(uint units, bool toBase, address token) public returns (uint outputAmount){\n        address _pool = getPool(token);\n        require(units < iBEP20(_pool).totalSupply(), \"InputErr\");\n        Pool(_pool).transferTo(_pool, units);\n        (uint _outputBase, uint _outputToken) = Pool(_pool).removeLiquidity();\n        totalPooled = totalPooled.sub(_outputBase);\n        removeLiquidityTx += 1;\n        if(toBase){\n            // sell to BASE\n            iBEP20(token).transfer(_pool, _outputToken);\n            (uint _baseBought, uint _fee) = Pool(_pool).swap(token);\n            totalFees += _fee;\n            outputAmount = _baseBought.add(_outputBase);\n            _handleTransferOut(BASE, outputAmount, msg.sender);\n        } else {\n            // buy to TOKEN\n            iBEP20(BASE).transfer(_pool, _outputToken);\n            (uint _tokenBought, uint _fee) = Pool(_pool).swap(BASE);\n            totalFees += _DAO().UTILS().calcValueInBase(token, _fee);\n            outputAmount = _tokenBought.add(_outputToken);\n            _handleTransferOut(token, outputAmount, msg.sender);\n        }\n        return outputAmount;\n    }"
+        }
+      ],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "Can an unauthorized caller influence the reported ETH recipient or payout, or do reachable callers and their authorization checks constrain the transfer to an authorized recipient and amount?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    },
+    {
+      "rank": 9,
+      "case": "bearn",
+      "finding_id": "705ce4acff1a3216ca1c5cc0a7d9cd1120988c4f3fd5c0bf811364ef1865435f",
+      "detector": "reentrancy-no-eth",
+      "impact": "Medium",
+      "confidence": "Medium",
+      "contract": "BvaultsBank",
+      "function": "migrateStrategy(uint256,address)",
+      "source_lines": [
+        879,
+        880,
+        881,
+        882
+      ],
+      "exact_slither_claim": "Reentrancy in BvaultsBank.migrateStrategy(uint256,address) (Implementation.sol#873-883):\n\tExternal calls:\n\t- IStrategy(_oldStrategy).withdraw(address(this),_oldWantAmt) (Implementation.sol#879)\n\t- pool.want.transfer(_newStrategy,_oldWantAmt) (Implementation.sol#880)\n\t- IStrategy(_newStrategy).migrateFrom(_oldStrategy,_oldWantAmt,_oldSharesTotal) (Implementation.sol#881)\n\tState variables written after the call(s):\n\t- pool.strategy = _newStrategy (Implementation.sol#882)\n\tBvaultsBank.poolInfo (Implementation.sol#776) can be used in cross function reentrancies:\n\t- BvaultsBank._getReward(uint256) (Implementation.sol#989-1005)\n\t- BvaultsBank.add(uint256,IERC20,bool,address) (Implementation.sol#841-854)\n\t- BvaultsBank.massUpdatePools() (Implementation.sol#958-963)\n\t- BvaultsBank.migrateStrategy(uint256,address) (Implementation.sol#873-883)\n\t- BvaultsBank.pendingReward(uint256,uint256,address) (Implementation.sol#926-942)\n\t- BvaultsBank.poolInfo (Implementation.sol#776)\n\t- BvaultsBank.poolLength() (Implementation.sol#830-832)\n\t- BvaultsBank.resetStrategy(uint256,address) (Implementation.sol#863-867)\n\t- BvaultsBank.set(uint256,uint256) (Implementation.sol#857-861)\n\t- BvaultsBank.shutdownStrategy(uint256) (Implementation.sol#869-871)\n\t- BvaultsBank.stakedWantTokens(uint256,address) (Implementation.sol#945-955)\n\t- BvaultsBank.updatePool(uint256) (Implementation.sol#966-987)\n\t- BvaultsBank.withdraw(uint256,uint256) (Implementation.sol#1038-1083)\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/bearn/raw/Implementation.sol",
+          "source_sha256": "f414ef0d194592c357eef7c218551d6049e03813e1881a07ac1b04d57fe1f810",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 873,
+          "end_line": 885,
+          "source": "    function migrateStrategy(uint256 _pid, address _newStrategy) public onlyOperator {\n        require(IStrategy(_newStrategy).wantLockedTotal() == 0 && IStrategy(_newStrategy).sharesTotal() == 0, \"new strategy not empty\");\n        PoolInfo storage pool = poolInfo[_pid];\n        address _oldStrategy = pool.strategy;\n        uint256 _oldSharesTotal = IStrategy(_oldStrategy).sharesTotal();\n        uint256 _oldWantAmt = IStrategy(_oldStrategy).wantLockedTotal();\n        IStrategy(_oldStrategy).withdraw(address(this), _oldWantAmt);\n        pool.want.transfer(_newStrategy, _oldWantAmt);\n        IStrategy(_newStrategy).migrateFrom(_oldStrategy, _oldWantAmt, _oldSharesTotal);\n        pool.strategy = _newStrategy;\n    }\n\n    function rewardPoolLength() external view returns (uint256) {"
+        }
+      ],
+      "related_source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/bearn/raw/Implementation.sol",
+          "source_sha256": "f414ef0d194592c357eef7c218551d6049e03813e1881a07ac1b04d57fe1f810",
+          "role": "local_modifier: onlyOperator",
+          "start_line": 815,
+          "end_line": 818,
+          "source": "    modifier onlyOperator() {\n        require(operator == msg.sender, \"BvaultsBank: caller is not the operator\");\n        _;\n    }"
+        }
+      ],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "Can a callback through the reported external call observe or change stale state in a way that violates an invariant, considering access restrictions, modifiers, and callable paths?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    },
+    {
+      "rank": 10,
+      "case": "spankchain",
+      "finding_id": "f994fab55d8647cd6e028b5811ad9d9e120155326faf4eca1d48fc670807ceaa",
+      "detector": "constant-function-asm",
+      "impact": "Medium",
+      "confidence": "Medium",
+      "contract": "ECTools",
+      "function": "uintToBytes32(uint256)",
+      "source_lines": [
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213
+      ],
+      "exact_slither_claim": "ECTools.uintToBytes32(uint256) (examples/defihacklabs/SpankChain.sol#207-213) is declared view but contains assembly code\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/SpankChain.sol",
+          "source_sha256": "501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 204,
+          "end_line": 216,
+          "source": "\n// @thanks https://ethereum.stackexchange.com/questions/4170/how-to-convert-a-uint-to-bytes-in-solidity\n\nfunction uintToBytes32(uint _uint) public pure returns (bytes b) {\n\nb = new bytes(32);\n\nassembly {mstore(add(b, 32), _uint)}\n\n}\n\n// @dev Hashes the signed message\n"
+        }
+      ],
+      "related_source_evidence": [],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "Does this assembly or its reachable call chain violate the declared mutability or compatibility guarantees for the relevant compiler, or does it only perform operations permitted by that declaration?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    },
+    {
+      "rank": 11,
+      "case": "eleven",
+      "finding_id": "71a916f70433320f294d6256d4cb9d11f2ba1715e9c80fef76541df2d78446ac",
+      "detector": "unchecked-transfer",
+      "impact": "High",
+      "confidence": "Medium",
+      "contract": "ElevenNeverSellVault",
+      "function": "chargeFees()",
+      "source_lines": [
+        1000
+      ],
+      "exact_slither_claim": "ElevenNeverSellVault.chargeFees() (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#995-1002) ignores return value by IERC20(nrv).transfer(buybackstrat,toSell) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1000)\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol",
+          "source_sha256": "97015d1e8c5b3b3bdaae0eb4ddf3d8450bdee18f2b91129cab912bab31e1329d",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 995,
+          "end_line": 1003,
+          "source": "    function chargeFees() internal {\n        address receiveFee;\n        if(harvesters[msg.sender]) receiveFee = msg.sender;\n        else receiveFee = 0x6B3C201575aCe5Ed6B67df5c91E40B98c0D2BE36;\n        uint toSell = IERC20(nrv).balanceOf(address(this)).mul(bpsFee).div(10000);\n        IERC20(nrv).transfer(buybackstrat, toSell);\n        Buybackstrat(buybackstrat).chargeFees(nrv, receiveFee);\n    }\n"
+        }
+      ],
+      "related_source_evidence": [],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "Can the referenced token transfer fail or return false while execution proceeds with an inconsistent asset/accounting state, or is successful transfer established by the shown call semantics and guards?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    },
+    {
+      "rank": 12,
+      "case": "xsurge",
+      "finding_id": "c52e2859d9d1e3de2c8cd8b04fc807338298075b3928224d4acd5d73740c477f",
+      "detector": "divide-before-multiply",
+      "impact": "Medium",
+      "confidence": "Medium",
+      "contract": "SurgeToken",
+      "function": "purchase(address,uint256)",
+      "source_lines": [
+        562,
+        564
+      ],
+      "exact_slither_claim": "SurgeToken.purchase(address,uint256) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#554-574) performs a multiplication on the result of a division:\n\t- tokensToSend = nShouldPurchase.mul(spreadDivisor).div(10 ** 2) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#564)\n\t- nShouldPurchase = _totalSupply.mul(bnbAmount).div(prevBNBAmount) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#562)\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol",
+          "source_sha256": "e71b6fd8657393926d2ac2e5791f46fd44d3fe0ddb76178e808ff4f1101dd3c7",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 554,
+          "end_line": 574,
+          "source": "    function purchase(address buyer, uint256 bnbAmount) internal returns (bool) {\n        // make sure we don't buy more than the bnb in this contract\n        require(bnbAmount <= address(this).balance, 'purchase not included in balance');\n        // previous amount of BNB before we received any        \n        uint256 prevBNBAmount = (address(this).balance).sub(bnbAmount);\n        // if this is the first purchase, use current balance\n        prevBNBAmount = prevBNBAmount == 0 ? address(this).balance : prevBNBAmount;\n        // find the number of tokens we should mint to keep up with the current price\n        uint256 nShouldPurchase = hyperInflatePrice ? _totalSupply.mul(bnbAmount).div(address(this).balance) : _totalSupply.mul(bnbAmount).div(prevBNBAmount);\n        // apply our spread to tokens to inflate price relative to total supply\n        uint256 tokensToSend = nShouldPurchase.mul(spreadDivisor).div(10**2);\n        // revert if under 1\n        if (tokensToSend < 1) {\n            revert('Must Buy More Than One Surge');\n        }\n        \n        // mint the tokens we need to the buyer\n        mint(buyer, tokensToSend);\n        emit Transfer(address(this), buyer, tokensToSend);\n        return true;\n    }"
+        }
+      ],
+      "related_source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol",
+          "source_sha256": "e71b6fd8657393926d2ac2e5791f46fd44d3fe0ddb76178e808ff4f1101dd3c7",
+          "role": "local_function: mint",
+          "start_line": 610,
+          "end_line": 613,
+          "source": "    function mint(address receiver, uint amount) internal {\n        _balances[receiver] = _balances[receiver].add(amount);\n        _totalSupply = _totalSupply.add(amount);\n    }"
+        }
+      ],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "Can the shown division-before-multiplication rounding materially violate the intended calculation for reachable inputs, or is the truncation acceptable under the relevant units and bounds?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    },
+    {
+      "rank": 13,
+      "case": "burgerswap",
+      "finding_id": "40750c41d2e69ce2f681004ed403a7bd57f9b162a0d6c3b834760a79f4592478",
+      "detector": "unused-return",
+      "impact": "Medium",
+      "confidence": "Medium",
+      "contract": "DemaxPlatform",
+      "function": "swapPrecondition(address)",
+      "source_lines": [
+        736
+      ],
+      "exact_slither_claim": "DemaxPlatform.swapPrecondition(address) (examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol#728-742) ignores return value by (reserveDGAS,None) = DemaxSwapLibrary.getReserves(FACTORY,DGAS,token) (examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol#736)\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol",
+          "source_sha256": "8d054c93b27839c772350ff454c91104e96e8a8000bb497fc477dad9f6418f38",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 728,
+          "end_line": 742,
+          "source": "    function swapPrecondition(address token) public view returns (bool) {\n        if (token == DGAS || token == WETH) return true;\n        uint256 percent = IDemaxConfig(CONFIG).getConfigValue(ConfigNames.TOKEN_TO_DGAS_PAIR_MIN_PERCENT);\n        if (!existPair(WETH, DGAS)) return false;\n        if (!existPair(DGAS, token)) return false;\n        if (!(IDemaxConfig(CONFIG).checkPair(DGAS, token) && IDemaxConfig(CONFIG).checkPair(WETH, token))) return false;\n        if (!existPair(WETH, token)) return true;\n        if (percent == 0) return true;\n        (uint256 reserveDGAS, ) = DemaxSwapLibrary.getReserves(FACTORY, DGAS, token);\n        (uint256 reserveWETH, ) = DemaxSwapLibrary.getReserves(FACTORY, WETH, token);\n        (uint256 reserveWETH2, uint256 reserveDGAS2) = DemaxSwapLibrary.getReserves(FACTORY, WETH, DGAS);\n        uint256 dgasValue = SafeMath.mul(reserveDGAS, reserveWETH2) / reserveDGAS2;\n        uint256 limitValue = SafeMath.mul(SafeMath.add(dgasValue, reserveWETH), percent) / PERCENT_DENOMINATOR;\n        return dgasValue >= limitValue;\n    }"
+        }
+      ],
+      "related_source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol",
+          "source_sha256": "8d054c93b27839c772350ff454c91104e96e8a8000bb497fc477dad9f6418f38",
+          "role": "local_function: existPair",
+          "start_line": 976,
+          "end_line": 978,
+          "source": "    function existPair(address tokenA, address tokenB) public view returns (bool) {\n        return IDemaxFactory(FACTORY).getPair(tokenA, tokenB) != address(0);\n    }"
+        }
+      ],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "What does each discarded return value signify, and can ignoring it allow an unsuccessful or materially different operation to be treated as successful by this caller?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    },
+    {
+      "rank": 14,
+      "case": "spartan",
+      "finding_id": "b88645d859573e7cd79ccb9443b3405342bedfe577d59ac77dd91a970a3ea6aa",
+      "detector": "unchecked-lowlevel",
+      "impact": "Medium",
+      "confidence": "Medium",
+      "contract": "Router",
+      "function": "_handleTransferIn(address,uint256,address)",
+      "source_lines": [
+        570
+      ],
+      "exact_slither_claim": "Router._handleTransferIn(address,uint256,address) (Victim.sol#565-579) ignores return value by address(WBNB).call{value: _amount}() (Victim.sol#570)\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol",
+          "source_sha256": "8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 565,
+          "end_line": 579,
+          "source": "    function _handleTransferIn(address _token, uint256 _amount, address _pool) internal returns(uint256 actual){\n        if(_amount > 0) {\n            if(_token == address(0)){\n                // If BNB, then send to WBNB contract, then forward WBNB to pool\n                require((_amount == msg.value), \"InputErr\");\n                payable(WBNB).call{value:_amount}(\"\"); \n                iBEP20(WBNB).transfer(_pool, _amount); \n                actual = _amount;\n            } else {\n                uint startBal = iBEP20(_token).balanceOf(_pool); \n                iBEP20(_token).transferFrom(msg.sender, _pool, _amount); \n                actual = iBEP20(_token).balanceOf(_pool).sub(startBal);\n            }\n        }\n    }"
+        }
+      ],
+      "related_source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol",
+          "source_sha256": "8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d",
+          "role": "local_caller: createPool",
+          "start_line": 413,
+          "end_line": 431,
+          "source": "    function createPool(uint256 inputBase, uint256 inputToken, address token) public payable returns(address pool){\n        require(getPool(token) == address(0), \"CreateErr\");\n        require(token != BASE, \"Must not be Base\");\n        require((inputToken > 0 && inputBase > 0), \"Must get tokens for both\");\n        Pool newPool; address _token = token;\n        if(token == address(0)){_token = WBNB;} // Handle BNB\n        newPool = new Pool(BASE, _token); \n        pool = address(newPool);\n        mapToken_Pool[_token] = pool;\n        uint256 _actualInputBase = _handleTransferIn(BASE, inputBase, pool);\n        _handleTransferIn(token, inputToken, pool);\n        arrayTokens.push(_token);\n        isPool[pool] = true;\n        totalPooled += _actualInputBase;\n        addLiquidityTx += 1;\n        Pool(pool).addLiquidityForMember(msg.sender);\n        emit NewPool(token, pool, now);\n        return pool;\n    }"
+        }
+      ],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "Can the reported low-level call fail or return unexpected data while the caller continues in an inconsistent state, or is success guaranteed or independently checked?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    },
+    {
+      "rank": 15,
+      "case": "spankchain",
+      "finding_id": "555479cc96ea35b4affe7a8500f50e27fa63fc965a2d8947e485baa85f11f08c",
+      "detector": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High",
+      "contract": "LedgerChannel",
+      "function": "_isContained(bytes32,bytes,bytes32)",
+      "source_lines": [
+        1360
+      ],
+      "exact_slither_claim": "LedgerChannel._isContained(bytes32,bytes,bytes32) (examples/defihacklabs/SpankChain.sol#1338-1362) uses a dangerous strict equality:\n\t- cursor == _root (examples/defihacklabs/SpankChain.sol#1360)\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/SpankChain.sol",
+          "source_sha256": "501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 1338,
+          "end_line": 1363,
+          "source": "function _isContained(bytes32 _hash, bytes _proof, bytes32 _root) internal pure returns (bool) {\n\nbytes32 cursor = _hash;\n\nbytes32 proofElem;\n\nfor (uint256 i = 64; i <= _proof.length; i += 32) {\n\nassembly { proofElem := mload(add(_proof, i)) }\n\nif (cursor < proofElem) {\n\ncursor = keccak256(abi.encodePacked(cursor, proofElem));\n\n} else {\n\ncursor = keccak256(abi.encodePacked(proofElem, cursor));\n\n}\n\n}\n\nreturn cursor == _root;\n\n}\n"
+        }
+      ],
+      "related_source_evidence": [],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "Is this exact equality required by the intended authorization, state, proof or accounting invariant, or can an independently changeable value make it unsafe or prevent a valid operation?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    },
+    {
+      "rank": 16,
+      "case": "eleven",
+      "finding_id": "b560cc3081584d2ee310e177077fe5398803858478b18a49faa0142284663824",
+      "detector": "reentrancy-no-eth",
+      "impact": "Medium",
+      "confidence": "Medium",
+      "contract": "ElevenNeverSellVault",
+      "function": "claimRewards()",
+      "source_lines": [
+        1000,
+        1001,
+        1006,
+        1007,
+        1012,
+        1018,
+        1063,
+        1065,
+        1080,
+        1081,
+        1085,
+        1086
+      ],
+      "exact_slither_claim": "Reentrancy in ElevenNeverSellVault.claimRewards() (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1079-1082):\n\tExternal calls:\n\t- claim(msg.sender) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1080)\n\t\t- IMasterMind(mastermind).deposit(nrvPid,0) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1018)\n\t\t- IMasterMind(elechef).deposit(elePid,0) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1012)\n\t\t- IERC20(nrv).transfer(convertTo11nrvStrat,toStake) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1006)\n\t\t- ConvertTo11NrvStrat(convertTo11nrvStrat).convert(nrv) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1007)\n\t\t- IERC20(_token).transfer(_to,sushiBal) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1063)\n\t\t- IERC20(_token).transfer(_to,_amount) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1065)\n\t\t- IERC20(nrv).transfer(buybackstrat,toSell) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1000)\n\t\t- Buybackstrat(buybackstrat).chargeFees(nrv,receiveFee) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1001)\n\tState variables written after the call(s):\n\t- updateDebt(msg.sender) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1081)\n\t\t- harvested11nrvPerUser[_add] = balanceOf(_add).mul(harvested11nrvPerShare).div(1e12) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1086)\n\tElevenNeverSellVault.harvested11nrvPerUser (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#926) can be used in cross function reentrancies:\n\t- ElevenNeverSellVault.claim(address) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1069-1077)\n\t- ElevenNeverSellVault.harvested11nrvPerUser (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#926)\n\t- ElevenNeverSellVault.pendingNerve(address) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1026-1031)\n\t- ElevenNeverSellVault.updateDebt(address) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1084-1087)\n\t- updateDebt(msg.sender) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1081)\n\t\t- harvestedElePerUser[_add] = balanceOf(_add).mul(harvestedElePerShare).div(1e12) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1085)\n\tElevenNeverSellVault.harvestedElePerUser (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#928) can be used in cross function reentrancies:\n\t- ElevenNeverSellVault.claim(address) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1069-1077)\n\t- ElevenNeverSellVault.harvestedElePerUser (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#928)\n\t- ElevenNeverSellVault.pendingEleven(address) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1033-1037)\n\t- ElevenNeverSellVault.updateDebt(address) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1084-1087)\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol",
+          "source_sha256": "97015d1e8c5b3b3bdaae0eb4ddf3d8450bdee18f2b91129cab912bab31e1329d",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 997,
+          "end_line": 1021,
+          "source": "        if(harvesters[msg.sender]) receiveFee = msg.sender;\n        else receiveFee = 0x6B3C201575aCe5Ed6B67df5c91E40B98c0D2BE36;\n        uint toSell = IERC20(nrv).balanceOf(address(this)).mul(bpsFee).div(10000);\n        IERC20(nrv).transfer(buybackstrat, toSell);\n        Buybackstrat(buybackstrat).chargeFees(nrv, receiveFee);\n    }\n\n    function addLiquidity() internal{\n        uint toStake = IERC20(nrv).balanceOf(address(this));\n        IERC20(nrv).transfer(convertTo11nrvStrat, toStake);\n        ConvertTo11NrvStrat(convertTo11nrvStrat).convert(nrv);\n    }\n    \n    function updateEle() public{\n        uint eleBfr = IERC20(ele).balanceOf(address(this));\n        IMasterMind(elechef).deposit(elePid, 0);\n        uint eleAftr = IERC20(ele).balanceOf(address(this));\n        harvestedElePerShare = harvestedElePerShare.add(eleAftr.sub(eleBfr).mul(1e12).div(totalSupply()));\n    }\n\n    function update11Nrv() public{\n        IMasterMind(mastermind).deposit(nrvPid, 0);//claim\n        chargeFees();\n        uint nrv11Bfr = IERC20(nrv11).balanceOf(address(this));\n        addLiquidity();"
+        },
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol",
+          "source_sha256": "97015d1e8c5b3b3bdaae0eb4ddf3d8450bdee18f2b91129cab912bab31e1329d",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 1060,
+          "end_line": 1068,
+          "source": "    function safeTokenTransfer(address _token, address _to, uint256 _amount) internal {\n        uint256 sushiBal = IERC20(_token).balanceOf(address(this));\n        if (_amount > sushiBal) {\n            IERC20(_token).transfer(_to, sushiBal);\n        } else {\n            IERC20(_token).transfer(_to, _amount);\n        }\n    }\n"
+        },
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol",
+          "source_sha256": "97015d1e8c5b3b3bdaae0eb4ddf3d8450bdee18f2b91129cab912bab31e1329d",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 1077,
+          "end_line": 1089,
+          "source": "    }\n    \n    function claimRewards() public{\n        claim(msg.sender);\n        updateDebt(msg.sender);\n    }\n    \n    function updateDebt(address _add) internal{\n        harvestedElePerUser[_add] = balanceOf(_add).mul(harvestedElePerShare).div(1e12);\n        harvested11nrvPerUser[_add] = balanceOf(_add).mul(harvested11nrvPerShare).div(1e12);\n    }\n\n    /**"
+        }
+      ],
+      "related_source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol",
+          "source_sha256": "97015d1e8c5b3b3bdaae0eb4ddf3d8450bdee18f2b91129cab912bab31e1329d",
+          "role": "local_function: updateDebt",
+          "start_line": 1084,
+          "end_line": 1087,
+          "source": "    function updateDebt(address _add) internal{\n        harvestedElePerUser[_add] = balanceOf(_add).mul(harvestedElePerShare).div(1e12);\n        harvested11nrvPerUser[_add] = balanceOf(_add).mul(harvested11nrvPerShare).div(1e12);\n    }"
+        },
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol",
+          "source_sha256": "97015d1e8c5b3b3bdaae0eb4ddf3d8450bdee18f2b91129cab912bab31e1329d",
+          "role": "local_function: claim",
+          "start_line": 1069,
+          "end_line": 1077,
+          "source": "    function claim(address _add) internal{\n        if(totalSupply() != 0) harvest();\n        if(balanceOf(_add) != 0){\n            uint eleToPay = balanceOf(_add).mul(harvestedElePerShare).div(1e12).sub(harvestedElePerUser[_add]);\n            uint nrv11ToPay = balanceOf(_add).mul(harvested11nrvPerShare).div(1e12).sub(harvested11nrvPerUser[_add]);\n            safeTokenTransfer(ele, _add, eleToPay);\n            safeTokenTransfer(nrv11, _add, nrv11ToPay);\n        }\n    }"
+        }
+      ],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "Can a callback through the reported external call observe or change stale state in a way that violates an invariant, considering access restrictions, modifiers, and callable paths?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    },
+    {
+      "rank": 17,
+      "case": "bearn",
+      "finding_id": "62e7b3ba7e49dfb99841e2603e650dff6bc6782f4e9ee8c52c9d8656800f6dff",
+      "detector": "unchecked-transfer",
+      "impact": "High",
+      "confidence": "Medium",
+      "contract": "BvaultsBank",
+      "function": "migrateStrategy(uint256,address)",
+      "source_lines": [
+        880
+      ],
+      "exact_slither_claim": "BvaultsBank.migrateStrategy(uint256,address) (Implementation.sol#873-883) ignores return value by pool.want.transfer(_newStrategy,_oldWantAmt) (Implementation.sol#880)\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/bearn/raw/Implementation.sol",
+          "source_sha256": "f414ef0d194592c357eef7c218551d6049e03813e1881a07ac1b04d57fe1f810",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 873,
+          "end_line": 883,
+          "source": "    function migrateStrategy(uint256 _pid, address _newStrategy) public onlyOperator {\n        require(IStrategy(_newStrategy).wantLockedTotal() == 0 && IStrategy(_newStrategy).sharesTotal() == 0, \"new strategy not empty\");\n        PoolInfo storage pool = poolInfo[_pid];\n        address _oldStrategy = pool.strategy;\n        uint256 _oldSharesTotal = IStrategy(_oldStrategy).sharesTotal();\n        uint256 _oldWantAmt = IStrategy(_oldStrategy).wantLockedTotal();\n        IStrategy(_oldStrategy).withdraw(address(this), _oldWantAmt);\n        pool.want.transfer(_newStrategy, _oldWantAmt);\n        IStrategy(_newStrategy).migrateFrom(_oldStrategy, _oldWantAmt, _oldSharesTotal);\n        pool.strategy = _newStrategy;\n    }"
+        }
+      ],
+      "related_source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/bearn/raw/Implementation.sol",
+          "source_sha256": "f414ef0d194592c357eef7c218551d6049e03813e1881a07ac1b04d57fe1f810",
+          "role": "local_modifier: onlyOperator",
+          "start_line": 815,
+          "end_line": 818,
+          "source": "    modifier onlyOperator() {\n        require(operator == msg.sender, \"BvaultsBank: caller is not the operator\");\n        _;\n    }"
+        }
+      ],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "Can the referenced token transfer fail or return false while execution proceeds with an inconsistent asset/accounting state, or is successful transfer established by the shown call semantics and guards?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    },
+    {
+      "rank": 18,
+      "case": "xsurge",
+      "finding_id": "9fb62fea1ce3dc5432b21e883cbe16f925a50ca3d210c0f619a84ddbceb91869",
+      "detector": "divide-before-multiply",
+      "impact": "Medium",
+      "confidence": "Medium",
+      "contract": "SurgeToken",
+      "function": "sell(uint256)",
+      "source_lines": [
+        585,
+        588
+      ],
+      "exact_slither_claim": "SurgeToken.sell(uint256) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#577-602) performs a multiplication on the result of a division:\n\t- tokensToSwap = tokenAmount.mul(sellFee).div(10 ** 2) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#585)\n\t- amountBNB = tokensToSwap.mul(calculatePrice()) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#588)\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol",
+          "source_sha256": "e71b6fd8657393926d2ac2e5791f46fd44d3fe0ddb76178e808ff4f1101dd3c7",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 577,
+          "end_line": 602,
+          "source": "    function sell(uint256 tokenAmount) public nonReentrant returns (bool) {\n        \n        address seller = msg.sender;\n        \n        // make sure seller has this balance\n        require(_balances[seller] >= tokenAmount, 'cannot sell above token amount');\n        \n        // calculate the sell fee from this transaction\n        uint256 tokensToSwap = tokenAmount.mul(sellFee).div(10**2);\n        \n        // how much BNB are these tokens worth?\n        uint256 amountBNB = tokensToSwap.mul(calculatePrice());\n        \n        // send BNB to Seller\n        (bool successful,) = payable(seller).call{value: amountBNB, gas: 40000}(\"\"); \n        if (successful) {\n            // subtract full amount from sender\n            _balances[seller] = _balances[seller].sub(tokenAmount, 'sender does not have this amount to sell');\n            // if successful, remove tokens from supply\n            _totalSupply = _totalSupply.sub(tokenAmount);\n        } else {\n            revert();\n        }\n        emit Transfer(seller, address(this), tokenAmount);\n        return true;\n    }"
+        }
+      ],
+      "related_source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol",
+          "source_sha256": "e71b6fd8657393926d2ac2e5791f46fd44d3fe0ddb76178e808ff4f1101dd3c7",
+          "role": "local_modifier: nonReentrant",
+          "start_line": 20,
+          "end_line": 25,
+          "source": "    modifier nonReentrant() {\n        require(_status != _ENTERED, \"ReentrancyGuard: reentrant call\");\n        _status = _ENTERED;\n        _;\n        _status = _NOT_ENTERED;\n    }"
+        },
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol",
+          "source_sha256": "e71b6fd8657393926d2ac2e5791f46fd44d3fe0ddb76178e808ff4f1101dd3c7",
+          "role": "local_function: calculatePrice",
+          "start_line": 605,
+          "end_line": 607,
+          "source": "    function calculatePrice() public view returns (uint256) {\n        return ((address(this).balance).div(_totalSupply));\n    }"
+        }
+      ],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "Can the shown division-before-multiplication rounding materially violate the intended calculation for reachable inputs, or is the truncation acceptable under the relevant units and bounds?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    },
+    {
+      "rank": 19,
+      "case": "burgerswap",
+      "finding_id": "92f3e299e4e000f89bb0130a7aa47f367305bf9e4b285d6d30ef81f619a48c0c",
+      "detector": "unused-return",
+      "impact": "Medium",
+      "confidence": "Medium",
+      "contract": "DemaxPlatform",
+      "function": "swapPrecondition(address)",
+      "source_lines": [
+        737
+      ],
+      "exact_slither_claim": "DemaxPlatform.swapPrecondition(address) (examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol#728-742) ignores return value by (reserveWETH,None) = DemaxSwapLibrary.getReserves(FACTORY,WETH,token) (examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol#737)\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol",
+          "source_sha256": "8d054c93b27839c772350ff454c91104e96e8a8000bb497fc477dad9f6418f38",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 728,
+          "end_line": 742,
+          "source": "    function swapPrecondition(address token) public view returns (bool) {\n        if (token == DGAS || token == WETH) return true;\n        uint256 percent = IDemaxConfig(CONFIG).getConfigValue(ConfigNames.TOKEN_TO_DGAS_PAIR_MIN_PERCENT);\n        if (!existPair(WETH, DGAS)) return false;\n        if (!existPair(DGAS, token)) return false;\n        if (!(IDemaxConfig(CONFIG).checkPair(DGAS, token) && IDemaxConfig(CONFIG).checkPair(WETH, token))) return false;\n        if (!existPair(WETH, token)) return true;\n        if (percent == 0) return true;\n        (uint256 reserveDGAS, ) = DemaxSwapLibrary.getReserves(FACTORY, DGAS, token);\n        (uint256 reserveWETH, ) = DemaxSwapLibrary.getReserves(FACTORY, WETH, token);\n        (uint256 reserveWETH2, uint256 reserveDGAS2) = DemaxSwapLibrary.getReserves(FACTORY, WETH, DGAS);\n        uint256 dgasValue = SafeMath.mul(reserveDGAS, reserveWETH2) / reserveDGAS2;\n        uint256 limitValue = SafeMath.mul(SafeMath.add(dgasValue, reserveWETH), percent) / PERCENT_DENOMINATOR;\n        return dgasValue >= limitValue;\n    }"
+        }
+      ],
+      "related_source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol",
+          "source_sha256": "8d054c93b27839c772350ff454c91104e96e8a8000bb497fc477dad9f6418f38",
+          "role": "local_function: existPair",
+          "start_line": 976,
+          "end_line": 978,
+          "source": "    function existPair(address tokenA, address tokenB) public view returns (bool) {\n        return IDemaxFactory(FACTORY).getPair(tokenA, tokenB) != address(0);\n    }"
+        }
+      ],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "What does each discarded return value signify, and can ignoring it allow an unsuccessful or materially different operation to be treated as successful by this caller?",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    },
+    {
+      "rank": 20,
+      "case": "spartan",
+      "finding_id": "e8fd05569b88b694d2f90f4cb31d7238e3a16b4bfe1ab3c0143012345d08c63b",
+      "detector": "locked-ether",
+      "impact": "Medium",
+      "confidence": "High",
+      "contract": "Pool",
+      "function": "constructor(address,address)",
+      "source_lines": [
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        252,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267
+      ],
+      "exact_slither_claim": "Contract locking ether found:\n\tContract Pool (Victim.sol#85-344) has payable functions:\n\t - Pool.constructor(address,address) (Victim.sol#117-128)\n\t - Pool.swapTo(address,address) (Victim.sol#252-267)\n\tBut does not have a function to withdraw the ether\n",
+      "source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol",
+          "source_sha256": "8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 114,
+          "end_line": 131,
+          "source": "        return iBASE(BASE).DAO();\n    }\n\n    constructor (address _base, address _token) public payable {\n        BASE = _base;\n        TOKEN = _token;\n\n        string memory poolName = \"SpartanPoolV1-\";\n        string memory poolSymbol = \"SPT1-\";\n        _name = string(abi.encodePacked(poolName, iBEP20(_token).name()));\n        _symbol = string(abi.encodePacked(poolSymbol, iBEP20(_token).symbol()));\n        \n        decimals = 18;\n        genesis = now;\n    }\n\n    //========================================iBEP20=========================================//\n    function name() public view override returns (string memory) {"
+        },
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol",
+          "source_sha256": "8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d",
+          "role": "target_and_reported_lines_with_surroundings",
+          "start_line": 249,
+          "end_line": 270,
+          "source": "        return (outputAmount, fee);\n    }\n\n    function swapTo(address token, address member) public payable returns (uint outputAmount, uint fee) {\n        require((token == BASE || token == TOKEN), \"Must be BASE or TOKEN\");\n        address _fromToken; uint _amount;\n        if(token == BASE){\n            _fromToken = TOKEN;\n            _amount = _getAddedTokenAmount();\n            (outputAmount, fee) = _swapTokenToBase(_amount);\n        } else {\n            _fromToken = BASE;\n            _amount = _getAddedBaseAmount();\n            (outputAmount, fee) = _swapBaseToToken(_amount);\n        }\n        emit Swapped(_fromToken, token, _amount, outputAmount, fee, member);\n        iBEP20(token).transfer(member, outputAmount);\n        return (outputAmount, fee);\n    }\n\n    function _getAddedBaseAmount() internal view returns(uint256 _actual){\n        uint _baseBalance = iBEP20(BASE).balanceOf(address(this)); "
+        }
+      ],
+      "related_source_evidence": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol",
+          "source_sha256": "8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d",
+          "role": "local_function: constructor",
+          "start_line": 376,
+          "end_line": 380,
+          "source": "    constructor () public payable {\n        BASE = 0xE4Ae305ebE1AbE663f261Bc00534067C80ad677C;\n        WBNB = 0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c;\n        DEPLOYER = msg.sender;\n    }"
+        }
+      ],
+      "current_label": "UNLABELED",
+      "label_evidence": [],
+      "adjudication_notes": null,
+      "final_label": null,
+      "neutral_question": "Can this contract retain ETH received through reachable payable entry points without an authorized usable exit, or do its transfer paths permit the intended funds to leave? Consider the actual contract, not just the constructor.",
+      "context_limitations": [
+        "Excerpts are bounded and may be discontinuous; omitted ranges are not evidence of absence.",
+        "External implementation behavior, reachable inputs and complete cross-function paths must be checked independently before assigning a label."
+      ]
+    }
+  ],
+  "input_hashes": {
+    "finding_inventory.json": "5f174fcfed5c26fd3cb0ecd4c7dd09b846d180884856c0a111a37b12cc431e06",
+    "finding_adjudication_candidates.md": "6788267aaa7758830239e2c4ae80ef33b9100932165a5011b307f87ad0d7e518"
+  }
+}

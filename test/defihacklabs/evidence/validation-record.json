@@ -1,0 +1,80 @@
+{
+  "validation_date": "2026-11-01",
+  "slither_version": "0.11.6",
+  "forge_version": "forge Version: 1.8.3\nCommit SHA: cae51ad458f6abb64852b7709eb784352429825d\nBuild Timestamp: 2026-09-15T10:46:16.519267388Z (1789469176)\nBuild Profile: dist",
+  "victim_compiler": "0.4.25+commit.59dbf8f1",
+  "harness_compiler": "0.8.24+commit.e11b9ed9",
+  "evm_version": "byzantium",
+  "optimizer": {
+    "victim": {
+      "enabled": true,
+      "runs": 200
+    },
+    "harness": {
+      "enabled": false
+    }
+  },
+  "tests_passed": 29,
+  "tests_failed": 0,
+  "tests_skipped": 0,
+  "fuzz_cases_per_fuzz_test": 64,
+  "fuzz_seed": "0x1234",
+  "source_hashes": {
+    "examples/defihacklabs/SpankChain.sol": "501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0",
+    "test/defihacklabs/SpankChainValidation.t.sol": "0b8ca6e93ba2d51804b450085f54183a44dda6ec86eefa46192ccd5e31dd9132",
+    "test/defihacklabs/run_validation.py": "fa619e146f0fa3eaa46ab9e414928658ece1ffd1c7298160e2f76aa3acc02f54",
+    "test/defihacklabs/foundry.toml": "baae0bb08cf4fe44404f320a7d36dbe08228609d21f788060ab2c1ecdd279a5b",
+    "test/defihacklabs/fixtures/HistoricalMutabilityControl.sol.txt": "8b8a47c6c06dac84b1b27e1a27dc7e468617a09490327b6594f82fcf021784c2"
+  },
+  "slither_command": "SOLC_VERSION=0.4.25 .venv/bin/slither examples/defihacklabs/SpankChain.sol --detect arbitrary-send-eth,incorrect-equality,constant-function-asm --json - --fail-none",
+  "claims": [
+    {
+      "finding": "A",
+      "slither_id": "2aea17d89905a4065d3beb5f7cbd39e1a6f5a90900fa882b9707ee9a04eb6909",
+      "detector": "arbitrary-send-eth",
+      "impact": "High",
+      "confidence": "Medium",
+      "claim": "LedgerChannel.consensusCloseChannel(bytes32,uint256,uint256[4],string,string) (examples/defihacklabs/SpankChain.sol#804-889) sends eth to arbitrary user\n\tDangerous calls:\n\t- Channels[_lcID].partyAddresses[0].transfer(_balances[0]) (examples/defihacklabs/SpankChain.sol#872)\n\t- Channels[_lcID].partyAddresses[1].transfer(_balances[1]) (examples/defihacklabs/SpankChain.sol#873)\n",
+      "llm_verdict": "false_positive",
+      "llm_verdict_provenance": "User-provided; no new LLM invocation or exported-result modification",
+      "independent_label": "DISPUTED"
+    },
+    {
+      "finding": "B",
+      "slither_id": "3f327db1af5b9c5fb9e5718c5815b582ddfe4919e36215440cc0f62b12122388",
+      "detector": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High",
+      "claim": "LedgerChannel.LCOpenTimeout(bytes32) (examples/defihacklabs/SpankChain.sol#692-715) uses a dangerous strict equality:\n\t- require(bool)(msg.sender == Channels[_lcID].partyAddresses[0] && Channels[_lcID].isOpen == false) (examples/defihacklabs/SpankChain.sol#694)\n",
+      "llm_verdict": "false_positive",
+      "llm_verdict_provenance": "User-provided; no new LLM invocation or exported-result modification",
+      "independent_label": "VALIDATED_FP"
+    },
+    {
+      "finding": "C",
+      "slither_id": "cc4904ecb52d01e681860b4ca265fd72afbcc804e7cb2dbd7ea05169e15b57d8",
+      "detector": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High",
+      "claim": "LedgerChannel.consensusCloseChannel(bytes32,uint256,uint256[4],string,string) (examples/defihacklabs/SpankChain.sol#804-889) uses a dangerous strict equality:\n\t- require(bool)(totalTokenDeposit == _balances[2] + _balances[3]) (examples/defihacklabs/SpankChain.sol#833)\n",
+      "llm_verdict": "false_positive",
+      "llm_verdict_provenance": "User-provided; no new LLM invocation or exported-result modification",
+      "independent_label": "VALIDATED_FP"
+    },
+    {
+      "finding": "D",
+      "slither_id": "20e97a75d64e3cd6b6d815803e10fb50ecf7f4a6238c4a4957f2045f6cdb7efb",
+      "detector": "constant-function-asm",
+      "impact": "Medium",
+      "confidence": "Medium",
+      "claim": "ECTools.recoverSigner(bytes32,string) (examples/defihacklabs/SpankChain.sol#87-134) is declared view but contains assembly code\n",
+      "llm_verdict": "false_positive",
+      "llm_verdict_provenance": "User-provided; no new LLM invocation or exported-result modification",
+      "independent_label": "DISPUTED"
+    }
+  ],
+  "scope": "Finding-level labels; see SpankChain_fp_validation.md. C excludes separate overflow/token-trust issues. A and D excluded from binary FP claims.",
+  "metrics_computed": false,
+  "paid_llm_calls": 0,
+  "ledger_creation_bytes": 16874
+}

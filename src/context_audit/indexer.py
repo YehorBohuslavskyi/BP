@@ -36,6 +36,50 @@ def find_function(
 
     return None
 
+def find_target(
+    slither: Slither,
+    contract_name: str,
+    signature: str,
+    file: str | None = None,
+    start: int | None = None,
+    length: int | None = None,
+    lines: list[int] | None = None,
+) -> Function | None:
+    """Resolve an exact function first, then a modifier; reject ambiguous matches.
+
+    Slither's Modifier extends Function, but lives in contract.modifiers. Source
+    identity distinguishes declarations with the same contract and signature.
+    """
+    for collection in ("functions", "modifiers"):
+        candidates = []
+        for contract in slither.contracts:
+            if contract.name != contract_name:
+                continue
+            for target in getattr(contract, collection):
+                if target.full_name != signature:
+                    continue
+                mapping = target.source_mapping
+                if file is not None:
+                    filenames = {Path(mapping.filename.relative).as_posix(),
+                                 Path(mapping.filename.absolute).as_posix()}
+                    if Path(file).as_posix() not in filenames:
+                        continue
+                if start is not None and mapping.start != start:
+                    continue
+                if length is not None and mapping.length != length:
+                    continue
+                if target not in candidates:
+                    candidates.append(target)
+        if len(candidates) > 1 and lines:
+            candidates = [target for target in candidates
+                          if set(lines).issubset(target.source_mapping.lines)]
+        if len(candidates) == 1:
+            return candidates[0]
+        if candidates:
+            raise ValueError(f"Ambiguous Solidity target: {contract_name}.{signature}")
+    return None
+
+
 def inspect_contract(
     source_path: Path,
     function_signature: str | None = None,

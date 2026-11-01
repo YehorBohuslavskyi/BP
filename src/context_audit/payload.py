@@ -44,6 +44,8 @@ def build_initial_payload(
     payload = {
         "target": {
             "id": target_id,
+            "kind": target["kind"],
+            "contract": finding.contract,
             "signature": context["signature"],
             "visibility": context["visibility"],
             "source": target["source"]

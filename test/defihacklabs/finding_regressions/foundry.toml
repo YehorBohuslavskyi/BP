@@ -1,0 +1,11 @@
+[profile.default]
+src = "support"
+test = "."
+out = ".generated/out"
+cache_path = ".generated/cache"
+libs = []
+evm_version = "istanbul"
+fs_permissions = [{ access = "read", path = "./.generated" }]
+[fuzz]
+runs = 64
+seed = "0x1234"

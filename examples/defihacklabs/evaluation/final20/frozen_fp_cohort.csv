@@ -1,0 +1,79 @@
+target_id,case,finding_id,detector,contract,function,ground_truth_label,adjudication_label,provenance,source_file,source_sha256,source_lines,slither_description
+fp-01-da49c1a96621,spankchain,da49c1a96621ac0ec579d1887de3a8ce6ffd1be3d610c7819b78645f05e0e19f,reentrancy-eth,LedgerChannel,LCOpenTimeout(bytes32),TP,KNOWN_TP,"[""historical_ground_truth""]",examples/defihacklabs/SpankChain.sol,501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0,"[699, 705, 713]","Reentrancy in LedgerChannel.LCOpenTimeout(bytes32) (examples/defihacklabs/SpankChain.sol#692-715):
+	External calls:
+	- require(bool,string)(Channels[_lcID].token.transfer(Channels[_lcID].partyAddresses[0],Channels[_lcID].erc20Balances[0]),CreateChannel: token transfer failure) (examples/defihacklabs/SpankChain.sol#705)
+	External calls sending eth:
+	- Channels[_lcID].partyAddresses[0].transfer(Channels[_lcID].ethBalances[0]) (examples/defihacklabs/SpankChain.sol#699)
+	State variables written after the call(s):
+	- delete Channels[_lcID] (examples/defihacklabs/SpankChain.sol#713)
+	LedgerChannel.Channels (examples/defihacklabs/SpankChain.sol#622) can be used in cross function reentrancies:
+	- LedgerChannel.Channels (examples/defihacklabs/SpankChain.sol#622)
+	- LedgerChannel.LCOpenTimeout(bytes32) (examples/defihacklabs/SpankChain.sol#692-715)
+	- LedgerChannel.byzantineCloseChannel(bytes32) (examples/defihacklabs/SpankChain.sol#1241-1337)
+	- LedgerChannel.closeVirtualChannel(bytes32,bytes32) (examples/defihacklabs/SpankChain.sol#1192-1237)
+	- LedgerChannel.consensusCloseChannel(bytes32,uint256,uint256[4],string,string) (examples/defihacklabs/SpankChain.sol#804-889)
+	- LedgerChannel.createChannel(bytes32,address,uint256,address,uint256[2]) (examples/defihacklabs/SpankChain.sol#623-690)
+	- LedgerChannel.deposit(bytes32,address,uint256,bool) (examples/defihacklabs/SpankChain.sol#757-800)
+	- LedgerChannel.getChannel(bytes32) (examples/defihacklabs/SpankChain.sol#1366-1423)
+	- LedgerChannel.initVCstate(bytes32,bytes32,bytes,address,address,uint256[2],uint256[4],string) (examples/defihacklabs/SpankChain.sol#1005-1077)
+	- LedgerChannel.joinChannel(bytes32,uint256[2]) (examples/defihacklabs/SpankChain.sol#716-751)
+	- LedgerChannel.settleVC(bytes32,bytes32,uint256,address,address,uint256[4],string) (examples/defihacklabs/SpankChain.sol#1085-1191)
+	- LedgerChannel.updateLCstate(bytes32,uint256[6],bytes32,string,string) (examples/defihacklabs/SpankChain.sol#892-1001)
+"
+fp-02-3f327db1af5b,spankchain,3f327db1af5b9c5fb9e5718c5815b582ddfe4919e36215440cc0f62b12122388,incorrect-equality,LedgerChannel,LCOpenTimeout(bytes32),FP,VALIDATED_FP,"[""manual_source_adjudication"", ""regression_test""]",examples/defihacklabs/SpankChain.sol,501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0,[694],"LedgerChannel.LCOpenTimeout(bytes32) (examples/defihacklabs/SpankChain.sol#692-715) uses a dangerous strict equality:
+	- require(bool)(msg.sender == Channels[_lcID].partyAddresses[0] && Channels[_lcID].isOpen == false) (examples/defihacklabs/SpankChain.sol#694)
+"
+fp-03-555479cc96ea,spankchain,555479cc96ea35b4affe7a8500f50e27fa63fc965a2d8947e485baa85f11f08c,incorrect-equality,LedgerChannel,"_isContained(bytes32,bytes,bytes32)",FP,VALIDATED_FP,"[""manual_source_adjudication"", ""regression_test""]",examples/defihacklabs/SpankChain.sol,501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0,[1360],"LedgerChannel._isContained(bytes32,bytes,bytes32) (examples/defihacklabs/SpankChain.sol#1338-1362) uses a dangerous strict equality:
+	- cursor == _root (examples/defihacklabs/SpankChain.sol#1360)
+"
+fp-04-7ba937136995,spankchain,7ba937136995fd888e3da4dfece9bf0e6fd752d81e5c7530e2dd743b93615f71,incorrect-equality,LedgerChannel,"initVCstate(bytes32,bytes32,bytes,address,address,uint256[2],uint256[4],string)",FP,VALIDATED_FP,"[""manual_source_adjudication""]",examples/defihacklabs/SpankChain.sol,501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0,[1055],"LedgerChannel.initVCstate(bytes32,bytes32,bytes,address,address,uint256[2],uint256[4],string) (examples/defihacklabs/SpankChain.sol#1005-1077) uses a dangerous strict equality:
+	- require(bool)(_isContained(_initState,_proof,Channels[_lcID].VCrootHash) == true) (examples/defihacklabs/SpankChain.sol#1055)
+"
+fp-05-cc4904ecb52d,spankchain,cc4904ecb52d01e681860b4ca265fd72afbcc804e7cb2dbd7ea05169e15b57d8,incorrect-equality,LedgerChannel,"consensusCloseChannel(bytes32,uint256,uint256[4],string,string)",FP,VALIDATED_FP,"[""manual_source_adjudication"", ""regression_test""]",examples/defihacklabs/SpankChain.sol,501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0,[833],"LedgerChannel.consensusCloseChannel(bytes32,uint256,uint256[4],string,string) (examples/defihacklabs/SpankChain.sol#804-889) uses a dangerous strict equality:
+	- require(bool)(totalTokenDeposit == _balances[2] + _balances[3]) (examples/defihacklabs/SpankChain.sol#833)
+"
+fp-06-f994fab55d86,spankchain,f994fab55d8647cd6e028b5811ad9d9e120155326faf4eca1d48fc670807ceaa,constant-function-asm,ECTools,uintToBytes32(uint256),FP,VALIDATED_FP,"[""manual_source_adjudication""]",examples/defihacklabs/SpankChain.sol,501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0,"[207, 208, 209, 210, 211, 212, 213]","ECTools.uintToBytes32(uint256) (examples/defihacklabs/SpankChain.sol#207-213) is declared view but contains assembly code
+"
+fp-07-283e78f92682,xsurge,283e78f92682b97003c79c283ba78a6a978eb958c5d03c0c58416f345bf2ebc5,reentrancy-eth,SurgeToken,sell(uint256),TP,KNOWN_TP,"[""historical_ground_truth""]",examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol,e71b6fd8657393926d2ac2e5791f46fd44d3fe0ddb76178e808ff4f1101dd3c7,"[591, 594, 596]","Reentrancy in SurgeToken.sell(uint256) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#577-602):
+	External calls:
+	- (successful,None) = address(seller).call{gas: 40000,value: amountBNB}() (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#591)
+	State variables written after the call(s):
+	- _balances[seller] = _balances[seller].sub(tokenAmount,sender does not have this amount to sell) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#594)
+	SurgeToken._balances (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#484) can be used in cross function reentrancies:
+	- SurgeToken._transferFrom(address,address,uint256) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#535-551)
+	- SurgeToken.balanceOf(address) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#504)
+	- SurgeToken.constructor() (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#496-501)
+	- SurgeToken.getValueOfHoldings(address) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#620-622)
+	- SurgeToken.mint(address,uint256) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#610-613)
+	- _totalSupply = _totalSupply.sub(tokenAmount) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#596)
+	SurgeToken._totalSupply (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#482) can be used in cross function reentrancies:
+	- SurgeToken._transferFrom(address,address,uint256) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#535-551)
+	- SurgeToken.calculatePrice() (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#605-607)
+	- SurgeToken.constructor() (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#496-501)
+	- SurgeToken.mint(address,uint256) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#610-613)
+	- SurgeToken.purchase(address,uint256) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#554-574)
+	- SurgeToken.totalSupply() (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#503)
+"
+fp-08-0d1056a6b05f,xsurge,0d1056a6b05f35c0661820fd228845121f557c692860dd5fbbf953fb28675bea,incorrect-equality,SurgeToken,"purchase(address,uint256)",FP,VALIDATED_FP,"[""manual_source_adjudication""]",examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol,e71b6fd8657393926d2ac2e5791f46fd44d3fe0ddb76178e808ff4f1101dd3c7,[560],"SurgeToken.purchase(address,uint256) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#554-574) uses a dangerous strict equality:
+	- prevBNBAmount == 0 (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#560)
+"
+fp-09-40750c41d2e6,burgerswap,40750c41d2e69ce2f681004ed403a7bd57f9b162a0d6c3b834760a79f4592478,unused-return,DemaxPlatform,swapPrecondition(address),FP,VALIDATED_FP,"[""manual_source_adjudication""]",examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol,8d054c93b27839c772350ff454c91104e96e8a8000bb497fc477dad9f6418f38,[736],"DemaxPlatform.swapPrecondition(address) (examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol#728-742) ignores return value by (reserveDGAS,None) = DemaxSwapLibrary.getReserves(FACTORY,DGAS,token) (examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol#736)
+"
+fp-10-92f3e299e4e0,burgerswap,92f3e299e4e000f89bb0130a7aa47f367305bf9e4b285d6d30ef81f619a48c0c,unused-return,DemaxPlatform,swapPrecondition(address),FP,VALIDATED_FP,"[""manual_source_adjudication""]",examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol,8d054c93b27839c772350ff454c91104e96e8a8000bb497fc477dad9f6418f38,[737],"DemaxPlatform.swapPrecondition(address) (examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol#728-742) ignores return value by (reserveWETH,None) = DemaxSwapLibrary.getReserves(FACTORY,WETH,token) (examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol#737)
+"
+fp-11-5d3eca2555a2,visor-finance,5d3eca2555a2051ff6412cb4a9bffb2027fe752f63b717bf319dc6d7c96cb1cb,arbitrary-send-erc20,RewardsHypervisor,"deposit(uint256,address,address)",FP,VALIDATED_FP,"[""manual_source_adjudication""]",examples/defihacklabs/evaluation/final20/contracts/visor-finance/analysis/RewardsHypervisor.sol,525abbcec7d91448ad551d0062e7197cf20c7789e93866370dbc6f196e6948fe,[61],"RewardsHypervisor.deposit(uint256,address,address) (RewardsHypervisor.sol#41-65) uses arbitrary from in transferFrom: visr.safeTransferFrom(from,address(this),visrDeposit) (RewardsHypervisor.sol#61)
+"
+fp-12-3b17fa7df6d4,eleven,3b17fa7df6d46dd6f38e672c759cc3862bd948b157686032c03d60efb271a8f5,unchecked-transfer,ElevenNeverSellVault,"safeTokenTransfer(address,address,uint256)",TP,VALIDATED_TP,"[""regression_test""]",examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol,97015d1e8c5b3b3bdaae0eb4ddf3d8450bdee18f2b91129cab912bab31e1329d,[1065],"ElevenNeverSellVault.safeTokenTransfer(address,address,uint256) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1060-1067) ignores return value by IERC20(_token).transfer(_to,_amount) (examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol#1065)
+"
+fp-13-3426dee9e8ef,spartan,3426dee9e8ef729ea3be1f7398d4d28fb04cd4158f433644d7058e127a547d3b,arbitrary-send-eth,Router,"_handleTransferOut(address,uint256,address)",FP,VALIDATED_FP,"[""manual_source_adjudication""]",examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol,8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d,[586],"Router._handleTransferOut(address,uint256,address) (Victim.sol#581-591) sends eth to arbitrary user
+	Dangerous calls:
+	- address(_recipient).call{value: _amount}() (Victim.sol#586)
+"
+fp-14-e8fd05569b88,spartan,e8fd05569b88b694d2f90f4cb31d7238e3a16b4bfe1ab3c0143012345d08c63b,locked-ether,Pool,"constructor(address,address)",TP,VALIDATED_TP,"[""manual_source_adjudication"", ""regression_test""]",examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol,8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d,"[117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267]","Contract locking ether found:
+	Contract Pool (Victim.sol#85-344) has payable functions:
+	 - Pool.constructor(address,address) (Victim.sol#117-128)
+	 - Pool.swapTo(address,address) (Victim.sol#252-267)
+	But does not have a function to withdraw the ether
+"
+fp-15-b9cbd4da367d,spartan,b9cbd4da367d63c678d1e691cd43d6293494bc6363eca3dd96a5cb6468417c3a,unchecked-lowlevel,Router,"_handleTransferOut(address,uint256,address)",TP,VALIDATED_TP,"[""regression_test""]",examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol,8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d,[586],"Router._handleTransferOut(address,uint256,address) (Victim.sol#581-591) ignores return value by address(_recipient).call{value: _amount}() (Victim.sol#586)
+"

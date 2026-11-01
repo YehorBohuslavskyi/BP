@@ -1,0 +1,38 @@
+{
+  "incident_id": "visor-finance",
+  "incident_identity": "Visor Finance, 2021-12-21, Ethereum",
+  "victim_address": "0xC9f27A50f82571C1C8423A42970613b8dBDA14ef",
+  "source_origin": "Etherscan verified source copied manually (user-provided provenance)",
+  "source_origin_url": "https://etherscan.io/address/0xC9f27A50f82571C1C8423A42970613b8dBDA14ef#code",
+  "contract_name": "RewardsHypervisor",
+  "pragma": "pragma solidity 0.7.6;",
+  "required_compiler": "0.7.6",
+  "deployment_compiler_build": null,
+  "compiler_settings": null,
+  "source_file": "RewardsHypervisor.sol",
+  "sha256": "525abbcec7d91448ad551d0062e7197cf20c7789e93866370dbc6f196e6948fe",
+  "source_size_bytes": 3326,
+  "local_defihacklabs_poc_path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2021-12/Visor_exp.sol",
+  "local_poc_sha256": "b940f6bf00db087a501bc2ecc4895bcf0b9c397092e56e423525f3863527d698",
+  "incident_index": "/home/coca-cola/projects/DeFiHackLabs/past/2021/README.md:109",
+  "address_correspondence": "PoC IRewardsHypervisor target matches supplied Etherscan address exactly",
+  "source_status": "SOURCE_NEEDS_REVIEW",
+  "syntax_validation": "Manual structural inspection only; not compiler-validated",
+  "unresolved_imports": [
+    "@openzeppelin/contracts/math/SafeMath.sol",
+    "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+    "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+    "@openzeppelin/contracts/token/ERC20/SafeERC20.sol",
+    "@openzeppelin/contracts/access/Ownable.sol",
+    "./interfaces/IVisor.sol",
+    "./vVISR.sol"
+  ],
+  "ready_for_slither": false,
+  "limitations": [
+    "Manual Etherscan provenance supplied by user; no independent explorer retrieval, compiler-settings metadata or deployed-bytecode equivalence check performed.",
+    "Source appears structurally consistent with Solidity 0.7.6; syntax/type correctness not compiler-validated.",
+    "All seven imported source units are absent from this raw snapshot. No generic or different-version interfaces substituted.",
+    "Exact pragma 0.7.6 excludes installed 0.8.24 and 0.4.x compilers. Actual deployment compiler build and optimizer settings unavailable.",
+    "Catalog describes the 2021-12-21 incident as Reentrancy; metadata category retained without running a detector or adjudicating root cause here."
+  ]
+}

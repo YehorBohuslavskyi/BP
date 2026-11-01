@@ -1,0 +1,42 @@
+{
+  "incident_id": "eleven",
+  "incident": "Eleven Finance",
+  "cohort_role": "SUPPLEMENTAL_NOT_IN_NOMINATED_20",
+  "chain": "BSC",
+  "victim_address": "0x27DD6E51BF715cFc0e2fe96Af26fC9DED89e4BE8",
+  "affected_contract": "ElevenNeverSellVault",
+  "affected_function": "emergencyBurn()",
+  "source_status": "SOURCE_READY",
+  "source_sha256": "97015d1e8c5b3b3bdaae0eb4ddf3d8450bdee18f2b91129cab912bab31e1329d",
+  "source_path": "examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol",
+  "compiler_version": "0.6.12",
+  "compiler_evidence": "Version decoded from solc metadata marker in preserved bytecode output",
+  "pragma_directives": [
+    "pragma solidity ^0.6.0;",
+    "pragma solidity ^0.6.0;",
+    "pragma solidity ^0.6.0;",
+    "pragma solidity ^0.6.2;",
+    "pragma solidity ^0.6.0;",
+    "pragma solidity ^0.6.0;",
+    "pragma solidity ^0.6.0;",
+    "pragma solidity ^0.6.0;"
+  ],
+  "imports": [],
+  "compilation_status": "PASSED_EXISTING_LOCAL_EVIDENCE",
+  "slither_success": true,
+  "slither_finding_count": 58,
+  "known_vulnerability_result": "MISSED",
+  "mapping_reason": "Documented emergencyBurn transfers underlying assets without burning caller vault shares, unlike withdraw. No supplied Slither finding identifies that missing burn or equivalent accounting inconsistency; all 58 findings remain unlabeled additional findings.",
+  "local_poc_path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2021-06/Eleven_exp.sol",
+  "local_poc_sha256": "7dcfe8b9845dccffaee2f66ac56e7b74ce6bf7797baf346f74da2520fd5bafa9",
+  "evidence_hashes": {
+    "compilation.txt": "5db7ec5adbbb7e171b64cd551019daa0fa441d097c7dcef085259b2629418484",
+    "slither.json": "3c104252f6170af7e624f04d80371deb1f5afae447ae3848813b3a6e40bfa84b"
+  },
+  "limitations": [
+    "Completed local compilation/Slither evidence supplied by user and imported without rerunning either tool.",
+    "Source/deployment equivalence and original optimizer settings not independently reverified.",
+    "Supplemental case outside the nominated 20; no nominated incident is replaced and no cohort freeze occurs."
+  ],
+  "llm_target_created": false
+}

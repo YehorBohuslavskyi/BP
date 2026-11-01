@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "manifest_sha256": "6f3da00304416954c317afc75853b1bf87539ab8146b57031801c98080ec2ce9",
+  "status": "PILOT_ONLY_ALREADY_COMPLETED",
+  "new_paid_targets": 0,
+  "technical_targets": [
+    {
+      "target_id": "case_001",
+      "incident_id": "spankchain",
+      "slither_finding_id": "da49c1a96621ac0ec579d1887de3a8ce6ffd1be3d610c7819b78645f05e0e19f",
+      "detector": "reentrancy-eth",
+      "function": "LCOpenTimeout(bytes32)",
+      "source_path": "examples/defihacklabs/SpankChain.sol",
+      "source_sha256": "501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0",
+      "compiler": "0.4.25",
+      "finding": {
+        "id": "da49c1a96621ac0ec579d1887de3a8ce6ffd1be3d610c7819b78645f05e0e19f",
+        "detector": "reentrancy-eth",
+        "impact": "High",
+        "confidence": "Medium",
+        "description": "Reentrancy in LedgerChannel.LCOpenTimeout(bytes32) (examples/defihacklabs/SpankChain.sol#692-715):\n\tExternal calls:\n\t- require(bool,string)(Channels[_lcID].token.transfer(Channels[_lcID].partyAddresses[0],Channels[_lcID].erc20Balances[0]),CreateChannel: token transfer failure) (examples/defihacklabs/SpankChain.sol#705)\n\tExternal calls sending eth:\n\t- Channels[_lcID].partyAddresses[0].transfer(Channels[_lcID].ethBalances[0]) (examples/defihacklabs/SpankChain.sol#699)\n\tState variables written after the call(s):\n\t- delete Channels[_lcID] (examples/defihacklabs/SpankChain.sol#713)\n\tLedgerChannel.Channels (examples/defihacklabs/SpankChain.sol#622) can be used in cross function reentrancies:\n\t- LedgerChannel.Channels (examples/defihacklabs/SpankChain.sol#622)\n\t- LedgerChannel.LCOpenTimeout(bytes32) (examples/defihacklabs/SpankChain.sol#692-715)\n\t- LedgerChannel.byzantineCloseChannel(bytes32) (examples/defihacklabs/SpankChain.sol#1241-1337)\n\t- LedgerChannel.closeVirtualChannel(bytes32,bytes32) (examples/defihacklabs/SpankChain.sol#1192-1237)\n\t- LedgerChannel.consensusCloseChannel(bytes32,uint256,uint256[4],string,string) (examples/defihacklabs/SpankChain.sol#804-889)\n\t- LedgerChannel.createChannel(bytes32,address,uint256,address,uint256[2]) (examples/defihacklabs/SpankChain.sol#623-690)\n\t- LedgerChannel.deposit(bytes32,address,uint256,bool) (examples/defihacklabs/SpankChain.sol#757-800)\n\t- LedgerChannel.getChannel(bytes32) (examples/defihacklabs/SpankChain.sol#1366-1423)\n\t- LedgerChannel.initVCstate(bytes32,bytes32,bytes,address,address,uint256[2],uint256[4],string) (examples/defihacklabs/SpankChain.sol#1005-1077)\n\t- LedgerChannel.joinChannel(bytes32,uint256[2]) (examples/defihacklabs/SpankChain.sol#716-751)\n\t- LedgerChannel.settleVC(bytes32,bytes32,uint256,address,address,uint256[4],string) (examples/defihacklabs/SpankChain.sol#1085-1191)\n\t- LedgerChannel.updateLCstate(bytes32,uint256[6],bytes32,string,string) (examples/defihacklabs/SpankChain.sol#892-1001)\n",
+        "contract": "LedgerChannel",
+        "function_signature": "LCOpenTimeout(bytes32)",
+        "file": "examples/defihacklabs/SpankChain.sol",
+        "lines": [
+          699,
+          705,
+          713
+        ],
+        "function_start": 13743,
+        "function_length": 706,
+        "locations": [
+          {
+            "start": 14103,
+            "length": 148,
+            "filename_relative": "examples/defihacklabs/SpankChain.sol",
+            "filename_absolute": "/home/coca-cola/projects/BP/examples/defihacklabs/SpankChain.sol",
+            "filename_short": "examples/defihacklabs/SpankChain.sol",
+            "is_dependency": false,
+            "lines": [
+              705
+            ],
+            "starting_column": 1,
+            "ending_column": 149
+          },
+          {
+            "start": 13977,
+            "length": 74,
+            "filename_relative": "examples/defihacklabs/SpankChain.sol",
+            "filename_absolute": "/home/coca-cola/projects/BP/examples/defihacklabs/SpankChain.sol",
+            "filename_short": "examples/defihacklabs/SpankChain.sol",
+            "is_dependency": false,
+            "lines": [
+              699
+            ],
+            "starting_column": 1,
+            "ending_column": 75
+          },
+          {
+            "start": 14423,
+            "length": 22,
+            "filename_relative": "examples/defihacklabs/SpankChain.sol",
+            "filename_absolute": "/home/coca-cola/projects/BP/examples/defihacklabs/SpankChain.sol",
+            "filename_short": "examples/defihacklabs/SpankChain.sol",
+            "is_dependency": false,
+            "lines": [
+              713
+            ],
+            "starting_column": 1,
+            "ending_column": 23
+          }
+        ],
+        "function_locations": [
+          {
+            "start": 13743,
+            "length": 706,
+            "filename_relative": "examples/defihacklabs/SpankChain.sol",
+            "filename_absolute": "/home/coca-cola/projects/BP/examples/defihacklabs/SpankChain.sol",
+            "filename_short": "examples/defihacklabs/SpankChain.sol",
+            "is_dependency": false,
+            "lines": [
+              692,
+              693,
+              694,
+              695,
+              696,
+              697,
+              698,
+              699,
+              700,
+              701,
+              702,
+              703,
+              704,
+              705,
+              706,
+              707,
+              708,
+              709,
+              710,
+              711,
+              712,
+              713,
+              714,
+              715
+            ],
+            "starting_column": 1,
+            "ending_column": 2
+          },
+          {
+            "start": 13743,
+            "length": 706,
+            "filename_relative": "examples/defihacklabs/SpankChain.sol",
+            "filename_absolute": "/home/coca-cola/projects/BP/examples/defihacklabs/SpankChain.sol",
+            "filename_short": "examples/defihacklabs/SpankChain.sol",
+            "is_dependency": false,
+            "lines": [
+              692,
+              693,
+              694,
+              695,
+              696,
+              697,
+              698,
+              699,
+              700,
+              701,
+              702,
+              703,
+              704,
+              705,
+              706,
+              707,
+              708,
+              709,
+              710,
+              711,
+              712,
+              713,
+              714,
+              715
+            ],
+            "starting_column": 1,
+            "ending_column": 2
+          },
+          {
+            "start": 13743,
+            "length": 706,
+            "filename_relative": "examples/defihacklabs/SpankChain.sol",
+            "filename_absolute": "/home/coca-cola/projects/BP/examples/defihacklabs/SpankChain.sol",
+            "filename_short": "examples/defihacklabs/SpankChain.sol",
+            "is_dependency": false,
+            "lines": [
+              692,
+              693,
+              694,
+              695,
+              696,
+              697,
+              698,
+              699,
+              700,
+              701,
+              702,
+              703,
+              704,
+              705,
+              706,
+              707,
+              708,
+              709,
+              710,
+              711,
+              712,
+              713,
+              714,
+              715
+            ],
+            "starting_column": 1,
+            "ending_column": 2
+          }
+        ]
+      },
+      "already_completed_pilot": true
+    }
+  ],
+  "payload_policy": "Only Finding + production prepare_finding output may reach inference; never pass this file or the manifest as the model payload."
+}

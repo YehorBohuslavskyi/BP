@@ -1,0 +1,21 @@
+Compiling 1 files with Solc 0.8.24
+Solc 0.8.24 finished in 98.88ms
+Compiler run successful!
+
+Ran 4 tests for PaymentAndReward.t.sol:PaymentAndRewardRegressions
+[PASS] test_A_rejectedPayoutContinuesAndLeavesValueInRouter() (gas: 210348)
+[PASS] test_A_successfulPayoutControlDeliversValue() (gas: 193861)
+[PASS] test_B_falseTransferAdvancesDebtWithoutPayment() (gas: 452881)
+[PASS] test_B_successfulTransferControlPaysBeforeDebtUpdate() (gas: 418697)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 20.62ms (3.25ms CPU time)
+
+Ran 5 tests for FindingRegressions.t.sol:FindingRegressions
+[PASS] testFuzz_FP_exactHashRootIsRequired(bytes32,bytes32) (runs: 64, μ: 10092, ~: 10097)
+[PASS] test_FP_emptyProofRequiresExactRoot() (gas: 6685)
+[PASS] test_FP_sortedSiblingProofAcceptsOnlyReconstructedRoot() (gas: 14374)
+[PASS] test_TP_poolAcceptsNativeValueDespiteTokenAccounting() (gas: 2536685)
+[PASS] test_TP_poolDoesNotHaveConventionalNativeExitOrFallback() (gas: 2600938)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 20.75ms (9.43ms CPU time)
+
+Ran 2 test suites in 28.96ms (41.37ms CPU time): 9 tests passed, 0 failed, 0 skipped (9 total tests)
+PASS: original source hashes unchanged: {"LedgerChannel.sol": "501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0", "Victim.sol": "8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d", "Eleven.sol": "97015d1e8c5b3b3bdaae0eb4ddf3d8450bdee18f2b91129cab912bab31e1329d"}

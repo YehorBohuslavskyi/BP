@@ -1,0 +1,170 @@
+{
+  "target_id": "fp-11-5d3eca2555a2",
+  "case": "visor-finance",
+  "finding_id": "5d3eca2555a2051ff6412cb4a9bffb2027fe752f63b717bf319dc6d7c96cb1cb",
+  "detector": "arbitrary-send-erc20",
+  "status": "COMPLETED",
+  "verdict": "confirmed",
+  "explanation": "The function passes the caller-controlled `from` address directly to `visr.safeTransferFrom(from, address(this), visrDeposit)` in the externally callable non-contract branch, without requiring `from == msg.sender` or otherwise authorizing the caller. Thus, if `from` has provided sufficient allowance, a caller can cause VISR to be transferred from that address. The contract-origin branch has an owner check, but it does not prevent the reported issue in the ordinary-address branch.",
+  "evidence_ids": [
+    "RewardsHypervisor.sol:function:1171:865"
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "result": {
+        "assessment": {
+          "action": "final",
+          "requested_ids": [],
+          "verdict": "confirmed",
+          "explanation": "The function passes the caller-controlled `from` address directly to `visr.safeTransferFrom(from, address(this), visrDeposit)` in the externally callable non-contract branch, without requiring `from == msg.sender` or otherwise authorizing the caller. Thus, if `from` has provided sufficient allowance, a caller can cause VISR to be transferred from that address. The contract-origin branch has an owner check, but it does not prevent the reported issue in the ordinary-address branch.",
+          "evidence_ids": [
+            "RewardsHypervisor.sol:function:1171:865"
+          ]
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_02ae4843172eac7c016ae7aefbc24087d28db230754ff39f29",
+        "usage": {
+          "input_tokens": 1152,
+          "input_tokens_details": {
+            "cache_write_tokens": 1149,
+            "cached_tokens": 0
+          },
+          "output_tokens": 406,
+          "output_tokens_details": {
+            "reasoning_tokens": 266
+          },
+          "total_tokens": 1558
+        }
+      }
+    }
+  ],
+  "requested_fragments": 0,
+  "input_tokens": 1152,
+  "output_tokens": 406,
+  "total_tokens": 1558,
+  "api_calls_attempted": 1,
+  "model": "gpt-5.6-luna",
+  "result": {
+    "finding": {
+      "id": "5d3eca2555a2051ff6412cb4a9bffb2027fe752f63b717bf319dc6d7c96cb1cb",
+      "detector": "arbitrary-send-erc20",
+      "contract": "RewardsHypervisor",
+      "function": "deposit(uint256,address,address)",
+      "file": "RewardsHypervisor.sol"
+    },
+    "assessment": {
+      "action": "final",
+      "requested_ids": [],
+      "verdict": "confirmed",
+      "explanation": "The function passes the caller-controlled `from` address directly to `visr.safeTransferFrom(from, address(this), visrDeposit)` in the externally callable non-contract branch, without requiring `from == msg.sender` or otherwise authorizing the caller. Thus, if `from` has provided sufficient allowance, a caller can cause VISR to be transferred from that address. The contract-origin branch has an owner check, but it does not prevent the reported issue in the ordinary-address branch.",
+      "evidence_ids": [
+        "RewardsHypervisor.sol:function:1171:865"
+      ]
+    },
+    "rounds": [
+      {
+        "round": 1,
+        "result": {
+          "assessment": {
+            "action": "final",
+            "requested_ids": [],
+            "verdict": "confirmed",
+            "explanation": "The function passes the caller-controlled `from` address directly to `visr.safeTransferFrom(from, address(this), visrDeposit)` in the externally callable non-contract branch, without requiring `from == msg.sender` or otherwise authorizing the caller. Thus, if `from` has provided sufficient allowance, a caller can cause VISR to be transferred from that address. The contract-origin branch has an owner check, but it does not prevent the reported issue in the ordinary-address branch.",
+            "evidence_ids": [
+              "RewardsHypervisor.sol:function:1171:865"
+            ]
+          },
+          "model": "gpt-5.6-luna",
+          "response_id": "resp_02ae4843172eac7c016ae7aefbc24087d28db230754ff39f29",
+          "usage": {
+            "input_tokens": 1152,
+            "input_tokens_details": {
+              "cache_write_tokens": 1149,
+              "cached_tokens": 0
+            },
+            "output_tokens": 406,
+            "output_tokens_details": {
+              "reasoning_tokens": 266
+            },
+            "total_tokens": 1558
+          }
+        }
+      }
+    ],
+    "round_count": 1,
+    "provided_context": []
+  },
+  "summary": {
+    "finding_id": "5d3eca2555a2051ff6412cb4a9bffb2027fe752f63b717bf319dc6d7c96cb1cb",
+    "detector": "arbitrary-send-erc20",
+    "contract": "RewardsHypervisor",
+    "function": "deposit(uint256,address,address)",
+    "verdict": "confirmed",
+    "rounds": 1,
+    "requested_fragments": 0,
+    "input_tokens": 1152,
+    "output_tokens": 406,
+    "total_tokens": 1558
+  },
+  "context_efficiency": {
+    "full_source_estimated_tokens": 832,
+    "initial_selected_source_estimated_tokens": 217,
+    "additional_selected_source_estimated_tokens": 0,
+    "cumulative_selected_source_estimated_tokens": 217,
+    "source_context_reduction": 0.7391826923076923
+  },
+  "initial_payload": {
+    "target": {
+      "id": "RewardsHypervisor.sol:function:1171:865",
+      "kind": "function",
+      "contract": "RewardsHypervisor",
+      "signature": "deposit(uint256,address,address)",
+      "visibility": "external",
+      "source": "function deposit(\n        uint256 visrDeposit,\n        address payable from,\n        address to\n    ) external returns (uint256 shares) {\n        require(visrDeposit > 0, \"deposits must be nonzero\");\n        require(to != address(0) && to != address(this), \"to\");\n        require(from != address(0) && from != address(this), \"from\");\n\n        shares = visrDeposit;\n        if (vvisr.totalSupply() != 0) {\n          uint256 visrBalance = visr.balanceOf(address(this));\n          shares = shares.mul(vvisr.totalSupply()).div(visrBalance);\n        }\n\n        if(isContract(from)) {\n          require(IVisor(from).owner() == msg.sender); \n          IVisor(from).delegatedTransferERC20(address(visr), address(this), visrDeposit);\n        }\n        else {\n          visr.safeTransferFrom(from, address(this), visrDeposit);\n        }\n\n        vvisr.mint(to, shares);\n    }"
+    },
+    "available_context": [
+      {
+        "id": "RewardsHypervisor.sol:state_variable:584:18",
+        "kind": "state_variable",
+        "name": "RewardsHypervisor.visr",
+        "reasons": [
+          "state variable declaration: visr"
+        ]
+      },
+      {
+        "id": "RewardsHypervisor.sol:function:728:161",
+        "kind": "function",
+        "name": "constructor(address,address)",
+        "reasons": [
+          "direct writer of state variable: visr",
+          "direct writer of state variable: vvisr"
+        ]
+      },
+      {
+        "id": "RewardsHypervisor.sol:state_variable:608:18",
+        "kind": "state_variable",
+        "name": "RewardsHypervisor.vvisr",
+        "reasons": [
+          "state variable declaration: vvisr"
+        ]
+      }
+    ],
+    "context_complete": false,
+    "task": "verify_static_analysis_finding",
+    "finding": {
+      "id": "5d3eca2555a2051ff6412cb4a9bffb2027fe752f63b717bf319dc6d7c96cb1cb",
+      "tool": "slither",
+      "detector": "arbitrary-send-erc20",
+      "impact": "High",
+      "confidence": "High",
+      "description": "RewardsHypervisor.deposit(uint256,address,address) (RewardsHypervisor.sol#41-65) uses arbitrary from in transferFrom: visr.safeTransferFrom(from,address(this),visrDeposit) (RewardsHypervisor.sol#61)\n",
+      "contract": "RewardsHypervisor",
+      "function": "deposit(uint256,address,address)",
+      "file": "RewardsHypervisor.sol",
+      "lines": [
+        61
+      ]
+    }
+  }
+}

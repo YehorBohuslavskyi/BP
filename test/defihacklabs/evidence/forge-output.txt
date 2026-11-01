@@ -1,0 +1,37 @@
+Original source SHA-256: 501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0
+Victim compiled unchanged with solc 0.4.25; standard ECTools linking at deployment.
+No files changed, compilation skipped
+
+Ran 29 tests for SpankChainValidation.t.sol:SpankChainValidation
+[PASS] testFuzz_C_ordinaryTokenConservingSplits(uint8) (runs: 64, μ: 1242060, ~: 1242396)
+[PASS] testFuzz_D_recoveryRemainsStaticCompatible(bytes32) (runs: 64, μ: 373952, ~: 374125)
+[PASS] test_A_attackerSignatureCannotReplacePartyI() (gas: 1216914)
+[PASS] test_A_changedConservingBalancesInvalidateSignatures() (gas: 846194)
+[PASS] test_A_immediateReplayWithoutReopeningFails() (gas: 1277931)
+[PASS] test_A_noSignaturesCannotPay() (gas: 458094)
+[PASS] test_A_recreateCannotSubstituteRecordedParticipants() (gas: 452713)
+[PASS] test_A_reopenAndReplayOldSignaturesDrainsOtherChannel() (gas: 2380490)
+[PASS] test_A_substitutedRecipientInSignedMessageFails() (gas: 851428)
+[PASS] test_A_validSignaturesAllowRelayerButOnlyPayRecordedParties() (gas: 1233265)
+[PASS] test_B_beforeDeadlineRejected() (gas: 296979)
+[PASS] test_B_creatorJoinedRejected() (gas: 449293)
+[PASS] test_B_creatorUnopenedAfterDeadlineSucceeds() (gas: 351357)
+[PASS] test_B_nonCreatorRejected() (gas: 298900)
+[PASS] test_B_partyIRejected() (gas: 298239)
+[PASS] test_B_relaxedGuardTruthTable() (gas: 1810)
+[PASS] test_C_equalPayoutsConserveActualEthAndTokens() (gas: 1243247)
+[PASS] test_C_ethSumAboveRejectedWithValidSignatures() (gas: 488895)
+[PASS] test_C_ethSumBelowRejectedWithValidSignatures() (gas: 488972)
+[PASS] test_C_tokenSumAboveRejectedWithValidSignatures() (gas: 488834)
+[PASS] test_C_tokenSumBelowRejectedWithValidSignatures() (gas: 488824)
+[PASS] test_C_uint256WrapCannotDrainOrdinaryToken() (gas: 1240436)
+[PASS] test_C_uint256WrapPassesEqualityWithPermissiveToken() (gas: 1507686)
+[PASS] test_C_unrelatedFundsDoNotBlockAccountedEquality() (gas: 1457971)
+[PASS] test_D_historicalUnsafeViewControlWritesOnCallButFailsStaticcall() (gas: 278028)
+[PASS] test_D_invalidVReturnsZeroUnderStaticcall() (gas: 359967)
+[PASS] test_D_shortSignatureReturnsZeroUnderStaticcall() (gas: 4620)
+[PASS] test_D_validSignatureStaticcallAndCallAgreeWithoutStorageAccess() (gas: 756855)
+[PASS] test_D_zeroHashRevertsForInputValidation() (gas: 2902)
+Suite result: ok. 29 passed; 0 failed; 0 skipped; finished in 133.86ms (280.34ms CPU time)
+
+Ran 1 test suite in 137.01ms (133.86ms CPU time): 29 tests passed, 0 failed, 0 skipped (29 total tests)

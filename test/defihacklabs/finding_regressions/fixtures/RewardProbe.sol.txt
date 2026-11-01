@@ -1,0 +1,11 @@
+pragma solidity 0.6.12;
+import "Eleven.sol";
+// Only initial test state is configured. No claim/harvest/transfer/debt method is overridden.
+contract RewardProbe is ElevenNeverSellVault {
+    function seed(address user, uint256 shares, uint256 perShare, address buyback, address converter) external {
+        _mint(user, shares);
+        harvestedElePerShare = perShare;
+        buybackstrat = buyback;
+        convertTo11nrvStrat = converter;
+    }
+}

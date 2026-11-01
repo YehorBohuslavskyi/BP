@@ -141,7 +141,7 @@ class ServiceTests(unittest.TestCase):
         result = json.loads(exported)
         self.assertNotIn('do-not-export', exported)
         self.assertEqual(result['usage']['total_tokens'], 15)
-        self.assertEqual(result['verification'][0]['result']['assessment']['verdict'], 'inconclusive')
+        self.assertEqual(result['verification'][0]['verification']['verdict'], 'inconclusive')
 
     def test_slither_failures_and_timeout_are_actionable(self):
         compiler_ok = Mock(returncode=0)

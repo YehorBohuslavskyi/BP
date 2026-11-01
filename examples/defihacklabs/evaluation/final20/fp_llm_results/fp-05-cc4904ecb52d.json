@@ -1,0 +1,406 @@
+{
+  "target_id": "fp-05-cc4904ecb52d",
+  "case": "spankchain",
+  "finding_id": "cc4904ecb52d01e681860b4ca265fd72afbcc804e7cb2dbd7ea05169e15b57d8",
+  "detector": "incorrect-equality",
+  "status": "COMPLETED",
+  "verdict": "false_positive",
+  "explanation": "The strict equality checks that the signed payout balances exactly equal the channel\u2019s tracked token deposits. This is an intentional conservation invariant: accepting an unequal total could underpay or overpay the parties. The supplied code does not show that this equality is unsafe or incorrectly applied; any fee-on-transfer or token-accounting issue would be a separate finding, not evidence that this equality itself is incorrect.",
+  "evidence_ids": [
+    "SpankChain.sol:function:15346:1103",
+    "SpankChain.sol:function:12137:1604",
+    "SpankChain.sol:function:14450:816"
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "result": {
+        "assessment": {
+          "action": "request_context",
+          "requested_ids": [
+            "SpankChain.sol:state_variable:12092:43",
+            "SpankChain.sol:function:15346:1103",
+            "SpankChain.sol:function:12137:1604",
+            "SpankChain.sol:function:14450:816"
+          ],
+          "verdict": "pending",
+          "explanation": "The finding concerns whether strict equality against the recorded token deposit is unsafe. The channel state and the functions that initialize and update token deposits are relevant to determine whether this equality is an intentional conservation invariant or can be invalidated by the token/accounting model.",
+          "evidence_ids": []
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_053af5dcc93fc35e016ae7aec1853087d29fe411eb5893db0c",
+        "usage": {
+          "input_tokens": 1952,
+          "input_tokens_details": {
+            "cache_write_tokens": 1949,
+            "cached_tokens": 0
+          },
+          "output_tokens": 274,
+          "output_tokens_details": {
+            "reasoning_tokens": 143
+          },
+          "total_tokens": 2226
+        }
+      }
+    },
+    {
+      "round": 2,
+      "result": {
+        "assessment": {
+          "action": "request_context",
+          "requested_ids": [
+            "SpankChain.sol:function:18358:1632",
+            "SpankChain.sol:function:25844:2194"
+          ],
+          "verdict": "pending",
+          "explanation": "The finding concerns whether the strict token-balance equality is an unsafe check. The supplied code shows deposits and initial balances, but other functions may modify the channel\u2019s token accounting before consensusCloseChannel; those writers are relevant to determine whether exact equality is an intended invariant or can legitimately fail.",
+          "evidence_ids": [
+            "SpankChain.sol:function:12137:1604",
+            "SpankChain.sol:function:14450:816",
+            "SpankChain.sol:function:15346:1103"
+          ]
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_0730d278bcbd6d91016ae7aec5c0e087d282bef1e09a28071c",
+        "usage": {
+          "input_tokens": 3298,
+          "input_tokens_details": {
+            "cache_write_tokens": 3295,
+            "cached_tokens": 0
+          },
+          "output_tokens": 353,
+          "output_tokens_details": {
+            "reasoning_tokens": 204
+          },
+          "total_tokens": 3651
+        }
+      }
+    },
+    {
+      "round": 3,
+      "result": {
+        "assessment": {
+          "action": "final",
+          "requested_ids": [],
+          "verdict": "false_positive",
+          "explanation": "The strict equality checks that the signed payout balances exactly equal the channel\u2019s tracked token deposits. This is an intentional conservation invariant: accepting an unequal total could underpay or overpay the parties. The supplied code does not show that this equality is unsafe or incorrectly applied; any fee-on-transfer or token-accounting issue would be a separate finding, not evidence that this equality itself is incorrect.",
+          "evidence_ids": [
+            "SpankChain.sol:function:15346:1103",
+            "SpankChain.sol:function:12137:1604",
+            "SpankChain.sol:function:14450:816"
+          ]
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_047f0f51382120b2016ae7aecaac1887d280b7aa210eff23c1",
+        "usage": {
+          "input_tokens": 4638,
+          "input_tokens_details": {
+            "cache_write_tokens": 4635,
+            "cached_tokens": 0
+          },
+          "output_tokens": 661,
+          "output_tokens_details": {
+            "reasoning_tokens": 516
+          },
+          "total_tokens": 5299
+        }
+      }
+    }
+  ],
+  "requested_fragments": 6,
+  "input_tokens": 9888,
+  "output_tokens": 1288,
+  "total_tokens": 11176,
+  "api_calls_attempted": 3,
+  "model": "gpt-5.6-luna",
+  "result": {
+    "finding": {
+      "id": "cc4904ecb52d01e681860b4ca265fd72afbcc804e7cb2dbd7ea05169e15b57d8",
+      "detector": "incorrect-equality",
+      "contract": "LedgerChannel",
+      "function": "consensusCloseChannel(bytes32,uint256,uint256[4],string,string)",
+      "file": "examples/defihacklabs/SpankChain.sol"
+    },
+    "assessment": {
+      "action": "final",
+      "requested_ids": [],
+      "verdict": "false_positive",
+      "explanation": "The strict equality checks that the signed payout balances exactly equal the channel\u2019s tracked token deposits. This is an intentional conservation invariant: accepting an unequal total could underpay or overpay the parties. The supplied code does not show that this equality is unsafe or incorrectly applied; any fee-on-transfer or token-accounting issue would be a separate finding, not evidence that this equality itself is incorrect.",
+      "evidence_ids": [
+        "SpankChain.sol:function:15346:1103",
+        "SpankChain.sol:function:12137:1604",
+        "SpankChain.sol:function:14450:816"
+      ]
+    },
+    "rounds": [
+      {
+        "round": 1,
+        "result": {
+          "assessment": {
+            "action": "request_context",
+            "requested_ids": [
+              "SpankChain.sol:state_variable:12092:43",
+              "SpankChain.sol:function:15346:1103",
+              "SpankChain.sol:function:12137:1604",
+              "SpankChain.sol:function:14450:816"
+            ],
+            "verdict": "pending",
+            "explanation": "The finding concerns whether strict equality against the recorded token deposit is unsafe. The channel state and the functions that initialize and update token deposits are relevant to determine whether this equality is an intentional conservation invariant or can be invalidated by the token/accounting model.",
+            "evidence_ids": []
+          },
+          "model": "gpt-5.6-luna",
+          "response_id": "resp_053af5dcc93fc35e016ae7aec1853087d29fe411eb5893db0c",
+          "usage": {
+            "input_tokens": 1952,
+            "input_tokens_details": {
+              "cache_write_tokens": 1949,
+              "cached_tokens": 0
+            },
+            "output_tokens": 274,
+            "output_tokens_details": {
+              "reasoning_tokens": 143
+            },
+            "total_tokens": 2226
+          }
+        }
+      },
+      {
+        "round": 2,
+        "result": {
+          "assessment": {
+            "action": "request_context",
+            "requested_ids": [
+              "SpankChain.sol:function:18358:1632",
+              "SpankChain.sol:function:25844:2194"
+            ],
+            "verdict": "pending",
+            "explanation": "The finding concerns whether the strict token-balance equality is an unsafe check. The supplied code shows deposits and initial balances, but other functions may modify the channel\u2019s token accounting before consensusCloseChannel; those writers are relevant to determine whether exact equality is an intended invariant or can legitimately fail.",
+            "evidence_ids": [
+              "SpankChain.sol:function:12137:1604",
+              "SpankChain.sol:function:14450:816",
+              "SpankChain.sol:function:15346:1103"
+            ]
+          },
+          "model": "gpt-5.6-luna",
+          "response_id": "resp_0730d278bcbd6d91016ae7aec5c0e087d282bef1e09a28071c",
+          "usage": {
+            "input_tokens": 3298,
+            "input_tokens_details": {
+              "cache_write_tokens": 3295,
+              "cached_tokens": 0
+            },
+            "output_tokens": 353,
+            "output_tokens_details": {
+              "reasoning_tokens": 204
+            },
+            "total_tokens": 3651
+          }
+        }
+      },
+      {
+        "round": 3,
+        "result": {
+          "assessment": {
+            "action": "final",
+            "requested_ids": [],
+            "verdict": "false_positive",
+            "explanation": "The strict equality checks that the signed payout balances exactly equal the channel\u2019s tracked token deposits. This is an intentional conservation invariant: accepting an unequal total could underpay or overpay the parties. The supplied code does not show that this equality is unsafe or incorrectly applied; any fee-on-transfer or token-accounting issue would be a separate finding, not evidence that this equality itself is incorrect.",
+            "evidence_ids": [
+              "SpankChain.sol:function:15346:1103",
+              "SpankChain.sol:function:12137:1604",
+              "SpankChain.sol:function:14450:816"
+            ]
+          },
+          "model": "gpt-5.6-luna",
+          "response_id": "resp_047f0f51382120b2016ae7aecaac1887d280b7aa210eff23c1",
+          "usage": {
+            "input_tokens": 4638,
+            "input_tokens_details": {
+              "cache_write_tokens": 4635,
+              "cached_tokens": 0
+            },
+            "output_tokens": 661,
+            "output_tokens_details": {
+              "reasoning_tokens": 516
+            },
+            "total_tokens": 5299
+          }
+        }
+      }
+    ],
+    "round_count": 3,
+    "provided_context": [
+      {
+        "id": "SpankChain.sol:state_variable:12092:43",
+        "kind": "state_variable",
+        "name": "LedgerChannel.Channels",
+        "file": "SpankChain.sol",
+        "source": "mapping(bytes32 => Channel) public Channels"
+      },
+      {
+        "id": "SpankChain.sol:function:15346:1103",
+        "kind": "function",
+        "name": "deposit(bytes32,address,uint256,bool)",
+        "file": "SpankChain.sol",
+        "source": "function deposit(bytes32 _lcID, address recipient, uint256 _balance, bool isToken) public payable {\nrequire(Channels[_lcID].isOpen == true, \"Tried adding funds to a closed channel\");\n\nrequire(recipient == Channels[_lcID].partyAddresses[0] || recipient == Channels[_lcID].partyAddresses[1]);\n\n//if(Channels[_lcID].token)\n\nif (Channels[_lcID].partyAddresses[0] == recipient) {\n\nif(isToken) {\n\nrequire(Channels[_lcID].token.transferFrom(msg.sender, this, _balance),\"deposit: token transfer failure\");\n\nChannels[_lcID].erc20Balances[2] += _balance;\n\n} else {\nrequire(msg.value == _balance, \"state balance does not match sent value\");\n\nChannels[_lcID].ethBalances[2] += msg.value;\n\n}\n\n}\n\nif (Channels[_lcID].partyAddresses[1] == recipient) {\n\nif(isToken) {\n\nrequire(Channels[_lcID].token.transferFrom(msg.sender, this, _balance),\"deposit: token transfer failure\");\n\nChannels[_lcID].erc20Balances[3] += _balance;\n\n} else {\n\nrequire(msg.value == _balance, \"state balance does not match sent value\");\n\nChannels[_lcID].ethBalances[3] += msg.value;\n\n}\n\n}\nemit DidLCDeposit(_lcID, recipient, _balance, isToken);\n\n}"
+      },
+      {
+        "id": "SpankChain.sol:function:12137:1604",
+        "kind": "function",
+        "name": "createChannel(bytes32,address,uint256,address,uint256[2])",
+        "file": "SpankChain.sol",
+        "source": "function createChannel(\n\nbytes32 _lcID,\n\naddress _partyI,\n\nuint256 _confirmTime,\n\naddress _token,\n\nuint256[2] _balances // [eth, token]\n\n)\n\npublic\n\npayable\n\n{\n\nrequire(Channels[_lcID].partyAddresses[0] == address(0), \"Channel has already been created.\");\n\nrequire(_partyI != 0x0, \"No partyI address provided to LC creation\");\n\nrequire(_balances[0] >= 0 && _balances[1] >= 0, \"Balances cannot be negative\");\n\n// Set initial ledger channel state\n\n// Alice must execute this and we assume the initial state\n// to be signed from this requirement\n\n// Alternative is to check a sig as in joinChannel\n\nChannels[_lcID].partyAddresses[0] = msg.sender;\n\nChannels[_lcID].partyAddresses[1] = _partyI;\n\nif(_balances[0] != 0) {\n\nrequire(msg.value == _balances[0], \"Eth balance does not match sent value\");\n\nChannels[_lcID].ethBalances[0] = msg.value;\n\n}\n\nif(_balances[1] != 0) {\n\nChannels[_lcID].token = HumanStandardToken(_token);\nrequire(Channels[_lcID].token.transferFrom(msg.sender, this, _balances[1]),\"CreateChannel: token transfer failure\");\n\nChannels[_lcID].erc20Balances[0] = _balances[1];\n\n}\n\nChannels[_lcID].sequence = 0;\n\nChannels[_lcID].confirmTime = _confirmTime;\n\n// is close flag, lc state sequence, number open vc, vc root hash, partyA...\n\n//Channels[_lcID].stateHash = keccak256(uint256(0), uint256(0), uint256(0), bytes32(0x0), bytes32(msg.sender), bytes32(_partyI), balanceA, balanceI);\nChannels[_lcID].LCopenTimeout = now + _confirmTime;\n\nChannels[_lcID].initialDeposit = _balances;\n\nemit DidLCOpen(_lcID, msg.sender, _partyI, _balances[0], _token, _balances[1], Channels[_lcID].LCopenTimeout);\n\n}"
+      },
+      {
+        "id": "SpankChain.sol:function:14450:816",
+        "kind": "function",
+        "name": "joinChannel(bytes32,uint256[2])",
+        "file": "SpankChain.sol",
+        "source": "function joinChannel(bytes32 _lcID, uint256[2] _balances) public payable {\n\n// require the channel is not open yet\n\nrequire(Channels[_lcID].isOpen == false);\n\nrequire(msg.sender == Channels[_lcID].partyAddresses[1]);\n\nif(_balances[0] != 0) {\n\nrequire(msg.value == _balances[0], \"state balance does not match sent value\");\n\nChannels[_lcID].ethBalances[1] = msg.value;\n\n}\n\nif(_balances[1] != 0) {\n\nrequire(Channels[_lcID].token.transferFrom(msg.sender, this, _balances[1]),\"joinChannel: token transfer failure\");\nChannels[_lcID].erc20Balances[1] = _balances[1];\n\n}\n\nChannels[_lcID].initialDeposit[0]+=_balances[0];\n\nChannels[_lcID].initialDeposit[1]+=_balances[1];\n\n// no longer allow joining functions to be called\n\nChannels[_lcID].isOpen = true;\n\nnumChannels++;\n\nemit DidLCJoin(_lcID, _balances[0], _balances[1]);\n\n}"
+      },
+      {
+        "id": "SpankChain.sol:function:18358:1632",
+        "kind": "function",
+        "name": "updateLCstate(bytes32,uint256[6],bytes32,string,string)",
+        "file": "SpankChain.sol",
+        "source": "function updateLCstate(\n\nbytes32 _lcID,\n\nuint256[6] updateParams, // [sequence, numOpenVc, ethbalanceA, ethbalanceI, tokenbalanceA, tokenbalanceI]\n\nbytes32 _VCroot,\n\nstring _sigA,\n\nstring _sigI\n\n)\n\npublic\n\n{\n\nChannel storage channel = Channels[_lcID];\n\nrequire(channel.isOpen);\n\nrequire(channel.sequence < updateParams[0]); // do same as vc sequence check\n\nrequire(channel.ethBalances[0] + channel.ethBalances[1] >= updateParams[2] + updateParams[3]);\nrequire(channel.erc20Balances[0] + channel.erc20Balances[1] >= updateParams[4] + updateParams[5]);\n\nif(channel.isUpdateLCSettling == true) {\n\nrequire(channel.updateLCtimeout > now);\n\n}\n\nbytes32 _state = keccak256(\n\nabi.encodePacked(\n\n_lcID,\n\nfalse,\n\nupdateParams[0],\n\nupdateParams[1],\n\n_VCroot,\n\nchannel.partyAddresses[0],\n\nchannel.partyAddresses[1],\n\nupdateParams[2],\n\nupdateParams[3],\n\nupdateParams[4],\n\nupdateParams[5]\n\n)\n\n);\n\nrequire(channel.partyAddresses[0] == ECTools.recoverSigner(_state, _sigA));\nrequire(channel.partyAddresses[1] == ECTools.recoverSigner(_state, _sigI));\n\n// update LC state\n\nchannel.sequence = updateParams[0];\n\nchannel.numOpenVC = updateParams[1];\n\nchannel.ethBalances[0] = updateParams[2];\n\nchannel.ethBalances[1] = updateParams[3];\n\nchannel.erc20Balances[0] = updateParams[4];\n\nchannel.erc20Balances[1] = updateParams[5];\n\nchannel.VCrootHash = _VCroot;\n\nchannel.isUpdateLCSettling = true;\n\nchannel.updateLCtimeout = now + channel.confirmTime;\n\n// make settlement flag\nemit DidLCUpdateState (\n\n_lcID,\n\nupdateParams[0],\n\nupdateParams[1],\n\nupdateParams[2],\n\nupdateParams[3],\n\nupdateParams[4],\n\nupdateParams[5],\n\n_VCroot,\n\nchannel.updateLCtimeout\n\n);\n\n}"
+      },
+      {
+        "id": "SpankChain.sol:function:25844:2194",
+        "kind": "function",
+        "name": "byzantineCloseChannel(bytes32)",
+        "file": "SpankChain.sol",
+        "source": "function byzantineCloseChannel(bytes32 _lcID) public {\n\nChannel storage channel = Channels[_lcID];\n\n// check settlement flag\n\nrequire(channel.isOpen, \"Channel is not open\");\n\nrequire(channel.isUpdateLCSettling == true);\n\nrequire(channel.numOpenVC == 0);\nrequire(channel.updateLCtimeout < now, \"LC timeout over.\");\n\n// if off chain state update didnt reblance deposits, just return to deposit owner\n\nuint256 totalEthDeposit = channel.initialDeposit[0] + channel.ethBalances[2] + channel.ethBalances[3];\n\nuint256 totalTokenDeposit = channel.initialDeposit[1] + channel.erc20Balances[2] + channel.erc20Balances[3];\n\nuint256 possibleTotalEthBeforeDeposit = channel.ethBalances[0] + channel.ethBalances[1];\nuint256 possibleTotalTokenBeforeDeposit = channel.erc20Balances[0] + channel.erc20Balances[1];\n\nif(possibleTotalEthBeforeDeposit < totalEthDeposit) {\n\nchannel.ethBalances[0]+=channel.ethBalances[2];\n\nchannel.ethBalances[1]+=channel.ethBalances[3];\n\n} else {\n\nrequire(possibleTotalEthBeforeDeposit == totalEthDeposit);\n\n}\n\nif(possibleTotalTokenBeforeDeposit < totalTokenDeposit) {\n\nchannel.erc20Balances[0]+=channel.erc20Balances[2];\n\nchannel.erc20Balances[1]+=channel.erc20Balances[3];\n\n} else {\nrequire(possibleTotalTokenBeforeDeposit == totalTokenDeposit);\n\n}\n\n// reentrancy\n\nuint256 ethbalanceA = channel.ethBalances[0];\n\nuint256 ethbalanceI = channel.ethBalances[1];\n\nuint256 tokenbalanceA = channel.erc20Balances[0];\n\nuint256 tokenbalanceI = channel.erc20Balances[1];\n\nchannel.ethBalances[0] = 0;\n\nchannel.ethBalances[1] = 0;\n\nchannel.erc20Balances[0] = 0;\n\nchannel.erc20Balances[1] = 0;\n\nif(ethbalanceA != 0 || ethbalanceI != 0) {\n\nchannel.partyAddresses[0].transfer(ethbalanceA);\nchannel.partyAddresses[1].transfer(ethbalanceI);\n\n}\n\nif(tokenbalanceA != 0 || tokenbalanceI != 0) {\n\nrequire(\n\nchannel.token.transfer(channel.partyAddresses[0], tokenbalanceA),\n\n\"byzantineCloseChannel: token transfer failure\"\n\n);\n\nrequire(\n\nchannel.token.transfer(channel.partyAddresses[1], tokenbalanceI),\n\n\"byzantineCloseChannel: token transfer failure\"\n\n);\n\n}\n\nchannel.isOpen = false;\n\nnumChannels--;\n\nemit DidLCClose(_lcID, channel.sequence, ethbalanceA, ethbalanceI, tokenbalanceA, tokenbalanceI);\n\n}"
+      }
+    ]
+  },
+  "summary": {
+    "finding_id": "cc4904ecb52d01e681860b4ca265fd72afbcc804e7cb2dbd7ea05169e15b57d8",
+    "detector": "incorrect-equality",
+    "contract": "LedgerChannel",
+    "function": "consensusCloseChannel(bytes32,uint256,uint256[4],string,string)",
+    "verdict": "false_positive",
+    "rounds": 3,
+    "requested_fragments": 6,
+    "input_tokens": 9888,
+    "output_tokens": 1288,
+    "total_tokens": 11176
+  },
+  "context_efficiency": {
+    "full_source_estimated_tokens": 7447,
+    "initial_selected_source_estimated_tokens": 439,
+    "additional_selected_source_estimated_tokens": 1849,
+    "cumulative_selected_source_estimated_tokens": 2288,
+    "source_context_reduction": 0.6927621861152142
+  },
+  "initial_payload": {
+    "target": {
+      "id": "SpankChain.sol:function:16577:1756",
+      "kind": "function",
+      "contract": "LedgerChannel",
+      "signature": "consensusCloseChannel(bytes32,uint256,uint256[4],string,string)",
+      "visibility": "public",
+      "source": "function consensusCloseChannel(\n\nbytes32 _lcID,\n\nuint256 _sequence,\n\nuint256[4] _balances, // 0: ethBalanceA 1:ethBalanceI 2:tokenBalanceA 3:tokenBalanceI\n\nstring _sigA,\n\nstring _sigI\n\n)\n\npublic\n\n{\n\n// assume num open vc is 0 and root hash is 0x0\n\n//require(Channels[_lcID].sequence < _sequence);\nrequire(Channels[_lcID].isOpen == true);\n\nuint256 totalEthDeposit = Channels[_lcID].initialDeposit[0] + Channels[_lcID].ethBalances[2] + Channels[_lcID].ethBalances[3];\n\nuint256 totalTokenDeposit = Channels[_lcID].initialDeposit[1] + Channels[_lcID].erc20Balances[2] + Channels[_lcID].erc20Balances[3];\n\nrequire(totalEthDeposit == _balances[0] + _balances[1]);\n\nrequire(totalTokenDeposit == _balances[2] + _balances[3]);\n\nbytes32 _state = keccak256(\n\nabi.encodePacked(\n\n_lcID,\n\ntrue,\n\n_sequence,\n\nuint256(0),\nbytes32(0x0),\n\nChannels[_lcID].partyAddresses[0],\n\nChannels[_lcID].partyAddresses[1],\n\n_balances[0],\n\n_balances[1],\n\n_balances[2],\n\n_balances[3]\n\n)\n\n);\n\nrequire(Channels[_lcID].partyAddresses[0] == ECTools.recoverSigner(_state, _sigA));\n\nrequire(Channels[_lcID].partyAddresses[1] == ECTools.recoverSigner(_state, _sigI));\n\nChannels[_lcID].isOpen = false;\n\nif(_balances[0] != 0 || _balances[1] != 0) {\n\nChannels[_lcID].partyAddresses[0].transfer(_balances[0]);\nChannels[_lcID].partyAddresses[1].transfer(_balances[1]);\n\n}\n\nif(_balances[2] != 0 || _balances[3] != 0) {\n\nrequire(Channels[_lcID].token.transfer(Channels[_lcID].partyAddresses[0], _balances[2]),\"happyCloseChannel: token transfer failure\");\n\nrequire(Channels[_lcID].token.transfer(Channels[_lcID].partyAddresses[1], _balances[3]),\"happyCloseChannel: token transfer failure\");\n\n}\n\nnumChannels--;\n\nemit DidLCClose(_lcID, _sequence, _balances[0], _balances[1], _balances[2], _balances[3]);\n\n}"
+    },
+    "available_context": [
+      {
+        "id": "SpankChain.sol:state_variable:12092:43",
+        "kind": "state_variable",
+        "name": "LedgerChannel.Channels",
+        "reasons": [
+          "state variable declaration: Channels"
+        ]
+      },
+      {
+        "id": "SpankChain.sol:function:12137:1604",
+        "kind": "function",
+        "name": "createChannel(bytes32,address,uint256,address,uint256[2])",
+        "reasons": [
+          "direct writer of state variable: Channels"
+        ]
+      },
+      {
+        "id": "SpankChain.sol:function:13743:706",
+        "kind": "function",
+        "name": "LCOpenTimeout(bytes32)",
+        "reasons": [
+          "direct writer of state variable: Channels"
+        ]
+      },
+      {
+        "id": "SpankChain.sol:function:14450:816",
+        "kind": "function",
+        "name": "joinChannel(bytes32,uint256[2])",
+        "reasons": [
+          "direct writer of state variable: Channels",
+          "direct writer of state variable: numChannels"
+        ]
+      },
+      {
+        "id": "SpankChain.sol:function:15346:1103",
+        "kind": "function",
+        "name": "deposit(bytes32,address,uint256,bool)",
+        "reasons": [
+          "direct writer of state variable: Channels"
+        ]
+      },
+      {
+        "id": "SpankChain.sol:function:18358:1632",
+        "kind": "function",
+        "name": "updateLCstate(bytes32,uint256[6],bytes32,string,string)",
+        "reasons": [
+          "direct writer of state variable: Channels"
+        ]
+      },
+      {
+        "id": "SpankChain.sol:function:24198:1553",
+        "kind": "function",
+        "name": "closeVirtualChannel(bytes32,bytes32)",
+        "reasons": [
+          "direct writer of state variable: Channels"
+        ]
+      },
+      {
+        "id": "SpankChain.sol:function:25844:2194",
+        "kind": "function",
+        "name": "byzantineCloseChannel(bytes32)",
+        "reasons": [
+          "direct writer of state variable: Channels",
+          "direct writer of state variable: numChannels"
+        ]
+      },
+      {
+        "id": "SpankChain.sol:state_variable:9685:30",
+        "kind": "state_variable",
+        "name": "LedgerChannel.numChannels",
+        "reasons": [
+          "state variable declaration: numChannels"
+        ]
+      },
+      {
+        "id": "SpankChain.sol:function:9568:19991",
+        "kind": "function",
+        "name": "slitherConstructorVariables()",
+        "reasons": [
+          "direct writer of state variable: numChannels"
+        ]
+      }
+    ],
+    "context_complete": false,
+    "task": "verify_static_analysis_finding",
+    "finding": {
+      "id": "cc4904ecb52d01e681860b4ca265fd72afbcc804e7cb2dbd7ea05169e15b57d8",
+      "tool": "slither",
+      "detector": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High",
+      "description": "LedgerChannel.consensusCloseChannel(bytes32,uint256,uint256[4],string,string) (examples/defihacklabs/SpankChain.sol#804-889) uses a dangerous strict equality:\n\t- require(bool)(totalTokenDeposit == _balances[2] + _balances[3]) (examples/defihacklabs/SpankChain.sol#833)\n",
+      "contract": "LedgerChannel",
+      "function": "consensusCloseChannel(bytes32,uint256,uint256[4],string,string)",
+      "file": "examples/defihacklabs/SpankChain.sol",
+      "lines": [
+        833
+      ]
+    }
+  }
+}

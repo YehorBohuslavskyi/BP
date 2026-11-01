@@ -1,0 +1,40 @@
+{
+  "case": "spartan",
+  "source_status": "SOURCE_READY",
+  "source_path": "/home/coca-cola/projects/BP/examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol",
+  "compiler": "0.6.8",
+  "source_sha256": "8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d",
+  "source_bytes": 25019,
+  "source_lines": 613,
+  "pragma_lines": [
+    "pragma solidity 0.6.8;"
+  ],
+  "imports": [],
+  "looks_flattened": true,
+  "flattened_heuristic": "No import directives; not a provenance/equivalence assertion",
+  "compilation_status": "SUCCESS",
+  "slither_status": "SUCCESS",
+  "slither_finding_count": 76,
+  "baseline_classification": "PENDING_MANUAL_ADJUDICATION",
+  "matched_slither_finding_ids": [],
+  "llm_target_created": false,
+  "compile_command": [
+    "/home/coca-cola/projects/BP/.venv/.solc-select/artifacts/solc-0.6.8/solc-0.6.8",
+    "--bin",
+    "/home/coca-cola/projects/BP/examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol"
+  ],
+  "slither_command": [
+    "/home/coca-cola/projects/BP/.venv/bin/slither",
+    "/home/coca-cola/projects/BP/examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol",
+    "--solc",
+    "/home/coca-cola/projects/BP/.venv/.solc-select/artifacts/solc-0.6.8/solc-0.6.8",
+    "--compile-force-framework",
+    "solc",
+    "--json",
+    "-",
+    "--fail-none"
+  ],
+  "working_directory": "/home/coca-cola/projects/BP/examples/defihacklabs/evaluation/final20/contracts/spartan/raw",
+  "status_scope": "Technical readiness only; incident/deployment provenance requires separate review",
+  "source_unchanged": true
+}

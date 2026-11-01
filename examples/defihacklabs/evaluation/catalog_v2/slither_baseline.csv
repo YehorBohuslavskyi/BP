@@ -1,0 +1,2 @@
+incident_id,known_vulnerability,result,detector,finding_id,compilation_status,slither_status,evidence_scope
+spankchain,reentrancy in LCOpenTimeout(bytes32),DETECTED,reentrancy-eth,da49c1a96621ac0ec579d1887de3a8ce6ffd1be3d610c7819b78645f05e0e19f,REUSED_PASSED,REUSED_ANALYZABLE,Existing detector-scoped raw JSON; full-run counts imported from preflight metadata.

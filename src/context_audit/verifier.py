@@ -4,9 +4,9 @@ from pathlib import Path
 from slither.slither import Slither
 
 from context_audit.catalog import FragmentCatalog
-from context_audit.context import build_function_context
+from context_audit.context import build_target_context
 from context_audit.findings import Finding
-from context_audit.indexer import find_function
+from context_audit.indexer import find_target
 from context_audit.llm import analyze
 from context_audit.payload import (
     build_initial_payload,
@@ -67,24 +67,27 @@ def prepare_finding(
 
     if finding.function_signature is None:
         raise ValueError(
-            "Finding is not associated with a function."
+            "Finding is not associated with a function or modifier."
         )
 
-    function = find_function(
+    target = find_target(
         slither,
         finding.contract,
         finding.function_signature,
         finding.file,
+        finding.function_start,
+        finding.function_length,
+        finding.lines,
     )
 
-    if function is None:
+    if target is None:
         raise ValueError(
-            "Could not match finding to a Solidity function: "
+            "Could not match finding to a Solidity function or modifier: "
             f"{finding.contract}.{finding.function_signature}"
         )
 
-    context = build_function_context(
-        function,
+    context = build_target_context(
+        target,
         catalog,
     )
 

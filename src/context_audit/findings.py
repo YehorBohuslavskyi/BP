@@ -5,7 +5,12 @@ from typing import Optional
 
 @dataclass
 class Finding:
-    """A single analyzer warning with precise and enclosing-function source locations."""
+    """A warning with precise and enclosing-target locations.
+
+    Legacy function_* fields also carry modifier targets: Slither itself exports
+    modifiers as function elements. Retain these names for saved JSON/CSV users;
+    the compiled target and catalog determine the authoritative kind.
+    """
     id: str
     detector: str
     impact: str
@@ -92,7 +97,7 @@ def _extract_function_info(
                 element_lines
             )
 
-        elif element_type == "function":
+        elif element_type in ("function", "modifier"):
             function_lines.update(
                 element_lines
             )
@@ -107,7 +112,7 @@ def _extract_function_info(
         # The element itself is a function.
         # ------------------------------------------------------
 
-        if element_type == "function":
+        if element_type in ("function", "modifier"):
             fields = element.get(
                 "type_specific_fields",
                 {},
@@ -152,7 +157,7 @@ def _extract_function_info(
             .get("parent", {})
         )
 
-        if parent.get("type") == "function":
+        if parent.get("type") in ("function", "modifier"):
             parent_fields = parent.get(
                 "type_specific_fields",
                 {},
@@ -307,7 +312,7 @@ def parse_slither_findings(
         precise_elements = next(
             (group for group in (
                 [e for e in elements if e.get("type") == "node"],
-                [e for e in elements if e.get("type") == "function"],
+                [e for e in elements if e.get("type") in ("function", "modifier")],
                 [e for e in elements if e.get("type") != "contract"],
             ) if group),
             [],
@@ -315,9 +320,9 @@ def parse_slither_findings(
         function_elements = []
         for element in precise_elements:
             parent = element.get("type_specific_fields", {}).get("parent", {})
-            if element.get("type") == "function":
+            if element.get("type") in ("function", "modifier"):
                 function_elements.append(element)
-            elif parent.get("type") == "function":
+            elif parent.get("type") in ("function", "modifier"):
                 function_elements.append(parent)
 
         finding = Finding(

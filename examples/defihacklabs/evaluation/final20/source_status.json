@@ -1,0 +1,1113 @@
+{
+  "cohort_frozen": false,
+  "nominated_count": 20,
+  "status_counts": {
+    "SOURCE_READY": 4,
+    "SOURCE_NEEDS_REVIEW": 4,
+    "SOURCE_UNAVAILABLE": 9,
+    "PROXY_HISTORY_UNRESOLVED": 3,
+    "WRONG_SOURCE_VERSION": 0
+  },
+  "records": [
+    {
+      "incident_id": "spankchain",
+      "project": "SpankChain",
+      "source_status": "SOURCE_READY",
+      "documented_incident_dates": [
+        "2018-10-07"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2018-10/SpankChain_exp.sol",
+          "sha256": "e6e79f1d9dbbbc99919aa8d28a0be85c0208eee27650a2e834c9c5a10b616af5",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": "Ethereum",
+      "victim_address": "0xf91546835f756DA0c10cFa0CDA95b15577b84aA7",
+      "proxy_address": null,
+      "implementation_address": null,
+      "incident_time_implementation_verified": null,
+      "affected_contract": "LedgerChannel",
+      "affected_function": "LCOpenTimeout(bytes32)",
+      "documented_vulnerability_category": "reentrancy",
+      "source_provider_references": [
+        "https://etherscan.io/address/0xf91546835f756DA0c10cFa0CDA95b15577b84aA7#code"
+      ],
+      "source_files": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/spankchain/raw/SpankChain.sol",
+          "sha256": "501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0",
+          "origin": "examples/defihacklabs/SpankChain.sol"
+        },
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/spankchain/raw/LICENSE-SpankChain.txt",
+          "sha256": "a710b594b2270782ec480bed86dc36b434889303c7be611cf7a29408c6a8911e",
+          "origin": "examples/defihacklabs/LICENSE-SpankChain.txt"
+        }
+      ],
+      "compiler_version": "0.4.25",
+      "compiler_evidence": "Existing pilot compilation",
+      "deployment_version_correspondence": "Previously accepted archived pilot; fresh deployed-bytecode verification not established",
+      "compilation_reproducibility": "Previously compiled unchanged using installed 0.4.25",
+      "main_reason": "Reuse previously accepted complete pilot unchanged; byte-identical local archived source and license copied. Archived-source/deployed-bytecode limitations retained.",
+      "limitations": [
+        "Metadata/source-readiness review only; no compilation, Slither, inference or exploit execution.",
+        "Unknown proxy status is not an assertion of direct deployment."
+      ]
+    },
+    {
+      "incident_id": "sqtokenstaking",
+      "project": "SQTokenStaking",
+      "source_status": "SOURCE_UNAVAILABLE",
+      "documented_incident_dates": [
+        "2026-05-12"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2026-05/SQTokenStaking_exp.sol",
+          "sha256": "cb63e4ef2f145502d13ff26894d690f794fe2450ce3c741b7c4ac5008dfa7f32",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": "BSC",
+      "victim_address": "0x404404A845FFF0201f3a4D419B4839fC419c99F7",
+      "proxy_address": null,
+      "implementation_address": null,
+      "incident_time_implementation_verified": null,
+      "affected_contract": null,
+      "affected_function": null,
+      "documented_vulnerability_category": "access-control / validation",
+      "source_provider_references": [
+        "https://bscscan.com/address/0x404404A845FFF0201f3a4D419B4839fC419c99F7#code"
+      ],
+      "source_files": [],
+      "compiler_version": null,
+      "compiler_evidence": "UNAVAILABLE; PoC pragma is not victim compiler evidence",
+      "deployment_version_correspondence": "NOT_ESTABLISHED",
+      "compilation_reproducibility": "NOT_ESTABLISHED_WITHOUT_EXACT_SOURCE_AND_DEPENDENCIES",
+      "main_reason": "No faithful raw victim source located locally; interfaces and PoC helpers are not victim source. Prior provider acquisition was blocked by DNS/transport errors.",
+      "limitations": [
+        "Metadata/source-readiness review only; no compilation, Slither, inference or exploit execution.",
+        "Unknown proxy status is not an assertion of direct deployment."
+      ]
+    },
+    {
+      "incident_id": "subquery-settings",
+      "project": "SubQuery Settings",
+      "source_status": "SOURCE_UNAVAILABLE",
+      "documented_incident_dates": [
+        "2026-04-12"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2026-04/SubQuerySettings_exp.sol",
+          "sha256": "226dbd67169eb400eebc60ea0844c49d267420b9d39eb147d9d191e656bdf2ec",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": "Base",
+      "victim_address": "0xf282737992Da4217bf5f8B6AE621181e84d7d3b9",
+      "proxy_address": null,
+      "implementation_address": null,
+      "incident_time_implementation_verified": null,
+      "affected_contract": "Settings",
+      "affected_function": "setBatchAddress",
+      "documented_vulnerability_category": "access control",
+      "source_provider_references": [
+        "https://basescan.org/address/0xf282737992Da4217bf5f8B6AE621181e84d7d3b9#code"
+      ],
+      "source_files": [],
+      "compiler_version": null,
+      "compiler_evidence": "UNAVAILABLE; PoC pragma is not victim compiler evidence",
+      "deployment_version_correspondence": "NOT_ESTABLISHED",
+      "compilation_reproducibility": "NOT_ESTABLISHED_WITHOUT_EXACT_SOURCE_AND_DEPENDENCIES",
+      "main_reason": "No faithful raw victim source located locally; interfaces and PoC helpers are not victim source. Prior provider acquisition was blocked by DNS/transport errors.",
+      "limitations": [
+        "Metadata/source-readiness review only; no compilation, Slither, inference or exploit execution.",
+        "Unknown proxy status is not an assertion of direct deployment."
+      ]
+    },
+    {
+      "incident_id": "giddyvaultv3",
+      "project": "GiddyVaultV3",
+      "source_status": "SOURCE_UNAVAILABLE",
+      "documented_incident_dates": [
+        "2026-04-23"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2026-04/giddyvaultv3_compound_auth_exp.sol",
+          "sha256": "bfde379a37468ffe6aae8e0b757f4895d06e991cd0aae0272e4c2e8b124e7fb6",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": "Ethereum",
+      "victim_address": "0x5f0ad32c00641d1d2bb628ff341e0d4bb4494318",
+      "proxy_address": null,
+      "implementation_address": null,
+      "incident_time_implementation_verified": null,
+      "affected_contract": "GiddyVaultV3",
+      "affected_function": "compound",
+      "documented_vulnerability_category": "signature authorization",
+      "source_provider_references": [
+        "https://etherscan.io/address/0x5f0ad32c00641d1d2bb628ff341e0d4bb4494318#code"
+      ],
+      "source_files": [],
+      "compiler_version": null,
+      "compiler_evidence": "UNAVAILABLE; PoC pragma is not victim compiler evidence",
+      "deployment_version_correspondence": "NOT_ESTABLISHED",
+      "compilation_reproducibility": "NOT_ESTABLISHED_WITHOUT_EXACT_SOURCE_AND_DEPENDENCIES",
+      "main_reason": "No faithful raw victim source located locally; interfaces and PoC helpers are not victim source. Prior provider acquisition was blocked by DNS/transport errors.",
+      "limitations": [
+        "Metadata/source-readiness review only; no compilation, Slither, inference or exploit execution.",
+        "Unknown proxy status is not an assertion of direct deployment."
+      ]
+    },
+    {
+      "incident_id": "joeagent",
+      "project": "JoeAgent",
+      "source_status": "PROXY_HISTORY_UNRESOLVED",
+      "documented_incident_dates": [
+        "2026-05-27"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2026-05/JoeAgent_exp.sol",
+          "sha256": "c1d7aa7f811f691dc881731f4d2e041a3729d2ea61a1ee23309125fc752f5714",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": "BSC",
+      "victim_address": "0xef0f12d08d66e76E1866e60F30a0DaA578e00c04",
+      "proxy_address": "0xef0f12d08d66e76E1866e60F30a0DaA578e00c04",
+      "implementation_address": [
+        "0xb12ce0a21f67a9fc3c8ad1c7dbc4b017b7e67319"
+      ],
+      "incident_time_implementation_verified": false,
+      "affected_contract": "Joe Agent",
+      "affected_function": "removeLiquidityViaContract",
+      "documented_vulnerability_category": "reentrancy",
+      "source_provider_references": [],
+      "source_files": [],
+      "compiler_version": null,
+      "compiler_evidence": "UNAVAILABLE; PoC pragma is not victim compiler evidence",
+      "deployment_version_correspondence": "NOT_ESTABLISHED",
+      "compilation_reproducibility": "NOT_ESTABLISHED_WITHOUT_EXACT_SOURCE_AND_DEPENDENCIES",
+      "main_reason": "Documented proxy/delegate architecture; no incident-time logic snapshot or independently validated historical implementation linkage available locally.",
+      "limitations": [
+        "Metadata/source-readiness review only; no compilation, Slither, inference or exploit execution.",
+        "Unknown proxy status is not an assertion of direct deployment."
+      ]
+    },
+    {
+      "incident_id": "muredistribution",
+      "project": "MureDistribution",
+      "source_status": "SOURCE_UNAVAILABLE",
+      "documented_incident_dates": [
+        "2026-05-21"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2026-05/MureDistribution_exp.sol",
+          "sha256": "8a610237fa7e3757162ec07468c33a2c4ad3679661db8fa00dea64077c5de1c4",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": "Ethereum",
+      "victim_address": "0x365083717efb17f3895290ba38f20f568c7a4d8a",
+      "proxy_address": null,
+      "implementation_address": null,
+      "incident_time_implementation_verified": null,
+      "affected_contract": null,
+      "affected_function": null,
+      "documented_vulnerability_category": "Signature Verification Bypass",
+      "source_provider_references": [
+        "https://etherscan.io/address/0x365083717efb17f3895290ba38f20f568c7a4d8a#code"
+      ],
+      "source_files": [],
+      "compiler_version": null,
+      "compiler_evidence": "UNAVAILABLE; PoC pragma is not victim compiler evidence",
+      "deployment_version_correspondence": "NOT_ESTABLISHED",
+      "compilation_reproducibility": "NOT_ESTABLISHED_WITHOUT_EXACT_SOURCE_AND_DEPENDENCIES",
+      "main_reason": "No faithful raw victim source located locally; interfaces and PoC helpers are not victim source. Prior provider acquisition was blocked by DNS/transport errors.",
+      "limitations": [
+        "Metadata/source-readiness review only; no compilation, Slither, inference or exploit execution.",
+        "Unknown proxy status is not an assertion of direct deployment."
+      ]
+    },
+    {
+      "incident_id": "xsurge",
+      "project": "XSURGE",
+      "source_status": "SOURCE_READY",
+      "documented_incident_dates": [
+        "2021-08-17"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2021-08/XSURGE_exp.sol",
+          "sha256": "a7e672ca271e642744ef901fe5c4a92000b650888665522d22bdcb0ba8ab44fe",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": "BSC",
+      "victim_address": "0xE1E1Aa58983F6b8eE8E4eCD206ceA6578F036c21",
+      "proxy_address": null,
+      "implementation_address": null,
+      "incident_time_implementation_verified": null,
+      "affected_contract": "SurgeToken",
+      "affected_function": "sell(uint256)",
+      "documented_vulnerability_category": "reentrancy",
+      "source_provider_references": [],
+      "source_files": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol",
+          "sha256": "e71b6fd8657393926d2ac2e5791f46fd44d3fe0ddb76178e808ff4f1101dd3c7",
+          "origin": "Completed local victim snapshot supplied by user"
+        }
+      ],
+      "compiler_version": "0.8.5",
+      "compiler_evidence": "Existing successful solc 0.8.5 bytecode output; pragma ^0.8.0",
+      "deployment_version_correspondence": "NOT_ESTABLISHED",
+      "compilation_reproducibility": "COMPILED_SUCCESSFULLY_EXISTING_LOCAL_EVIDENCE_NO_IMPORTS",
+      "main_reason": "Complete import-free victim source; successful solc 0.8.5 compilation and standard-json Slither evidence (21 findings).",
+      "limitations": [
+        "Existing local compilation and standard-json analysis evidence imported without rerunning tools.",
+        "Historical source/deployed-bytecode equivalence and original deployment compiler settings not independently reverified in this integration."
+      ],
+      "known_vulnerability_result": "DETECTED",
+      "current_evidence_record": "examples/defihacklabs/evaluation/final20/contracts/xsurge/evidence/integration.json"
+    },
+    {
+      "incident_id": "mapprotocol-butter",
+      "project": "MAPProtocol / Butter",
+      "source_status": "SOURCE_UNAVAILABLE",
+      "documented_incident_dates": [
+        "2026-05-20"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2026-05/MAPProtocol_exp.sol",
+          "sha256": "0b78a788099c3b3c65a4e86c50cf7d604b08c22641f704019402b5b6922d4680",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": "Ethereum",
+      "victim_address": "0x0000317bec33af037b5fab2028f52d14658f6a56",
+      "proxy_address": null,
+      "implementation_address": null,
+      "incident_time_implementation_verified": null,
+      "affected_contract": null,
+      "affected_function": null,
+      "documented_vulnerability_category": "Arbitrary Mint",
+      "source_provider_references": [
+        "https://etherscan.io/address/0x0000317bec33af037b5fab2028f52d14658f6a56#code"
+      ],
+      "source_files": [],
+      "compiler_version": null,
+      "compiler_evidence": "UNAVAILABLE; PoC pragma is not victim compiler evidence",
+      "deployment_version_correspondence": "NOT_ESTABLISHED",
+      "compilation_reproducibility": "NOT_ESTABLISHED_WITHOUT_EXACT_SOURCE_AND_DEPENDENCIES",
+      "main_reason": "No faithful raw victim source located locally; interfaces and PoC helpers are not victim source. Prior provider acquisition was blocked by DNS/transport errors.",
+      "limitations": [
+        "Metadata/source-readiness review only; no compilation, Slither, inference or exploit execution.",
+        "Unknown proxy status is not an assertion of direct deployment."
+      ]
+    },
+    {
+      "incident_id": "grim-finance",
+      "project": "Grim Finance",
+      "source_status": "SOURCE_UNAVAILABLE",
+      "documented_incident_dates": [
+        "2021-12-18"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2021-12/Grim_exp.sol",
+          "sha256": "08c61f4c748481e7f6ac278220e858d7a78d0ff02327f1a0b217e0b961a401fb",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": "Fantom",
+      "victim_address": "0x660184CE8AF80e0B1e5A1172A16168b15f4136bF",
+      "proxy_address": null,
+      "implementation_address": null,
+      "incident_time_implementation_verified": null,
+      "affected_contract": "GrimBoostVault",
+      "affected_function": "depositFor",
+      "documented_vulnerability_category": "reentrancy",
+      "source_provider_references": [],
+      "source_files": [],
+      "compiler_version": null,
+      "compiler_evidence": "UNAVAILABLE; PoC pragma is not victim compiler evidence",
+      "deployment_version_correspondence": "NOT_ESTABLISHED",
+      "compilation_reproducibility": "NOT_ESTABLISHED_WITHOUT_EXACT_SOURCE_AND_DEPENDENCIES",
+      "main_reason": "No faithful raw victim source located locally; interfaces and PoC helpers are not victim source. Prior provider acquisition was blocked by DNS/transport errors.",
+      "limitations": [
+        "Metadata/source-readiness review only; no compilation, Slither, inference or exploit execution.",
+        "Unknown proxy status is not an assertion of direct deployment."
+      ]
+    },
+    {
+      "incident_id": "parity-walletlibrary",
+      "project": "Parity WalletLibrary",
+      "source_status": "SOURCE_NEEDS_REVIEW",
+      "documented_incident_dates": [
+        "2017-11-06"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2017-11/Parity_kill_exp.sol",
+          "sha256": "d19520035888d00275947fe1d0ab6e35f49d04341aba1d439ecab0d674ee636d",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": "Ethereum",
+      "victim_address": "0x863DF6BFa4469f3ead0bE8f9F2AAE51c91A907b4",
+      "proxy_address": null,
+      "implementation_address": null,
+      "incident_time_implementation_verified": null,
+      "affected_contract": "WalletLibrary",
+      "affected_function": "initWallet / kill",
+      "documented_vulnerability_category": "unprotected initialization",
+      "source_provider_references": [],
+      "source_files": [],
+      "compiler_version": null,
+      "compiler_evidence": "UNAVAILABLE; PoC pragma is not victim compiler evidence",
+      "deployment_version_correspondence": "NOT_ESTABLISHED",
+      "compilation_reproducibility": "NOT_ESTABLISHED_WITHOUT_EXACT_SOURCE_AND_DEPENDENCIES",
+      "main_reason": "Local SmartBugs parity_wallet_bug_2.sol is an annotated archive lead; exact equivalence to this library deployment/version not established. Not certified or copied as ready.",
+      "limitations": [
+        "Metadata/source-readiness review only; no compilation, Slither, inference or exploit execution.",
+        "Unknown proxy status is not an assertion of direct deployment."
+      ]
+    },
+    {
+      "incident_id": "bifi",
+      "project": "BiFi",
+      "source_status": "PROXY_HISTORY_UNRESOLVED",
+      "documented_incident_dates": [
+        "2026-10-17"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2026-10/BiFi_exp.sol",
+          "sha256": "708483efdb4e4c71178f756e80ade4ce9a4847cb98d8e38fd2fd739e06721f73",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": "Ethereum",
+      "victim_address": "0x808c3ba97268dbf9695b1ec10729e09c7e67a9e3",
+      "proxy_address": "0x808c3ba97268dbf9695b1ec10729e09c7e67a9e3",
+      "implementation_address": [
+        "0x47be3d1def039bd85e7570864bb5148e7491a65f"
+      ],
+      "incident_time_implementation_verified": false,
+      "affected_contract": "TokenHandler / interestModel",
+      "affected_function": "_checkFirstAction / getInterestAmount",
+      "documented_vulnerability_category": "state/accounting lifecycle",
+      "source_provider_references": [
+        "https://etherscan.io/address/0x47be3d1def039bd85e7570864bb5148e7491a65f#code",
+        "https://etherscan.io/address/0x29ecabde2c57b6d4183f915ebca1a25804a60db1#code"
+      ],
+      "source_files": [],
+      "compiler_version": "0.6.12",
+      "compiler_evidence": "PoC header explicitly states solc 0.6.12",
+      "deployment_version_correspondence": "NOT_ESTABLISHED",
+      "compilation_reproducibility": "NOT_ESTABLISHED_WITHOUT_EXACT_SOURCE_AND_DEPENDENCIES",
+      "main_reason": "Documented proxy/delegate architecture; no incident-time logic snapshot or independently validated historical implementation linkage available locally.",
+      "limitations": [
+        "Metadata/source-readiness review only; no compilation, Slither, inference or exploit execution.",
+        "Unknown proxy status is not an assertion of direct deployment."
+      ]
+    },
+    {
+      "incident_id": "newmarket-squid",
+      "project": "NewMarketTrading / SquidRouterModule",
+      "source_status": "SOURCE_NEEDS_REVIEW",
+      "documented_incident_dates": [
+        "2026-05-25"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2026-05/NewMarketTrading_exp.sol",
+          "sha256": "8a255c5e00b2f4d36a9babf6b2f7d64a391dcaf0751686fadc34bb637a36ee04",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        },
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2026-05/SquidRouterModule_exp.sol",
+          "sha256": "4928df650aa75fb05f5d55c7b05b89ade15944c32c12744f185a7014bf047b13",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": "Ethereum",
+      "victim_address": "0x1f1d37a3Bf840e35c6a860c7C2dA71Fe555123ca",
+      "proxy_address": null,
+      "implementation_address": null,
+      "incident_time_implementation_verified": null,
+      "affected_contract": "SquidRouterModule",
+      "affected_function": "expressExecuteWithToken / _executeWithToken",
+      "documented_vulnerability_category": "authorization",
+      "source_provider_references": [
+        "https://base.blockscout.com/address/0x1f1d37a3Bf840e35c6a860c7C2dA71Fe555123ca?tab=contract",
+        "https://etherscan.io/address/0x1f1d37a3bf840e35c6a860c7c2da71fe555123ca#code"
+      ],
+      "source_files": [],
+      "compiler_version": null,
+      "compiler_evidence": "UNAVAILABLE; PoC pragma is not victim compiler evidence",
+      "deployment_version_correspondence": "NOT_ESTABLISHED",
+      "compilation_reproducibility": "NOT_ESTABLISHED_WITHOUT_EXACT_SOURCE_AND_DEPENDENCIES",
+      "main_reason": "Ethereum incident documents verified source at the same address on Base; cross-chain deployed-code equivalence is not established and no raw verified snapshot is local.",
+      "limitations": [
+        "Metadata/source-readiness review only; no compilation, Slither, inference or exploit execution.",
+        "Unknown proxy status is not an assertion of direct deployment."
+      ]
+    },
+    {
+      "incident_id": "atm",
+      "project": "ATM",
+      "source_status": "SOURCE_NEEDS_REVIEW",
+      "documented_incident_dates": [
+        "2024-04-01",
+        "2026-06-04",
+        "2026-06-22"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2024-04/ATM_exp.sol",
+          "sha256": "3e3556831795db22a69f424b9dbbcffb2b95c7e25de5b9d5f115767e5948a9ce",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        },
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2026-06/ATM_exp.sol",
+          "sha256": "c305f4ff162300db1916bee6e1271cfd0d64b224f19b43895b31ac65a16af33c",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        },
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2026-06/ATM_LP_Burn_exp.sol",
+          "sha256": "812afad32700dd7b365026d36dc22f0f75bb04d6c2b7aa0ba64c0c322a8da447",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": null,
+      "victim_address": null,
+      "proxy_address": null,
+      "implementation_address": null,
+      "incident_time_implementation_verified": null,
+      "affected_contract": null,
+      "affected_function": null,
+      "documented_vulnerability_category": "INCIDENT_IDENTITY_AMBIGUOUS",
+      "source_provider_references": [
+        "https://bscscan.com/address/0x9753a64fb7c233fdc43f04dab9cca88e1e229eba#code"
+      ],
+      "source_files": [],
+      "compiler_version": null,
+      "compiler_evidence": "UNAVAILABLE; PoC pragma is not victim compiler evidence",
+      "deployment_version_correspondence": "NOT_ESTABLISHED",
+      "compilation_reproducibility": "NOT_ESTABLISHED_WITHOUT_EXACT_SOURCE_AND_DEPENDENCIES",
+      "main_reason": "Multiple distinct local incidents match this project name; exact incident must be resolved before assigning a victim/source. Alternate PoC references retained.",
+      "limitations": [
+        "Metadata/source-readiness review only; no compilation, Slither, inference or exploit execution.",
+        "Unknown proxy status is not an assertion of direct deployment."
+      ]
+    },
+    {
+      "incident_id": "burgerswap",
+      "project": "BurgerSwap",
+      "source_status": "SOURCE_READY",
+      "documented_incident_dates": [
+        "2021-05-27"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2021-05/BurgerSwap_exp.sol",
+          "sha256": "49e19e7f6d6dbc5624447ea1ecf0d7c690f7cc26d38d4957153519b552006492",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": "BSC",
+      "victim_address": "0xBf6527834dBB89cdC97A79FCD62E6c08B19F8ec0",
+      "proxy_address": null,
+      "implementation_address": null,
+      "incident_time_implementation_verified": null,
+      "affected_contract": "DemaxPlatform",
+      "affected_function": "swapExactTokensForTokens(uint256,uint256,address[],address,uint256)",
+      "documented_vulnerability_category": "reentrancy / validation",
+      "source_provider_references": [],
+      "source_files": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol",
+          "sha256": "8d054c93b27839c772350ff454c91104e96e8a8000bb497fc477dad9f6418f38",
+          "origin": "Completed local victim snapshot supplied by user"
+        }
+      ],
+      "compiler_version": "0.6.6",
+      "compiler_evidence": "Existing successful solc 0.6.6 bytecode output; flattened source without imports",
+      "deployment_version_correspondence": "Platform identity and completed evidence supplied by user; fresh deployed-bytecode equivalence not independently verified.",
+      "compilation_reproducibility": "COMPILED_SUCCESSFULLY_EXISTING_LOCAL_EVIDENCE_NO_IMPORTS",
+      "main_reason": "Flattened import-free DemaxPlatform source successfully compiled with solc 0.6.6; completed Slither output contains 96 findings.",
+      "limitations": [
+        "Existing compilation and Slither output imported without rerunning either tool.",
+        "Fresh source-to-deployed-bytecode equivalence, deployment compiler build and optimizer settings not independently verified here.",
+        "Compile stdout preserves emitted bytecode; original process exit status and full invocation are user-established evidence."
+      ],
+      "related_pool_address": "0x7ac55ac530f2c29659573bde0700c6758d69e677",
+      "known_vulnerability_result": "MISSED",
+      "current_evidence_record": "examples/defihacklabs/evaluation/final20/contracts/burgerswap/evidence/integration.json"
+    },
+    {
+      "incident_id": "hundred-finance",
+      "project": "Hundred Finance",
+      "source_status": "SOURCE_NEEDS_REVIEW",
+      "documented_incident_dates": [
+        "2022-03-13",
+        "2023-04-15"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2022-03/HundredFinance_exp.sol",
+          "sha256": "0c20c431200552e2b4ee877eb0e0652d95a1e7efe8ff00a52474b5537f7ed0ab",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        },
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2023-04/HundredFinance_2_exp.sol",
+          "sha256": "8b9068a3b9474214880a128ccc8f3729e8ebbf7d4d88a42f0706ed8ccae8ea90",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": null,
+      "victim_address": null,
+      "proxy_address": null,
+      "implementation_address": null,
+      "incident_time_implementation_verified": null,
+      "affected_contract": null,
+      "affected_function": null,
+      "documented_vulnerability_category": "INCIDENT_IDENTITY_AMBIGUOUS",
+      "source_provider_references": [],
+      "source_files": [],
+      "compiler_version": null,
+      "compiler_evidence": "UNAVAILABLE; PoC pragma is not victim compiler evidence",
+      "deployment_version_correspondence": "NOT_ESTABLISHED",
+      "compilation_reproducibility": "NOT_ESTABLISHED_WITHOUT_EXACT_SOURCE_AND_DEPENDENCIES",
+      "main_reason": "Multiple distinct local incidents match this project name; exact incident must be resolved before assigning a victim/source. Alternate PoC references retained.",
+      "limitations": [
+        "Metadata/source-readiness review only; no compilation, Slither, inference or exploit execution.",
+        "Unknown proxy status is not an assertion of direct deployment."
+      ]
+    },
+    {
+      "incident_id": "rari-fuse",
+      "project": "Rari Capital Fuse",
+      "source_status": "PROXY_HISTORY_UNRESOLVED",
+      "documented_incident_dates": [
+        "2022-04-30"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2022-04/Rari_exp.sol",
+          "sha256": "7ffa961e45cb89fd5144f62f49b8a583e25ab376ea46664620af37bcf819747e",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": "Ethereum",
+      "victim_address": "0x26267e41CeCa7C8E0f143554Af707336f27Fa051",
+      "proxy_address": "0x26267e41CeCa7C8E0f143554Af707336f27Fa051",
+      "implementation_address": null,
+      "incident_time_implementation_verified": false,
+      "affected_contract": null,
+      "affected_function": null,
+      "documented_vulnerability_category": "reentrancy",
+      "source_provider_references": [],
+      "source_files": [],
+      "compiler_version": null,
+      "compiler_evidence": "UNAVAILABLE; PoC pragma is not victim compiler evidence",
+      "deployment_version_correspondence": "NOT_ESTABLISHED",
+      "compilation_reproducibility": "NOT_ESTABLISHED_WITHOUT_EXACT_SOURCE_AND_DEPENDENCIES",
+      "main_reason": "Documented proxy/delegate architecture; no incident-time logic snapshot or independently validated historical implementation linkage available locally.",
+      "limitations": [
+        "Metadata/source-readiness review only; no compilation, Slither, inference or exploit execution.",
+        "Unknown proxy status is not an assertion of direct deployment."
+      ]
+    },
+    {
+      "incident_id": "visor-finance",
+      "project": "Visor Finance",
+      "source_status": "SOURCE_READY",
+      "documented_incident_dates": [
+        "2021-12-21"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2021-12/Visor_exp.sol",
+          "sha256": "b940f6bf00db087a501bc2ecc4895bcf0b9c397092e56e423525f3863527d698",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": "Ethereum",
+      "victim_address": "0xC9f27A50f82571C1C8423A42970613b8dBDA14ef",
+      "proxy_address": null,
+      "implementation_address": null,
+      "incident_time_implementation_verified": null,
+      "affected_contract": "RewardsHypervisor",
+      "affected_function": "deposit(uint256,address,address)",
+      "documented_vulnerability_category": "reentrancy / authorization",
+      "source_provider_references": [
+        "https://etherscan.io/address/0xC9f27A50f82571C1C8423A42970613b8dBDA14ef#code"
+      ],
+      "source_files": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/visor-finance/raw/RewardsHypervisor.sol",
+          "sha256": "525abbcec7d91448ad551d0062e7197cf20c7789e93866370dbc6f196e6948fe",
+          "origin": "User-reported manual copy of Etherscan verified contract page"
+        }
+      ],
+      "compiler_version": "0.7.6",
+      "compiler_evidence": "Existing solc 0.7.6 successful bytecode output preserved in contracts/visor-finance/evidence/",
+      "deployment_version_correspondence": "Local official incident PoC targets identical address; source-copy provenance asserted by user; bytecode/version equivalence not independently established.",
+      "compilation_reproducibility": "COMPILED_SUCCESSFULLY_EXISTING_LOCAL_EVIDENCE",
+      "main_reason": "Complete local dependencies and unchanged self-contained analysis copy compile with solc 0.7.6; standard-json Slither succeeded with 41 findings.",
+      "limitations": [
+        "Manual Etherscan provenance and exact PoC victim linkage retained; deployed-bytecode match not independently verified.",
+        "Earlier raw/analysis provenance records retained as historical records; evidence/integration.json records current readiness."
+      ],
+      "unresolved_imports": [],
+      "known_vulnerability_result": "MISSED",
+      "current_evidence_record": "examples/defihacklabs/evaluation/final20/contracts/visor-finance/evidence/integration.json"
+    },
+    {
+      "incident_id": "revest-finance",
+      "project": "Revest Finance",
+      "source_status": "SOURCE_UNAVAILABLE",
+      "documented_incident_dates": [
+        "2022-03-27"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2022-03/Revest_exp.sol",
+          "sha256": "46b9e755db3871c6cbf2e2bbcaf4c47ac9170ccbc6ffc52dc548379195e141ea",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": "Ethereum",
+      "victim_address": "0x2320A28f52334d62622cc2EaFa15DE55F9987eD9",
+      "proxy_address": null,
+      "implementation_address": null,
+      "incident_time_implementation_verified": null,
+      "affected_contract": null,
+      "affected_function": null,
+      "documented_vulnerability_category": "reentrancy",
+      "source_provider_references": [],
+      "source_files": [],
+      "compiler_version": null,
+      "compiler_evidence": "UNAVAILABLE; PoC pragma is not victim compiler evidence",
+      "deployment_version_correspondence": "NOT_ESTABLISHED",
+      "compilation_reproducibility": "NOT_ESTABLISHED_WITHOUT_EXACT_SOURCE_AND_DEPENDENCIES",
+      "main_reason": "No faithful raw victim source located locally; interfaces and PoC helpers are not victim source. Prior provider acquisition was blocked by DNS/transport errors.",
+      "limitations": [
+        "Metadata/source-readiness review only; no compilation, Slither, inference or exploit execution.",
+        "Unknown proxy status is not an assertion of direct deployment."
+      ]
+    },
+    {
+      "incident_id": "lendfme",
+      "project": "LendfMe",
+      "source_status": "SOURCE_UNAVAILABLE",
+      "documented_incident_dates": [
+        "2020-04-19"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2020-04/LendfMe_exp.sol",
+          "sha256": "13c4d010ba6311559673009f1f5b1ef74c6c1827d06140c62a5e7600ccfbf3b0",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": "Ethereum",
+      "victim_address": "0x0eEe3E3828A45f7601D5F54bF49bB01d1A9dF5ea",
+      "proxy_address": null,
+      "implementation_address": null,
+      "incident_time_implementation_verified": null,
+      "affected_contract": null,
+      "affected_function": null,
+      "documented_vulnerability_category": "reentrancy",
+      "source_provider_references": [],
+      "source_files": [],
+      "compiler_version": null,
+      "compiler_evidence": "UNAVAILABLE; PoC pragma is not victim compiler evidence",
+      "deployment_version_correspondence": "NOT_ESTABLISHED",
+      "compilation_reproducibility": "NOT_ESTABLISHED_WITHOUT_EXACT_SOURCE_AND_DEPENDENCIES",
+      "main_reason": "No faithful raw victim source located locally; interfaces and PoC helpers are not victim source. Prior provider acquisition was blocked by DNS/transport errors.",
+      "limitations": [
+        "Metadata/source-readiness review only; no compilation, Slither, inference or exploit execution.",
+        "Unknown proxy status is not an assertion of direct deployment."
+      ]
+    },
+    {
+      "incident_id": "popsicle-finance",
+      "project": "Popsicle Finance",
+      "source_status": "SOURCE_UNAVAILABLE",
+      "documented_incident_dates": [
+        "2021-08-04"
+      ],
+      "poc_evidence": [
+        {
+          "path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2021-08/Popsicle_exp.sol",
+          "sha256": "fa46d52c56978dbe4d69bf086264d9bd8ce909ff33a38e27230378fa962fe0d6",
+          "role": "INCIDENT_EVIDENCE_ONLY_NOT_VICTIM_SOURCE"
+        }
+      ],
+      "chain": "Ethereum",
+      "victim_address": "0xc4ff55a4329f84f9Bf0F5619998aB570481EBB48",
+      "proxy_address": null,
+      "implementation_address": null,
+      "incident_time_implementation_verified": null,
+      "affected_contract": null,
+      "affected_function": null,
+      "documented_vulnerability_category": "reward-accounting state management",
+      "source_provider_references": [
+        "https://etherscan.io/address/0xc4ff55a4329f84f9Bf0F5619998aB570481EBB48#code"
+      ],
+      "source_files": [],
+      "compiler_version": null,
+      "compiler_evidence": "UNAVAILABLE; PoC pragma is not victim compiler evidence",
+      "deployment_version_correspondence": "NOT_ESTABLISHED",
+      "compilation_reproducibility": "NOT_ESTABLISHED_WITHOUT_EXACT_SOURCE_AND_DEPENDENCIES",
+      "main_reason": "No faithful raw victim source located locally; interfaces and PoC helpers are not victim source. Prior provider acquisition was blocked by DNS/transport errors.",
+      "limitations": [
+        "Metadata/source-readiness review only; no compilation, Slither, inference or exploit execution.",
+        "Unknown proxy status is not an assertion of direct deployment."
+      ]
+    }
+  ],
+  "protected_input_hashes": {
+    "examples/defihacklabs/LICENSE-SpankChain.txt": "a710b594b2270782ec480bed86dc36b434889303c7be611cf7a29408c6a8911e",
+    "examples/defihacklabs/SpankChain.sol": "501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0",
+    "examples/defihacklabs/SpankChain_preflight.json": "59489a7c0d0ddb071c6a27d8a2578418056c46fc09275806cf21d045431a4f8a",
+    "examples/defihacklabs/SpankChain_slither.json": "d3da48c72a043526295927666e0304f3859e68ddacfb2ddd4563c131ebe26bb1",
+    "examples/defihacklabs/SpankChain_fp_validation.md": "264b6161621ef604ebcf4400118518130dc01838251fa6bd97a1fd5dc083d7b1",
+    "examples/defihacklabs/SpankChain_ground_truth.md": "4f894fe7992ec9b8aabf2467355aab3517494ebc374e8d063ca9111baae24832",
+    "examples/defihacklabs/evaluation/verification_targets.json": "ee4ed7c0b34b848c755e5fe764f195e8ad7c102cf2f1a33d4bd6869159258101",
+    "examples/defihacklabs/evaluation/check_catalog_v2.py": "0a11078d4a2a4eb51ec551bf16abdaf82f7de2e742f21831c278e262c1c4e3dd",
+    "examples/defihacklabs/evaluation/integration_hashes.json": "e8cfc5acee4497be101e0debd7160d4dbec8b3d0949c5304f77470db7804f929",
+    "examples/defihacklabs/evaluation/source_acquisition.csv": "2c700e6b4f6b782b2bacff77ab7c5a8aedbb57a5e2f30f04033b259670862c6d",
+    "examples/defihacklabs/evaluation/manifest.md": "f9c2d508d825bf7511a993e83a0a938d280b0503801046afcf556b017507c306",
+    "examples/defihacklabs/evaluation/extend_local_catalog.py": "d7c7100c06ad1f567e371592a80881ad239f44421b505976c031d467fc21e38c",
+    "examples/defihacklabs/evaluation/incident_inventory.csv": "89544456e50026248d225bf8042d23d87c031a1cc1fa1d32b606757a61e3a818",
+    "examples/defihacklabs/evaluation/slither_baseline.json": "ed38a8cbfbd7212fc242294e945ccc44e13535183244c748d36fc5d76a24233d",
+    "examples/defihacklabs/evaluation/source_acquisition_evidence.json": "38fcc61758857a09a33bc652197446bcafadd5dd99d0776d974087d758cc0e12",
+    "examples/defihacklabs/evaluation/acquire_sources.py": "72e3f43be678c3efaf0ce02e60253b31af8ba3f4416c33f36ec479149008cebc",
+    "examples/defihacklabs/evaluation/build_local_evaluation.py": "8e366f49258e5be7bca840d0ca0baa0e3d186dcc281fc91ceb9150ebeedb7199",
+    "examples/defihacklabs/evaluation/source_acquisition_summary.md": "657a9257bbd8cfa6b8265f45310f0c022100d869ac18b9c2709782c0fcd4f6dd",
+    "examples/defihacklabs/evaluation/manifest.json": "c56dd34132d586d91d8e9b5251833d20b0a2148a7db233fa92849a2c693078c4",
+    "examples/defihacklabs/evaluation/slither_baseline.csv": "5dfa69199c6b95c8f1f320cffc622796ccdd3d59dd6f881fcd5c9270abb5c06d",
+    "examples/defihacklabs/evaluation/check_integrity.py": "571e471a73dbf4ae88768c24e81c45ef6cda36b07491d38ad374185e71243fc3",
+    "examples/defihacklabs/evaluation/catalog_v2/verification_targets.json": "c28a069bbeada18e469d2708f92f7aa13f198e107c8daab841ac94667e1fac57",
+    "examples/defihacklabs/evaluation/catalog_v2/manifest.md": "b946cc8805b26a4053623d248510f8135aeee85d4ec9fb32e60fbafb913a929b",
+    "examples/defihacklabs/evaluation/catalog_v2/incident_inventory.csv": "1e7adcf8a6d3b2abf45178027bf662a6732a22e28b67ffc2155c7d0425b9b901",
+    "examples/defihacklabs/evaluation/catalog_v2/slither_baseline.json": "c193ff6f22db3dbddba22bca9d9e2dfa1525b67040b511ee663896237d6fa519",
+    "examples/defihacklabs/evaluation/catalog_v2/integrity_hashes.json": "58ce84894d464aea068015cf64218ca464c298257e83fbecb87f187a927e7910",
+    "examples/defihacklabs/evaluation/catalog_v2/source_role_audit.json": "5529052d70551fdfb37d545fbd4226779f21c8b7338f1d192e8cc4a8ea664d30",
+    "examples/defihacklabs/evaluation/catalog_v2/manifest.json": "6f3da00304416954c317afc75853b1bf87539ab8146b57031801c98080ec2ce9",
+    "examples/defihacklabs/evaluation/catalog_v2/slither_baseline.csv": "25db3e002f130cd744821c19df9bfe8e4aef1fccb9d01c24904b6ef5af1d9d39",
+    "examples/defihacklabs/evaluation/contracts/spankchain/LICENSE.txt": "a710b594b2270782ec480bed86dc36b434889303c7be611cf7a29408c6a8911e",
+    "examples/defihacklabs/evaluation/contracts/spankchain/SpankChain.sol": "501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0",
+    "results/large_treasury_200k_slither.txt": "df958d84e9030cb62d9673e0eea5ca96219a1983646db8d657d25900115d4b31",
+    "results/large_treasury_slither.txt": "7f7481a8667f0ee0ffa0bac17b84e30be8a9deeb1e971499d8c8fef39e90117a",
+    "results/large_treasury_100k_slither.txt": "6c73deb35866dad774e06c3ce8adf01d0ab413390f2a1609e88be412f96b6bb4",
+    "results/large_treasury_slither.json": "5354fdbd10a65ec4e0094d122abdf52fca6c8f3a9889ddd506442262cb148fb5",
+    "results/cgt_slither_baseline/acquisition.json": "d97f056e12263f0e0deddf88e35d61c5acc28d40df76e287f4933f9da4958530",
+    "results/cgt_slither_baseline/summary.json": "647d3882d8d1e5b4f5793588216718f91956b04a34e60aa366c03e284da9fa55",
+    "results/cgt_slither_baseline/errors.json": "324ed438babc5dd13298f6b84f9ebdc1a6544cafc5d96a5babcf138f1825ff30",
+    "results/cgt_slither_baseline/metadata.json": "d4de03cba8be6d9565811b15a98cfd7475f30398256f98abadee585125b13e28",
+    "results/cgt_slither_baseline/findings.csv": "1efb5d016fdfe096b56607a0333e53d0351ee2a4988897dde8cebf851739819e",
+    "results/cgt_inventory/summary.json": "00cc1332a0795661ed5dc744166d6f6dacc43004cd444663443ea6b56103d8e2",
+    "results/cgt_inventory/errors.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "results/cgt_inventory/metadata.json": "5c0126c0fd0447d2f23ea1c1e501b0fc3391061ed3c0f7142f621b9c152a65a2",
+    "results/cgt_inventory/assessments.csv": "591aab1799064aef8a8e993b9bf2ca8881fc8fb3b2615c408a77187f6efde4af",
+    "results/cgt_inventory/warnings.json": "d1448998b5d82bff0c3094b884767eb1181fd5728f93a44d67f77e3b4e36fbc6",
+    "results/cgt_inventory/findings.csv": "1efb5d016fdfe096b56607a0333e53d0351ee2a4988897dde8cebf851739819e",
+    "results/cgt_preflight/reentrancy-test2073-BancorBuyer.payload.json": "21eb220f77b012145ee4eaa2123f9784811c21c32b47e93995633223f88a26a1",
+    "results/cgt_preflight/lowlevelcall_result-test448-AKC.payload.json": "0a16fba471a773aa9905e26e8b7b9997f654eeedf81c40fae51c4724569181ef",
+    "results/cgt_preflight/lowlevelcall_result-test3855-TossCoin.payload.json": "4410bd26c91d33a43f90d6b634c369f10f01721decf8abb259100a38883eac57",
+    "results/cgt_preflight/lowlevelcall_result-test989-MultiplicatorX4.payload.json": "16a578e5896120bedc17cd3ea45269645aba5428d5aaa33a7ea5a2317a0f6bd2",
+    "results/cgt_preflight/tx_result-test941-Tokens.payload.json": "a05e3224f01ff0eedeb3115033dbfa9bdb27eb33aae8b1894032a2c4e0ddb47f",
+    "results/cgt_preflight/lowlevelcall_result-test1764-ERC223TokenCompatible.payload.json": "1257bdd122497cadc56488d0d4e7219079cc148805dc0251fbac0f849ef60bc0",
+    "results/cgt_preflight/selfdestruct_result-test120-TokenERC20.payload.json": "00d9f073242d0cbbf3a0b2bc967ee3df605b469cfe56e1bd37d7ec96ba36e93b",
+    "results/cgt_preflight/reentrancy-test554-PrivateBank.payload.json": "6c88df64e50662a3377e945dd83adb4b9164a1e588ae7255abe0ce85e1c17d24",
+    "results/cgt_preflight/summary.json": "6f40d9775f91a7c1295a39ec921eb22cab8875a5a2905deaa38ed64a02492714",
+    "results/cgt_preflight/lowlevelcall_result-test3330-coinScheduleReferral.payload.json": "1ea2dba7def36b1effb78dbb7974a3e9b053afcc1ff575f29cb4beb269984a45",
+    "results/cgt_preflight/lowlevelcall_result-test2784-TERATO.payload.json": "d793c0760be9e6ed30372ff77ba2ef39aaa5041b7b7f37cb03211499fc5b4a07",
+    "results/cgt_preflight/errors.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "results/cgt_preflight/selfdestruct_result-test3575-PredictionMarket.payload.json": "268a6b30c405d5415a63244e1dbe7796f9a26fc8e5d7f41c91ea69b7dd1a3b72",
+    "results/cgt_preflight/tx_result-test701-Tokens.payload.json": "636013e7192fa0604f149a7cb9169ceb0426acefe3ea31c4d2bd4f457ecf8108",
+    "results/cgt_preflight/lowlevelcall_result-test1911-WhaleGiveaway1.payload.json": "91f84a98c465e58c1283247aa65a0e475cfa77ee950188d473fd59981ff725e7",
+    "results/cgt_preflight/lowlevelcall_result-test1930-ETHedgeToken.payload.json": "393ab2c233be5e9188bb23af5a6ba0353253fac116dd5fee5a4bfe8d25e92c6d",
+    "results/cgt_preflight/tx_result-test2878-CoinCrowdICO.payload.json": "c9fddc3006dedc231f069a52780a80853f3e049a38513571530865e70736747f",
+    "results/cgt_preflight/lowlevelcall_result-test86-Etherhero.payload.json": "9a358c483f140e639b38a6617798fcfd0501b0c6d4afcb673be47fcade2f3588",
+    "results/cgt_preflight/lowlevelcall_result-test1009-WhaleGiveaway2.payload.json": "0099d8427d20fcebce32e07fa8d6338cd5b8de220e822f7d0ac2b4c41fc099b9",
+    "results/cgt_preflight/reentrancy-test1916-PrivateDeposit.payload.json": "f831865b86b07ecc5e7caa2c025fcb4518beb4b62564e3694739ea6f4ec3ee34",
+    "results/cgt_preflight/lowlevelcall_result-test3058-Pie.payload.json": "5acb296552d2678f072259b85080360c1db061d6ea52bd1b5f20b1c9ee81e909",
+    "results/cgt_preflight/lowlevelcall_result-test1244-Base.payload.json": "0bf62a6def3569a5568ae47371f5209b7ba91d1aa8b60c7ce36070e4a3c311fd",
+    "results/cgt_preflight/lowlevelcall_result-test2022-Etherhero.payload.json": "9f3b4c0695784f773b4d009f313a6b2babe66598fe6e98182506d1b401140785",
+    "results/cgt_preflight/selfdestruct_result-test3575-Question.payload.json": "5361d0ac43e7416299102aceb44da6c0fe8b1af2198c02ee842ac9e5340c3569",
+    "results/cgt_preflight/findings.json": "d7709fcd69a4a4f139cd95b949bd009d0cfe9e4b0a5b6df91d32ca19e5a52dfe",
+    "results/cgt_preflight/lowlevelcall_result-test1867-ETHERCREDIT.payload.json": "72780e8ed3f978943ec19f523b2056d4176098de62ee254a240550cd73706ceb",
+    "results/cgt_preflight/lowlevelcall_result-test936-airdrop.payload.json": "1fffe5bed094ddeb006efdeeb1119dd66e4df808f1ac3571e7332dcf851bc9c5",
+    "results/cgt_preflight/selfdestruct_result-test3061-ValueTrader.payload.json": "4da0ab5fd12c893790afe23566406f4d0e38b00e9d0cd67396ecec7d08530396",
+    "results/cgt_preflight/lowlevelcall_result-test2497-ERC223TokenCompatible.payload.json": "72c0a0060c360b2b5a334ed05302dd74851633ccc5b560ef52522bfba97f55dc",
+    "results/cgt_preflight/selfdestruct_result-test1932-MyAdvancedToken.payload.json": "fd79129d1ac2d782c860bcfeabf73b64960097f4b5a55177948300b632c5eb31",
+    "results/cgt_preflight/findings.csv": "023bd071fd9cfa3245d1a0db4538b0a430c8e5c9fd963d19acd3312ad4730a20",
+    "results/cgt_linkage/tx_origin_links.json": "d17c958c5dbf034cb3c1fc0ecd84365f040ee98be5848e82c13b314bdf5fb8e4",
+    "results/cgt_linkage/summary.json": "2dbec954aa0a1adc0d3deb0d8a32576e1d96ff3ae73fd3c773ebe374113ce382",
+    "results/cgt_linkage/live_links.json": "451775b020f48f617863448c0d28c62198ea35e0dc28c81e6ae1ee19677e68fd",
+    "results/cgt_linkage/errors.json": "d7fd7c744fe9b52e007f291a3834d3602054f634c02a58161b3efa3e0661aab9",
+    "results/cgt_linkage/archive_links.json": "7f25969bb17c35f69ce0a8a1a2d1651493018fcb9d47b09e75ef036afb3d518c",
+    "results/cgt_linkage/metadata.json": "01956d3249acd7fe2bccb36f5e113dd092eafad9378e459eaa645bbf8ac43c2f",
+    "results/cgt_linkage/properties.csv": "2478341f79cb683773f2fb12d06ec0d3bcb978aacf1ed1311ebb3a0b0ae0ef29",
+    "results/cgt_linkage/findings.csv": "85a9bb207e02bbeaf6e206a02d962b69103e24d411e269454f362475d4900505",
+    "results/cgt_reviewed_baseline/exclusion_summary.json": "78572c3170361a37669899cc33926b0e2ce7fd12927bec23f0730fc0fb8e6622",
+    "results/cgt_reviewed_baseline/summary.json": "1552bcb0785341bebb07d58e497a94a7bccdb5eabd6e3a913625b248f665da45",
+    "results/cgt_reviewed_baseline/errors.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "results/cgt_reviewed_baseline/metadata.json": "ec663f45a5d8ae8ce96c51e5ed20f24814139822b0e2b2f8e7827a9d405ed9c3",
+    "results/cgt_reviewed_baseline/assessments.csv": "591aab1799064aef8a8e993b9bf2ca8881fc8fb3b2615c408a77187f6efde4af",
+    "results/cgt_reviewed_baseline/reviews.json": "1d9f5a1745d5c8af312b886dc84f6a7c7fa4a18b5a28614c3f9d39b3a89eb2b1",
+    "results/cgt_reviewed_baseline/linkage_decisions.json": "af2ec8acd468edd4cf17c698805a0b163364440e69fb2855bcbfc81cfad8e9ea",
+    "results/cgt_reviewed_baseline/warnings.json": "bb9b04988d02b46e5b6c2733879372f74fe7a093debfb1160e26b4ef864c1d99",
+    "results/cgt_reviewed_baseline/findings.csv": "aca893b7e943650cf4b426cc6b11f94af375a646c335c0521144c45c76670d14",
+    "results/cgt_authorized_pilot/frozen.json": "454747b88ad839abbde9cdeb9ec76f5dbbe826640238d8eed796282660a0953f",
+    "results/cgt_authorized_pilot/status.json": "c978f786a4c2d4b67b417a0d871ee2044e0c3d3145a9d8ccd4fa4d9117b631e7",
+    "results/cgt_authorized_pilot/execution_report.json": "67674783c11341dfc2fc5b5f10d4d3bbbe69ac303b9c7752556fd949c84e0de7",
+    "results/cgt_authorized_pilot/connectivity.json": "1e84fb799fcd2b81a387e9528566e52e27ca98c52017db884435bb5dcd419dfc",
+    "results/cgt_linkage/raw/415e4a37eaeb00c35eed7aa1e7892de2.calls-loop.json": "45b7811c2e82ba41dc88346ba4bf17d8edf83800f222b575d57bd6109612ebea",
+    "results/cgt_linkage/raw/528f5f115cd977485cac5602b20eb516.unchecked-lowlevel.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/f9fd336ff8ee40adcc4d448645593a3a.json": "f5ea4b95da45582359c5433c828989e6e580e18a7c685e575fd305ec5bceec93",
+    "results/cgt_linkage/raw/af09bbd76f52399f5a770684f8037795.tx-origin.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/f9fd336ff8ee40adcc4d448645593a3a.tx-origin.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/2aa0463eab2d032082704363d95d759b.unchecked-lowlevel.json": "669b337881f9de2faf61abd7270f447a3cc668ec61c4baef042e80132407d7f8",
+    "results/cgt_linkage/raw/5e9f0a854ba9ec437a9ed124a9f687d8.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/0b1332e23b1204f98d5d2284a541dabe.reentrancy-eth.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/b89b0de4c15fed659060c0f00cda7134.reentrancy-eth.json": "3e187010de0dcc5e71961ebcfdb24c0cf9cdb94ba6069978062727ae2e29b051",
+    "results/cgt_linkage/raw/e86c705eaa1cfb3683460d5ec80a6bc3.json": "39f4420d168551e0b4e55c918a87f4a2b9664756ac491ede7cfe57228fdbee8d",
+    "results/cgt_linkage/raw/297c1aeb1d053290e8a137889b7d1c81.unchecked-lowlevel.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/324d36b4db60b7014b6941229512da7d.unchecked-lowlevel.json": "fed75e5ed5d03a31532d692e68817a346005d30629b770a8182029bd1dcd301e",
+    "results/cgt_linkage/raw/0120a2934d0ffe4b904830fe899f554b.unchecked-lowlevel.json": "43e03e4826f23dd01bdf11c16254cf64e39ddf83378d1b9772a19fda5cf644a6",
+    "results/cgt_linkage/raw/29861349da05d45385cc9b312b787d74.unchecked-lowlevel.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/52c682ab889662a3bada7d1e03e11ba5.unchecked-lowlevel.json": "ba2e79b0e22ad06ac265a31db93b98aa252cd4067994f8c94fac2e0087549001",
+    "results/cgt_linkage/raw/f9fd336ff8ee40adcc4d448645593a3a.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/da4c5eb90780078af0c90ee0fe6a68ab.unchecked-lowlevel.json": "da64211961edfa6bd2067b3b75be22473cc16edcba3d5c46677316bf054b1778",
+    "results/cgt_linkage/raw/23ab3ede29610bd47e71137a5018158e.suicidal.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/4703a8f7b7da3f307b26c9344414169c.calls-loop.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/7bebeedee880cc4e2942ad723946ee70.suicidal.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/c38ee289214a9d4bd1fb30f1c100c28e.unchecked-lowlevel.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/b4477ef57617863fe3525e116c295d6b.reentrancy-eth.json": "21429d57c80f0fe55b51d2796296acf3c29db6d265269456396cadcdb5a8bdc2",
+    "results/cgt_linkage/raw/45c24011c68a85bea39d0e3760db60b1.unchecked-lowlevel.json": "767becb2009cbe7fd2674f60cc1b53b535c404767cd83ee37c46823fa77188bd",
+    "results/cgt_linkage/raw/db51cfe3fb4a3646a38c5b5f6e018685.reentrancy-eth.json": "8c9a19aea12568d8775a129bc71e01a1a2f80261f36eceeb69e88203de0c6951",
+    "results/cgt_linkage/raw/23ab3ede29610bd47e71137a5018158e.suicidal.json": "85d3b4b3b6ce2f422ea973f7ab7dd5b06af909029c920d9f0660c44f509d2bfb",
+    "results/cgt_linkage/raw/b89b0de4c15fed659060c0f00cda7134.reentrancy-eth.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/297c1aeb1d053290e8a137889b7d1c81.unchecked-lowlevel.json": "718c93b54f8d75f6b8bccee773fa5504294eaa54b49967cc1de858c92b7e6851",
+    "results/cgt_linkage/raw/af09bbd76f52399f5a770684f8037795.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/7bebeedee880cc4e2942ad723946ee70.suicidal.json": "209e3094b297b26d6a16c297614697900002dd726ea8ca32621853244d5aad04",
+    "results/cgt_linkage/raw/4703a8f7b7da3f307b26c9344414169c.calls-loop.json": "43a1797ebb8add7fc0ef251fcd4af023bf522823f647a163e1048ab5f1fbee64",
+    "results/cgt_linkage/raw/1624d9e1c8e1da02b7c60e3ff0c65287.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/db51cfe3fb4a3646a38c5b5f6e018685.reentrancy-eth.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/0b1332e23b1204f98d5d2284a541dabe.reentrancy-eth.json": "ba82776da807c401ffef6a75a21cb8140a9e3808621a9283354f8ee467f16fdb",
+    "results/cgt_linkage/raw/f724adc25cd373596c4e727519bc758f.reentrancy-eth.json": "dd74520f39812e47f1cc90acafcc48b0d839037e3143ba95b39dd43eb3526411",
+    "results/cgt_linkage/raw/c6bc7996daf9cf5319935f1ba6def79e.reentrancy-eth.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/cd0c01291be1ee8ae25897e1248050c2.suicidal.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/1624d9e1c8e1da02b7c60e3ff0c65287.json": "0a1ca32b08104700965100f6183e231ca986589f3e10bb28f169e41464ddd611",
+    "results/cgt_linkage/raw/b4477ef57617863fe3525e116c295d6b.reentrancy-eth.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/29861349da05d45385cc9b312b787d74.unchecked-lowlevel.json": "dec64c6f62051e7a61f0b962d7780c8e38ef0715d9cfe6f6a796f9a3b4a19c1d",
+    "results/cgt_linkage/raw/c38ee289214a9d4bd1fb30f1c100c28e.unchecked-lowlevel.json": "b27b7e0a2d2ff97d2e38d47663d37c026bfa0d2d01b2bb70fb1b90d8f49e8393",
+    "results/cgt_linkage/raw/bc1abef02dec83776487eab6828e21ab.unchecked-lowlevel.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/5e9f0a854ba9ec437a9ed124a9f687d8.tx-origin.json": "dd11a7d6a3a8d63acfba999ca6539c1acb461d2ea1eb00aba769b0da60b18620",
+    "results/cgt_linkage/raw/2670a1455a1ff1fc23d11215c8c78a54.unchecked-lowlevel.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/45c24011c68a85bea39d0e3760db60b1.unchecked-lowlevel.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/e86c705eaa1cfb3683460d5ec80a6bc3.tx-origin.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/c36165ab12a99af609b8d63351d74549.unchecked-lowlevel.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/8e0370c2052793e0d08a87eb9e9e680f.calls-loop.json": "d196cead15971171a18e0571f8ae8cd738b80b913830e33d0f177b402e03ebb1",
+    "results/cgt_linkage/raw/25b97750b535cd33a76ac258e8342ff8.calls-loop.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/5e9f0a854ba9ec437a9ed124a9f687d8.tx-origin.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/c6bc7996daf9cf5319935f1ba6def79e.reentrancy-eth.json": "0fa45830d22ee5515f196b8ab37a2746f2800929aadd4f83fbab2bfe79a0c11d",
+    "results/cgt_linkage/raw/b69969618da401e7416b9da9a350b963.unchecked-lowlevel.json": "e9c96fab32ed8897b6653b3009c72a3cc2a78c8b85378ed54825b73cb1d02de9",
+    "results/cgt_linkage/raw/2670a1455a1ff1fc23d11215c8c78a54.unchecked-lowlevel.json": "9c4b4b7b1c5def7f465e39447aae09b17426827ed42719d0bd114efc56e82269",
+    "results/cgt_linkage/raw/d549618a2e7706247460eb71b125045c.unchecked-lowlevel.json": "3a1f0481e4a25c6d2261e68feac04c0e83d6de6291bac02e80aa697dfa01a57a",
+    "results/cgt_linkage/raw/415e4a37eaeb00c35eed7aa1e7892de2.calls-loop.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/f40331f125cbb04c4b76d63feb921879.unchecked-lowlevel.json": "20d68eec11ee293cb7f53b47b3dc827dc53dc7359385d984c8839b493d2d8e3d",
+    "results/cgt_linkage/raw/d2c637d61e4434b5efbd04cbc909c6b8.calls-loop.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/dffd4693ef6aeba044e631ba14c7153c.calls-loop.json": "8948ca9887f5800bd6e022f8f2217511945eca76a9613e60902a9c4549841d7f",
+    "results/cgt_linkage/raw/1624d9e1c8e1da02b7c60e3ff0c65287.tx-origin.json": "0a1ca32b08104700965100f6183e231ca986589f3e10bb28f169e41464ddd611",
+    "results/cgt_linkage/raw/af09bbd76f52399f5a770684f8037795.tx-origin.json": "8079bf35a25d3d4ffbf8ad6596334816855428f59bd4104031c64336b60bca5c",
+    "results/cgt_linkage/raw/8e0370c2052793e0d08a87eb9e9e680f.calls-loop.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/cfc75cd177ab89a914c390fce8197787.calls-loop.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/25b97750b535cd33a76ac258e8342ff8.calls-loop.json": "d76736f289075575f1cf3e25551f3eca50a1f0aaf06ba6ba39bedf72ed3ae011",
+    "results/cgt_linkage/raw/f724adc25cd373596c4e727519bc758f.reentrancy-eth.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/f40331f125cbb04c4b76d63feb921879.unchecked-lowlevel.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/cfc75cd177ab89a914c390fce8197787.calls-loop.json": "4b164cda4543cbdbff79ed75cba5772a845941950f645398ea21e342db6ef302",
+    "results/cgt_linkage/raw/324d36b4db60b7014b6941229512da7d.unchecked-lowlevel.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/9c37399dda2acd29509968dabe802aba.reentrancy-eth.json": "e1db8bdb0816a48b916473e031efafdcb728b7d1a825763a2da213ad24eef01a",
+    "results/cgt_linkage/raw/af09bbd76f52399f5a770684f8037795.json": "8079bf35a25d3d4ffbf8ad6596334816855428f59bd4104031c64336b60bca5c",
+    "results/cgt_linkage/raw/2e8fd96ad2a73ae6e808291676e83167.calls-loop.json": "79b86b0b6882ccc372e5b3a53e7cd42f14b48577e446408dcfb5c30a955a6607",
+    "results/cgt_linkage/raw/a33a96af304f77e7e84074f5b5820824.calls-loop.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/da4c5eb90780078af0c90ee0fe6a68ab.unchecked-lowlevel.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/6dec2e7010cda69d567f2708d7abccb7.calls-loop.json": "bf34af434d02de61780d1686bc132d7a8f612ad04b2f0b8ce69f8936d6c3a3e3",
+    "results/cgt_linkage/raw/1624d9e1c8e1da02b7c60e3ff0c65287.tx-origin.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/2e8fd96ad2a73ae6e808291676e83167.calls-loop.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/2aa0463eab2d032082704363d95d759b.unchecked-lowlevel.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/efe5ebd718c6afa9c24214bb4373b40d.suicidal.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/efe5ebd718c6afa9c24214bb4373b40d.suicidal.json": "a65ef8f62499c1dd637d434a24ead42cd0490066f960044314a7322ad83867aa",
+    "results/cgt_linkage/raw/9c37399dda2acd29509968dabe802aba.reentrancy-eth.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/0120a2934d0ffe4b904830fe899f554b.unchecked-lowlevel.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/d2c637d61e4434b5efbd04cbc909c6b8.calls-loop.json": "32abc4dd0b41bf3e29478ebe4c96eb07ecbea4f04ec675232199d5acd9b5e637",
+    "results/cgt_linkage/raw/e86c705eaa1cfb3683460d5ec80a6bc3.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/e86c705eaa1cfb3683460d5ec80a6bc3.tx-origin.json": "39f4420d168551e0b4e55c918a87f4a2b9664756ac491ede7cfe57228fdbee8d",
+    "results/cgt_linkage/raw/d549618a2e7706247460eb71b125045c.unchecked-lowlevel.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/f9fd336ff8ee40adcc4d448645593a3a.tx-origin.json": "f5ea4b95da45582359c5433c828989e6e580e18a7c685e575fd305ec5bceec93",
+    "results/cgt_linkage/raw/a33a96af304f77e7e84074f5b5820824.calls-loop.json": "c6c9d524725e072c42d70076fec5d435040960a498fc07dafb99c7f01a446603",
+    "results/cgt_linkage/raw/6dec2e7010cda69d567f2708d7abccb7.calls-loop.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/b69969618da401e7416b9da9a350b963.unchecked-lowlevel.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/cd0c01291be1ee8ae25897e1248050c2.suicidal.json": "b9af0c99d5f05be0eb1f241f19978d26d9713905e7a76c9044bdb4e33878b7b8",
+    "results/cgt_linkage/raw/bc1abef02dec83776487eab6828e21ab.unchecked-lowlevel.json": "bc2d8c80109a73079c861d81d32fb6ba1a195524d105b13d8f8016732cd72226",
+    "results/cgt_linkage/raw/528f5f115cd977485cac5602b20eb516.unchecked-lowlevel.json": "a2482ed636fec3b920891ab4200af2b897dc9f7fdd4312886925a7767cae5d21",
+    "results/cgt_linkage/raw/c36165ab12a99af609b8d63351d74549.unchecked-lowlevel.json": "7d94aaab617a307db09a1e295dacd057672a2b28d2a26929eb2c799b5c95cec7",
+    "results/cgt_linkage/raw/52c682ab889662a3bada7d1e03e11ba5.unchecked-lowlevel.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_linkage/raw/5e9f0a854ba9ec437a9ed124a9f687d8.json": "dd11a7d6a3a8d63acfba999ca6539c1acb461d2ea1eb00aba769b0da60b18620",
+    "results/cgt_linkage/raw/dffd4693ef6aeba044e631ba14c7153c.calls-loop.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_authorized_pilot/pilot/payload_003.json": "c35a92adf8e141dfed321b530cb3bba66e48082a1e36d097bf6301370958dd4f",
+    "results/cgt_authorized_pilot/pilot/payload_004.json": "ec75f38fbc1ae0c6c6a59634f4a3c4163e668a1ddca0cedbbfc8870654b92a38",
+    "results/cgt_authorized_pilot/pilot/payload_008.json": "da82dbe1f11d8b88b5e51543b3fca560f6ac7ddfcf1ebdf21dec44081755a831",
+    "results/cgt_authorized_pilot/pilot/summary.json": "c978f786a4c2d4b67b417a0d871ee2044e0c3d3145a9d8ccd4fa4d9117b631e7",
+    "results/cgt_authorized_pilot/pilot/errors.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "results/cgt_authorized_pilot/pilot/payload_002.json": "180ff6dc72f1e601ed960008be53a8a66b7b3180c07aacb084d1e37b20ec9c45",
+    "results/cgt_authorized_pilot/pilot/payload_007.json": "32e0362951e0d187c7f431251c9e862ee7086197b2b21963eec3e9450e3b31d5",
+    "results/cgt_authorized_pilot/pilot/payload_000.json": "80c47bb833b8a7e2c5a4cb453cb41cdb73329829de4d9ae687900dcb64f62c6f",
+    "results/cgt_authorized_pilot/pilot/payload_009.json": "2fbd6c529edd3afcd07d4c6681ec7476d7bbdd85eece3f90d597615022fd6979",
+    "results/cgt_authorized_pilot/pilot/payload_006.json": "c10c6e64495f6c784ff4330f251dbea7aa7bca2e6861ce2a73afb864854e480e",
+    "results/cgt_authorized_pilot/pilot/config.json": "bf67e79ca8eedf2173ead9ccf9ba4702268a6436345d24955d10ea9e7e649a8e",
+    "results/cgt_authorized_pilot/pilot/findings.json": "f6c387a7b3450079b8d5297939410b71b197bdd49a2def827718dba4c4487c7f",
+    "results/cgt_authorized_pilot/pilot/payload_001.json": "773d4e3c8c75154a280692b8bcc16d21fba185abb1a5952af497de5b43274763",
+    "results/cgt_authorized_pilot/pilot/payload_005.json": "753032ad2e098969756cef7dff87bf57f598d9c9bef82fe331da28531fad18d5",
+    "results/cgt_authorized_pilot/pilot/findings.csv": "ac9f9aae40ac227e7b03606eea0225757b271b491dc69643f517d0e7b5578b6e",
+    "results/cgt_authorized_pilot/snapshot/check_cgt_frozen_pilot.py": "8bcc871e7803f08d3a1785d8c167b8650dbea0222d2a8f1798927769746bbfdc",
+    "results/cgt_authorized_pilot/snapshot/src/context_audit/cgt_sample.py": "8c7d9ecd3c5e0c50e3dc48a54f1dfdfc26542edcfc7efc885e1047c517d5a632",
+    "results/cgt_authorized_pilot/snapshot/src/context_audit/cgt_archive.py": "5f488fc2154d6ecc050c9cf6aeebfca63e2cf887032f5f6cb6ddd7c34b11d7aa",
+    "results/cgt_authorized_pilot/snapshot/src/context_audit/cgt_inference.py": "d56a0091c0bfbdb7b926980f7f9d2397fd5f5323ce3c7e0207c223f08cff0f87",
+    "results/cgt_authorized_pilot/snapshot/src/context_audit/findings.py": "b335a7e70328572f5463ef31026b6c2c97b224d19b8206b582d6e22fbf145163",
+    "results/cgt_authorized_pilot/snapshot/src/context_audit/catalog.py": "8bcaf557cde43d105d807e7d6523992b09e45b8c2aec0701ec99e80533fcd31e",
+    "results/cgt_authorized_pilot/snapshot/src/context_audit/context.py": "80728bc6951f677261a62a23d188d7098abdb2b45a1edde6b043748fbb863b13",
+    "results/cgt_authorized_pilot/snapshot/src/context_audit/dataset.py": "4dfa31e9b9f6d100a93a8e5ae93a10c8753054b70736a898bcd88d2f37a9bfb2",
+    "results/cgt_authorized_pilot/snapshot/src/context_audit/classification_metrics.py": "48e4aec6f2c0518d2bc7ac16e0e7f59c0fad9aeab8d9bdd450d9eef3d755cd36",
+    "results/cgt_authorized_pilot/snapshot/src/context_audit/payload.py": "3d1626e0a97b61c1ad5e169ef83597ca7a5109c7e6a75e150a922a76fc1adbba",
+    "results/cgt_authorized_pilot/snapshot/src/context_audit/evaluation.py": "26611a9857427658cb8143d402ac3e5cfeb9c4bfd362a9e48a1f10406f5c21d3",
+    "results/cgt_authorized_pilot/snapshot/src/context_audit/cgt_findings.py": "77454fb82d7c48b7a8778881c19d6ab83689075c67125ba932b13ca83eb43fe5",
+    "results/cgt_authorized_pilot/snapshot/src/context_audit/verifier.py": "18843f4a0706bd38121a9cabee8f31d72b74442dff28ac382e2d1e9653f3d5f3",
+    "results/cgt_authorized_pilot/snapshot/src/context_audit/cgt_dataset.py": "7b9841adfd0585abb6ac9d58cc6a258ed317a602628f76a86a02ec2836ac4516",
+    "results/cgt_authorized_pilot/snapshot/src/context_audit/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/cgt_authorized_pilot/snapshot/src/context_audit/indexer.py": "9153f6fc310cb1f1746b1949ca5ba57476a19cbf2f608e08e254c1b4b4a9c0ac",
+    "results/cgt_authorized_pilot/snapshot/src/context_audit/llm.py": "20e8c515860f0ed21acb44eb399d9df40f393a3e01ff658c28e3688a2d6e7486",
+    "results/cgt_authorized_pilot/snapshot/results/cgt_preflight/summary.json": "6f40d9775f91a7c1295a39ec921eb22cab8875a5a2905deaa38ed64a02492714",
+    "results/cgt_authorized_pilot/snapshot/results/cgt_reviewed_baseline/reviews.json": "1d9f5a1745d5c8af312b886dc84f6a7c7fa4a18b5a28614c3f9d39b3a89eb2b1",
+    "test/defihacklabs/SpankChainValidation.t.sol": "0b8ca6e93ba2d51804b450085f54183a44dda6ec86eefa46192ccd5e31dd9132",
+    "test/defihacklabs/run_validation.py": "fa619e146f0fa3eaa46ab9e414928658ece1ffd1c7298160e2f76aa3acc02f54",
+    "test/defihacklabs/.gitignore": "2ca99dacdf8870024dce15908b589ab4af26e80f7e1235a6d0f274dc2891efe0",
+    "test/defihacklabs/foundry.toml": "baae0bb08cf4fe44404f320a7d36dbe08228609d21f788060ab2c1ecdd279a5b",
+    "test/defihacklabs/fixtures/HistoricalMutabilityControl.sol.txt": "8b8a47c6c06dac84b1b27e1a27dc7e468617a09490327b6594f82fcf021784c2",
+    "test/defihacklabs/evidence/validation-record.json": "478cf4efe466486ece82e66ffa2c8bf0253e94ff5978b005944bb97322d80213",
+    "test/defihacklabs/evidence/forge-output.txt": "718e7cd4f49ddcd5cc7f3f2d2d506044eaa28f9cf996109cb1b803b153ad7af1"
+  },
+  "limitations": [
+    "Only the 20 nominated candidates reviewed. No silent replacement.",
+    "No new external acquisition performed: prior DNS failures remain unresolved.",
+    "No source hash or compiler inferred from exploit PoC code."
+  ],
+  "supplemental_records": [
+    {
+      "incident_id": "eleven",
+      "project": "Eleven Finance",
+      "source_status": "SOURCE_READY",
+      "cohort_role": "SUPPLEMENTAL_NOT_IN_NOMINATED_20",
+      "chain": "BSC",
+      "victim_address": "0x27DD6E51BF715cFc0e2fe96Af26fC9DED89e4BE8",
+      "implementation_address": null,
+      "affected_contract": "ElevenNeverSellVault",
+      "affected_function": "emergencyBurn()",
+      "compiler_version": "0.6.12",
+      "source_files": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol",
+          "sha256": "97015d1e8c5b3b3bdaae0eb4ddf3d8450bdee18f2b91129cab912bab31e1329d"
+        }
+      ],
+      "main_reason": "Supplemental case: faithful completed local evidence, flattened source and successful compilation/Slither analysis. Known missing-share-burn vulnerability MISSED.",
+      "current_evidence_record": "examples/defihacklabs/evaluation/final20/contracts/eleven/evidence/integration.json",
+      "known_vulnerability_result": "MISSED",
+      "limitations": [
+        "Completed local compilation/Slither evidence supplied by user and imported without rerunning either tool.",
+        "Source/deployment equivalence and original optimizer settings not independently reverified.",
+        "Supplemental case outside the nominated 20; no nominated incident is replaced and no cohort freeze occurs."
+      ]
+    },
+    {
+      "incident_id": "bearn",
+      "project": "bEarn",
+      "source_status": "SOURCE_READY",
+      "chain": "BSC",
+      "victim_address": null,
+      "proxy_address": null,
+      "implementation_address": null,
+      "affected_contract": "BvaultsBank",
+      "affected_function": "withdraw(uint256,uint256)",
+      "compiler_version": "0.6.12",
+      "source_files": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/bearn/raw/Implementation.sol",
+          "sha256": "f414ef0d194592c357eef7c218551d6049e03813e1881a07ac1b04d57fe1f810"
+        },
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/bearn/raw/Victim.sol",
+          "sha256": "2e5e1b856ab978784d39def7dade34e601e405fc9605719c8f4d3f4afffb161a"
+        }
+      ],
+      "compilation_reproducibility": "SUCCESS_EXISTING_EVIDENCE",
+      "main_reason": "Supplemental case: source compiled and Slither succeeded (115 findings); known cross-contract denomination mismatch MISSED.",
+      "known_vulnerability_result": "MISSED",
+      "baseline_classification": "MISSED",
+      "cohort_role": "SUPPLEMENTAL_NOT_IN_NOMINATED_20",
+      "current_evidence_record": "examples/defihacklabs/evaluation/final20/contracts/bearn/evidence/adjudication.json",
+      "limitations": [
+        "User-established historical root-cause adjudication; no compilation, Slither or inference rerun.",
+        "Existing technical integration.json retained unchanged; this separate record supplies manual adjudication.",
+        "Incident-time proxy/implementation deployment equivalence not newly independently verified."
+      ]
+    },
+    {
+      "incident_id": "spartan",
+      "project": "Spartan Protocol",
+      "source_status": "SOURCE_READY",
+      "chain": "BSC",
+      "victim_address": null,
+      "proxy_address": null,
+      "implementation_address": null,
+      "affected_contract": "Pool (liquidity-removal path; external UTILS calculation)",
+      "affected_function": "removeLiquidityForMember(address)",
+      "compiler_version": "0.6.8",
+      "source_files": [
+        {
+          "path": "examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol",
+          "sha256": "8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d"
+        }
+      ],
+      "compilation_reproducibility": "SUCCESS_EXISTING_EVIDENCE",
+      "main_reason": "Supplemental source-backed case; successful compilation/Slither with 76 findings; known liquidity-share calculation flaw MISSED.",
+      "known_vulnerability_result": "MISSED",
+      "baseline_classification": "MISSED",
+      "cohort_role": "SUPPLEMENTAL_NOT_IN_NOMINATED_20",
+      "current_evidence_record": "examples/defihacklabs/evaluation/final20/contracts/spartan/evidence/adjudication.json",
+      "limitations": [
+        "User-established historical root-cause adjudication; no compilation, Slither, inference or exploit reproduction rerun.",
+        "Existing technical integration.json remains immutable; this adjudication records the manual baseline decision.",
+        "The analyzed source calls an external UTILS calcLiquidityShare implementation; no independent deployment-equivalence or completeness claim is added for that external implementation.",
+        "Supplemental case; no nominated incident replaced and no cohort freeze or aggregate metrics."
+      ]
+    }
+  ]
+}

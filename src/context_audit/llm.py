@@ -33,7 +33,7 @@ from file names, detector names, or other metadata alone.
 
 You receive:
 - finding: the specific static-analysis finding to verify;
-- target: the Solidity function associated with the finding;
+- target: the Solidity function or modifier associated with the finding;
 - available_context: metadata for source fragments you may request;
 - provided_context: additional source fragments already retrieved.
 
@@ -41,7 +41,7 @@ Your task is NOT to perform a general security audit.
 Evaluate only whether the supplied static-analysis finding is supported
 by the available source code.
 
-A different vulnerability in the same function does not by itself
+A different vulnerability in the same target does not by itself
 confirm the reported finding.
 
 Only use supplied source code as evidence.

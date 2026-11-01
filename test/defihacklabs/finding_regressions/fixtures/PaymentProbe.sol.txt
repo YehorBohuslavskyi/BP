@@ -1,0 +1,11 @@
+pragma solidity 0.6.8;
+import "Victim.sol";
+// Test-only fixture configuration and visibility adapter; inherited payment code unchanged.
+contract PaymentProbe is Router {
+    bool public continued;
+    function configureWrapped(address wrapped) external { WBNB = wrapped; }
+    function pay(address recipient, uint256 amount) external {
+        _handleTransferOut(address(0), amount, recipient);
+        continued = true;
+    }
+}

@@ -1,0 +1,458 @@
+Multiple frameworks detected: solc, Solc-json. Using solc (highest priority). Use --compile-force-framework to override.
+'solc --version' running
+'solc examples/scalability/LargeTreasury200K.sol --combined-json abi,ast,bin,bin-runtime,srcmap,srcmap-runtime,userdoc,devdoc,hashes --allow-paths .,/home/coca-cola/projects/BP/examples/scalability' running
+Compilation warnings/errors on examples/scalability/LargeTreasury200K.sol:
+Warning: Return value of low-level calls not used.
+    --> examples/scalability/LargeTreasury200K.sol:1349:13:
+     |
+1349 |             targets[i].call(payloads[i]);
+     |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning: Contract code size is 174229 bytes and exceeds 24576 bytes (a limit introduced in Spurious Dragon). This contract may not be deployable on Mainnet. Consider enabling the optimizer (with a low "runs" value!), turning off revert strings, or using libraries.
+  --> examples/scalability/LargeTreasury200K.sol:14:1:
+   |
+14 | contract LargeTreasury {
+   | ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning: Contract initcode size is 175873 bytes and exceeds 49152 bytes (a limit introduced in Shanghai). This contract may not be deployable on Mainnet. Consider enabling the optimizer (with a low "runs" value!), turning off revert strings, or using libraries.
+  --> examples/scalability/LargeTreasury200K.sol:14:1:
+   |
+14 | contract LargeTreasury {
+   | ^ (Relevant source part starts here and spans across multiple lines).
+
+
+INFO:Detectors:
+Detector: reentrancy-eth
+Reentrancy in LargeTreasury.batchReimburse(address[],uint256[]) (examples/scalability/LargeTreasury200K.sol#1215-1238):
+	External calls:
+	- (success,None) = recipient.call{value: amount}() (examples/scalability/LargeTreasury200K.sol#1235)
+	State variables written after the call(s):
+	- totalManaged -= amount (examples/scalability/LargeTreasury200K.sol#1232)
+	LargeTreasury.totalManaged (examples/scalability/LargeTreasury200K.sol#143) can be used in cross function reentrancies:
+	- LargeTreasury._recordDeposit(address,address,uint256) (examples/scalability/LargeTreasury200K.sol#1725-1741)
+	- LargeTreasury.batchReimburse(address[],uint256[]) (examples/scalability/LargeTreasury200K.sol#1215-1238)
+	- LargeTreasury.callIntegration(address,uint256,bytes) (examples/scalability/LargeTreasury200K.sol#1306-1325)
+	- LargeTreasury.claimScheduledPayment(uint256) (examples/scalability/LargeTreasury200K.sol#775-792)
+	- LargeTreasury.constructor(address,address) (examples/scalability/LargeTreasury200K.sol#303-329)
+	- LargeTreasury.departmentPayment(address,uint256) (examples/scalability/LargeTreasury200K.sol#1011-1029)
+	- LargeTreasury.emergencyWithdraw(address,uint256) (examples/scalability/LargeTreasury200K.sol#1515-1530)
+	- LargeTreasury.executeProposal(uint256) (examples/scalability/LargeTreasury200K.sol#682-704)
+	- LargeTreasury.executeRecurringPayment(uint256) (examples/scalability/LargeTreasury200K.sol#848-871)
+	- LargeTreasury.getTreasuryTotals() (examples/scalability/LargeTreasury200K.sol#1747-1765)
+	- LargeTreasury.payInvoice(uint256) (examples/scalability/LargeTreasury200K.sol#1134-1150)
+	- LargeTreasury.recoverTo(address,uint256) (examples/scalability/LargeTreasury200K.sol#1532-1547)
+	- LargeTreasury.reimburseMember(address,uint256,string) (examples/scalability/LargeTreasury200K.sol#1196-1213)
+	- LargeTreasury.spendAllowance(address,uint256) (examples/scalability/LargeTreasury200K.sol#1058-1080)
+	- LargeTreasury.spendBudget(uint256,address,uint256) (examples/scalability/LargeTreasury200K.sol#935-958)
+	- LargeTreasury.spendFromMemberLimit(address,uint256) (examples/scalability/LargeTreasury200K.sol#1274-1300)
+	- LargeTreasury.totalManaged (examples/scalability/LargeTreasury200K.sol#143)
+	- LargeTreasury.withdrawCredit(uint256) (examples/scalability/LargeTreasury200K.sol#551-565)
+	- LargeTreasury.withdrawCreditSafe(uint256) (examples/scalability/LargeTreasury200K.sol#567-581)
+	- totalWithdrawals += amount (examples/scalability/LargeTreasury200K.sol#1233)
+	LargeTreasury.totalWithdrawals (examples/scalability/LargeTreasury200K.sol#145) can be used in cross function reentrancies:
+	- LargeTreasury.batchReimburse(address[],uint256[]) (examples/scalability/LargeTreasury200K.sol#1215-1238)
+	- LargeTreasury.callIntegration(address,uint256,bytes) (examples/scalability/LargeTreasury200K.sol#1306-1325)
+	- LargeTreasury.claimScheduledPayment(uint256) (examples/scalability/LargeTreasury200K.sol#775-792)
+	- LargeTreasury.departmentPayment(address,uint256) (examples/scalability/LargeTreasury200K.sol#1011-1029)
+	- LargeTreasury.emergencyWithdraw(address,uint256) (examples/scalability/LargeTreasury200K.sol#1515-1530)
+	- LargeTreasury.executeProposal(uint256) (examples/scalability/LargeTreasury200K.sol#682-704)
+	- LargeTreasury.executeRecurringPayment(uint256) (examples/scalability/LargeTreasury200K.sol#848-871)
+	- LargeTreasury.getTreasuryTotals() (examples/scalability/LargeTreasury200K.sol#1747-1765)
+	- LargeTreasury.payInvoice(uint256) (examples/scalability/LargeTreasury200K.sol#1134-1150)
+	- LargeTreasury.recoverTo(address,uint256) (examples/scalability/LargeTreasury200K.sol#1532-1547)
+	- LargeTreasury.reimburseMember(address,uint256,string) (examples/scalability/LargeTreasury200K.sol#1196-1213)
+	- LargeTreasury.spendAllowance(address,uint256) (examples/scalability/LargeTreasury200K.sol#1058-1080)
+	- LargeTreasury.spendBudget(uint256,address,uint256) (examples/scalability/LargeTreasury200K.sol#935-958)
+	- LargeTreasury.spendFromMemberLimit(address,uint256) (examples/scalability/LargeTreasury200K.sol#1274-1300)
+	- LargeTreasury.totalWithdrawals (examples/scalability/LargeTreasury200K.sol#145)
+	- LargeTreasury.withdrawCredit(uint256) (examples/scalability/LargeTreasury200K.sol#551-565)
+	- LargeTreasury.withdrawCreditSafe(uint256) (examples/scalability/LargeTreasury200K.sol#567-581)
+Reentrancy in LargeTreasury.withdrawCredit(uint256) (examples/scalability/LargeTreasury200K.sol#551-565):
+	External calls:
+	- (success,None) = address(msg.sender).call{value: amount}() (examples/scalability/LargeTreasury200K.sol#556)
+	State variables written after the call(s):
+	- credits[msg.sender] -= amount (examples/scalability/LargeTreasury200K.sol#559)
+	LargeTreasury.credits (examples/scalability/LargeTreasury200K.sol#165) can be used in cross function reentrancies:
+	- LargeTreasury.addCredit(address,uint256,string) (examples/scalability/LargeTreasury200K.sol#533-543)
+	- LargeTreasury.availableCredit(address) (examples/scalability/LargeTreasury200K.sol#592-594)
+	- LargeTreasury.batchCredit(address[],uint256[]) (examples/scalability/LargeTreasury200K.sol#1240-1253)
+	- LargeTreasury.credits (examples/scalability/LargeTreasury200K.sol#165)
+	- LargeTreasury.getMemberFinancials(address) (examples/scalability/LargeTreasury200K.sol#1830-1847)
+	- LargeTreasury.memberSnapshot1(address) (examples/scalability/LargeTreasury200K.sol#1903-1920)
+	- LargeTreasury.memberSnapshot10(address) (examples/scalability/LargeTreasury200K.sol#2227-2244)
+	- LargeTreasury.memberSnapshot100(address) (examples/scalability/LargeTreasury200K.sol#5370-5387)
+	- LargeTreasury.memberSnapshot101(address) (examples/scalability/LargeTreasury200K.sol#5407-5424)
+	- LargeTreasury.memberSnapshot102(address) (examples/scalability/LargeTreasury200K.sol#5444-5461)
+	- LargeTreasury.memberSnapshot103(address) (examples/scalability/LargeTreasury200K.sol#5481-5498)
+	- LargeTreasury.memberSnapshot104(address) (examples/scalability/LargeTreasury200K.sol#5518-5535)
+	- LargeTreasury.memberSnapshot105(address) (examples/scalability/LargeTreasury200K.sol#5555-5572)
+	- LargeTreasury.memberSnapshot106(address) (examples/scalability/LargeTreasury200K.sol#5592-5609)
+	- LargeTreasury.memberSnapshot107(address) (examples/scalability/LargeTreasury200K.sol#5629-5646)
+	- LargeTreasury.memberSnapshot108(address) (examples/scalability/LargeTreasury200K.sol#5666-5683)
+	- LargeTreasury.memberSnapshot109(address) (examples/scalability/LargeTreasury200K.sol#5703-5720)
+	- LargeTreasury.memberSnapshot11(address) (examples/scalability/LargeTreasury200K.sol#2263-2280)
+	- LargeTreasury.memberSnapshot110(address) (examples/scalability/LargeTreasury200K.sol#5740-5757)
+	- LargeTreasury.memberSnapshot111(address) (examples/scalability/LargeTreasury200K.sol#5777-5794)
+	- LargeTreasury.memberSnapshot112(address) (examples/scalability/LargeTreasury200K.sol#5814-5831)
+	- LargeTreasury.memberSnapshot113(address) (examples/scalability/LargeTreasury200K.sol#5851-5868)
+	- LargeTreasury.memberSnapshot114(address) (examples/scalability/LargeTreasury200K.sol#5888-5905)
+	- LargeTreasury.memberSnapshot115(address) (examples/scalability/LargeTreasury200K.sol#5925-5942)
+	- LargeTreasury.memberSnapshot116(address) (examples/scalability/LargeTreasury200K.sol#5962-5979)
+	- LargeTreasury.memberSnapshot117(address) (examples/scalability/LargeTreasury200K.sol#5999-6016)
+	- LargeTreasury.memberSnapshot118(address) (examples/scalability/LargeTreasury200K.sol#6036-6053)
+	- LargeTreasury.memberSnapshot119(address) (examples/scalability/LargeTreasury200K.sol#6073-6090)
+	- LargeTreasury.memberSnapshot12(address) (examples/scalability/LargeTreasury200K.sol#2299-2316)
+	- LargeTreasury.memberSnapshot120(address) (examples/scalability/LargeTreasury200K.sol#6110-6127)
+	- LargeTreasury.memberSnapshot13(address) (examples/scalability/LargeTreasury200K.sol#2335-2352)
+	- LargeTreasury.memberSnapshot14(address) (examples/scalability/LargeTreasury200K.sol#2371-2388)
+	- LargeTreasury.memberSnapshot15(address) (examples/scalability/LargeTreasury200K.sol#2407-2424)
+	- LargeTreasury.memberSnapshot16(address) (examples/scalability/LargeTreasury200K.sol#2443-2460)
+	- LargeTreasury.memberSnapshot17(address) (examples/scalability/LargeTreasury200K.sol#2479-2496)
+	- LargeTreasury.memberSnapshot18(address) (examples/scalability/LargeTreasury200K.sol#2515-2532)
+	- LargeTreasury.memberSnapshot19(address) (examples/scalability/LargeTreasury200K.sol#2551-2568)
+	- LargeTreasury.memberSnapshot2(address) (examples/scalability/LargeTreasury200K.sol#1939-1956)
+	- LargeTreasury.memberSnapshot20(address) (examples/scalability/LargeTreasury200K.sol#2587-2604)
+	- LargeTreasury.memberSnapshot21(address) (examples/scalability/LargeTreasury200K.sol#2623-2640)
+	- LargeTreasury.memberSnapshot22(address) (examples/scalability/LargeTreasury200K.sol#2659-2676)
+	- LargeTreasury.memberSnapshot23(address) (examples/scalability/LargeTreasury200K.sol#2695-2712)
+	- LargeTreasury.memberSnapshot24(address) (examples/scalability/LargeTreasury200K.sol#2731-2748)
+	- LargeTreasury.memberSnapshot25(address) (examples/scalability/LargeTreasury200K.sol#2767-2784)
+	- LargeTreasury.memberSnapshot26(address) (examples/scalability/LargeTreasury200K.sol#2803-2820)
+	- LargeTreasury.memberSnapshot27(address) (examples/scalability/LargeTreasury200K.sol#2839-2856)
+	- LargeTreasury.memberSnapshot28(address) (examples/scalability/LargeTreasury200K.sol#2875-2892)
+	- LargeTreasury.memberSnapshot29(address) (examples/scalability/LargeTreasury200K.sol#2911-2928)
+	- LargeTreasury.memberSnapshot3(address) (examples/scalability/LargeTreasury200K.sol#1975-1992)
+	- LargeTreasury.memberSnapshot30(address) (examples/scalability/LargeTreasury200K.sol#2947-2964)
+	- LargeTreasury.memberSnapshot4(address) (examples/scalability/LargeTreasury200K.sol#2011-2028)
+	- LargeTreasury.memberSnapshot5(address) (examples/scalability/LargeTreasury200K.sol#2047-2064)
+	- LargeTreasury.memberSnapshot6(address) (examples/scalability/LargeTreasury200K.sol#2083-2100)
+	- LargeTreasury.memberSnapshot61(address) (examples/scalability/LargeTreasury200K.sol#3927-3944)
+	- LargeTreasury.memberSnapshot62(address) (examples/scalability/LargeTreasury200K.sol#3964-3981)
+	- LargeTreasury.memberSnapshot63(address) (examples/scalability/LargeTreasury200K.sol#4001-4018)
+	- LargeTreasury.memberSnapshot64(address) (examples/scalability/LargeTreasury200K.sol#4038-4055)
+	- LargeTreasury.memberSnapshot65(address) (examples/scalability/LargeTreasury200K.sol#4075-4092)
+	- LargeTreasury.memberSnapshot66(address) (examples/scalability/LargeTreasury200K.sol#4112-4129)
+	- LargeTreasury.memberSnapshot67(address) (examples/scalability/LargeTreasury200K.sol#4149-4166)
+	- LargeTreasury.memberSnapshot68(address) (examples/scalability/LargeTreasury200K.sol#4186-4203)
+	- LargeTreasury.memberSnapshot69(address) (examples/scalability/LargeTreasury200K.sol#4223-4240)
+	- LargeTreasury.memberSnapshot7(address) (examples/scalability/LargeTreasury200K.sol#2119-2136)
+	- LargeTreasury.memberSnapshot70(address) (examples/scalability/LargeTreasury200K.sol#4260-4277)
+	- LargeTreasury.memberSnapshot71(address) (examples/scalability/LargeTreasury200K.sol#4297-4314)
+	- LargeTreasury.memberSnapshot72(address) (examples/scalability/LargeTreasury200K.sol#4334-4351)
+	- LargeTreasury.memberSnapshot73(address) (examples/scalability/LargeTreasury200K.sol#4371-4388)
+	- LargeTreasury.memberSnapshot74(address) (examples/scalability/LargeTreasury200K.sol#4408-4425)
+	- LargeTreasury.memberSnapshot75(address) (examples/scalability/LargeTreasury200K.sol#4445-4462)
+	- LargeTreasury.memberSnapshot76(address) (examples/scalability/LargeTreasury200K.sol#4482-4499)
+	- LargeTreasury.memberSnapshot77(address) (examples/scalability/LargeTreasury200K.sol#4519-4536)
+	- LargeTreasury.memberSnapshot78(address) (examples/scalability/LargeTreasury200K.sol#4556-4573)
+	- LargeTreasury.memberSnapshot79(address) (examples/scalability/LargeTreasury200K.sol#4593-4610)
+	- LargeTreasury.memberSnapshot8(address) (examples/scalability/LargeTreasury200K.sol#2155-2172)
+	- LargeTreasury.memberSnapshot80(address) (examples/scalability/LargeTreasury200K.sol#4630-4647)
+	- LargeTreasury.memberSnapshot81(address) (examples/scalability/LargeTreasury200K.sol#4667-4684)
+	- LargeTreasury.memberSnapshot82(address) (examples/scalability/LargeTreasury200K.sol#4704-4721)
+	- LargeTreasury.memberSnapshot83(address) (examples/scalability/LargeTreasury200K.sol#4741-4758)
+	- LargeTreasury.memberSnapshot84(address) (examples/scalability/LargeTreasury200K.sol#4778-4795)
+	- LargeTreasury.memberSnapshot85(address) (examples/scalability/LargeTreasury200K.sol#4815-4832)
+	- LargeTreasury.memberSnapshot86(address) (examples/scalability/LargeTreasury200K.sol#4852-4869)
+	- LargeTreasury.memberSnapshot87(address) (examples/scalability/LargeTreasury200K.sol#4889-4906)
+	- LargeTreasury.memberSnapshot88(address) (examples/scalability/LargeTreasury200K.sol#4926-4943)
+	- LargeTreasury.memberSnapshot89(address) (examples/scalability/LargeTreasury200K.sol#4963-4980)
+	- LargeTreasury.memberSnapshot9(address) (examples/scalability/LargeTreasury200K.sol#2191-2208)
+	- LargeTreasury.memberSnapshot90(address) (examples/scalability/LargeTreasury200K.sol#5000-5017)
+	- LargeTreasury.memberSnapshot91(address) (examples/scalability/LargeTreasury200K.sol#5037-5054)
+	- LargeTreasury.memberSnapshot92(address) (examples/scalability/LargeTreasury200K.sol#5074-5091)
+	- LargeTreasury.memberSnapshot93(address) (examples/scalability/LargeTreasury200K.sol#5111-5128)
+	- LargeTreasury.memberSnapshot94(address) (examples/scalability/LargeTreasury200K.sol#5148-5165)
+	- LargeTreasury.memberSnapshot95(address) (examples/scalability/LargeTreasury200K.sol#5185-5202)
+	- LargeTreasury.memberSnapshot96(address) (examples/scalability/LargeTreasury200K.sol#5222-5239)
+	- LargeTreasury.memberSnapshot97(address) (examples/scalability/LargeTreasury200K.sol#5259-5276)
+	- LargeTreasury.memberSnapshot98(address) (examples/scalability/LargeTreasury200K.sol#5296-5313)
+	- LargeTreasury.memberSnapshot99(address) (examples/scalability/LargeTreasury200K.sol#5333-5350)
+	- LargeTreasury.reduceCredit(address,uint256) (examples/scalability/LargeTreasury200K.sol#545-549)
+	- LargeTreasury.totalOutstandingCredits(address[]) (examples/scalability/LargeTreasury200K.sol#1577-1583)
+	- LargeTreasury.transferCredit(address,uint256) (examples/scalability/LargeTreasury200K.sol#583-590)
+	- LargeTreasury.withdrawCredit(uint256) (examples/scalability/LargeTreasury200K.sol#551-565)
+	- LargeTreasury.withdrawCreditSafe(uint256) (examples/scalability/LargeTreasury200K.sol#567-581)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+INFO:Detectors:
+Detector: incorrect-equality
+LargeTreasury.executeRecurringPayment(uint256) (examples/scalability/LargeTreasury200K.sol#848-871) uses a dangerous strict equality:
+	- payment.remainingExecutions == 0 (examples/scalability/LargeTreasury200K.sol#860)
+LargeTreasury.onlyManager() (examples/scalability/LargeTreasury200K.sol#270-277) uses a dangerous strict equality:
+	- require(bool,string)(members[msg.sender].active && (members[msg.sender].role == Role.Manager || msg.sender == owner),not manager) (examples/scalability/LargeTreasury200K.sol#271-275)
+LargeTreasury.writeAuditEntry(bytes32,address,uint256,bytes32) (examples/scalability/LargeTreasury200K.sol#1442-1467) uses a dangerous strict equality:
+	- require(bool,string)(msg.sender == owner || msg.sender == auditor || members[msg.sender].role == Role.Manager,not authorized) (examples/scalability/LargeTreasury200K.sol#1448-1453)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+INFO:Detectors:
+Detector: tx-origin
+LargeTreasury.legacySetGuardian(address) (examples/scalability/LargeTreasury200K.sol#405-413) uses tx.origin for authorization: require(bool,string)(tx.origin == owner,not authorized) (examples/scalability/LargeTreasury200K.sol#406)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-usage-of-txorigin
+INFO:Detectors:
+Detector: unchecked-lowlevel
+LargeTreasury.legacyBatchCall(address[],bytes[]) (examples/scalability/LargeTreasury200K.sol#1337-1352) ignores return value by targets[i].call(payloads[i]) (examples/scalability/LargeTreasury200K.sol#1349)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-low-level-calls
+INFO:Detectors:
+Detector: events-maths
+LargeTreasury.departmentPayment(address,uint256) (examples/scalability/LargeTreasury200K.sol#1011-1029) should emit an event for: 
+	- totalManaged -= amount (examples/scalability/LargeTreasury200K.sol#1024) 
+	- totalWithdrawals += amount (examples/scalability/LargeTreasury200K.sol#1025) 
+LargeTreasury.batchReimburse(address[],uint256[]) (examples/scalability/LargeTreasury200K.sol#1215-1238) should emit an event for: 
+	- totalManaged -= amount (examples/scalability/LargeTreasury200K.sol#1232) 
+	- totalWithdrawals += amount (examples/scalability/LargeTreasury200K.sol#1233) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+INFO:Detectors:
+Detector: missing-zero-check
+LargeTreasury.departmentPayment(address,uint256).recipient (examples/scalability/LargeTreasury200K.sol#1012) lacks a zero-check on :
+		- (success,None) = recipient.call{value: amount}() (examples/scalability/LargeTreasury200K.sol#1027)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+INFO:Detectors:
+Detector: calls-loop
+LargeTreasury.batchReimburse(address[],uint256[]) (examples/scalability/LargeTreasury200K.sol#1215-1238) has external calls inside a loop: (success,None) = recipient.call{value: amount}() (examples/scalability/LargeTreasury200K.sol#1235)
+LargeTreasury.legacyBatchCall(address[],bytes[]) (examples/scalability/LargeTreasury200K.sol#1337-1352) has external calls inside a loop: targets[i].call(payloads[i]) (examples/scalability/LargeTreasury200K.sol#1349)
+LargeTreasury.safeBatchCall(address[],bytes[]) (examples/scalability/LargeTreasury200K.sol#1354-1368) has external calls inside a loop: (success,None) = targets[i].call(payloads[i]) (examples/scalability/LargeTreasury200K.sol#1365)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+INFO:Detectors:
+Detector: reentrancy-benign
+Reentrancy in LargeTreasury.callIntegration(address,uint256,bytes) (examples/scalability/LargeTreasury200K.sol#1306-1325):
+	External calls:
+	- (success,result) = target.call{value: value}(data) (examples/scalability/LargeTreasury200K.sol#1314)
+	State variables written after the call(s):
+	- totalExternalValue += value (examples/scalability/LargeTreasury200K.sol#1320)
+	- totalManaged -= value (examples/scalability/LargeTreasury200K.sol#1318)
+	- totalWithdrawals += value (examples/scalability/LargeTreasury200K.sol#1319)
+Reentrancy in LargeTreasury.executeProposal(uint256) (examples/scalability/LargeTreasury200K.sol#682-704):
+	External calls:
+	- (success,None) = proposal.recipient.call{value: proposal.amount}(proposal.data) (examples/scalability/LargeTreasury200K.sol#695)
+	State variables written after the call(s):
+	- totalManaged -= proposal.amount (examples/scalability/LargeTreasury200K.sol#699)
+	- totalWithdrawals += proposal.amount (examples/scalability/LargeTreasury200K.sol#700)
+Reentrancy in LargeTreasury.recoverTo(address,uint256) (examples/scalability/LargeTreasury200K.sol#1532-1547):
+	External calls:
+	- (success,None) = recipient.call{value: amount}() (examples/scalability/LargeTreasury200K.sol#1540)
+	State variables written after the call(s):
+	- totalManaged -= amount (examples/scalability/LargeTreasury200K.sol#1543)
+	- totalWithdrawals += amount (examples/scalability/LargeTreasury200K.sol#1544)
+Reentrancy in LargeTreasury.withdrawCredit(uint256) (examples/scalability/LargeTreasury200K.sol#551-565):
+	External calls:
+	- (success,None) = address(msg.sender).call{value: amount}() (examples/scalability/LargeTreasury200K.sol#556)
+	State variables written after the call(s):
+	- lastWithdrawal[msg.sender] = block.timestamp (examples/scalability/LargeTreasury200K.sol#562)
+	- totalManaged -= amount (examples/scalability/LargeTreasury200K.sol#560)
+	- totalWithdrawals += amount (examples/scalability/LargeTreasury200K.sol#561)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+INFO:Detectors:
+Detector: reentrancy-events
+Reentrancy in LargeTreasury.callIntegration(address,uint256,bytes) (examples/scalability/LargeTreasury200K.sol#1306-1325):
+	External calls:
+	- (success,result) = target.call{value: value}(data) (examples/scalability/LargeTreasury200K.sol#1314)
+	Event emitted after the call(s):
+	- ExternalCall(target,value,data) (examples/scalability/LargeTreasury200K.sol#1323)
+Reentrancy in LargeTreasury.claimScheduledPayment(uint256) (examples/scalability/LargeTreasury200K.sol#775-792):
+	External calls:
+	- (success,None) = payment.recipient.call{value: payment.amount}() (examples/scalability/LargeTreasury200K.sol#788)
+	Event emitted after the call(s):
+	- ScheduledPaymentClaimed(paymentId,payment.recipient,payment.amount) (examples/scalability/LargeTreasury200K.sol#791)
+Reentrancy in LargeTreasury.emergencyWithdraw(address,uint256) (examples/scalability/LargeTreasury200K.sol#1515-1530):
+	External calls:
+	- (success,None) = recipient.call{value: amount}() (examples/scalability/LargeTreasury200K.sol#1526)
+	Event emitted after the call(s):
+	- EmergencyWithdrawal(recipient,amount) (examples/scalability/LargeTreasury200K.sol#1529)
+Reentrancy in LargeTreasury.executeProposal(uint256) (examples/scalability/LargeTreasury200K.sol#682-704):
+	External calls:
+	- (success,None) = proposal.recipient.call{value: proposal.amount}(proposal.data) (examples/scalability/LargeTreasury200K.sol#695)
+	Event emitted after the call(s):
+	- ProposalExecuted(proposalId,proposal.recipient,proposal.amount) (examples/scalability/LargeTreasury200K.sol#703)
+Reentrancy in LargeTreasury.executeRecurringPayment(uint256) (examples/scalability/LargeTreasury200K.sol#848-871):
+	External calls:
+	- (success,None) = payment.recipient.call{value: payment.amount}() (examples/scalability/LargeTreasury200K.sol#867)
+	Event emitted after the call(s):
+	- RecurringPaymentExecuted(paymentId,payment.amount,payment.nextExecution) (examples/scalability/LargeTreasury200K.sol#870)
+Reentrancy in LargeTreasury.legacyBatchCall(address[],bytes[]) (examples/scalability/LargeTreasury200K.sol#1337-1352):
+	External calls:
+	- targets[i].call(payloads[i]) (examples/scalability/LargeTreasury200K.sol#1349)
+	Event emitted after the call(s):
+	- ExternalCall(targets[i],0,payloads[i]) (examples/scalability/LargeTreasury200K.sol#1350)
+Reentrancy in LargeTreasury.payInvoice(uint256) (examples/scalability/LargeTreasury200K.sol#1134-1150):
+	External calls:
+	- (success,None) = address(invoice.vendor).call{value: invoice.amount}() (examples/scalability/LargeTreasury200K.sol#1146)
+	Event emitted after the call(s):
+	- InvoicePaid(invoiceId,invoice.vendor,invoice.amount) (examples/scalability/LargeTreasury200K.sol#1149)
+Reentrancy in LargeTreasury.recoverTo(address,uint256) (examples/scalability/LargeTreasury200K.sol#1532-1547):
+	External calls:
+	- (success,None) = recipient.call{value: amount}() (examples/scalability/LargeTreasury200K.sol#1540)
+	Event emitted after the call(s):
+	- EmergencyWithdrawal(recipient,amount) (examples/scalability/LargeTreasury200K.sol#1546)
+Reentrancy in LargeTreasury.reimburseMember(address,uint256,string) (examples/scalability/LargeTreasury200K.sol#1196-1213):
+	External calls:
+	- (success,None) = member.call{value: amount}() (examples/scalability/LargeTreasury200K.sol#1209)
+	Event emitted after the call(s):
+	- CreditAdded(member,amount,reason) (examples/scalability/LargeTreasury200K.sol#1212)
+Reentrancy in LargeTreasury.spendAllowance(address,uint256) (examples/scalability/LargeTreasury200K.sol#1058-1080):
+	External calls:
+	- (success,None) = recipient.call{value: amount}() (examples/scalability/LargeTreasury200K.sol#1076)
+	Event emitted after the call(s):
+	- AllowanceSpent(msg.sender,recipient,amount) (examples/scalability/LargeTreasury200K.sol#1079)
+Reentrancy in LargeTreasury.spendBudget(uint256,address,uint256) (examples/scalability/LargeTreasury200K.sol#935-958):
+	External calls:
+	- (success,None) = recipient.call{value: amount}() (examples/scalability/LargeTreasury200K.sol#954)
+	Event emitted after the call(s):
+	- BudgetSpent(budgetId,recipient,amount) (examples/scalability/LargeTreasury200K.sol#957)
+Reentrancy in LargeTreasury.withdrawCredit(uint256) (examples/scalability/LargeTreasury200K.sol#551-565):
+	External calls:
+	- (success,None) = address(msg.sender).call{value: amount}() (examples/scalability/LargeTreasury200K.sol#556)
+	Event emitted after the call(s):
+	- CreditWithdrawn(msg.sender,amount) (examples/scalability/LargeTreasury200K.sol#564)
+Reentrancy in LargeTreasury.withdrawCreditSafe(uint256) (examples/scalability/LargeTreasury200K.sol#567-581):
+	External calls:
+	- (success,None) = address(msg.sender).call{value: amount}() (examples/scalability/LargeTreasury200K.sol#577)
+	Event emitted after the call(s):
+	- CreditWithdrawn(msg.sender,amount) (examples/scalability/LargeTreasury200K.sol#580)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+INFO:Detectors:
+Detector: timestamp
+LargeTreasury.addMember(address,LargeTreasury.Role,uint96) (examples/scalability/LargeTreasury200K.sol#419-437) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(! members[account].active,already member) (examples/scalability/LargeTreasury200K.sol#421)
+LargeTreasury.removeMember(address) (examples/scalability/LargeTreasury200K.sol#439-445) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(members[account].active,not active) (examples/scalability/LargeTreasury200K.sol#440)
+LargeTreasury.updateMemberRole(address,LargeTreasury.Role) (examples/scalability/LargeTreasury200K.sol#447-456) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(members[account].active,not active) (examples/scalability/LargeTreasury200K.sol#448)
+LargeTreasury.setSpendingLimit(address,uint96) (examples/scalability/LargeTreasury200K.sol#458-465) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(members[account].active,not active) (examples/scalability/LargeTreasury200K.sol#459)
+LargeTreasury.approveProposal(uint256) (examples/scalability/LargeTreasury200K.sol#635-651) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(proposal.state == ProposalState.Pending,not pending) (examples/scalability/LargeTreasury200K.sol#638)
+	- require(bool,string)(block.timestamp <= proposal.expiresAt,expired) (examples/scalability/LargeTreasury200K.sol#639)
+LargeTreasury.cancelProposal(uint256) (examples/scalability/LargeTreasury200K.sol#653-668) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(proposal.state == ProposalState.Pending || proposal.state == ProposalState.Approved,not cancellable) (examples/scalability/LargeTreasury200K.sol#656-660)
+	- require(bool,string)(msg.sender == proposal.proposer || msg.sender == owner,not authorized) (examples/scalability/LargeTreasury200K.sol#661-664)
+LargeTreasury.expireProposal(uint256) (examples/scalability/LargeTreasury200K.sol#670-680) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(proposal.state == ProposalState.Pending || proposal.state == ProposalState.Approved,not active) (examples/scalability/LargeTreasury200K.sol#672-676)
+	- require(bool,string)(block.timestamp > proposal.expiresAt,not expired) (examples/scalability/LargeTreasury200K.sol#677)
+LargeTreasury.executeProposal(uint256) (examples/scalability/LargeTreasury200K.sol#682-704) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(proposal.state == ProposalState.Approved,not approved) (examples/scalability/LargeTreasury200K.sol#687)
+	- require(bool,string)(block.timestamp >= proposal.executeAfter,timelocked) (examples/scalability/LargeTreasury200K.sol#688)
+	- require(bool,string)(block.timestamp <= proposal.expiresAt,expired) (examples/scalability/LargeTreasury200K.sol#689)
+	- require(bool,string)(proposal.approvals >= 2,not enough approvals) (examples/scalability/LargeTreasury200K.sol#690)
+	- require(bool,string)(address(this).balance >= proposal.amount,insufficient treasury) (examples/scalability/LargeTreasury200K.sol#691)
+LargeTreasury.schedulePayment(address,uint256,uint64,string) (examples/scalability/LargeTreasury200K.sol#743-764) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(releaseTime > block.timestamp,release in past) (examples/scalability/LargeTreasury200K.sol#751)
+LargeTreasury.claimScheduledPayment(uint256) (examples/scalability/LargeTreasury200K.sol#775-792) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(block.timestamp >= payment.releaseTime,not released) (examples/scalability/LargeTreasury200K.sol#781)
+LargeTreasury.executeRecurringPayment(uint256) (examples/scalability/LargeTreasury200K.sol#848-871) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(payment.active,inactive) (examples/scalability/LargeTreasury200K.sol#851)
+	- require(bool,string)(payment.recipient != address(0),unknown payment) (examples/scalability/LargeTreasury200K.sol#852)
+	- require(bool,string)(block.timestamp >= payment.nextExecution,too early) (examples/scalability/LargeTreasury200K.sol#853)
+	- require(bool,string)(payment.remainingExecutions > 0,finished) (examples/scalability/LargeTreasury200K.sol#854)
+	- require(bool,string)(address(this).balance >= payment.amount,insufficient treasury) (examples/scalability/LargeTreasury200K.sol#855)
+	- payment.remainingExecutions == 0 (examples/scalability/LargeTreasury200K.sol#860)
+LargeTreasury.cancelRecurringPayment(uint256) (examples/scalability/LargeTreasury200K.sol#873-878) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(payment.active,inactive) (examples/scalability/LargeTreasury200K.sol#875)
+LargeTreasury.spendBudget(uint256,address,uint256) (examples/scalability/LargeTreasury200K.sol#935-958) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(block.timestamp >= budget.periodStart,period not started) (examples/scalability/LargeTreasury200K.sol#943)
+	- require(bool,string)(block.timestamp <= budget.periodEnd,period ended) (examples/scalability/LargeTreasury200K.sol#944)
+LargeTreasury.spendAllowance(address,uint256) (examples/scalability/LargeTreasury200K.sol#1058-1080) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(block.timestamp >= allowance.periodStart,period not started) (examples/scalability/LargeTreasury200K.sol#1065)
+	- require(bool,string)(block.timestamp <= allowance.periodEnd,period ended) (examples/scalability/LargeTreasury200K.sol#1066)
+LargeTreasury.approveInvoice(uint256) (examples/scalability/LargeTreasury200K.sol#1124-1132) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(! invoice.paid,already paid) (examples/scalability/LargeTreasury200K.sol#1127)
+	- require(bool,string)(! invoice.approved,already approved) (examples/scalability/LargeTreasury200K.sol#1128)
+LargeTreasury.payInvoice(uint256) (examples/scalability/LargeTreasury200K.sol#1134-1150) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(invoice.approved,not approved) (examples/scalability/LargeTreasury200K.sol#1137)
+	- require(bool,string)(! invoice.paid,already paid) (examples/scalability/LargeTreasury200K.sol#1138)
+	- require(bool,string)(address(this).balance >= invoice.amount,insufficient treasury) (examples/scalability/LargeTreasury200K.sol#1139)
+LargeTreasury.updateInvoiceDueDate(uint256,uint64) (examples/scalability/LargeTreasury200K.sol#1152-1160) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(! invoice.paid,already paid) (examples/scalability/LargeTreasury200K.sol#1157)
+	- require(bool,string)(newDueAt > block.timestamp,past due date) (examples/scalability/LargeTreasury200K.sol#1158)
+LargeTreasury.reimburseMember(address,uint256,string) (examples/scalability/LargeTreasury200K.sol#1196-1213) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(members[member].active,not member) (examples/scalability/LargeTreasury200K.sol#1201)
+LargeTreasury.spendFromMemberLimit(address,uint256) (examples/scalability/LargeTreasury200K.sol#1274-1300) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(amount <= members[msg.sender].spendingLimit,over member limit) (examples/scalability/LargeTreasury200K.sol#1280)
+	- currentDay != lastSpendDay (examples/scalability/LargeTreasury200K.sol#1284)
+LargeTreasury.writeAuditEntry(bytes32,address,uint256,bytes32) (examples/scalability/LargeTreasury200K.sol#1442-1467) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(msg.sender == owner || msg.sender == auditor || members[msg.sender].role == Role.Manager,not authorized) (examples/scalability/LargeTreasury200K.sol#1448-1453)
+LargeTreasury.emergencyDisableMember(address) (examples/scalability/LargeTreasury200K.sol#1549-1557) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(members[account].active,not active) (examples/scalability/LargeTreasury200K.sol#1551)
+LargeTreasury.touchMember(address) (examples/scalability/LargeTreasury200K.sol#1631-1634) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(members[account].active,not active) (examples/scalability/LargeTreasury200K.sol#1632)
+LargeTreasury.closeExpiredBudgets(uint256[]) (examples/scalability/LargeTreasury200K.sol#1652-1674) uses timestamp for comparisons
+	Dangerous comparisons:
+	- budget.state == BudgetState.Active && block.timestamp > budget.periodEnd (examples/scalability/LargeTreasury200K.sol#1667-1668)
+LargeTreasury.cancelExpiredScheduledPayments(uint256[]) (examples/scalability/LargeTreasury200K.sol#1676-1698) uses timestamp for comparisons
+	Dangerous comparisons:
+	- payment.state == PaymentState.Scheduled && block.timestamp > payment.releaseTime + 2592000 (examples/scalability/LargeTreasury200K.sol#1691-1692)
+LargeTreasury.getInvoiceStatus(uint256) (examples/scalability/LargeTreasury200K.sol#1886-1900) uses timestamp for comparisons
+	Dangerous comparisons:
+	- overdue = ! invoice.paid && block.timestamp > invoice.dueAt (examples/scalability/LargeTreasury200K.sol#1899)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+INFO:Detectors:
+Detector: costly-loop
+LargeTreasury.batchReimburse(address[],uint256[]) (examples/scalability/LargeTreasury200K.sol#1215-1238) has costly operations inside a loop:
+	- totalManaged -= amount (examples/scalability/LargeTreasury200K.sol#1232)
+LargeTreasury.batchReimburse(address[],uint256[]) (examples/scalability/LargeTreasury200K.sol#1215-1238) has costly operations inside a loop:
+	- totalWithdrawals += amount (examples/scalability/LargeTreasury200K.sol#1233)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#costly-operations-inside-a-loop
+INFO:Detectors:
+Detector: low-level-calls
+Low level call in LargeTreasury.withdrawCredit(uint256) (examples/scalability/LargeTreasury200K.sol#551-565):
+	- (success,None) = address(msg.sender).call{value: amount}() (examples/scalability/LargeTreasury200K.sol#556)
+Low level call in LargeTreasury.withdrawCreditSafe(uint256) (examples/scalability/LargeTreasury200K.sol#567-581):
+	- (success,None) = address(msg.sender).call{value: amount}() (examples/scalability/LargeTreasury200K.sol#577)
+Low level call in LargeTreasury.executeProposal(uint256) (examples/scalability/LargeTreasury200K.sol#682-704):
+	- (success,None) = proposal.recipient.call{value: proposal.amount}(proposal.data) (examples/scalability/LargeTreasury200K.sol#695)
+Low level call in LargeTreasury.claimScheduledPayment(uint256) (examples/scalability/LargeTreasury200K.sol#775-792):
+	- (success,None) = payment.recipient.call{value: payment.amount}() (examples/scalability/LargeTreasury200K.sol#788)
+Low level call in LargeTreasury.executeRecurringPayment(uint256) (examples/scalability/LargeTreasury200K.sol#848-871):
+	- (success,None) = payment.recipient.call{value: payment.amount}() (examples/scalability/LargeTreasury200K.sol#867)
+Low level call in LargeTreasury.spendBudget(uint256,address,uint256) (examples/scalability/LargeTreasury200K.sol#935-958):
+	- (success,None) = recipient.call{value: amount}() (examples/scalability/LargeTreasury200K.sol#954)
+Low level call in LargeTreasury.departmentPayment(address,uint256) (examples/scalability/LargeTreasury200K.sol#1011-1029):
+	- (success,None) = recipient.call{value: amount}() (examples/scalability/LargeTreasury200K.sol#1027)
+Low level call in LargeTreasury.spendAllowance(address,uint256) (examples/scalability/LargeTreasury200K.sol#1058-1080):
+	- (success,None) = recipient.call{value: amount}() (examples/scalability/LargeTreasury200K.sol#1076)
+Low level call in LargeTreasury.payInvoice(uint256) (examples/scalability/LargeTreasury200K.sol#1134-1150):
+	- (success,None) = address(invoice.vendor).call{value: invoice.amount}() (examples/scalability/LargeTreasury200K.sol#1146)
+Low level call in LargeTreasury.reimburseMember(address,uint256,string) (examples/scalability/LargeTreasury200K.sol#1196-1213):
+	- (success,None) = member.call{value: amount}() (examples/scalability/LargeTreasury200K.sol#1209)
+Low level call in LargeTreasury.batchReimburse(address[],uint256[]) (examples/scalability/LargeTreasury200K.sol#1215-1238):
+	- (success,None) = recipient.call{value: amount}() (examples/scalability/LargeTreasury200K.sol#1235)
+Low level call in LargeTreasury.spendFromMemberLimit(address,uint256) (examples/scalability/LargeTreasury200K.sol#1274-1300):
+	- (success,None) = recipient.call{value: amount}() (examples/scalability/LargeTreasury200K.sol#1298)
+Low level call in LargeTreasury.callIntegration(address,uint256,bytes) (examples/scalability/LargeTreasury200K.sol#1306-1325):
+	- (success,result) = target.call{value: value}(data) (examples/scalability/LargeTreasury200K.sol#1314)
+Low level call in LargeTreasury.staticIntegrationCall(address,bytes) (examples/scalability/LargeTreasury200K.sol#1327-1335):
+	- (success,result) = target.staticcall(data) (examples/scalability/LargeTreasury200K.sol#1332)
+Low level call in LargeTreasury.legacyBatchCall(address[],bytes[]) (examples/scalability/LargeTreasury200K.sol#1337-1352):
+	- targets[i].call(payloads[i]) (examples/scalability/LargeTreasury200K.sol#1349)
+Low level call in LargeTreasury.safeBatchCall(address[],bytes[]) (examples/scalability/LargeTreasury200K.sol#1354-1368):
+	- (success,None) = targets[i].call(payloads[i]) (examples/scalability/LargeTreasury200K.sol#1365)
+Low level call in LargeTreasury.emergencyWithdraw(address,uint256) (examples/scalability/LargeTreasury200K.sol#1515-1530):
+	- (success,None) = recipient.call{value: amount}() (examples/scalability/LargeTreasury200K.sol#1526)
+Low level call in LargeTreasury.recoverTo(address,uint256) (examples/scalability/LargeTreasury200K.sol#1532-1547):
+	- (success,None) = recipient.call{value: amount}() (examples/scalability/LargeTreasury200K.sol#1540)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+INFO:Detectors:
+Detector: cache-array-length
+Loop condition i < vendorList.length (examples/scalability/LargeTreasury200K.sol#1417) should use cached array length instead of referencing `length` member of the storage array.
+ Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#cache-array-length
+INFO:Slither:examples/scalability/LargeTreasury200K.sol analyzed (1 contracts with 102 detectors), 76 result(s) found

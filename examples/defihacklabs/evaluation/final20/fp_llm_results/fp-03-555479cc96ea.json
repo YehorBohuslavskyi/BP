@@ -1,0 +1,144 @@
+{
+  "target_id": "fp-03-555479cc96ea",
+  "case": "spankchain",
+  "finding_id": "555479cc96ea35b4affe7a8500f50e27fa63fc965a2d8947e485baa85f11f08c",
+  "detector": "incorrect-equality",
+  "status": "COMPLETED",
+  "verdict": "false_positive",
+  "explanation": "The strict equality is the intended final check for Merkle-proof verification: after hashing the supplied proof elements, the function must require the computed cursor to exactly equal the expected root. The supplied code shows no tolerance or approximate comparison that would make `cursor == _root` dangerous for this use.",
+  "evidence_ids": [
+    "SpankChain.sol:function:28039:430"
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "result": {
+        "assessment": {
+          "action": "final",
+          "requested_ids": [],
+          "verdict": "false_positive",
+          "explanation": "The strict equality is the intended final check for Merkle-proof verification: after hashing the supplied proof elements, the function must require the computed cursor to exactly equal the expected root. The supplied code shows no tolerance or approximate comparison that would make `cursor == _root` dangerous for this use.",
+          "evidence_ids": [
+            "SpankChain.sol:function:28039:430"
+          ]
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_003d41dcd30a7b49016ae7aeb3dfb487d28536215f0f5b17d5",
+        "usage": {
+          "input_tokens": 933,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "output_tokens": 253,
+          "output_tokens_details": {
+            "reasoning_tokens": 151
+          },
+          "total_tokens": 1186
+        }
+      }
+    }
+  ],
+  "requested_fragments": 0,
+  "input_tokens": 933,
+  "output_tokens": 253,
+  "total_tokens": 1186,
+  "api_calls_attempted": 1,
+  "model": "gpt-5.6-luna",
+  "result": {
+    "finding": {
+      "id": "555479cc96ea35b4affe7a8500f50e27fa63fc965a2d8947e485baa85f11f08c",
+      "detector": "incorrect-equality",
+      "contract": "LedgerChannel",
+      "function": "_isContained(bytes32,bytes,bytes32)",
+      "file": "examples/defihacklabs/SpankChain.sol"
+    },
+    "assessment": {
+      "action": "final",
+      "requested_ids": [],
+      "verdict": "false_positive",
+      "explanation": "The strict equality is the intended final check for Merkle-proof verification: after hashing the supplied proof elements, the function must require the computed cursor to exactly equal the expected root. The supplied code shows no tolerance or approximate comparison that would make `cursor == _root` dangerous for this use.",
+      "evidence_ids": [
+        "SpankChain.sol:function:28039:430"
+      ]
+    },
+    "rounds": [
+      {
+        "round": 1,
+        "result": {
+          "assessment": {
+            "action": "final",
+            "requested_ids": [],
+            "verdict": "false_positive",
+            "explanation": "The strict equality is the intended final check for Merkle-proof verification: after hashing the supplied proof elements, the function must require the computed cursor to exactly equal the expected root. The supplied code shows no tolerance or approximate comparison that would make `cursor == _root` dangerous for this use.",
+            "evidence_ids": [
+              "SpankChain.sol:function:28039:430"
+            ]
+          },
+          "model": "gpt-5.6-luna",
+          "response_id": "resp_003d41dcd30a7b49016ae7aeb3dfb487d28536215f0f5b17d5",
+          "usage": {
+            "input_tokens": 933,
+            "input_tokens_details": {
+              "cache_write_tokens": 0,
+              "cached_tokens": 0
+            },
+            "output_tokens": 253,
+            "output_tokens_details": {
+              "reasoning_tokens": 151
+            },
+            "total_tokens": 1186
+          }
+        }
+      }
+    ],
+    "round_count": 1,
+    "provided_context": []
+  },
+  "summary": {
+    "finding_id": "555479cc96ea35b4affe7a8500f50e27fa63fc965a2d8947e485baa85f11f08c",
+    "detector": "incorrect-equality",
+    "contract": "LedgerChannel",
+    "function": "_isContained(bytes32,bytes,bytes32)",
+    "verdict": "false_positive",
+    "rounds": 1,
+    "requested_fragments": 0,
+    "input_tokens": 933,
+    "output_tokens": 253,
+    "total_tokens": 1186
+  },
+  "context_efficiency": {
+    "full_source_estimated_tokens": 7447,
+    "initial_selected_source_estimated_tokens": 108,
+    "additional_selected_source_estimated_tokens": 0,
+    "cumulative_selected_source_estimated_tokens": 108,
+    "source_context_reduction": 0.9854975157781657
+  },
+  "initial_payload": {
+    "target": {
+      "id": "SpankChain.sol:function:28039:430",
+      "kind": "function",
+      "contract": "LedgerChannel",
+      "signature": "_isContained(bytes32,bytes,bytes32)",
+      "visibility": "internal",
+      "source": "function _isContained(bytes32 _hash, bytes _proof, bytes32 _root) internal pure returns (bool) {\n\nbytes32 cursor = _hash;\n\nbytes32 proofElem;\n\nfor (uint256 i = 64; i <= _proof.length; i += 32) {\n\nassembly { proofElem := mload(add(_proof, i)) }\n\nif (cursor < proofElem) {\n\ncursor = keccak256(abi.encodePacked(cursor, proofElem));\n\n} else {\n\ncursor = keccak256(abi.encodePacked(proofElem, cursor));\n\n}\n\n}\n\nreturn cursor == _root;\n\n}"
+    },
+    "available_context": [],
+    "context_complete": false,
+    "task": "verify_static_analysis_finding",
+    "finding": {
+      "id": "555479cc96ea35b4affe7a8500f50e27fa63fc965a2d8947e485baa85f11f08c",
+      "tool": "slither",
+      "detector": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High",
+      "description": "LedgerChannel._isContained(bytes32,bytes,bytes32) (examples/defihacklabs/SpankChain.sol#1338-1362) uses a dangerous strict equality:\n\t- cursor == _root (examples/defihacklabs/SpankChain.sol#1360)\n",
+      "contract": "LedgerChannel",
+      "function": "_isContained(bytes32,bytes,bytes32)",
+      "file": "examples/defihacklabs/SpankChain.sol",
+      "lines": [
+        1360
+      ]
+    }
+  }
+}

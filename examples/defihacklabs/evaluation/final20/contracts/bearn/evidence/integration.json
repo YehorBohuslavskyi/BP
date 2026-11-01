@@ -1,0 +1,40 @@
+{
+  "case": "bearn",
+  "source_status": "SOURCE_READY",
+  "source_path": "/home/coca-cola/projects/BP/examples/defihacklabs/evaluation/final20/contracts/bearn/raw/Implementation.sol",
+  "compiler": "0.6.12",
+  "source_sha256": "f414ef0d194592c357eef7c218551d6049e03813e1881a07ac1b04d57fe1f810",
+  "source_bytes": 46383,
+  "source_lines": 1202,
+  "pragma_lines": [
+    "pragma solidity 0.6.12;"
+  ],
+  "imports": [],
+  "looks_flattened": true,
+  "flattened_heuristic": "No import directives; not a provenance/equivalence assertion",
+  "compilation_status": "SUCCESS",
+  "slither_status": "SUCCESS",
+  "slither_finding_count": 115,
+  "baseline_classification": "PENDING_MANUAL_ADJUDICATION",
+  "matched_slither_finding_ids": [],
+  "llm_target_created": false,
+  "compile_command": [
+    "/home/coca-cola/projects/BP/.venv/.solc-select/artifacts/solc-0.6.12/solc-0.6.12",
+    "--bin",
+    "/home/coca-cola/projects/BP/examples/defihacklabs/evaluation/final20/contracts/bearn/raw/Implementation.sol"
+  ],
+  "slither_command": [
+    "/home/coca-cola/projects/BP/.venv/bin/slither",
+    "/home/coca-cola/projects/BP/examples/defihacklabs/evaluation/final20/contracts/bearn/raw/Implementation.sol",
+    "--solc",
+    "/home/coca-cola/projects/BP/.venv/.solc-select/artifacts/solc-0.6.12/solc-0.6.12",
+    "--compile-force-framework",
+    "solc",
+    "--json",
+    "-",
+    "--fail-none"
+  ],
+  "working_directory": "/home/coca-cola/projects/BP/examples/defihacklabs/evaluation/final20/contracts/bearn/raw",
+  "status_scope": "Technical readiness only; incident/deployment provenance requires separate review",
+  "source_unchanged": true
+}

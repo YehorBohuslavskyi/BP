@@ -1,0 +1,7 @@
+incident_id,source_status,known_vulnerability_result,affected_function,slither_findings,llm_targets
+visor-finance,SOURCE_READY,MISSED,"deposit(uint256,address,address)",41,0
+xsurge,SOURCE_READY,DETECTED,sell(uint256),21,1
+burgerswap,SOURCE_READY,MISSED,"swapExactTokensForTokens(uint256,uint256,address[],address,uint256)",96,0
+eleven,SOURCE_READY,MISSED,emergencyBurn(),58,0
+bearn,SOURCE_READY,MISSED,"withdraw(uint256,uint256)",115,0
+spartan,SOURCE_READY,MISSED,removeLiquidityForMember(address),76,0

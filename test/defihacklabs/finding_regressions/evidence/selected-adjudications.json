@@ -1,0 +1,122 @@
+{
+  "scope": "Local benign unit/regression tests only; no network/fork/live systems or historical exploit reproduction.",
+  "cases": {
+    "A": {
+      "case": "spartan",
+      "finding_id": "b9cbd4da367d63c678d1e691cd43d6293494bc6363eca3dd96a5cb6468417c3a",
+      "label": "VALIDATED_TP",
+      "provenance": [
+        "regression_test"
+      ],
+      "observations": {
+        "wrapped_withdrawal_succeeded": true,
+        "native_call_returned_false": true,
+        "execution_continued": true,
+        "recipient_balance_before": 0,
+        "recipient_balance_after": 0,
+        "router_balance_before": 0,
+        "router_balance_after": 1000000000000000000
+      },
+      "observation_basis": "Expected value-bearing call reached always-reverting RejectNative.receive (trace records LocalPaymentRejected); therefore native CALL returned false. Original helper returned and adapter continuation marker became true. Wrapped-native withdrawal counter and balances confirmed prior success.",
+      "tests": [
+        "test_A_rejectedPayoutContinuesAndLeavesValueInRouter",
+        "test_A_successfulPayoutControlDeliversValue"
+      ],
+      "limits": [
+        "Test-only subclass exposes unchanged internal helper; this does not independently validate every public liquidity-operation path.",
+        "Code-level behavior under the specified local recipient/withdrawal fixtures, not the historical Spartan incident."
+      ]
+    },
+    "B": {
+      "case": "eleven",
+      "finding_id": "3b17fa7df6d46dd6f38e672c759cc3862bd948b157686032c03d60efb271a8f5",
+      "label": "VALIDATED_TP",
+      "provenance": [
+        "regression_test"
+      ],
+      "observations": {
+        "claimable_before": 50,
+        "claimable_after": 0,
+        "recipient_balance_before": 0,
+        "recipient_balance_after": 0,
+        "vault_token_balance_before": 100,
+        "vault_token_balance_after": 100,
+        "transfer_returned_false": true,
+        "transaction_reverted": false,
+        "reward_debt_before": 0,
+        "reward_debt_after": 50
+      },
+      "observation_basis": "Original claimRewards, claim, harvest, safeTokenTransfer and updateDebt execute without override. Sufficient balance 100 versus payment 50 selects exact line-1065 else branch; local token records transfer sender/recipient/amount/result. Debt advances despite no token movement.",
+      "tests": [
+        "test_B_falseTransferAdvancesDebtWithoutPayment",
+        "test_B_successfulTransferControlPaysBeforeDebtUpdate"
+      ],
+      "limits": [
+        "Test subclass only seeds shares/accrual/configuration. Fixed dependency addresses contain local vm.etch mock code, not public-chain contracts.",
+        "Controlled no-op harvest dependencies and false-returning token establish conditional code-level behavior, not historical deployed token failure."
+      ]
+    },
+    "C": {
+      "case": "spankchain",
+      "finding_id": "7ba937136995fd888e3da4dfece9bf0e6fd752d81e5c7530e2dd743b93615f71",
+      "label": "VALIDATED_FP",
+      "provenance": [
+        "manual_source_adjudication"
+      ],
+      "observations": {
+        "predicate_returns_bool": true,
+        "compared_to_literal_true": true,
+        "boolean_guard_equivalent_to_direct_require": true,
+        "numeric_threshold_comparison": false
+      },
+      "evidence_source": {
+        "path": "examples/defihacklabs/SpankChain.sol",
+        "sha256": "501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0",
+        "guard_line": 1055,
+        "full_predicate_lines": [
+          1338,
+          1362
+        ],
+        "enclosing_function_lines": [
+          1005,
+          1077
+        ]
+      },
+      "reason": "The exact flagged comparison requires acceptance of a boolean Merkle-proof predicate. For a bool x, x == true has the same truth value as x. It is not a balance, timestamp or numeric threshold equality.",
+      "limits": [
+        "Source-level adjudication only. Existing Merkle routine tests are contextual evidence, not tests of this exact initVCstate guard; no regression_test provenance assigned.",
+        "No claim that the whole initVCstate state machine or proof format is safe."
+      ]
+    }
+  },
+  "test_results": {
+    "passed": 9,
+    "failed": 0,
+    "skipped": 0,
+    "new_tests": 4,
+    "existing_tests": 5,
+    "existing_fuzz_cases": 64
+  },
+  "fixture_policy": "Original victim files compiled unchanged with their own solc versions; separate fixture adapters and local dependency code. No victim method is replaced or overridden. Existing raw/source evidence remains immutable.",
+  "compiler_versions": {
+    "Spartan": "0.6.8",
+    "Eleven": "0.6.12",
+    "SpankChain": "0.4.25",
+    "test_harness": "0.8.24"
+  },
+  "optimizer": {
+    "enabled": true,
+    "runs": 200
+  },
+  "evidence_hashes": {
+    "test/defihacklabs/finding_regressions/run.py": "8ed3a32c7e64f12372e65b5bed02590ad4e771f3797a69a255c688cf73191ea2",
+    "test/defihacklabs/finding_regressions/PaymentAndReward.t.sol": "964ee070733842334523420655072f8cae364ceace699caf89de775d9d17612e",
+    "test/defihacklabs/finding_regressions/fixtures/PaymentProbe.sol.txt": "86aaed9703ad379f10e3f0ebb4daffe8b477d84ba3d583ecdcbcaf08ad62b896",
+    "test/defihacklabs/finding_regressions/fixtures/RewardProbe.sol.txt": "6336c585d9cb18808ff1d63bb0c06ff0846a0869aed5f623c1dc6f2e768dbfef",
+    "test/defihacklabs/finding_regressions/evidence/payment-reward-output.txt": "60955438e5aa61cb71fd15ffa9a44b577bf6d48d815ed1af14792e62fb6517bd",
+    "test/defihacklabs/finding_regressions/evidence/payment-rejection-trace.txt": "22c528f6aa8311b60ddba62473777292b02153739529b27b4656f89251cdedcc",
+    "examples/defihacklabs/SpankChain.sol": "501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0",
+    "examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol": "8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d",
+    "examples/defihacklabs/evaluation/final20/contracts/eleven/raw/ElevenNeverSellVault.sol": "97015d1e8c5b3b3bdaae0eb4ddf3d8450bdee18f2b91129cab912bab31e1329d"
+  }
+}

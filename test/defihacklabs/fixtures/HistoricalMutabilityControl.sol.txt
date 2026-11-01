@@ -1,0 +1,7 @@
+pragma solidity 0.4.25;
+contract HistoricalMutabilityControl {
+    function mislabeled() public view returns (uint256) {
+        assembly { sstore(0, 1) }
+        return 1;
+    }
+}

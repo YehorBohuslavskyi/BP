@@ -1,0 +1,175 @@
+{
+  "protected_file_count": 75917,
+  "changed": [],
+  "missing": [],
+  "new": [],
+  "protected_digest_before": "e7b4d8653a29bfe27f17de57e06ea37b0a469cd7fe20899dc0909bf9975b4ba4",
+  "protected_digest_after": "e7b4d8653a29bfe27f17de57e06ea37b0a469cd7fe20899dc0909bf9975b4ba4",
+  "baseline_manifest_sha256": "c043c5843d2b106442bed383d3708d1086dedf11f275c6d31aada3716a0f4db0",
+  "removed_cache_files": 54,
+  "removed_cache_directories": 5,
+  "removed_cache_bytes": 492122,
+  "remaining_planned_cache_files": [],
+  "groups": {
+    "examples/defihacklabs/evaluation/final20/": 578,
+    "datasets/": 74950,
+    "results/": 195,
+    "examples/scalability/": 3,
+    "test/defihacklabs/": 18
+  },
+  "scope": "Conservative cleanup; no production, research, evidence, label, target, or saved result edits",
+  "removed_cache_plan": [
+    {
+      "path": "__pycache__",
+      "files": [
+        "__pycache__/check_access_control_batch.cpython-312.pyc",
+        "__pycache__/check_cgt.cpython-312.pyc",
+        "__pycache__/check_cgt_frozen_pilot.cpython-312.pyc",
+        "__pycache__/check_cgt_linkage.cpython-312.pyc",
+        "__pycache__/check_cgt_preflight.cpython-312.pyc",
+        "__pycache__/check_dataset.cpython-312.pyc",
+        "__pycache__/check_evaluation.cpython-312.pyc",
+        "__pycache__/check_verifier.cpython-312.pyc",
+        "__pycache__/streamlit_app.cpython-312.pyc"
+      ],
+      "bytes": 57598
+    },
+    {
+      "path": "tests/__pycache__",
+      "files": [
+        "tests/__pycache__/test_access_control_batch.cpython-312.pyc",
+        "tests/__pycache__/test_app.cpython-312.pyc",
+        "tests/__pycache__/test_app_batch.cpython-312.pyc",
+        "tests/__pycache__/test_cgt.cpython-312.pyc",
+        "tests/__pycache__/test_cgt_real.cpython-312.pyc",
+        "tests/__pycache__/test_demo_contracts.cpython-312.pyc",
+        "tests/__pycache__/test_evaluation.cpython-312.pyc",
+        "tests/__pycache__/test_fp_cohort_workflow.cpython-312.pyc",
+        "tests/__pycache__/test_gui.cpython-312.pyc",
+        "tests/__pycache__/test_gui_presentation.cpython-312.pyc",
+        "tests/__pycache__/test_modifier_targets.cpython-312.pyc",
+        "tests/__pycache__/test_process_defihacklabs_case.cpython-312.pyc",
+        "tests/__pycache__/test_research_dashboard.cpython-312.pyc"
+      ],
+      "bytes": 179490
+    },
+    {
+      "path": "scripts/__pycache__",
+      "files": [
+        "scripts/__pycache__/process_defihacklabs_case.cpython-312.pyc",
+        "scripts/__pycache__/run_defihacklabs_fp_cohort.cpython-312.pyc"
+      ],
+      "bytes": 45837
+    },
+    {
+      "path": "src/context_audit/__pycache__",
+      "files": [
+        "src/context_audit/__pycache__/__init__.cpython-312.pyc",
+        "src/context_audit/__pycache__/catalog.cpython-312.pyc",
+        "src/context_audit/__pycache__/cgt_archive.cpython-312.pyc",
+        "src/context_audit/__pycache__/cgt_dataset.cpython-312.pyc",
+        "src/context_audit/__pycache__/cgt_findings.cpython-312.pyc",
+        "src/context_audit/__pycache__/cgt_inference.cpython-312.pyc",
+        "src/context_audit/__pycache__/cgt_sample.cpython-312.pyc",
+        "src/context_audit/__pycache__/classification_metrics.cpython-312.pyc",
+        "src/context_audit/__pycache__/context.cpython-312.pyc",
+        "src/context_audit/__pycache__/dataset.cpython-312.pyc",
+        "src/context_audit/__pycache__/evaluation.cpython-312.pyc",
+        "src/context_audit/__pycache__/findings.cpython-312.pyc",
+        "src/context_audit/__pycache__/indexer.cpython-312.pyc",
+        "src/context_audit/__pycache__/llm.cpython-312.pyc",
+        "src/context_audit/__pycache__/payload.cpython-312.pyc",
+        "src/context_audit/__pycache__/reporting.cpython-312.pyc",
+        "src/context_audit/__pycache__/verifier.cpython-312.pyc"
+      ],
+      "bytes": 93415
+    },
+    {
+      "path": "src/context_audit/app/__pycache__",
+      "files": [
+        "src/context_audit/app/__pycache__/__init__.cpython-312.pyc",
+        "src/context_audit/app/__pycache__/batch.cpython-312.pyc",
+        "src/context_audit/app/__pycache__/compilers.cpython-312.pyc",
+        "src/context_audit/app/__pycache__/config.cpython-312.pyc",
+        "src/context_audit/app/__pycache__/dashboard.cpython-312.pyc",
+        "src/context_audit/app/__pycache__/demos.cpython-312.pyc",
+        "src/context_audit/app/__pycache__/gui.cpython-312.pyc",
+        "src/context_audit/app/__pycache__/presentation.cpython-312.pyc",
+        "src/context_audit/app/__pycache__/research.cpython-312.pyc",
+        "src/context_audit/app/__pycache__/services.cpython-312.pyc",
+        "src/context_audit/app/__pycache__/session.cpython-312.pyc",
+        "src/context_audit/app/__pycache__/slither_runner.cpython-312.pyc",
+        "src/context_audit/app/__pycache__/worker.cpython-312.pyc"
+      ],
+      "bytes": 115782
+    }
+  ],
+  "tests": [
+    {
+      "name": "main_python",
+      "command": "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m unittest discover -s tests -v",
+      "passed": 120,
+      "failed": 0
+    },
+    {
+      "name": "spankchain_regressions",
+      "command": "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B test/defihacklabs/run_validation.py --match-contract '^SpankChainValidation$'",
+      "passed": 29,
+      "failed": 0
+    },
+    {
+      "name": "finding_regressions",
+      "command": "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B test/defihacklabs/finding_regressions/run.py",
+      "passed": 9,
+      "failed": 0
+    },
+    {
+      "name": "fp_cohort_workflow",
+      "command": "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B -m unittest discover -s tests -p test_fp_cohort_workflow.py -v",
+      "passed": 4,
+      "failed": 0
+    }
+  ],
+  "unique_tests_passed": 158,
+  "unique_tests_failed": 0,
+  "fp_workflow_tests_included_in_main_suite": true,
+  "checks": [
+    {
+      "check": "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B examples/defihacklabs/evaluation/check_integrity.py",
+      "status": "PASS"
+    },
+    {
+      "check": "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -B examples/defihacklabs/evaluation/check_catalog_v2.py",
+      "status": "PASS"
+    },
+    {
+      "check": "scripts/run_defihacklabs_fp_cohort.py: verify_freeze() imported and called without CLI inference",
+      "status": "PASS"
+    },
+    {
+      "check": "streamlit.testing.v1.AppTest: dashboard then Analyze Contract; analyze_upload and verify_selected patched and asserted not called",
+      "status": "PASS"
+    },
+    {
+      "check": "import context_audit.verifier; import context_audit.app.worker",
+      "status": "PASS"
+    },
+    {
+      "check": "git diff --check",
+      "status": "PASS"
+    }
+  ],
+  "gui_startup": "PASS via AppTest on both pages; no server/network startup test",
+  "production_imports": "PASS; inference deliberately not invoked",
+  "new_files": [
+    "cleanup_manifest.md",
+    "docs/conservative_cleanup_report.md",
+    "docs/conservative_cleanup_validation.json"
+  ],
+  "limitations": [
+    "Generated test/defihacklabs/**/.generated artifacts are excluded from the protected-file comparison and were regenerated by local tests. Saved regression evidence is included and unchanged.",
+    "Interpreter bytecode is disposable and will be regenerated on normal Python execution.",
+    "Existing dirty worktree changes were retained; unchanged means relative to the pre-cleanup workspace, not Git HEAD.",
+    "The complete per-file baseline was held at /tmp/bp-cleanup-protected-before.json during validation; this record stores its SHA-256 and matching aggregate digests."
+  ]
+}

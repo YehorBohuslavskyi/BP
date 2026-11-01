@@ -1,0 +1,49 @@
+{
+  "incident_id": "burgerswap",
+  "chain": "BSC",
+  "affected_contract": "DemaxPlatform",
+  "affected_function": "swapExactTokensForTokens(uint256,uint256,address[],address,uint256)",
+  "victim_address": "0xBf6527834dBB89cdC97A79FCD62E6c08B19F8ec0",
+  "source_sha256": "8d054c93b27839c772350ff454c91104e96e8a8000bb497fc477dad9f6418f38",
+  "source_path": "examples/defihacklabs/evaluation/final20/contracts/burgerswap/raw/DemaxPlatform.sol",
+  "source_status": "SOURCE_READY",
+  "compiler_version": "0.6.6",
+  "pragma_directives": [
+    "pragma solidity >=0.6.6;",
+    "pragma solidity >=0.5.16;",
+    "pragma solidity >=0.5.0;",
+    "pragma solidity >=0.5.0;",
+    "pragma solidity >=0.5.0;",
+    "pragma solidity >=0.5.0;",
+    "pragma solidity >=0.5.0;",
+    "pragma solidity >=0.5.0;",
+    "pragma solidity >=0.5.0;",
+    "pragma solidity >=0.5.0;",
+    "pragma solidity >=0.6.0;",
+    "pragma solidity ^0.6.0;",
+    "pragma solidity >=0.5.16;",
+    "pragma solidity >=0.6.6;"
+  ],
+  "imports": [],
+  "compilation_status": "PASSED_EXISTING_LOCAL_EVIDENCE",
+  "slither_success": true,
+  "slither_finding_count": 96,
+  "known_vulnerability_result": "MISSED",
+  "mapping_reason": "Known root cause is cross-function reentrancy invalidating precomputed swap amounts before _swap reuses them. The related reentrancy-events finding reports calls followed by SwapToken emission and does not establish stale-amount/reserve-state reuse. It is not a corresponding ground-truth detection.",
+  "related_finding_ids": [
+    "7c2bff428eda512b0afc6411e6ab53dec1907777999a2a33d35071accea27839"
+  ],
+  "local_poc_path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2021-05/BurgerSwap_exp.sol",
+  "local_poc_sha256": "49e19e7f6d6dbc5624447ea1ecf0d7c690f7cc26d38d4957153519b552006492",
+  "provenance_basis": "Completed local evidence and platform identity supplied by user. Local official PoC documents BurgerSwap incident; its pool address and platform address are distinct roles.",
+  "evidence_hashes": {
+    "compilation.txt": "aa6609870965e4fcb6aa07588ffc412c0a291847bce2f915ee4a90b0610222fd",
+    "slither.json": "4f8e37c9c6e7bfc8b8d4d138708895d3f4ad3af5657dfa45e90c3768d9d1153f"
+  },
+  "limitations": [
+    "Existing compilation and Slither output imported without rerunning either tool.",
+    "Fresh source-to-deployed-bytecode equivalence, deployment compiler build and optimizer settings not independently verified here.",
+    "Compile stdout preserves emitted bytecode; original process exit status and full invocation are user-established evidence."
+  ],
+  "llm_target_created": false
+}

@@ -1,0 +1,16 @@
+{
+  "cohort_sha256": "e0bc61bde72a366b7b150c824847b131d3952c901dd47f1dd028c06369da2dcd",
+  "cohort_csv_sha256": "b5cd583e8d9cde53db061693f1b97adca1645707b492b6157a4a5db01537ee7a",
+  "targets_sha256": "e395a8c8158811966f750a77af402777ee4e7594ddbc0964f33e0673aa9264ad",
+  "authoritative_adjudications_unchanged": true,
+  "protected_files_verified": 579,
+  "prepared_targets": 15,
+  "api_calls_made": 0,
+  "status": "BLOCKED_MISSING_OPENAI_MODEL_AND_OPENAI_API_KEY",
+  "ground_truth_leakage_audit": "No prompts sent. Prepared initial payloads use the production schema; technical targets contain no labels/adjudications. Worker reads technical targets only; labels are joined by summarize after inference.",
+  "integrity_checks": [
+    "check_integrity.py: PASS",
+    "check_catalog_v2.py: PASS",
+    "verify_freeze: PASS"
+  ]
+}

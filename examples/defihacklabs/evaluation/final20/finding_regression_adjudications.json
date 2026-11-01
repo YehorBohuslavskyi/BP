@@ -1,0 +1,79 @@
+{
+  "experimental_unit": "INDIVIDUAL_SLITHER_FINDING",
+  "status": "INDEPENDENT_REGRESSION_ADJUDICATION_OVERLAY",
+  "records": [
+    {
+      "case": "spankchain",
+      "finding_id": "555479cc96ea35b4affe7a8500f50e27fa63fc965a2d8947e485baa85f11f08c",
+      "detector": "incorrect-equality",
+      "contract": "LedgerChannel",
+      "function": "_isContained(bytes32,bytes,bytes32)",
+      "previous_inventory_label": "UNLABELED",
+      "independent_label": "VALIDATED_FP",
+      "reason": "The comparison cursor == _root checks exact equality of the reconstructed Merkle hash and expected root. It is a proof/hash invariant, not a numerical balance threshold. Original inherited routine accepts matching reconstructed roots and rejects changed roots/siblings.",
+      "label_scope": "Exact comparison only; no assertion that the full proof encoding, channel state machine, or library is secure.",
+      "exact_slither_claim": "LedgerChannel._isContained(bytes32,bytes,bytes32) (examples/defihacklabs/SpankChain.sol#1338-1362) uses a dangerous strict equality:\n\t- cursor == _root (examples/defihacklabs/SpankChain.sol#1360)\n",
+      "llm_verdict_used": false,
+      "tests": [
+        "test_FP_emptyProofRequiresExactRoot",
+        "test_FP_sortedSiblingProofAcceptsOnlyReconstructedRoot",
+        "testFuzz_FP_exactHashRootIsRequired"
+      ],
+      "limitations": [
+        "Finite deterministic/fuzz tests supplement manual source review; they are not an exhaustive formal proof.",
+        "A test-only subclass exposes the unchanged internal routine. Solidity statement ordering and original source remain unchanged."
+      ]
+    },
+    {
+      "case": "spartan",
+      "finding_id": "e8fd05569b88b694d2f90f4cb31d7238e3a16b4bfe1ab3c0143012345d08c63b",
+      "detector": "locked-ether",
+      "contract": "Pool",
+      "function": "constructor(address,address)",
+      "previous_inventory_label": "UNLABELED",
+      "independent_label": "KNOWN_TP",
+      "reason": "Pool constructor and swapTo accept native value. Complete Pool implementation (source lines 85\u2013344) contains no native-value transfer, send, value-bearing call, selfdestruct, delegatecall, or inherited implementation that can provide an exit. Its outgoing transfers are typed ERC20 calls with zero native value. Native value accepted at deployment remains without an exit.",
+      "label_scope": "Code-level locked-native-value finding; not the known historical Spartan exploit, not a new incident-level detection, and not evidence that this path was used in production.",
+      "exact_slither_claim": "Contract locking ether found:\n\tContract Pool (Victim.sol#85-344) has payable functions:\n\t - Pool.constructor(address,address) (Victim.sol#117-128)\n\t - Pool.swapTo(address,address) (Victim.sol#252-267)\n\tBut does not have a function to withdraw the ether\n",
+      "llm_verdict_used": false,
+      "tests": [
+        "test_TP_poolAcceptsNativeValueDespiteTokenAccounting",
+        "test_TP_poolDoesNotHaveConventionalNativeExitOrFallback"
+      ],
+      "limitations": [
+        "Finite deterministic/fuzz tests supplement manual source review; they are not an exhaustive formal proof.",
+        "Conventional-selector negative tests alone do not prove all exits absent; manual review of the entire Pool implementation establishes the all-path part.",
+        "MetadataToken supplies constructor name/symbol only. It replaces no victim logic or native-value behavior."
+      ]
+    }
+  ],
+  "test_result": {
+    "passed": 5,
+    "failed": 0,
+    "skipped": 0,
+    "fuzz_runs": 64,
+    "seed": "0x1234"
+  },
+  "original_compilers": [
+    "0.4.25",
+    "0.6.8"
+  ],
+  "test_compiler": "0.8.24",
+  "optimizer": {
+    "enabled": true,
+    "runs": 200
+  },
+  "evidence_hashes": {
+    "test/defihacklabs/finding_regressions/run.py": "e7e484a63374101b8521f43679add92de632d625a99d86feb4e814a4dcae960c",
+    "test/defihacklabs/finding_regressions/foundry.toml": "21c8677da56b8fb67a2999ce0d797aaa71eea94efde419499fbbac6fdcbe77f9",
+    "test/defihacklabs/finding_regressions/FindingRegressions.t.sol": "882eb4c21e6f44ad431005b379570aa45d009b96fc047eb45c6646599168719f",
+    "test/defihacklabs/finding_regressions/evidence/forge-output.txt": "69b9fd013da8fa9b09efce933be78f43cbc3e34786859720efcbaa5d428e7c45",
+    "examples/defihacklabs/SpankChain.sol": "501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0",
+    "examples/defihacklabs/evaluation/final20/contracts/spartan/raw/Victim.sol": "8ed00895e2ce0245ce9ce9266048b7cb9fccfc7b848d846466a970639db82c8d"
+  },
+  "preservation": "Existing inventory, packet labels, incident classifications, verification targets, and LLM results are not modified. Join this separate adjudication overlay by (case, finding_id) after review.",
+  "limitations": [
+    "Local inventory currently records 2 KNOWN_TP and 2 VALIDATED_FP; the user-reported approximate 9 FP adjudications were not found in the existing inventory/packet. Do not claim 10 independently available FPs from these files.",
+    "Exactly one additional TP is supported here; no forced promotion of conditional mock-based paths."
+  ]
+}

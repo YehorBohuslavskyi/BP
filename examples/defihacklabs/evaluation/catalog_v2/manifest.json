@@ -1,0 +1,59 @@
+{
+  "schema_version": 2,
+  "status": "INCOMPLETE_VICTIM_SOURCES",
+  "catalog_root": "/home/coca-cola/projects/DeFiHackLabs",
+  "catalog_commit": "d4bd931e758a375ed7fcecf52322dfeab54f8c0d",
+  "requested_subset_size": 20,
+  "actual_subset_size": 1,
+  "missing_case_count": 19,
+  "primary_20_case_subset_frozen": false,
+  "selection_before_new_slither": true,
+  "new_slither_runs": 0,
+  "records": [
+    {
+      "incident_id": "spankchain",
+      "project": "SpankChain",
+      "date": "2018-10-07",
+      "chain": "Ethereum",
+      "poc_path": "/home/coca-cola/projects/DeFiHackLabs/src/test/2018-10/SpankChain_exp.sol",
+      "referenced_upstream_poc_path": "src/test/2018-10/SpankChain_exp.sol",
+      "attack_tx": "0x21e9d20b57f6ae60dac23466c8395d47f42dc24628e5a31f224567a2b4effa88",
+      "victim_address": "0xf91546835f756DA0c10cFa0CDA95b15577b84aA7",
+      "source_origin": "examples/defihacklabs/SpankChain.sol",
+      "provenance_document": "examples/defihacklabs/SpankChain_ground_truth.md",
+      "source_path": "examples/defihacklabs/evaluation/contracts/spankchain/SpankChain.sol",
+      "source_sha256": "501119bb522ddd4fe4fd7b08f4f9591d2197991b53aba06f9bb50ac4362f56a0",
+      "compiler_version": "0.4.25",
+      "known_root_cause": "Token callback before deletion of channel state",
+      "affected_contract": "LedgerChannel",
+      "affected_function": "LCOpenTimeout(bytes32)",
+      "vulnerability_class": "reentrancy",
+      "expected_detector_family": [
+        "reentrancy-eth"
+      ],
+      "ground_truth_label": "REAL_VULNERABILITY",
+      "source_availability": "AVAILABLE_LOCAL_ARCHIVE",
+      "selection_reason": "Reuse the explicitly permitted already-completed pilot with local source and documented incident linkage.",
+      "already_completed_pilot": true,
+      "limitations": [
+        "Archived source with normalized whitespace; no deployed-bytecode match established.",
+        "Slither outcome was known before integration: pilot is not a prospective blind selection.",
+        "Cannot supply 19 additional local incident records or faithful sources.",
+        "Checkout provides incident evidence; additional faithful victim sources have not been established."
+      ],
+      "local_poc_sha256": "e6e79f1d9dbbbc99919aa8d28a0be85c0208eee27650a2e834c9c5a10b616af5"
+    }
+  ],
+  "screening_counts": {
+    "CATEGORY_REVIEW_REQUIRED": 454,
+    "EXCLUDED_CATEGORY": 175,
+    "SOURCE_UNAVAILABLE": 277,
+    "SELECTED_EXISTING_PILOT": 1
+  },
+  "catalog_entries_screened": 907,
+  "limitations": [
+    "Catalog rows are deterministic metadata screens, not independent adjudications of every incident.",
+    "No faithful additional victim sources were established. Candidate source status is not a statement that verified source is unavailable on the internet.",
+    "No 20-case recall claimed; pilot outcome was already known."
+  ]
+}

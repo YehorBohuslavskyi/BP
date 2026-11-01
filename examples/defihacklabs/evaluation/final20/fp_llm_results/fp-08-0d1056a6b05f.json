@@ -1,0 +1,203 @@
+{
+  "target_id": "fp-08-0d1056a6b05f",
+  "case": "xsurge",
+  "finding_id": "0d1056a6b05f35c0661820fd228845121f557c692860dd5fbbf953fb28675bea",
+  "detector": "incorrect-equality",
+  "status": "COMPLETED",
+  "verdict": "false_positive",
+  "explanation": "The strict equality `prevBNBAmount == 0` is used intentionally to detect when `bnbAmount` equals the contract\u2019s pre-purchase balance. In that case, the code substitutes the current balance before calculating the purchase amount, preventing a zero denominator in the normal pricing branch. The supplied code does not support this as an incorrect or dangerous equality.",
+  "evidence_ids": [
+    "SurgeToken.sol:function:20161:1222"
+  ],
+  "rounds": [
+    {
+      "round": 1,
+      "result": {
+        "assessment": {
+          "action": "final",
+          "requested_ids": [],
+          "verdict": "false_positive",
+          "explanation": "The strict equality `prevBNBAmount == 0` is used intentionally to detect when `bnbAmount` equals the contract\u2019s pre-purchase balance. In that case, the code substitutes the current balance before calculating the purchase amount, preventing a zero denominator in the normal pricing branch. The supplied code does not support this as an incorrect or dangerous equality.",
+          "evidence_ids": [
+            "SurgeToken.sol:function:20161:1222"
+          ]
+        },
+        "model": "gpt-5.6-luna",
+        "response_id": "resp_009e438d9a56eb7a016ae7aee6415487d2a50ef1e210aea20d",
+        "usage": {
+          "input_tokens": 1463,
+          "input_tokens_details": {
+            "cache_write_tokens": 1460,
+            "cached_tokens": 0
+          },
+          "output_tokens": 368,
+          "output_tokens_details": {
+            "reasoning_tokens": 252
+          },
+          "total_tokens": 1831
+        }
+      }
+    }
+  ],
+  "requested_fragments": 0,
+  "input_tokens": 1463,
+  "output_tokens": 368,
+  "total_tokens": 1831,
+  "api_calls_attempted": 1,
+  "model": "gpt-5.6-luna",
+  "result": {
+    "finding": {
+      "id": "0d1056a6b05f35c0661820fd228845121f557c692860dd5fbbf953fb28675bea",
+      "detector": "incorrect-equality",
+      "contract": "SurgeToken",
+      "function": "purchase(address,uint256)",
+      "file": "examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol"
+    },
+    "assessment": {
+      "action": "final",
+      "requested_ids": [],
+      "verdict": "false_positive",
+      "explanation": "The strict equality `prevBNBAmount == 0` is used intentionally to detect when `bnbAmount` equals the contract\u2019s pre-purchase balance. In that case, the code substitutes the current balance before calculating the purchase amount, preventing a zero denominator in the normal pricing branch. The supplied code does not support this as an incorrect or dangerous equality.",
+      "evidence_ids": [
+        "SurgeToken.sol:function:20161:1222"
+      ]
+    },
+    "rounds": [
+      {
+        "round": 1,
+        "result": {
+          "assessment": {
+            "action": "final",
+            "requested_ids": [],
+            "verdict": "false_positive",
+            "explanation": "The strict equality `prevBNBAmount == 0` is used intentionally to detect when `bnbAmount` equals the contract\u2019s pre-purchase balance. In that case, the code substitutes the current balance before calculating the purchase amount, preventing a zero denominator in the normal pricing branch. The supplied code does not support this as an incorrect or dangerous equality.",
+            "evidence_ids": [
+              "SurgeToken.sol:function:20161:1222"
+            ]
+          },
+          "model": "gpt-5.6-luna",
+          "response_id": "resp_009e438d9a56eb7a016ae7aee6415487d2a50ef1e210aea20d",
+          "usage": {
+            "input_tokens": 1463,
+            "input_tokens_details": {
+              "cache_write_tokens": 1460,
+              "cached_tokens": 0
+            },
+            "output_tokens": 368,
+            "output_tokens_details": {
+              "reasoning_tokens": 252
+            },
+            "total_tokens": 1831
+          }
+        }
+      }
+    ],
+    "round_count": 1,
+    "provided_context": []
+  },
+  "summary": {
+    "finding_id": "0d1056a6b05f35c0661820fd228845121f557c692860dd5fbbf953fb28675bea",
+    "detector": "incorrect-equality",
+    "contract": "SurgeToken",
+    "function": "purchase(address,uint256)",
+    "verdict": "false_positive",
+    "rounds": 1,
+    "requested_fragments": 0,
+    "input_tokens": 1463,
+    "output_tokens": 368,
+    "total_tokens": 1831
+  },
+  "context_efficiency": {
+    "full_source_estimated_tokens": 5868,
+    "initial_selected_source_estimated_tokens": 306,
+    "additional_selected_source_estimated_tokens": 0,
+    "cumulative_selected_source_estimated_tokens": 306,
+    "source_context_reduction": 0.9478527607361963
+  },
+  "initial_payload": {
+    "target": {
+      "id": "SurgeToken.sol:function:20161:1222",
+      "kind": "function",
+      "contract": "SurgeToken",
+      "signature": "purchase(address,uint256)",
+      "visibility": "internal",
+      "source": "function purchase(address buyer, uint256 bnbAmount) internal returns (bool) {\n        // make sure we don't buy more than the bnb in this contract\n        require(bnbAmount <= address(this).balance, 'purchase not included in balance');\n        // previous amount of BNB before we received any        \n        uint256 prevBNBAmount = (address(this).balance).sub(bnbAmount);\n        // if this is the first purchase, use current balance\n        prevBNBAmount = prevBNBAmount == 0 ? address(this).balance : prevBNBAmount;\n        // find the number of tokens we should mint to keep up with the current price\n        uint256 nShouldPurchase = hyperInflatePrice ? _totalSupply.mul(bnbAmount).div(address(this).balance) : _totalSupply.mul(bnbAmount).div(prevBNBAmount);\n        // apply our spread to tokens to inflate price relative to total supply\n        uint256 tokensToSend = nShouldPurchase.mul(spreadDivisor).div(10**2);\n        // revert if under 1\n        if (tokensToSend < 1) {\n            revert('Must Buy More Than One Surge');\n        }\n        \n        // mint the tokens we need to the buyer\n        mint(buyer, tokensToSend);\n        emit Transfer(address(this), buyer, tokensToSend);\n        return true;\n    }"
+    },
+    "available_context": [
+      {
+        "id": "SurgeToken.sol:state_variable:17267:32",
+        "kind": "state_variable",
+        "name": "SurgeToken._totalSupply",
+        "reasons": [
+          "state variable declaration: _totalSupply"
+        ]
+      },
+      {
+        "id": "SurgeToken.sol:function:19227:853",
+        "kind": "function",
+        "name": "_transferFrom(address,address,uint256)",
+        "reasons": [
+          "direct writer of state variable: _totalSupply"
+        ]
+      },
+      {
+        "id": "SurgeToken.sol:function:21466:1070",
+        "kind": "function",
+        "name": "sell(uint256)",
+        "reasons": [
+          "direct writer of state variable: _totalSupply"
+        ]
+      },
+      {
+        "id": "SurgeToken.sol:function:22778:173",
+        "kind": "function",
+        "name": "mint(address,uint256)",
+        "reasons": [
+          "direct writer of state variable: _totalSupply"
+        ]
+      },
+      {
+        "id": "SurgeToken.sol:function:16939:6529",
+        "kind": "function",
+        "name": "slitherConstructorVariables()",
+        "reasons": [
+          "direct writer of state variable: _totalSupply",
+          "direct writer of state variable: hyperInflatePrice",
+          "direct writer of state variable: spreadDivisor"
+        ]
+      },
+      {
+        "id": "SurgeToken.sol:state_variable:17542:37",
+        "kind": "state_variable",
+        "name": "SurgeToken.hyperInflatePrice",
+        "reasons": [
+          "state variable declaration: hyperInflatePrice"
+        ]
+      },
+      {
+        "id": "SurgeToken.sol:state_variable:17466:33",
+        "kind": "state_variable",
+        "name": "SurgeToken.spreadDivisor",
+        "reasons": [
+          "state variable declaration: spreadDivisor"
+        ]
+      }
+    ],
+    "context_complete": false,
+    "task": "verify_static_analysis_finding",
+    "finding": {
+      "id": "0d1056a6b05f35c0661820fd228845121f557c692860dd5fbbf953fb28675bea",
+      "tool": "slither",
+      "detector": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High",
+      "description": "SurgeToken.purchase(address,uint256) (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#554-574) uses a dangerous strict equality:\n\t- prevBNBAmount == 0 (examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol#560)\n",
+      "contract": "SurgeToken",
+      "function": "purchase(address,uint256)",
+      "file": "examples/defihacklabs/evaluation/final20/contracts/xsurge/raw/SurgeToken.sol",
+      "lines": [
+        560
+      ]
+    }
+  }
+}
