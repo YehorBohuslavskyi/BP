@@ -1,0 +1,53 @@
+{
+  "cases": [
+    {
+      "project": "Coinfabrik-Timvi Smart Contract Audit",
+      "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.sol",
+      "labels": [
+        {
+          "project": "Coinfabrik-Timvi Smart Contract Audit",
+          "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.sol",
+          "swc_id": "SWC-115",
+          "category": "Authorization through tx.origin",
+          "function": "leverage",
+          "lines": [
+            160
+          ],
+          "report": "SWCsource/Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Coinfabrik-Timvi Smart Contract Audit/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-115-Authorization through tx.origin",
+            "function": "leverage",
+            "lineNumber": "L160"
+          }
+        },
+        {
+          "project": "Coinfabrik-Timvi Smart Contract Audit",
+          "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.sol",
+          "swc_id": "SWC-115",
+          "category": "Authorization through tx.origin",
+          "function": "exchange",
+          "lines": [
+            172
+          ],
+          "report": "SWCsource/Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Coinfabrik-Timvi Smart Contract Audit/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-115-Authorization through tx.origin",
+            "function": "exchange",
+            "lineNumber": "L172"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "a0257f8e82df39efd6f94a9d2b885036ab00cfacee72b9e7f4132a05e1f18d30"
+    }
+  ],
+  "selection_policy": "Prespecified SWC categories; lexicographic source order; selected before inference"
+}

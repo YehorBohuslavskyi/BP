@@ -1,0 +1,560 @@
+{
+  "cases": [
+    {
+      "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+      "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+      "labels": [
+        {
+          "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+          "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+          "swc_id": "SWC-107",
+          "category": "Reentrancy",
+          "function": "deposit",
+          "lines": [
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "report": "SWCsource/BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_impossible_finance_swap_v1.2/blocksec_impossible_finance_swap_v1.2.pdf"
+          ],
+          "raw": {
+            "category": "SWC-107-Reentrancy",
+            "function": "deposit",
+            "lineNumber": "L53-61"
+          }
+        },
+        {
+          "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+          "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+          "swc_id": "SWC-107",
+          "category": "Reentrancy",
+          "function": "deposit",
+          "lines": [
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73
+          ],
+          "report": "SWCsource/BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_impossible_finance_swap_v1.2/blocksec_impossible_finance_swap_v1.2.pdf"
+          ],
+          "raw": {
+            "category": "SWC-107-Reentrancy",
+            "function": "deposit",
+            "lineNumber": "L65-73"
+          }
+        },
+        {
+          "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+          "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+          "swc_id": "SWC-114",
+          "category": "",
+          "function": "deposit",
+          "lines": [
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73
+          ],
+          "report": "SWCsource/BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_impossible_finance_swap_v1.2/blocksec_impossible_finance_swap_v1.2.pdf"
+          ],
+          "raw": {
+            "category": "SWC-114-Transaction Order Dependence",
+            "function": "deposit",
+            "lineNumber": "L65-73"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "8eb9ef4003b0f0ed6eaa2f3d41f58d2a6192716c5541c8cd16d1360fc04051d9"
+    },
+    {
+      "project": "BlockSec-blocksec_multichain_vemult_v1.0_signed",
+      "file": "BlockSec-blocksec_multichain_vemult_v1.0_signed/veMULTI-bac804399d1ea280e5bd8cdc9488b6fa6a0a7fcc/contracts/ve.sol",
+      "labels": [
+        {
+          "project": "BlockSec-blocksec_multichain_vemult_v1.0_signed",
+          "file": "BlockSec-blocksec_multichain_vemult_v1.0_signed/veMULTI-bac804399d1ea280e5bd8cdc9488b6fa6a0a7fcc/contracts/ve.sol",
+          "swc_id": "SWC-112",
+          "category": "Delegatecall to Untrusted Callee",
+          "function": "ownerOf",
+          "lines": [
+            491,
+            492,
+            493
+          ],
+          "report": "SWCsource/BlockSec-blocksec_multichain_vemult_v1.0_signed/veMULTI-bac804399d1ea280e5bd8cdc9488b6fa6a0a7fcc/contracts/ve.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_multichain_vemult_v1.0_signed/blocksec_multichain_vemult_v1.0_signed.pdf"
+          ],
+          "raw": {
+            "category": "SWC-112-Delegatecall to Untrusted Callee",
+            "function": "ownerOf",
+            "lineNumber": "L491-493"
+          }
+        },
+        {
+          "project": "BlockSec-blocksec_multichain_vemult_v1.0_signed",
+          "file": "BlockSec-blocksec_multichain_vemult_v1.0_signed/veMULTI-bac804399d1ea280e5bd8cdc9488b6fa6a0a7fcc/contracts/ve.sol",
+          "swc_id": "SWC-104",
+          "category": "Unchecked Call Return Value",
+          "function": "safeTransferFrom",
+          "lines": [
+            675,
+            676,
+            677,
+            678,
+            679,
+            680,
+            681,
+            682,
+            683,
+            684,
+            685,
+            686,
+            687,
+            688,
+            689,
+            690,
+            691,
+            692,
+            693,
+            694,
+            695,
+            696,
+            697
+          ],
+          "report": "SWCsource/BlockSec-blocksec_multichain_vemult_v1.0_signed/veMULTI-bac804399d1ea280e5bd8cdc9488b6fa6a0a7fcc/contracts/ve.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_multichain_vemult_v1.0_signed/blocksec_multichain_vemult_v1.0_signed.pdf"
+          ],
+          "raw": {
+            "category": "SWC-104-Unchecked Call Return Value",
+            "function": "safeTransferFrom",
+            "lineNumber": "L675-697"
+          }
+        },
+        {
+          "project": "BlockSec-blocksec_multichain_vemult_v1.0_signed",
+          "file": "BlockSec-blocksec_multichain_vemult_v1.0_signed/veMULTI-bac804399d1ea280e5bd8cdc9488b6fa6a0a7fcc/contracts/ve.sol",
+          "swc_id": "SWC-107",
+          "category": "Reentrancy",
+          "function": "withdraw",
+          "lines": [
+            1097,
+            1098,
+            1099,
+            1100,
+            1101,
+            1102,
+            1103,
+            1104
+          ],
+          "report": "SWCsource/BlockSec-blocksec_multichain_vemult_v1.0_signed/veMULTI-bac804399d1ea280e5bd8cdc9488b6fa6a0a7fcc/contracts/ve.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_multichain_vemult_v1.0_signed/blocksec_multichain_vemult_v1.0_signed.pdf"
+          ],
+          "raw": {
+            "category": "SWC-107-Reentrancy",
+            "function": "withdraw",
+            "lineNumber": "L1097-1104"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "45bdbf48e7fdd3daebd0dc89cd5e971d92e485182fe43a4303eedfd8939a8f25"
+    },
+    {
+      "project": "Callisto_Network-McAfeeDex Security Audit",
+      "file": "Callisto_Network-McAfeeDex Security Audit/MCAFEEDEXCONTRACT-5db8389ce23ce11fb273c9573772287aa75ce43b/contract.sol",
+      "labels": [
+        {
+          "project": "Callisto_Network-McAfeeDex Security Audit",
+          "file": "Callisto_Network-McAfeeDex Security Audit/MCAFEEDEXCONTRACT-5db8389ce23ce11fb273c9573772287aa75ce43b/contract.sol",
+          "swc_id": "SWC-111",
+          "category": "",
+          "function": "assert",
+          "lines": [
+            23
+          ],
+          "report": "SWCsource/Callisto_Network-McAfeeDex Security Audit/MCAFEEDEXCONTRACT-5db8389ce23ce11fb273c9573772287aa75ce43b/contract.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Callisto_Network-McAfeeDex Security Audit/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-111-Use of Deprecated Solidity Functions",
+            "function": "assert",
+            "lineNumber": "L23"
+          }
+        },
+        {
+          "project": "Callisto_Network-McAfeeDex Security Audit",
+          "file": "Callisto_Network-McAfeeDex Security Audit/MCAFEEDEXCONTRACT-5db8389ce23ce11fb273c9573772287aa75ce43b/contract.sol",
+          "swc_id": "SWC-111",
+          "category": "",
+          "function": "create",
+          "lines": [
+            121
+          ],
+          "report": "SWCsource/Callisto_Network-McAfeeDex Security Audit/MCAFEEDEXCONTRACT-5db8389ce23ce11fb273c9573772287aa75ce43b/contract.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Callisto_Network-McAfeeDex Security Audit/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-111-Use of Deprecated Solidity Functions",
+            "function": "create",
+            "lineNumber": "L121"
+          }
+        },
+        {
+          "project": "Callisto_Network-McAfeeDex Security Audit",
+          "file": "Callisto_Network-McAfeeDex Security Audit/MCAFEEDEXCONTRACT-5db8389ce23ce11fb273c9573772287aa75ce43b/contract.sol",
+          "swc_id": "SWC-135",
+          "category": "",
+          "function": null,
+          "lines": [
+            157
+          ],
+          "report": "SWCsource/Callisto_Network-McAfeeDex Security Audit/MCAFEEDEXCONTRACT-5db8389ce23ce11fb273c9573772287aa75ce43b/contract.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Callisto_Network-McAfeeDex Security Audit/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-135-Code With No Effects",
+            "function": "N/A",
+            "lineNumber": "L157"
+          }
+        },
+        {
+          "project": "Callisto_Network-McAfeeDex Security Audit",
+          "file": "Callisto_Network-McAfeeDex Security Audit/MCAFEEDEXCONTRACT-5db8389ce23ce11fb273c9573772287aa75ce43b/contract.sol",
+          "swc_id": "SWC-135",
+          "category": "",
+          "function": null,
+          "lines": [
+            161
+          ],
+          "report": "SWCsource/Callisto_Network-McAfeeDex Security Audit/MCAFEEDEXCONTRACT-5db8389ce23ce11fb273c9573772287aa75ce43b/contract.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Callisto_Network-McAfeeDex Security Audit/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-135-Code With No Effects",
+            "function": "N/A",
+            "lineNumber": "L161"
+          }
+        },
+        {
+          "project": "Callisto_Network-McAfeeDex Security Audit",
+          "file": "Callisto_Network-McAfeeDex Security Audit/MCAFEEDEXCONTRACT-5db8389ce23ce11fb273c9573772287aa75ce43b/contract.sol",
+          "swc_id": "SWC-107",
+          "category": "Reentrancy",
+          "function": "withdraw",
+          "lines": [
+            224
+          ],
+          "report": "SWCsource/Callisto_Network-McAfeeDex Security Audit/MCAFEEDEXCONTRACT-5db8389ce23ce11fb273c9573772287aa75ce43b/contract.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Callisto_Network-McAfeeDex Security Audit/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-107-Reentrancy",
+            "function": "withdraw",
+            "lineNumber": "L224"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "64b98cb56f8cc389245fe8095c586a75ce41fdb3ba52eb8b261881302fb10e03"
+    },
+    {
+      "project": "Callisto_Network-MaxiMine Token (MXM) Security Audit",
+      "file": "Callisto_Network-MaxiMine Token (MXM) Security Audit/code/code.sol",
+      "labels": [
+        {
+          "project": "Callisto_Network-MaxiMine Token (MXM) Security Audit",
+          "file": "Callisto_Network-MaxiMine Token (MXM) Security Audit/code/code.sol",
+          "swc_id": "SWC-104",
+          "category": "Unchecked Call Return Value",
+          "function": "transfer",
+          "lines": [
+            76
+          ],
+          "report": "SWCsource/Callisto_Network-MaxiMine Token (MXM) Security Audit/code/code.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Callisto_Network-MaxiMine Token (MXM) Security Audit/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-104-Unchecked Call Return Value",
+            "function": "transfer",
+            "lineNumber": "L76"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "55f151eeb39fe1cfded2fec6f70735c4ffecff03597116b707ba1717d276ac3c"
+    },
+    {
+      "project": "Chainsecurity-Angle Protocol  Borrowing Module",
+      "file": "Chainsecurity-Angle Protocol  Borrowing Module/angle-borrow-0363b6a137a44e22ee06b3187ba74f7798c1af08/contracts/vaultManager/VaultManager.sol",
+      "labels": [
+        {
+          "project": "Chainsecurity-Angle Protocol  Borrowing Module",
+          "file": "Chainsecurity-Angle Protocol  Borrowing Module/angle-borrow-0363b6a137a44e22ee06b3187ba74f7798c1af08/contracts/vaultManager/VaultManager.sol",
+          "swc_id": "SWC-104",
+          "category": "Unchecked Call Return Value",
+          "function": "liquidate",
+          "lines": [
+            692
+          ],
+          "report": "SWCsource/Chainsecurity-Angle Protocol  Borrowing Module/angle-borrow-0363b6a137a44e22ee06b3187ba74f7798c1af08/contracts/vaultManager/VaultManager.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Chainsecurity-Angle Protocol  Borrowing Module/ChainSecurity_Angle_Angle_Borrowing_Module_audit.pdf"
+          ],
+          "raw": {
+            "category": "SWC-104-Unchecked Call Return Value",
+            "function": "liquidate",
+            "lineNumber": "L692"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "8c3cba9f5b52b3579fb6efd24e5a54e39c4d97d44e913d05dcd83e9864f83d23"
+    },
+    {
+      "project": "BlockSec-blocksec_coordinape_v1.1_signed",
+      "file": "BlockSec-blocksec_coordinape_v1.1_signed/coordinape-protocol-7a8e6173305696c72195fa4242126d284611270c/contracts/ApeProtocol/wrapper/beacon/ApeVault.sol",
+      "labels": [
+        {
+          "project": "BlockSec-blocksec_coordinape_v1.1_signed",
+          "file": "BlockSec-blocksec_coordinape_v1.1_signed/coordinape-protocol-7a8e6173305696c72195fa4242126d284611270c/contracts/ApeProtocol/wrapper/beacon/ApeVault.sol",
+          "swc_id": "SWC-135",
+          "category": "",
+          "function": null,
+          "lines": [
+            64
+          ],
+          "report": "SWCsource/BlockSec-blocksec_coordinape_v1.1_signed/coordinape-protocol-7a8e6173305696c72195fa4242126d284611270c/contracts/ApeProtocol/wrapper/beacon/ApeVault.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_coordinape_v1.1_signed/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-135-Code With No Effects",
+            "function": "N/A",
+            "lineNumber": "L64"
+          }
+        },
+        {
+          "project": "BlockSec-blocksec_coordinape_v1.1_signed",
+          "file": "BlockSec-blocksec_coordinape_v1.1_signed/coordinape-protocol-7a8e6173305696c72195fa4242126d284611270c/contracts/ApeProtocol/wrapper/beacon/ApeVault.sol",
+          "swc_id": "SWC-135",
+          "category": "",
+          "function": null,
+          "lines": [
+            71
+          ],
+          "report": "SWCsource/BlockSec-blocksec_coordinape_v1.1_signed/coordinape-protocol-7a8e6173305696c72195fa4242126d284611270c/contracts/ApeProtocol/wrapper/beacon/ApeVault.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_coordinape_v1.1_signed/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-135-Code With No Effects",
+            "function": "N/A",
+            "lineNumber": "L71"
+          }
+        },
+        {
+          "project": "BlockSec-blocksec_coordinape_v1.1_signed",
+          "file": "BlockSec-blocksec_coordinape_v1.1_signed/coordinape-protocol-7a8e6173305696c72195fa4242126d284611270c/contracts/ApeProtocol/wrapper/beacon/ApeVault.sol",
+          "swc_id": "SWC-105",
+          "category": "Unprotected Ether Withdrawal",
+          "function": "apeWithdrawSimpleToken",
+          "lines": [
+            133,
+            134,
+            135
+          ],
+          "report": "SWCsource/BlockSec-blocksec_coordinape_v1.1_signed/coordinape-protocol-7a8e6173305696c72195fa4242126d284611270c/contracts/ApeProtocol/wrapper/beacon/ApeVault.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_coordinape_v1.1_signed/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-105-Unprotected Ether Withdrawal",
+            "function": "apeWithdrawSimpleToken",
+            "lineNumber": "L133-135"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "9482a893357f27b872db414b4d4b0d6649c08ef2bac1d07a3f23ecaee2dc3722"
+    },
+    {
+      "project": "BlockSec-blocksec_stnd_v1.7_signed",
+      "file": "BlockSec-blocksec_stnd_v1.7_signed/standard-evm-d7c016ca098a4e5a554583c499fc0cead4db7088/contracts/pools/liquidation/Liquidator.sol",
+      "labels": [
+        {
+          "project": "BlockSec-blocksec_stnd_v1.7_signed",
+          "file": "BlockSec-blocksec_stnd_v1.7_signed/standard-evm-d7c016ca098a4e5a554583c499fc0cead4db7088/contracts/pools/liquidation/Liquidator.sol",
+          "swc_id": "SWC-105",
+          "category": "Unprotected Ether Withdrawal",
+          "function": "distribute",
+          "lines": [
+            35
+          ],
+          "report": "SWCsource/BlockSec-blocksec_stnd_v1.7_signed/standard-evm-d7c016ca098a4e5a554583c499fc0cead4db7088/contracts/pools/liquidation/Liquidator.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_stnd_v1.7_signed/blocksec_stnd_v1.7_signed.pdf"
+          ],
+          "raw": {
+            "category": "SWC-105-Unprotected Ether Withdrawal",
+            "function": "distribute",
+            "lineNumber": "L35"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "98f444a6426c57b724ea3aa1ecef2572826fd47f10cbcb46188ee5f5b01ed5e3"
+    },
+    {
+      "project": "Callisto_Network-Fantom Token (FTM) Security Audit Report",
+      "file": "Callisto_Network-Fantom Token (FTM) Security Audit Report/code/Etherscan-0x4e15361fd6b4bb609fa63c81a2be19d873717870.sol",
+      "labels": [
+        {
+          "project": "Callisto_Network-Fantom Token (FTM) Security Audit Report",
+          "file": "Callisto_Network-Fantom Token (FTM) Security Audit Report/code/Etherscan-0x4e15361fd6b4bb609fa63c81a2be19d873717870.sol",
+          "swc_id": "SWC-105",
+          "category": "Unprotected Ether Withdrawal",
+          "function": "transfer",
+          "lines": [],
+          "report": "SWCsource/Callisto_Network-Fantom Token (FTM) Security Audit Report/code/Etherscan-0x4e15361fd6b4bb609fa63c81a2be19d873717870.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Callisto_Network-Fantom Token (FTM) Security Audit Report/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-105-Unprotected Ether Withdrawal",
+            "function": "transfer",
+            "lineNumber": "L166 - L172"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "4080d7fb7172505e9f78b920ff25ad2055a2eb9f27c3f3be8822624c18282f39"
+    },
+    {
+      "project": "Coinfabrik-Timvi Smart Contract Audit",
+      "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.sol",
+      "labels": [
+        {
+          "project": "Coinfabrik-Timvi Smart Contract Audit",
+          "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.sol",
+          "swc_id": "SWC-115",
+          "category": "Authorization through tx.origin",
+          "function": "leverage",
+          "lines": [
+            160
+          ],
+          "report": "SWCsource/Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Coinfabrik-Timvi Smart Contract Audit/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-115-Authorization through tx.origin",
+            "function": "leverage",
+            "lineNumber": "L160"
+          }
+        },
+        {
+          "project": "Coinfabrik-Timvi Smart Contract Audit",
+          "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.sol",
+          "swc_id": "SWC-115",
+          "category": "Authorization through tx.origin",
+          "function": "exchange",
+          "lines": [
+            172
+          ],
+          "report": "SWCsource/Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Coinfabrik-Timvi Smart Contract Audit/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-115-Authorization through tx.origin",
+            "function": "exchange",
+            "lineNumber": "L172"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "a0257f8e82df39efd6f94a9d2b885036ab00cfacee72b9e7f4132a05e1f18d30"
+    },
+    {
+      "project": "Coinfabrik-Timvi Smart Contract Audit",
+      "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/leverage-exchange/ExchangeService.sol",
+      "labels": [
+        {
+          "project": "Coinfabrik-Timvi Smart Contract Audit",
+          "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/leverage-exchange/ExchangeService.sol",
+          "swc_id": "SWC-115",
+          "category": "Authorization through tx.origin",
+          "function": "create",
+          "lines": [
+            129
+          ],
+          "report": "SWCsource/Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/leverage-exchange/ExchangeService.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Coinfabrik-Timvi Smart Contract Audit/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-115-Authorization through tx.origin",
+            "function": "create",
+            "lineNumber": "L129"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "82ed8bc1837759f8cbe465879c79ebdfa749e9ada895de85c622705a7852cb2a"
+    }
+  ],
+  "selection_policy": "Prespecified SWC categories; lexicographic source order; selected before inference"
+}

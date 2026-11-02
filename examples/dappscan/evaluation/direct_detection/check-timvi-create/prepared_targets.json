@@ -1,0 +1,41 @@
+{
+  "cases": [
+    {
+      "project": "Coinfabrik-Timvi Smart Contract Audit",
+      "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/leverage-exchange/ExchangeService.sol",
+      "labels": [
+        {
+          "project": "Coinfabrik-Timvi Smart Contract Audit",
+          "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/leverage-exchange/ExchangeService.sol",
+          "swc_id": "SWC-115",
+          "category": "Authorization through tx.origin",
+          "function": "create",
+          "lines": [
+            129
+          ],
+          "report": "SWCsource/Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/leverage-exchange/ExchangeService.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Coinfabrik-Timvi Smart Contract Audit/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-115-Authorization through tx.origin",
+            "function": "create",
+            "lineNumber": "L129"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "82ed8bc1837759f8cbe465879c79ebdfa749e9ada895de85c622705a7852cb2a",
+      "selected": true,
+      "pragma": "0.5.11",
+      "compiler_used": "0.5.11",
+      "compiler_version_attempted": "0.5.11",
+      "preparation_error": null,
+      "session_count": 0,
+      "preparation_status": "NO_ANALYZABLE_FUNCTIONS",
+      "functions": 0
+    }
+  ],
+  "sessions": 0
+}

@@ -1,0 +1,173 @@
+{
+  "cases": [
+    {
+      "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+      "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+      "labels": [
+        {
+          "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+          "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+          "swc_id": "SWC-107",
+          "category": "Reentrancy",
+          "function": "deposit",
+          "lines": [
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "report": "SWCsource/BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_impossible_finance_swap_v1.2/blocksec_impossible_finance_swap_v1.2.pdf"
+          ],
+          "raw": {
+            "category": "SWC-107-Reentrancy",
+            "function": "deposit",
+            "lineNumber": "L53-61"
+          }
+        },
+        {
+          "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+          "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+          "swc_id": "SWC-107",
+          "category": "Reentrancy",
+          "function": "deposit",
+          "lines": [
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73
+          ],
+          "report": "SWCsource/BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_impossible_finance_swap_v1.2/blocksec_impossible_finance_swap_v1.2.pdf"
+          ],
+          "raw": {
+            "category": "SWC-107-Reentrancy",
+            "function": "deposit",
+            "lineNumber": "L65-73"
+          }
+        },
+        {
+          "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+          "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+          "swc_id": "SWC-114",
+          "category": "",
+          "function": "deposit",
+          "lines": [
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73
+          ],
+          "report": "SWCsource/BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_impossible_finance_swap_v1.2/blocksec_impossible_finance_swap_v1.2.pdf"
+          ],
+          "raw": {
+            "category": "SWC-114-Transaction Order Dependence",
+            "function": "deposit",
+            "lineNumber": "L65-73"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "8eb9ef4003b0f0ed6eaa2f3d41f58d2a6192716c5541c8cd16d1360fc04051d9"
+    },
+    {
+      "project": "Coinfabrik-Timvi Smart Contract Audit",
+      "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.sol",
+      "labels": [
+        {
+          "project": "Coinfabrik-Timvi Smart Contract Audit",
+          "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.sol",
+          "swc_id": "SWC-115",
+          "category": "Authorization through tx.origin",
+          "function": "leverage",
+          "lines": [
+            160
+          ],
+          "report": "SWCsource/Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Coinfabrik-Timvi Smart Contract Audit/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-115-Authorization through tx.origin",
+            "function": "leverage",
+            "lineNumber": "L160"
+          }
+        },
+        {
+          "project": "Coinfabrik-Timvi Smart Contract Audit",
+          "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.sol",
+          "swc_id": "SWC-115",
+          "category": "Authorization through tx.origin",
+          "function": "exchange",
+          "lines": [
+            172
+          ],
+          "report": "SWCsource/Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Coinfabrik-Timvi Smart Contract Audit/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-115-Authorization through tx.origin",
+            "function": "exchange",
+            "lineNumber": "L172"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "a0257f8e82df39efd6f94a9d2b885036ab00cfacee72b9e7f4132a05e1f18d30"
+    },
+    {
+      "project": "Coinfabrik-Timvi Smart Contract Audit",
+      "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/leverage-exchange/ExchangeService.sol",
+      "labels": [
+        {
+          "project": "Coinfabrik-Timvi Smart Contract Audit",
+          "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/leverage-exchange/ExchangeService.sol",
+          "swc_id": "SWC-115",
+          "category": "Authorization through tx.origin",
+          "function": "create",
+          "lines": [
+            129
+          ],
+          "report": "SWCsource/Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/leverage-exchange/ExchangeService.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Coinfabrik-Timvi Smart Contract Audit/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-115-Authorization through tx.origin",
+            "function": "create",
+            "lineNumber": "L129"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "82ed8bc1837759f8cbe465879c79ebdfa749e9ada895de85c622705a7852cb2a"
+    }
+  ],
+  "selection_policy": "Prespecified SWC categories; lexicographic source order; selected before inference"
+}

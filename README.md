@@ -1,12 +1,12 @@
 # Smart Contract Vulnerability Verifier
 
-A bachelor-thesis prototype that verifies individual Slither warnings using dependency-aware source context. The model can request relevant fragments and returns `confirmed`, `false_positive`, or `inconclusive`.
+A bachelor-thesis prototype for selective-context smart-contract vulnerability
+analysis. **Mode B — Direct LLM Detection** is the primary research method;
+Slither detection (Mode A) and Slither + LLM verification (Mode C) provide comparisons.
+The model can request additional source fragments across bounded rounds.
 
-```text
-Solidity → Slither → Finding → Dependency-aware context → LLM verifier
-                                                           ↓
-                                      confirmed / false_positive / inconclusive
-```
+See [current state and next milestone](docs/current_state.md) for frozen pilot
+metrics, known limitations, and the next development session.
 
 ## Installation
 
@@ -187,3 +187,145 @@ Use **Contract source → Demo → Load selected demo** for the local
 make API calls. Additional validated sources can be registered in `app/demos.py`.
 The expandable inspector retains source, explanations, evidence, usage, context metrics,
 and the optional single-finding verification action.
+
+## Analysis Modes
+
+### Mode A — Static baseline
+
+Solidity → Slither detection. Existing baseline tools and saved experiments remain
+available independently of LLM inference.
+
+### Mode B — Direct LLM Detection (primary method)
+
+Solidity → source/indexing → function analysis → selective context → multi-round
+LLM (`request_context`) → whole-contract findings.
+
+Final verdicts: `vulnerable / no_vulnerability_found / inconclusive`.
+No Slither finding is supplied as the vulnerability hypothesis.
+
+### Mode C — Hybrid verification
+
+Solidity → Slither candidate finding → selective-context LLM verification →
+`confirmed / false_positive / inconclusive`.
+The existing GUI calls this **Slither Verification**.
+
+Select **Analysis mode → Direct LLM Detection** in the sidebar. Paste source or
+choose a local DAppSCAN project and files, index, select contracts/functions,
+and press **Run direct detection**. Indexing makes no model calls. Each function
+starts with its source, signature, available metadata and a catalog
+of requestable fragments. SOURCE_FALLBACK omits unavailable dependency metadata.
+The shared indexer uses Slither's parser and source mappings, but direct mode never invokes detectors or consumes findings.
+Compatible locally installed solc versions and resolvable imports are required.
+
+Reports retain every function session, multiple findings, evidence snippets,
+context requests, errors and token usage. Contract summaries collapse only
+same-target, same-type/SWC findings with identical evidence sets. Raw findings
+remain intact. Context reduction compares estimated unique source tokens
+supplied per session against one full source file per session; it is not an API
+billing reduction estimate.
+
+Use fresh output directories for the commands below; do not reuse frozen run paths.
+
+```bash
+.venv/bin/python -m streamlit run streamlit_app.py
+export DAPPSCAN_ROOT=/absolute/path/to/DAppSCAN
+# Source-only preparation (no API calls)
+.venv/bin/python scripts/run_direct_detection.py /path/to/Contract.sol --output /tmp/direct-prepared
+# Explicit inference; OPENAI_MODEL and OPENAI_API_KEY must already be configured
+.venv/bin/python scripts/run_direct_detection.py /path/to/Contract.sol --function 'withdraw(uint256)' --run --output /tmp/direct-run
+# Prepare a deterministic small pilot, including compilation errors
+.venv/bin/python scripts/run_dappscan_direct_detection.py --dataset-root "$DAPPSCAN_ROOT" --prepare --limit 15 --output examples/dappscan/evaluation/direct_detection/next-pilot-prepared
+# One selected pilot source; caps analysis at 20 functions unless explicitly changed
+.venv/bin/python scripts/run_dappscan_direct_detection.py --dataset-root "$DAPPSCAN_ROOT" --manifest examples/dappscan/evaluation/direct_detection/next-pilot-prepared/pilot_manifest.json --limit 1 --run --output examples/dappscan/evaluation/direct_detection/next-one-case
+# Offline summary; requires neither dataset nor API credentials
+.venv/bin/python scripts/run_dappscan_direct_detection.py --summarize --output examples/dappscan/evaluation/direct_detection/next-one-case
+.venv/bin/python -m unittest discover -s tests -v
+```
+
+DAppSCAN is read only from a local checkout; no automatic downloads occur.
+The loader reads `DAppSCAN-source/contracts` and `SWCsource` JSON metadata
+(`filePath`, `SWCs`, `category`, `function`, `lineNumber`), also accepting explicit
+normalized JSON labels. Evaluation metadata is loaded separately and never
+passed to the inference worker. The GUI reveals evaluation only after results
+exist. Source-only matches are explicitly marked when reliable function/line
+locations are unavailable. Additional model findings are unlabeled, not false
+positives. Recall includes inconclusive labels in its denominator; precision
+is not computed. SWC accuracy among detections is conditional on the matching
+rule and is not an independent classifier score.
+
+The checked-in pilot policy selects the first three files per prespecified SWC,
+deduplicated, before inference. The original policy-only manifest is historical;
+materialized manifests live beside the saved runs. The current clean pilot is
+`clean-pilot3-run-v2`, with its preparation in `clean-pilot3-prepared-v2`. Keep
+selected manifests fixed; do not replace failures based on LLM outcomes.
+
+### Direct-mode preparation and evaluation coverage
+
+Direct detection stages sanitized copies of the source and its resolved local
+imports before indexing. DAppSCAN/SWC annotation comments are blanked while
+preserving line numbers and UTF-8 byte offsets. Ordinary developer comments
+and string literals remain intact. Synthetic Slither constructor-variable
+helpers are excluded from the direct catalog. The verifier mode is unaffected.
+
+Preparation selects a compatible installed solc binary directly, without global
+compiler changes or downloads. Local relative imports, node_modules packages,
+remappings.txt entries and vendored OpenZeppelin packages are resolved when
+available. Missing dependencies are never fabricated.
+
+Every selected case records `selected`, `pragma`, `compiler_used`,
+`compiler_version_attempted`, `preparation_error`, `session_count`, and one of:
+`READY`, `PARTIALLY_READY`, `COMPILER_VERSION_UNAVAILABLE`, `MISSING_DEPENDENCY`,
+`COMPILATION_FAILED`, `NO_ANALYZABLE_FUNCTIONS`. A null compiler means no
+compiler was attempted, rather than an incompatible fallback. Only safe sessions
+from READY or PARTIALLY_READY cases participate in inference. Compiler installation is a separate explicit setup step.
+
+Evaluation distinguishes `UNEVALUABLE` (no successfully analyzed relevant
+session) from analyzed-session `INCONCLUSIVE`. A returned model response followed
+by a context-protocol failure remains inconclusive, with the error preserved; a
+transport failure without a returned model response is unevaluable. Coverage is
+evaluable labels divided by selected labels. Recall uses only evaluable labels, including genuine model
+abstentions; UNEVALUABLE labels are excluded. Selected/ready/analyzed file
+counts and preparation failures are reported separately from model metrics.
+
+The saved [pilot10_debug_prefixed](examples/dappscan/evaluation/direct_detection/pilot10_debug_prefixed.md)
+run is debugging evidence only, with incomplete preparation coverage and
+possible ground-truth annotation leakage. Its recall must not be used as a
+thesis result. The original `pilot10/` artifacts remain preserved.
+
+Prepare a clean single-case check before authorizing any new inference:
+
+```bash
+.venv/bin/python scripts/run_dappscan_direct_detection.py \
+  --dataset-root "$DAPPSCAN_ROOT" \
+  --manifest examples/dappscan/evaluation/direct_detection/pilot10/pilot_manifest.json \
+  --limit 1 --prepare \
+  --output examples/dappscan/evaluation/direct_detection/next-small-prepared
+```
+
+### Function-level direct preparation
+
+Direct preparation parses compiler ASTs/source mappings before attempting IR
+analysis separately for each genuine function/modifier. A function with usable
+IR receives `FULL_INDEX`; an IR failure with validated source mappings receives
+`SOURCE_FALLBACK`. Fallback includes exact sanitized source, signature,
+visibility and source lines, but omits unavailable read/write/dependency metadata.
+Other genuine functions, modifiers and state declarations remain requestable by
+opaque fragment IDs. No whole-contract source is supplied automatically.
+
+Unrecoverable source mappings are recorded as `UNEVALUABLE`. Files containing
+fallback or unrecoverable functions are `PARTIALLY_READY` when at least one safe
+session exists. Preparation records all discovered functions and their readiness,
+counts, warnings, and per-ground-truth target readiness. File-wide discovery
+counts are distinct from `session_count`, which reflects the requested filters.
+`--function` accepts full signatures or bare names and can be repeated; a bare
+name selects all its overloads. Evaluation admits valid sessions from partially
+ready files while missing/unrecoverable target sessions remain UNEVALUABLE.
+
+DAppSCAN ground truth must never enter inference via source annotations,
+manifest labels, audit metadata, or synthetic full-source fragments. The clean
+pilot's source-bearing prompt fields have no detected GT annotation leakage;
+regression tests cover sanitized fallback and multi-round requested context.
+Preparation is offline; only `--run` starts inference. `--summarize` is offline
+but rewrites evaluation reports, so do not point it at frozen runs during cleanup.
+Repeated `--file` selects all distinct explicit files unless an explicit `--limit`
+is supplied; unfiltered discovery still defaults to one file.

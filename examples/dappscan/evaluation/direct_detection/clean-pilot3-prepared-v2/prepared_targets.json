@@ -1,0 +1,1146 @@
+{
+  "cases": [
+    {
+      "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+      "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+      "labels": [
+        {
+          "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+          "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+          "swc_id": "SWC-107",
+          "category": "Reentrancy",
+          "function": "deposit",
+          "lines": [
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "report": "SWCsource/BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_impossible_finance_swap_v1.2/blocksec_impossible_finance_swap_v1.2.pdf"
+          ],
+          "raw": {
+            "category": "SWC-107-Reentrancy",
+            "function": "deposit",
+            "lineNumber": "L53-61"
+          }
+        },
+        {
+          "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+          "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+          "swc_id": "SWC-107",
+          "category": "Reentrancy",
+          "function": "deposit",
+          "lines": [
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73
+          ],
+          "report": "SWCsource/BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_impossible_finance_swap_v1.2/blocksec_impossible_finance_swap_v1.2.pdf"
+          ],
+          "raw": {
+            "category": "SWC-107-Reentrancy",
+            "function": "deposit",
+            "lineNumber": "L65-73"
+          }
+        },
+        {
+          "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+          "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+          "swc_id": "SWC-114",
+          "category": "",
+          "function": "deposit",
+          "lines": [
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73
+          ],
+          "report": "SWCsource/BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_impossible_finance_swap_v1.2/blocksec_impossible_finance_swap_v1.2.pdf"
+          ],
+          "raw": {
+            "category": "SWC-114-Transaction Order Dependence",
+            "function": "deposit",
+            "lineNumber": "L65-73"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "8eb9ef4003b0f0ed6eaa2f3d41f58d2a6192716c5541c8cd16d1360fc04051d9",
+      "selected": true,
+      "pragma": "=0.7.6",
+      "compiler_used": "0.7.6",
+      "compiler_version_attempted": "0.7.6",
+      "preparation_error": null,
+      "session_count": 11,
+      "total_source_functions": 11,
+      "function_readiness": [
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "constructor(address,uint256,uint256)",
+          "lines": [
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "deposit(address,uint256)",
+          "lines": [
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "deposit(address)",
+          "lines": [
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "_deposit(address,uint256)",
+          "lines": [
+            76,
+            77,
+            78,
+            79
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "withdraw(address,uint256)",
+          "lines": [
+            82,
+            83,
+            84,
+            85,
+            86
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "withdraw(address,address,uint256)",
+          "lines": [
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "_withdraw(address,uint256)",
+          "lines": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "amtToUnderlyingAmt(uint256)",
+          "lines": [
+            107,
+            108,
+            109
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "approve(address,uint256)",
+          "lines": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "transfer(address,uint256)",
+          "lines": [
+            117,
+            118,
+            119
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "transferFrom(address,address,uint256)",
+          "lines": [
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127,
+            128,
+            129,
+            130,
+            131,
+            132,
+            133,
+            134,
+            135,
+            136,
+            137,
+            138,
+            139
+          ],
+          "preparation_mode": "FULL_INDEX"
+        }
+      ],
+      "preparation_warnings": [],
+      "FULL_INDEX": 11,
+      "SOURCE_FALLBACK": 0,
+      "UNEVALUABLE": 0,
+      "preparation_status": "READY",
+      "functions": 11,
+      "ground_truth_readiness": [
+        {
+          "label": {
+            "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+            "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+            "swc_id": "SWC-107",
+            "category": "Reentrancy",
+            "function": "deposit",
+            "lines": [
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61
+            ],
+            "report": "SWCsource/BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.json",
+            "audit_description": "",
+            "audit_reports": [
+              "audit_report/BlockSec-blocksec_impossible_finance_swap_v1.2/blocksec_impossible_finance_swap_v1.2.pdf"
+            ],
+            "raw": {
+              "category": "SWC-107-Reentrancy",
+              "function": "deposit",
+              "lineNumber": "L53-61"
+            }
+          },
+          "resolution": "resolved",
+          "preparation_modes": [
+            "FULL_INDEX"
+          ]
+        },
+        {
+          "label": {
+            "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+            "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+            "swc_id": "SWC-107",
+            "category": "Reentrancy",
+            "function": "deposit",
+            "lines": [
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73
+            ],
+            "report": "SWCsource/BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.json",
+            "audit_description": "",
+            "audit_reports": [
+              "audit_report/BlockSec-blocksec_impossible_finance_swap_v1.2/blocksec_impossible_finance_swap_v1.2.pdf"
+            ],
+            "raw": {
+              "category": "SWC-107-Reentrancy",
+              "function": "deposit",
+              "lineNumber": "L65-73"
+            }
+          },
+          "resolution": "resolved",
+          "preparation_modes": [
+            "FULL_INDEX"
+          ]
+        },
+        {
+          "label": {
+            "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+            "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+            "swc_id": "SWC-114",
+            "category": "",
+            "function": "deposit",
+            "lines": [
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73
+            ],
+            "report": "SWCsource/BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.json",
+            "audit_description": "",
+            "audit_reports": [
+              "audit_report/BlockSec-blocksec_impossible_finance_swap_v1.2/blocksec_impossible_finance_swap_v1.2.pdf"
+            ],
+            "raw": {
+              "category": "SWC-114-Transaction Order Dependence",
+              "function": "deposit",
+              "lineNumber": "L65-73"
+            }
+          },
+          "resolution": "resolved",
+          "preparation_modes": [
+            "FULL_INDEX"
+          ]
+        }
+      ]
+    },
+    {
+      "project": "Coinfabrik-Timvi Smart Contract Audit",
+      "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.sol",
+      "labels": [
+        {
+          "project": "Coinfabrik-Timvi Smart Contract Audit",
+          "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.sol",
+          "swc_id": "SWC-115",
+          "category": "Authorization through tx.origin",
+          "function": "leverage",
+          "lines": [
+            160
+          ],
+          "report": "SWCsource/Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Coinfabrik-Timvi Smart Contract Audit/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-115-Authorization through tx.origin",
+            "function": "leverage",
+            "lineNumber": "L160"
+          }
+        },
+        {
+          "project": "Coinfabrik-Timvi Smart Contract Audit",
+          "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.sol",
+          "swc_id": "SWC-115",
+          "category": "Authorization through tx.origin",
+          "function": "exchange",
+          "lines": [
+            172
+          ],
+          "report": "SWCsource/Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Coinfabrik-Timvi Smart Contract Audit/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-115-Authorization through tx.origin",
+            "function": "exchange",
+            "lineNumber": "L172"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "a0257f8e82df39efd6f94a9d2b885036ab00cfacee72b9e7f4132a05e1f18d30",
+      "selected": true,
+      "pragma": "0.5.11",
+      "compiler_used": "0.5.11",
+      "compiler_version_attempted": "0.5.11",
+      "preparation_error": null,
+      "session_count": 25,
+      "total_source_functions": 25,
+      "function_readiness": [
+        {
+          "contract": "BondService",
+          "signature": "constructor(ISettings)",
+          "lines": [
+            135,
+            136,
+            137,
+            138,
+            139,
+            140,
+            141,
+            142,
+            143,
+            144,
+            145,
+            146,
+            147
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "leverage(uint256,uint256,uint256)",
+          "lines": [
+            154,
+            155,
+            156,
+            157,
+            158,
+            159,
+            160,
+            161
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "exchange(uint256,uint256)",
+          "lines": [
+            167,
+            168,
+            169,
+            170,
+            171,
+            172,
+            173
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "createBond(address,address,uint256,uint256,uint256)",
+          "lines": [
+            182,
+            183,
+            184,
+            185,
+            186,
+            187,
+            188,
+            189,
+            190,
+            191,
+            192,
+            193,
+            194,
+            195,
+            196,
+            197,
+            198,
+            199,
+            200,
+            201,
+            202,
+            203,
+            204,
+            205,
+            206,
+            207
+          ],
+          "preparation_mode": "SOURCE_FALLBACK",
+          "preparation_warning": "'NoneType' object has no attribute 'parameters'"
+        },
+        {
+          "contract": "BondService",
+          "signature": "close(uint256)",
+          "lines": [
+            211,
+            212,
+            213,
+            214,
+            215,
+            216
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "changeEmitter(uint256,uint256,uint256,uint256,uint256)",
+          "lines": [
+            224,
+            225,
+            226,
+            227,
+            228,
+            229,
+            230,
+            231,
+            232,
+            233,
+            234,
+            235,
+            236
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "changeOwner(uint256,uint256,uint256,uint256)",
+          "lines": [
+            243,
+            244,
+            245,
+            246,
+            247,
+            248,
+            249,
+            250,
+            251,
+            252
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "changeDeposit(uint256,uint256)",
+          "lines": [
+            254,
+            255,
+            256,
+            257,
+            258,
+            259,
+            260,
+            261,
+            262,
+            263,
+            264,
+            265
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "changePercent(uint256,uint256)",
+          "lines": [
+            267,
+            268,
+            269,
+            270,
+            271,
+            272,
+            273
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "changeExpiration(uint256,uint256)",
+          "lines": [
+            275,
+            276,
+            277,
+            278,
+            279,
+            280,
+            281
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "changeYearFee(uint256,uint256)",
+          "lines": [
+            283,
+            284,
+            285,
+            286,
+            287,
+            288,
+            289
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "takeEmitRequest(uint256)",
+          "lines": [
+            293,
+            294,
+            295,
+            296,
+            297,
+            298,
+            299,
+            300,
+            301,
+            302,
+            303,
+            304,
+            305,
+            306,
+            307,
+            308,
+            309,
+            310,
+            311,
+            312,
+            313,
+            314,
+            315,
+            316
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "takeBuyRequest(uint256)",
+          "lines": [
+            320,
+            321,
+            322,
+            323,
+            324,
+            325,
+            326,
+            327,
+            328,
+            329,
+            330,
+            331,
+            332,
+            333,
+            334,
+            335,
+            336,
+            337,
+            338,
+            339,
+            340
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "finish(uint256)",
+          "lines": [
+            344,
+            345,
+            346,
+            347,
+            348,
+            349,
+            350,
+            351,
+            352,
+            353,
+            354,
+            355,
+            356,
+            357,
+            358,
+            359,
+            360,
+            361,
+            362,
+            363,
+            364,
+            365,
+            366,
+            367,
+            368,
+            369,
+            370,
+            371,
+            372,
+            373
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "expire(uint256)",
+          "lines": [
+            377,
+            378,
+            379,
+            380,
+            381,
+            382,
+            383,
+            384,
+            385,
+            386,
+            387,
+            388,
+            389,
+            390,
+            391,
+            392,
+            393,
+            394,
+            395,
+            396,
+            397,
+            398,
+            399,
+            400,
+            401,
+            402,
+            403,
+            404,
+            405
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "getBox(uint256)",
+          "lines": [
+            409,
+            410,
+            411
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "fallback()",
+          "lines": [
+            414
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "withdrawSystemETH(address)",
+          "lines": [
+            418,
+            419,
+            420,
+            421,
+            422,
+            423,
+            424,
+            425
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "reclaimERC20(address,address)",
+          "lines": [
+            430,
+            431,
+            432,
+            433,
+            434,
+            435,
+            436
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "setEmitterFee(uint256)",
+          "lines": [
+            440,
+            441,
+            442,
+            443,
+            444
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "setOwnerFee(uint256)",
+          "lines": [
+            448,
+            449,
+            450,
+            451,
+            452
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "setMinEther(uint256)",
+          "lines": [
+            456,
+            457,
+            458,
+            459,
+            460
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "changeAdmin(address)",
+          "lines": [
+            464,
+            465,
+            466,
+            467
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "precision()",
+          "lines": [
+            470,
+            471,
+            472
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "BondService",
+          "signature": "rate()",
+          "lines": [
+            475,
+            476,
+            477
+          ],
+          "preparation_mode": "FULL_INDEX"
+        }
+      ],
+      "preparation_warnings": [
+        "BondService.createBond(address,address,uint256,uint256,uint256): 'NoneType' object has no attribute 'parameters'"
+      ],
+      "FULL_INDEX": 24,
+      "SOURCE_FALLBACK": 1,
+      "UNEVALUABLE": 0,
+      "preparation_status": "PARTIALLY_READY",
+      "functions": 25,
+      "ground_truth_readiness": [
+        {
+          "label": {
+            "project": "Coinfabrik-Timvi Smart Contract Audit",
+            "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.sol",
+            "swc_id": "SWC-115",
+            "category": "Authorization through tx.origin",
+            "function": "leverage",
+            "lines": [
+              160
+            ],
+            "report": "SWCsource/Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.json",
+            "audit_description": "",
+            "audit_reports": [
+              "audit_report/Coinfabrik-Timvi Smart Contract Audit/report.pdf"
+            ],
+            "raw": {
+              "category": "SWC-115-Authorization through tx.origin",
+              "function": "leverage",
+              "lineNumber": "L160"
+            }
+          },
+          "resolution": "resolved",
+          "preparation_modes": [
+            "FULL_INDEX"
+          ]
+        },
+        {
+          "label": {
+            "project": "Coinfabrik-Timvi Smart Contract Audit",
+            "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.sol",
+            "swc_id": "SWC-115",
+            "category": "Authorization through tx.origin",
+            "function": "exchange",
+            "lines": [
+              172
+            ],
+            "report": "SWCsource/Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.json",
+            "audit_description": "",
+            "audit_reports": [
+              "audit_report/Coinfabrik-Timvi Smart Contract Audit/report.pdf"
+            ],
+            "raw": {
+              "category": "SWC-115-Authorization through tx.origin",
+              "function": "exchange",
+              "lineNumber": "L172"
+            }
+          },
+          "resolution": "resolved",
+          "preparation_modes": [
+            "FULL_INDEX"
+          ]
+        }
+      ]
+    },
+    {
+      "project": "Coinfabrik-Timvi Smart Contract Audit",
+      "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/leverage-exchange/ExchangeService.sol",
+      "labels": [
+        {
+          "project": "Coinfabrik-Timvi Smart Contract Audit",
+          "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/leverage-exchange/ExchangeService.sol",
+          "swc_id": "SWC-115",
+          "category": "Authorization through tx.origin",
+          "function": "create",
+          "lines": [
+            129
+          ],
+          "report": "SWCsource/Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/leverage-exchange/ExchangeService.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/Coinfabrik-Timvi Smart Contract Audit/report.pdf"
+          ],
+          "raw": {
+            "category": "SWC-115-Authorization through tx.origin",
+            "function": "create",
+            "lineNumber": "L129"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "82ed8bc1837759f8cbe465879c79ebdfa749e9ada895de85c622705a7852cb2a",
+      "selected": true,
+      "pragma": "0.5.11",
+      "compiler_used": "0.5.11",
+      "compiler_version_attempted": "0.5.11",
+      "preparation_error": null,
+      "session_count": 9,
+      "total_source_functions": 9,
+      "function_readiness": [
+        {
+          "contract": "ExchangeService",
+          "signature": "constructor(ISettings)",
+          "lines": [
+            74,
+            75,
+            76,
+            77,
+            78,
+            79,
+            80,
+            81,
+            82,
+            83
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ExchangeService",
+          "signature": "withdrawSystemETH(address)",
+          "lines": [
+            86,
+            87,
+            88,
+            89,
+            90,
+            91,
+            92,
+            93
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ExchangeService",
+          "signature": "reclaimERC20(address,address)",
+          "lines": [
+            96,
+            97,
+            98,
+            99,
+            100,
+            101,
+            102
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ExchangeService",
+          "signature": "setCommission(uint256)",
+          "lines": [
+            105,
+            106,
+            107,
+            108,
+            109
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ExchangeService",
+          "signature": "setMinEther(uint256)",
+          "lines": [
+            112,
+            113,
+            114,
+            115,
+            116
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ExchangeService",
+          "signature": "changeAdmin(address)",
+          "lines": [
+            119,
+            120,
+            121,
+            122
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ExchangeService",
+          "signature": "create()",
+          "lines": [
+            125,
+            126,
+            127,
+            128,
+            129,
+            130,
+            131,
+            132,
+            133,
+            134,
+            135
+          ],
+          "preparation_mode": "SOURCE_FALLBACK",
+          "preparation_warning": "'NoneType' object has no attribute 'parameters'"
+        },
+        {
+          "contract": "ExchangeService",
+          "signature": "close(uint256)",
+          "lines": [
+            138,
+            139,
+            140,
+            141,
+            142,
+            143,
+            144
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ExchangeService",
+          "signature": "take(uint256)",
+          "lines": [
+            147,
+            148,
+            149,
+            150,
+            151,
+            152,
+            153,
+            154,
+            155,
+            156,
+            157,
+            158,
+            159,
+            160,
+            161,
+            162
+          ],
+          "preparation_mode": "FULL_INDEX"
+        }
+      ],
+      "preparation_warnings": [
+        "ExchangeService.create(): 'NoneType' object has no attribute 'parameters'"
+      ],
+      "FULL_INDEX": 8,
+      "SOURCE_FALLBACK": 1,
+      "UNEVALUABLE": 0,
+      "preparation_status": "PARTIALLY_READY",
+      "functions": 9,
+      "ground_truth_readiness": [
+        {
+          "label": {
+            "project": "Coinfabrik-Timvi Smart Contract Audit",
+            "file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/leverage-exchange/ExchangeService.sol",
+            "swc_id": "SWC-115",
+            "category": "Authorization through tx.origin",
+            "function": "create",
+            "lines": [
+              129
+            ],
+            "report": "SWCsource/Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/leverage-exchange/ExchangeService.json",
+            "audit_description": "",
+            "audit_reports": [
+              "audit_report/Coinfabrik-Timvi Smart Contract Audit/report.pdf"
+            ],
+            "raw": {
+              "category": "SWC-115-Authorization through tx.origin",
+              "function": "create",
+              "lineNumber": "L129"
+            }
+          },
+          "resolution": "resolved",
+          "preparation_modes": [
+            "SOURCE_FALLBACK"
+          ]
+        }
+      ]
+    }
+  ],
+  "sessions": 45
+}

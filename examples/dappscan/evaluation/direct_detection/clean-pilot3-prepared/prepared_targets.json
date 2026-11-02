@@ -1,0 +1,377 @@
+{
+  "cases": [
+    {
+      "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+      "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+      "labels": [
+        {
+          "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+          "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+          "swc_id": "SWC-107",
+          "category": "Reentrancy",
+          "function": "deposit",
+          "lines": [
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "report": "SWCsource/BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_impossible_finance_swap_v1.2/blocksec_impossible_finance_swap_v1.2.pdf"
+          ],
+          "raw": {
+            "category": "SWC-107-Reentrancy",
+            "function": "deposit",
+            "lineNumber": "L53-61"
+          }
+        },
+        {
+          "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+          "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+          "swc_id": "SWC-107",
+          "category": "Reentrancy",
+          "function": "deposit",
+          "lines": [
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73
+          ],
+          "report": "SWCsource/BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_impossible_finance_swap_v1.2/blocksec_impossible_finance_swap_v1.2.pdf"
+          ],
+          "raw": {
+            "category": "SWC-107-Reentrancy",
+            "function": "deposit",
+            "lineNumber": "L65-73"
+          }
+        },
+        {
+          "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+          "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+          "swc_id": "SWC-114",
+          "category": "",
+          "function": "deposit",
+          "lines": [
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73
+          ],
+          "report": "SWCsource/BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.json",
+          "audit_description": "",
+          "audit_reports": [
+            "audit_report/BlockSec-blocksec_impossible_finance_swap_v1.2/blocksec_impossible_finance_swap_v1.2.pdf"
+          ],
+          "raw": {
+            "category": "SWC-114-Transaction Order Dependence",
+            "function": "deposit",
+            "lineNumber": "L65-73"
+          }
+        }
+      ],
+      "selection_reason": "Lexicographically first three source cases per prespecified SWC; before inference",
+      "source_sha256": "8eb9ef4003b0f0ed6eaa2f3d41f58d2a6192716c5541c8cd16d1360fc04051d9",
+      "selected": true,
+      "pragma": "=0.7.6",
+      "compiler_used": "0.7.6",
+      "compiler_version_attempted": "0.7.6",
+      "preparation_error": null,
+      "session_count": 11,
+      "total_source_functions": 11,
+      "function_readiness": [
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "constructor(address,uint256,uint256)",
+          "lines": [
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "deposit(address,uint256)",
+          "lines": [
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "deposit(address)",
+          "lines": [
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "_deposit(address,uint256)",
+          "lines": [
+            76,
+            77,
+            78,
+            79
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "withdraw(address,uint256)",
+          "lines": [
+            82,
+            83,
+            84,
+            85,
+            86
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "withdraw(address,address,uint256)",
+          "lines": [
+            88,
+            89,
+            90,
+            91,
+            92,
+            93,
+            94,
+            95,
+            96,
+            97
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "_withdraw(address,uint256)",
+          "lines": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104,
+            105
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "amtToUnderlyingAmt(uint256)",
+          "lines": [
+            107,
+            108,
+            109
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "approve(address,uint256)",
+          "lines": [
+            111,
+            112,
+            113,
+            114,
+            115
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "transfer(address,uint256)",
+          "lines": [
+            117,
+            118,
+            119
+          ],
+          "preparation_mode": "FULL_INDEX"
+        },
+        {
+          "contract": "ImpossibleWrappedToken",
+          "signature": "transferFrom(address,address,uint256)",
+          "lines": [
+            121,
+            122,
+            123,
+            124,
+            125,
+            126,
+            127,
+            128,
+            129,
+            130,
+            131,
+            132,
+            133,
+            134,
+            135,
+            136,
+            137,
+            138,
+            139
+          ],
+          "preparation_mode": "FULL_INDEX"
+        }
+      ],
+      "preparation_warnings": [],
+      "FULL_INDEX": 11,
+      "SOURCE_FALLBACK": 0,
+      "UNEVALUABLE": 0,
+      "preparation_status": "READY",
+      "functions": 11,
+      "ground_truth_readiness": [
+        {
+          "label": {
+            "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+            "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+            "swc_id": "SWC-107",
+            "category": "Reentrancy",
+            "function": "deposit",
+            "lines": [
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61
+            ],
+            "report": "SWCsource/BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.json",
+            "audit_description": "",
+            "audit_reports": [
+              "audit_report/BlockSec-blocksec_impossible_finance_swap_v1.2/blocksec_impossible_finance_swap_v1.2.pdf"
+            ],
+            "raw": {
+              "category": "SWC-107-Reentrancy",
+              "function": "deposit",
+              "lineNumber": "L53-61"
+            }
+          },
+          "resolution": "resolved",
+          "preparation_modes": [
+            "FULL_INDEX"
+          ]
+        },
+        {
+          "label": {
+            "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+            "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+            "swc_id": "SWC-107",
+            "category": "Reentrancy",
+            "function": "deposit",
+            "lines": [
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73
+            ],
+            "report": "SWCsource/BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.json",
+            "audit_description": "",
+            "audit_reports": [
+              "audit_report/BlockSec-blocksec_impossible_finance_swap_v1.2/blocksec_impossible_finance_swap_v1.2.pdf"
+            ],
+            "raw": {
+              "category": "SWC-107-Reentrancy",
+              "function": "deposit",
+              "lineNumber": "L65-73"
+            }
+          },
+          "resolution": "resolved",
+          "preparation_modes": [
+            "FULL_INDEX"
+          ]
+        },
+        {
+          "label": {
+            "project": "BlockSec-blocksec_impossible_finance_swap_v1.2",
+            "file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+            "swc_id": "SWC-114",
+            "category": "",
+            "function": "deposit",
+            "lines": [
+              65,
+              66,
+              67,
+              68,
+              69,
+              70,
+              71,
+              72,
+              73
+            ],
+            "report": "SWCsource/BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.json",
+            "audit_description": "",
+            "audit_reports": [
+              "audit_report/BlockSec-blocksec_impossible_finance_swap_v1.2/blocksec_impossible_finance_swap_v1.2.pdf"
+            ],
+            "raw": {
+              "category": "SWC-114-Transaction Order Dependence",
+              "function": "deposit",
+              "lineNumber": "L65-73"
+            }
+          },
+          "resolution": "resolved",
+          "preparation_modes": [
+            "FULL_INDEX"
+          ]
+        }
+      ]
+    }
+  ],
+  "sessions": 11
+}

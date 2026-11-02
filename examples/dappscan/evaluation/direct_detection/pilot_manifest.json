@@ -1,0 +1,7 @@
+{
+  "status": "awaiting_local_checkout",
+  "selection_policy": "Before inference, sort source paths lexicographically and select first three labeled files per SWC; deduplicate files. Target 10–15 files. Do not replace compilation failures based on model outcomes.",
+  "categories": ["SWC-107", "SWC-104", "SWC-105", "SWC-115", "SWC-112"],
+  "cases": [],
+  "limitation": "No local DAppSCAN checkout was available during implementation. Concrete source paths and labels must be materialized from a checkout before inference. No invented cases."
+}

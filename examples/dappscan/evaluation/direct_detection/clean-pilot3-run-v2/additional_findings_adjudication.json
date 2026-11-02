@@ -1,0 +1,420 @@
+[
+  {
+    "finding_number": 1,
+    "result_file": "0000.json",
+    "dataset_file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+    "contract": "ImpossibleWrappedToken",
+    "function": "constructor(address,uint256,uint256)",
+    "lines": [
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50
+    ],
+    "preparation_mode": "FULL_INDEX",
+    "vulnerability_type": "Division by zero / denial of service from unchecked ratioNum",
+    "original_swc": "SWC-113",
+    "severity": "High",
+    "llm_explanation": "The constructor stores _ratioNum without validation. Both deposits and withdrawals calculate transfer amounts using division by ratioNum, so deploying with ratioNum == 0 causes these operations to revert whenever invoked, disabling wrapping and unwrapping.",
+    "evidence_ids": [
+      "fragment-56372c258d1dee1a0448",
+      "fragment-1aab3cf6d176ec95dac2",
+      "fragment-bb4fbbb2548a34c960a9",
+      "fragment-856d5c981f3c931be2a7"
+    ],
+    "manual_status": "VALID",
+    "duplicate_of": null,
+    "manual_notes": "Unchecked ratioNum may be zero and is later used as a division denominator, causing wrapping/unwrapping/conversion operations to revert."
+  },
+  {
+    "finding_number": 2,
+    "result_file": "0000.json",
+    "dataset_file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+    "contract": "ImpossibleWrappedToken",
+    "function": "constructor(address,uint256,uint256)",
+    "lines": [
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50
+    ],
+    "preparation_mode": "FULL_INDEX",
+    "vulnerability_type": "Unchecked zero conversion ratio causing unbacked wrapped tokens",
+    "original_swc": null,
+    "severity": "High",
+    "llm_explanation": "The constructor also accepts ratioDenom == 0. Deposits then compute transferAmt as zero, call transferFrom for zero underlying, and still mint wad wrapped tokens and increase totalSupply. If the underlying token accepts zero-value transfers, users can obtain wrapped-token claims without depositing underlying, leaving the wrapper undercollateralized.",
+    "evidence_ids": [
+      "fragment-56372c258d1dee1a0448",
+      "fragment-1aab3cf6d176ec95dac2",
+      "fragment-b25d75c2c13fe3f784fa"
+    ],
+    "manual_status": "VALID",
+    "duplicate_of": null,
+    "manual_notes": "ratioDenom may be zero, causing zero underlying transfer while wrapped tokens are still minted."
+  },
+  {
+    "finding_number": 3,
+    "result_file": "0001.json",
+    "dataset_file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+    "contract": "ImpossibleWrappedToken",
+    "function": "deposit(address,uint256)",
+    "lines": [
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61
+    ],
+    "preparation_mode": "FULL_INDEX",
+    "vulnerability_type": "Rounding-induced zero-cost minting",
+    "original_swc": "SWC-101",
+    "severity": "high",
+    "llm_explanation": "For sufficiently small nonzero wad, wad.mul(ratioDenom).div(ratioNum) evaluates to zero when ratioNum > ratioDenom. deposit then calls transferFrom(msg.sender, address(this), 0), increments the recipient's wrapped-token balance and total supply through _deposit, and records a successful deposit without requiring any positive underlying amount. The constructor does not validate the ratio parameters, so such configurations are permitted.",
+    "evidence_ids": [
+      "fragment-1aab3cf6d176ec95dac2",
+      "fragment-b25d75c2c13fe3f784fa",
+      "fragment-56372c258d1dee1a0448",
+      "fragment-6c8a5ada2f839be8e214",
+      "fragment-483b2289d676b21dbf0b"
+    ],
+    "manual_status": "VALID",
+    "duplicate_of": null,
+    "manual_notes": "Integer division may round a positive underlying transfer amount to zero while nonzero wrapped tokens are minted."
+  },
+  {
+    "finding_number": 4,
+    "result_file": "0006.json",
+    "dataset_file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+    "contract": "ImpossibleWrappedToken",
+    "function": "_withdraw(address,uint256)",
+    "lines": [
+      99,
+      100,
+      101,
+      102,
+      103,
+      104,
+      105
+    ],
+    "preparation_mode": "FULL_INDEX",
+    "vulnerability_type": "Precision-loss inflation / free minting",
+    "original_swc": null,
+    "severity": "high",
+    "llm_explanation": "`deposit` computes `transferAmt = wad * ratioDenom / ratioNum` and mints `wad` through `_deposit` even when `transferAmt == 0`. With, for example, ratioNum=2 and ratioDenom=1, two zero-cost deposits of one wrapped unit mint two units; `_withdraw` then converts those two units into one underlying unit. No minimum deposit or nonzero-transfer check prevents this rounding-based inflation.",
+    "evidence_ids": [
+      "fragment-1aab3cf6d176ec95dac2",
+      "fragment-b25d75c2c13fe3f784fa",
+      "fragment-bb4fbbb2548a34c960a9",
+      "fragment-56372c258d1dee1a0448"
+    ],
+    "manual_status": "DUPLICATE",
+    "duplicate_of": 3,
+    "manual_notes": "Same root cause as finding 3: rounding-based zero-cost minting."
+  },
+  {
+    "finding_number": 5,
+    "result_file": "0007.json",
+    "dataset_file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+    "contract": "ImpossibleWrappedToken",
+    "function": "amtToUnderlyingAmt(uint256)",
+    "lines": [
+      107,
+      108,
+      109
+    ],
+    "preparation_mode": "FULL_INDEX",
+    "vulnerability_type": "Missing validation of division denominator / denial of service",
+    "original_swc": "SWC-123",
+    "severity": "medium",
+    "llm_explanation": "The constructor directly assigns _ratioNum to ratioNum without requiring it to be nonzero. amtToUnderlyingAmt computes amt.mul(ratioDenom).div(ratioNum); with ratioNum == 0, the SafeMath division path reverts for every input, making the conversion function unusable.",
+    "evidence_ids": [
+      "fragment-56372c258d1dee1a0448",
+      "fragment-856d5c981f3c931be2a7",
+      "fragment-483b2289d676b21dbf0b"
+    ],
+    "manual_status": "DUPLICATE",
+    "duplicate_of": 1,
+    "manual_notes": "Same root cause as finding 1: unchecked ratioNum used as division denominator."
+  },
+  {
+    "finding_number": 6,
+    "result_file": "0007.json",
+    "dataset_file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+    "contract": "ImpossibleWrappedToken",
+    "function": "amtToUnderlyingAmt(uint256)",
+    "lines": [
+      107,
+      108,
+      109
+    ],
+    "preparation_mode": "FULL_INDEX",
+    "vulnerability_type": "Arithmetic overflow denial of service",
+    "original_swc": "SWC-101",
+    "severity": "low",
+    "llm_explanation": "The function evaluates amt * ratioDenom before dividing by ratioNum. The supplied multiplication implementation reverts when the product overflows, so large valid uint256 inputs can cause conversion calls to revert even when the final quotient would fit in uint256.",
+    "evidence_ids": [
+      "fragment-856d5c981f3c931be2a7",
+      "fragment-6c8a5ada2f839be8e214",
+      "fragment-56372c258d1dee1a0448"
+    ],
+    "manual_status": "LIKELY_FALSE_POSITIVE",
+    "duplicate_of": null,
+    "manual_notes": "SafeMath deliberately reverts on multiplication overflow. Reverting for an extreme input does not by itself demonstrate a security vulnerability."
+  },
+  {
+    "finding_number": 7,
+    "result_file": "0008.json",
+    "dataset_file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+    "contract": "ImpossibleWrappedToken",
+    "function": "approve(address,uint256)",
+    "lines": [
+      111,
+      112,
+      113,
+      114,
+      115
+    ],
+    "preparation_mode": "FULL_INDEX",
+    "vulnerability_type": "ERC-20 approval race condition",
+    "original_swc": "SWC-114",
+    "severity": "medium",
+    "llm_explanation": "`approve` overwrites `allowance[msg.sender][guy]` directly, allowing a spender to use the prior allowance before a pending allowance change is mined. The spender may then retain access to the replacement allowance as well.",
+    "evidence_ids": [
+      "fragment-2b75f1a70fdc612dc8c8"
+    ],
+    "manual_status": "PLAUSIBLE",
+    "duplicate_of": null,
+    "manual_notes": "Classic ERC-20 allowance race condition caused by directly replacing a nonzero allowance. Real but commonly treated as a standard ERC-20 caveat."
+  },
+  {
+    "finding_number": 8,
+    "result_file": "0009.json",
+    "dataset_file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+    "contract": "ImpossibleWrappedToken",
+    "function": "transfer(address,uint256)",
+    "lines": [
+      117,
+      118,
+      119
+    ],
+    "preparation_mode": "FULL_INDEX",
+    "vulnerability_type": "Integer overflow in recipient balance during transfer",
+    "original_swc": "SWC-101",
+    "severity": "high",
+    "llm_explanation": "The transfer path invokes `transferFrom(msg.sender, dst, wad)`. `transferFrom` checks the sender balance but performs `balanceOf[dst] += wad` without SafeMath or an explicit overflow check. In pre-0.8 Solidity, this addition wraps on overflow, potentially creating tokens.",
+    "evidence_ids": [
+      "fragment-cbdfc2b6ee5bac2d4f2a",
+      "fragment-1b3bdc4897b5fd08358f"
+    ],
+    "manual_status": "LIKELY_FALSE_POSITIVE",
+    "duplicate_of": null,
+    "manual_notes": "Although recipient addition is unchecked in pre-0.8 Solidity, normal token supply and balance invariants make the claimed overflow scenario appear unreachable."
+  },
+  {
+    "finding_number": 9,
+    "result_file": "0010.json",
+    "dataset_file": "BlockSec-blocksec_impossible_finance_swap_v1.2/impossible-swap-core-29aaef89f996acdbee92b67c4d95fb608dc8b876/contracts/ImpossibleWrappedToken.sol",
+    "contract": "ImpossibleWrappedToken",
+    "function": "transferFrom(address,address,uint256)",
+    "lines": [
+      121,
+      122,
+      123,
+      124,
+      125,
+      126,
+      127,
+      128,
+      129,
+      130,
+      131,
+      132,
+      133,
+      134,
+      135,
+      136,
+      137,
+      138,
+      139
+    ],
+    "preparation_mode": "FULL_INDEX",
+    "vulnerability_type": "Integer overflow in recipient balance accounting",
+    "original_swc": "SWC-101",
+    "severity": "high",
+    "llm_explanation": "`balanceOf[dst] += wad` is executed without an overflow check. If the destination balance is sufficiently large, it can wrap to a small value while the sender's balance is debited, causing token accounting corruption.",
+    "evidence_ids": [
+      "fragment-1b3bdc4897b5fd08358f"
+    ],
+    "manual_status": "DUPLICATE",
+    "duplicate_of": 8,
+    "manual_notes": "Same underlying unchecked recipient-balance addition as finding 8."
+  },
+  {
+    "finding_number": 10,
+    "result_file": "0017.json",
+    "dataset_file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.sol",
+    "contract": "BondService",
+    "function": "changeOwner(uint256,uint256,uint256,uint256)",
+    "lines": [
+      243,
+      244,
+      245,
+      246,
+      247,
+      248,
+      249,
+      250,
+      251,
+      252
+    ],
+    "preparation_mode": "FULL_INDEX",
+    "vulnerability_type": "Unintended ETH retention / accidental fund loss",
+    "original_swc": "SWC-105",
+    "severity": "medium",
+    "llm_explanation": "changeOwner is payable, but changeDeposit only checks msg.value when _deposit is increased. If _deposit is zero, unchanged, or decreased, any supplied msg.value is accepted without accounting or refund, leaving the caller's ETH in the contract.",
+    "evidence_ids": [
+      "fragment-cc7a29d04fc883d38147",
+      "fragment-0acd4fc671406bbe51c9"
+    ],
+    "manual_status": "VALID",
+    "duplicate_of": null,
+    "manual_notes": "Payable changeOwner may accept msg.value that changeDeposit neither accounts for nor refunds when the deposit is not increased."
+  },
+  {
+    "finding_number": 11,
+    "result_file": "0018.json",
+    "dataset_file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.sol",
+    "contract": "BondService",
+    "function": "changeDeposit(uint256,uint256)",
+    "lines": [
+      254,
+      255,
+      256,
+      257,
+      258,
+      259,
+      260,
+      261,
+      262,
+      263,
+      264,
+      265
+    ],
+    "preparation_mode": "FULL_INDEX",
+    "vulnerability_type": "Improper handling of excess ETH / locked funds",
+    "original_swc": "SWC-105",
+    "severity": "Low",
+    "llm_explanation": "changeDeposit updates the deposit and refunds _oldDeposit - _deposit when reducing it, but does not require msg.value == 0 or otherwise refund msg.value. Because changeEmitter and changeOwner are payable and pass through msg.value, a caller can send ETH that is not accounted for and remains held by the contract. The same issue occurs when _deposit == 0 or equals _oldDeposit because the conditional body is skipped entirely.",
+    "evidence_ids": [
+      "fragment-0acd4fc671406bbe51c9",
+      "fragment-8072a0d39d71f76dde34",
+      "fragment-cc7a29d04fc883d38147"
+    ],
+    "manual_status": "DUPLICATE",
+    "duplicate_of": 10,
+    "manual_notes": "Same excess-ETH retention root cause as finding 10, observed in changeDeposit."
+  },
+  {
+    "finding_number": 12,
+    "result_file": "0021.json",
+    "dataset_file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.sol",
+    "contract": "BondService",
+    "function": "changeYearFee(uint256,uint256)",
+    "lines": [
+      283,
+      284,
+      285,
+      286,
+      287,
+      288,
+      289
+    ],
+    "preparation_mode": "FULL_INDEX",
+    "vulnerability_type": "Incorrect state-field comparison causing fee update bypass / denial of intended update",
+    "original_swc": null,
+    "severity": "medium",
+    "llm_explanation": "`_oldYearFee` is assigned from `bonds[_id].expiration` (fragment-14a10db8d1fc3b557138). The conditional should compare the requested value with the existing `yearFee`. If `_yearFee == expiration`, no assignment or `require(_yearFee <= 10000)` executes, so the requested fee change is silently ignored. The same incorrect comparison also allows writes when the requested fee already equals the stored fee.",
+    "evidence_ids": [
+      "fragment-14a10db8d1fc3b557138",
+      "fragment-a0bc5b0b88bd84a17290"
+    ],
+    "manual_status": "VALID",
+    "duplicate_of": null,
+    "manual_notes": "changeYearFee reads bonds[_id].expiration as the old year fee instead of bonds[_id].yearFee, creating incorrect update logic."
+  },
+  {
+    "finding_number": 13,
+    "result_file": "0029.json",
+    "dataset_file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/bond/BondService.sol",
+    "contract": "BondService",
+    "function": "reclaimERC20(address,address)",
+    "lines": [
+      430,
+      431,
+      432,
+      433,
+      434,
+      435,
+      436
+    ],
+    "preparation_mode": "FULL_INDEX",
+    "vulnerability_type": "Unchecked ERC-20 transfer return value",
+    "original_swc": "SWC-104",
+    "severity": "Low",
+    "llm_explanation": "`IToken(_token).transfer(_beneficiary, _amount)` returns `bool`, but the return value is ignored. If the token returns `false`, `reclaimERC20` does not revert or otherwise signal failure.",
+    "evidence_ids": [
+      "fragment-c697ffeffffa6f7dec57",
+      "fragment-8d1b44a71078ee35fd51"
+    ],
+    "manual_status": "VALID",
+    "duplicate_of": null,
+    "manual_notes": "BondService reclaimERC20 ignores the boolean result of ERC-20 transfer and may report success even when transfer returns false."
+  },
+  {
+    "finding_number": 14,
+    "result_file": "0038.json",
+    "dataset_file": "Coinfabrik-Timvi Smart Contract Audit/Timvi-9324706d1160996f7847e1989c8567168261382e/contracts/services/leverage-exchange/ExchangeService.sol",
+    "contract": "ExchangeService",
+    "function": "reclaimERC20(address,address)",
+    "lines": [
+      96,
+      97,
+      98,
+      99,
+      100,
+      101,
+      102
+    ],
+    "preparation_mode": "FULL_INDEX",
+    "vulnerability_type": "Unchecked ERC-20 transfer return value",
+    "original_swc": "SWC-104",
+    "severity": "Low",
+    "llm_explanation": "`IToken(_token).transfer(_beneficiary, _amount)` returns a boolean, but `reclaimERC20` ignores it. A non-compliant or failing token can return `false`, causing the function to complete successfully while the contract retains its token balance.",
+    "evidence_ids": [
+      "fragment-f56a03b3fac4139b9b98",
+      "fragment-8d1b44a71078ee35fd51"
+    ],
+    "manual_status": "VALID",
+    "duplicate_of": null,
+    "manual_notes": "ExchangeService reclaimERC20 ignores the boolean result of ERC-20 transfer and may report success even when transfer returns false."
+  }
+]

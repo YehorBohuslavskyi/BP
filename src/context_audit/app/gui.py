@@ -327,6 +327,11 @@ def main() -> None:
     """Default to read-only research evidence; analysis remains an explicit page."""
     st.set_page_config(page_title='Smart Contract Vulnerability Verifier',
                        page_icon=':material/policy:', layout='wide')
+    mode = st.sidebar.radio('Analysis mode', ['Slither Verification', 'Direct LLM Detection'], key='analysis_mode')
+    if mode == 'Direct LLM Detection':
+        from context_audit.app.direct_page import render_direct
+        render_direct()
+        return
     st.title('Smart Contract Vulnerability Verifier')
     st.write('LLM-assisted verification of static-analysis findings')
     page = st.segmented_control('Workspace', ['Evaluation Dashboard', 'Analyze Contract'],
