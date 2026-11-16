@@ -1,0 +1,39 @@
+{
+  "dataset": "DAppSCAN",
+  "source": "/home/coca-cola/projects/DAppSCAN/DAppSCAN-source/contracts/SlowMist-ForTube2.0 Smart Contract Security Audit Report/bond-854527d0ea7ad2ddd3504b4d4ae3fcb57cb6445d/contracts/Oracle.sol",
+  "source_sha256": "9a93a25bce13a7d6b344bff301430fbbe09747eb013e5dce0c3ab944d7916cfc",
+  "source_unchanged": true,
+  "model_input_matches_original": true,
+  "status": "partial",
+  "functions_examined": 9,
+  "function_rows": 9,
+  "static_warnings": {
+    "total": 8,
+    "low": 4,
+    "informational": 4,
+    "high": 0,
+    "medium": 0
+  },
+  "model_candidates": 1,
+  "accepted_security_verdicts": 0,
+  "original_model_verdict": "rejected",
+  "candidate_function": "setACL(address)",
+  "failed_rules": [
+    "REJECTION_UNRESOLVED_OR_DANGEROUS_CLAIM"
+  ],
+  "requests": 3,
+  "token_count_requests": 0,
+  "input_tokens": 7243,
+  "output_tokens": 869,
+  "total_tokens": 8112,
+  "retried": false,
+  "new_api_calls_during_diagnosis": 0,
+  "historical_files_unchanged": 2386,
+  "session_key_cleared": true,
+  "oracle_gt_labels_consulted": false,
+  "provider_response_ids": [
+    "resp_0b8186b71500e836016afad82034d887d28f60674210e9dbc4",
+    "resp_044a8a97b77e3bc2016afad822c9dc87d28491772c4f240472",
+    "resp_0067fe0ed67cff3b016afad827253c87d2990d5e03b69c7f50"
+  ]
+}

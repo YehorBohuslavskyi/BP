@@ -1,0 +1,140 @@
+{
+  "kind": "derived_saved_evidence_view",
+  "new_inference": false,
+  "original_result_sha256": "a4ba213ce3081b422165afbd6427005a1bd6d46178dd950177bffe9de55b54e8",
+  "candidate": {
+    "candidate_id": "batch-0001:linkedwithdrawal-call-before-effects",
+    "contract": "LinkedWithdrawal",
+    "primary_function": "withdrawFor(address)",
+    "primary_fragment_id": "fragment-dac4613e7f12dc3780d8",
+    "suspected_type": "reentrancy / accounting",
+    "reason": "Check whether withdrawFor clears or reduces the selected account's balance before sendFunds invokes account.call. If the call occurs first, a recipient that reenters withdrawal can potentially withdraw the same balance repeatedly, draining contract funds.",
+    "related_fragment_ids": [
+      "fragment-b751a53877288a219e08",
+      "fragment-bc188ded24777bcf2f77",
+      "fragment-25b190671badeb5206f3",
+      "fragment-e8a559d2de5a3c08c2db",
+      "fragment-148753cc7d2fab5fd81c"
+    ],
+    "requested_context_ids": [
+      "fragment-dac4613e7f12dc3780d8",
+      "fragment-b751a53877288a219e08",
+      "fragment-e8a559d2de5a3c08c2db"
+    ],
+    "uncertainty": "Source is absent; metadata shows shared balance state, an internal low-level call, and a guard on only one external entry point, but does not reveal execution order or whether the guard prevents reentrant withdrawal through other paths.",
+    "model_candidate_id": "linkedwithdrawal-call-before-effects"
+  },
+  "assessment": {
+    "action": "final",
+    "requested_ids": [],
+    "verdict": "confirmed",
+    "severity": "high",
+    "explanation": "withdrawFor sends the full recorded balance before clearing it. During the low-level call, an unguarded withdraw() entry point can reenter and repeat the withdrawal while the balance remains unchanged. guardedWithdraw applies a guard only to that entry point; it does not protect withdraw().",
+    "evidence_ids": [
+      "fragment-dac4613e7f12dc3780d8",
+      "fragment-b751a53877288a219e08",
+      "fragment-bc188ded24777bcf2f77",
+      "fragment-25b190671badeb5206f3",
+      "fragment-e8a559d2de5a3c08c2db"
+    ],
+    "execution_flow": [
+      "withdraw() calls withdrawFor(msg.sender).",
+      "withdrawFor reads and validates the balance, then calls sendFunds before setting the balance to zero.",
+      "sendFunds performs account.call and requires success; a recipient can reenter unguarded withdraw() during that call.",
+      "guardedWithdraw uses guarded, but withdraw() has no such modifier."
+    ],
+    "incomplete_evidence": [],
+    "verdict_basis": {
+      "mechanism_status": "supported",
+      "core_conditions": "established",
+      "mitigation_status": "ineffective",
+      "mechanism": "Reentry through withdraw() repeats the balance withdrawal because effects occur after the external call.",
+      "mitigation_reason": "The guard applies to guardedWithdraw only. The separate withdraw() entry point calls the same vulnerable internal function without the guard.",
+      "unresolved_conditions": [],
+      "evidence_claims": [
+        {
+          "fragment_id": "fragment-dac4613e7f12dc3780d8",
+          "source_quote": "sendFunds(account, amount);\n        balances[account] = 0;",
+          "role": "dangerous_behavior"
+        },
+        {
+          "fragment_id": "fragment-b751a53877288a219e08",
+          "source_quote": "(bool success,) = account.call{value: amount}(\"\");",
+          "role": "dangerous_behavior"
+        },
+        {
+          "fragment_id": "fragment-bc188ded24777bcf2f77",
+          "source_quote": "function withdraw() external {\n        withdrawFor(payable(msg.sender));",
+          "role": "protection"
+        },
+        {
+          "fragment_id": "fragment-25b190671badeb5206f3",
+          "source_quote": "function guardedWithdraw() external guarded {",
+          "role": "protection"
+        },
+        {
+          "fragment_id": "fragment-e8a559d2de5a3c08c2db",
+          "source_quote": "require(!entered, \"busy\");",
+          "role": "protection"
+        }
+      ]
+    }
+  },
+  "supplied": [
+    {
+      "id": "fragment-dac4613e7f12dc3780d8",
+      "kind": "function",
+      "name": "withdrawFor(address)",
+      "source": "function withdrawFor(address payable account) internal {\n        uint256 amount = balances[account];\n        require(amount > 0, \"empty\");\n        sendFunds(account, amount);\n        balances[account] = 0;\n    }"
+    },
+    {
+      "id": "fragment-b751a53877288a219e08",
+      "kind": "function",
+      "name": "sendFunds(address,uint256)",
+      "source": "function sendFunds(address payable account, uint256 amount) internal {\n        (bool success,) = account.call{value: amount}(\"\");\n        require(success, \"transfer failed\");\n    }"
+    },
+    {
+      "id": "fragment-bc188ded24777bcf2f77",
+      "kind": "function",
+      "name": "withdraw()",
+      "source": "function withdraw() external {\n        withdrawFor(payable(msg.sender));\n    }"
+    },
+    {
+      "id": "fragment-25b190671badeb5206f3",
+      "kind": "function",
+      "name": "guardedWithdraw()",
+      "source": "function guardedWithdraw() external guarded {\n        withdrawFor(payable(msg.sender));\n    }"
+    },
+    {
+      "id": "fragment-e8a559d2de5a3c08c2db",
+      "kind": "modifier",
+      "name": "guarded()",
+      "source": "modifier guarded() {\n        require(!entered, \"busy\");\n        entered = true;\n        _;\n        entered = false;\n    }"
+    },
+    {
+      "id": "fragment-8462d5a955ed642f610b",
+      "kind": "state_variable",
+      "name": "balances(address)",
+      "source": "mapping(address => uint256) private balances"
+    },
+    {
+      "id": "fragment-148753cc7d2fab5fd81c",
+      "kind": "function",
+      "name": "deposit()",
+      "source": "function deposit() external payable {\n        balances[msg.sender] += msg.value;\n    }"
+    },
+    {
+      "id": "fragment-72a5cc529266e8c19359",
+      "kind": "state_variable",
+      "name": "entered()",
+      "source": "bool private entered"
+    }
+  ],
+  "usage": {
+    "input_tokens": 60602,
+    "output_tokens": 937,
+    "total_tokens": 61539,
+    "api_calls": 4
+  },
+  "note": "Exact original final assessment and delivered fragments, extracted from the sealed local run; not an accuracy score."
+}

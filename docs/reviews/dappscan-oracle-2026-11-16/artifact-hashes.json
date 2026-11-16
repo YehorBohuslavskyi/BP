@@ -1,0 +1,10 @@
+{
+  "discovery.json": "5121a38f8217c2186a65746cacdde16bc267ef756b72275ac0a4e1773317f5ab",
+  "protocol/discovery-prompt.txt": "986bb97190201c9cc7f98d18b0e14791eb01b73a8066483e8bc755976f920f1f",
+  "protocol/verification-prompt.txt": "ccbb9b6ea51d48659d5ef6c6f7cce1a1898d2eba401cc045c0e03e32cabbe93b",
+  "protocol/verification-schema.json": "2c3f2da8e0aef9027aa6956f2c371fd71c64028a08e8788a24ade30098c77eee",
+  "report.json": "7edcf5b0744415119f6a2c442f2a03b65f2d74db014c18c60875a8467d13ee89",
+  "report.md": "294e3614242d215f7626d767e1cb98b8e1dc02a4add595621ba70d55014ccf25",
+  "sessions/4a0436a64fd0362d6b5130961b33091da788182d87ba1d8c0dd770ea17540d21.json": "fa4c137604a51badf8621fbb53cd76eca7cd1ae1044fd27d9891342bfccfe295",
+  "verification_manifest.json": "b46f31d40be1432619ebd22de143b3a670f395ef35efe0cef1ff57a62ca5cc7a"
+}

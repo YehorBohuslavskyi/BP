@@ -27,7 +27,8 @@ class DemoTests(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         with patch('context_audit.app.session.analyze_upload') as analyze, \
              patch('context_audit.app.session.verify_selected') as verify:
-            app = AppTest.from_file(str(root / 'streamlit_app.py')).run()
+            app = AppTest.from_file(str(root / 'streamlit_app.py'), default_timeout=30).run()
+            app.radio(key='analysis_mode').set_value('Slither Verification').run()
             app.segmented_control(key='workspace_page').set_value('Analyze Contract').run()
             app.segmented_control(key='source_mode').set_value('Demo').run()
             next(b for b in app.button if b.label == 'Load selected demo').click().run()

@@ -13,6 +13,7 @@ class StreamlitTests(unittest.TestCase):
         with patch('context_audit.app.session.analyze_upload') as analysis, \
              patch('context_audit.app.session.verify_selected') as inference:
             app = AppTest.from_file(str(root / 'streamlit_app.py')).run()
+            app.radio(key='analysis_mode').set_value('Slither Verification').run()
             app.segmented_control(key='workspace_page').set_value('Analyze Contract').run()
         self.assertEqual(len(app.exception), 0)
         self.assertEqual(app.title[0].value, 'Smart Contract Vulnerability Verifier')
@@ -52,6 +53,7 @@ class StreamlitTests(unittest.TestCase):
                    side_effect=lambda upload, compiler: Analysis(compiler, upload.digest, [warning], {})) as analyze, \
              patch('context_audit.app.session.verify_selected', return_value=report) as verify:
             app = AppTest.from_file(str(root / 'streamlit_app.py')).run()
+            app.radio(key='analysis_mode').set_value('Slither Verification').run()
             app.segmented_control(key='workspace_page').set_value('Analyze Contract').run()
             self.addCleanup(app.session_state['audit_session'].clear)
             self.assertFalse(app.exception)
@@ -97,6 +99,7 @@ class StreamlitTests(unittest.TestCase):
         with patch.dict(os.environ, {'OPENAI_MODEL': '', 'OPENAI_MODELS': ''}), \
              patch('context_audit.app.session.verify_selected') as verify:
             app = AppTest.from_file(str(root / 'streamlit_app.py')).run()
+            app.radio(key='analysis_mode').set_value('Slither Verification').run()
             app.segmented_control(key='workspace_page').set_value('Analyze Contract').run()
             self.assertEqual(app.selectbox(key='verification_model').value, '')
             app.text_input(key='custom_verification_model').set_value('custom-test-model').run()
@@ -151,6 +154,7 @@ class StreamlitTests(unittest.TestCase):
             app = AppTest.from_file(str(root / 'streamlit_app.py'))
             app.session_state['audit_session'] = session
             app.run()
+            app.radio(key='analysis_mode').set_value('Slither Verification').run()
             app.segmented_control(key='workspace_page').set_value('Analyze Contract').run()
             self.assertFalse(app.exception)
             selector_key = f'selected_finding_{session.analysis.source_digest}'

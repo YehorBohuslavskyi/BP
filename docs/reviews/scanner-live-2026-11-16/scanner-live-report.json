@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "analysis_kind": "direct_llm_v2",
+  "created_utc": "2026-11-16T00:59:28.573086+00:00",
+  "source_sha256": "d512c1fcc3d91b7e1a32d99389f7b9ba5964c2e65d5cebb0dd014e33ad3471ee",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity 0.8.24;\n\ncontract VulnerableVault {\n    mapping(address => uint256) public balances;\n\n    function deposit() external payable {\n        balances[msg.sender] += msg.value;\n    }\n\n    function withdraw() external {\n        uint256 amount = balances[msg.sender];\n        require(amount > 0, \"Nothing to withdraw\");\n        (bool success, ) = msg.sender.call{value: amount}(\"\");\n        require(success, \"Transfer failed\");\n        balances[msg.sender] = 0;\n    }\n}\n",
+  "compiler": "0.8.24",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "consistency_version": "verdict-consistency-v2",
+  "limitations": [
+    "Findings require review. No findings does not prove that the contract is secure.",
+    "Static warnings and LLM assessments are different forms of evidence.",
+    "This scanner does not execute exploits."
+  ],
+  "status": "completed",
+  "findings": [
+    {
+      "id": "issue-f8495fc3e42f12451f61",
+      "function": "withdraw()",
+      "contract": "VulnerableVault",
+      "type": "reentrancy",
+      "severity": "high",
+      "status": "completed",
+      "verdict": "confirmed",
+      "explanation": "The source shows a classic reentrancy pattern in withdraw(): it reads the caller’s balance, makes a low-level external call to msg.sender before updating state, and only afterwards sets balances[msg.sender] to 0. Because the balance is not cleared before the external call, a malicious recipient can reenter withdraw() while their balance is still nonzero and withdraw again.",
+      "hypothesis": "The function performs a low-level call to msg.sender while also reading and writing the shared balances mapping, so reentrant execution is a plausible hypothesis pending source confirmation of call order and state updates.",
+      "flow": [
+        "withdraw() loads balances[msg.sender] into amount and checks it is > 0.",
+        "withdraw() performs msg.sender.call{value: amount}(\"\") before any state update.",
+        "The balance is only zeroed after the external call returns, leaving the old balance usable during reentry."
+      ],
+      "incomplete_evidence": [],
+      "lines": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "evidence": [
+        {
+          "id": "fragment-3dbf42a41965b0485b75",
+          "kind": "function",
+          "name": "withdraw()",
+          "source": "function withdraw() external {\n        uint256 amount = balances[msg.sender];\n        require(amount > 0, \"Nothing to withdraw\");\n        (bool success, ) = msg.sender.call{value: amount}(\"\");\n        require(success, \"Transfer failed\");\n        balances[msg.sender] = 0;\n    }"
+        }
+      ],
+      "rounds": 1,
+      "retrieved_fragments": 0,
+      "errors": [],
+      "consistency": {
+        "version": "verdict-consistency-v2",
+        "mode": "structured",
+        "passed": true,
+        "failed_rules": [],
+        "original_model_verdict": "confirmed",
+        "evidence_ids": [
+          "fragment-3dbf42a41965b0485b75"
+        ]
+      },
+      "original_model_verdict": null
+    }
+  ],
+  "counts": {
+    "total_functions": 2,
+    "included": 2,
+    "examined": 2,
+    "incomplete_metadata": 0,
+    "selected": 2,
+    "not_selected": 0,
+    "unevaluable": 0,
+    "pending": 0,
+    "candidates_generated": 1,
+    "unique_candidates": 1,
+    "candidates_verified": 1,
+    "confirmed_candidates": 1,
+    "rejected_candidates": 0,
+    "inconclusive_candidates": 0,
+    "processing_failures": 0,
+    "semantic_consistency_failures": 0,
+    "skipped_candidates": 0,
+    "pending_candidates": 0
+  },
+  "coverage": [
+    {
+      "contract": "VulnerableVault",
+      "signature": "deposit()",
+      "fragment_id": "fragment-d7284edb3e8933428db5",
+      "status": "selected",
+      "reason": "External deposit updates an account balance from msg.value; no direct external call observed in the fragment.",
+      "included": true,
+      "incomplete_metadata": false
+    },
+    {
+      "contract": "VulnerableVault",
+      "signature": "withdraw()",
+      "fragment_id": "fragment-3dbf42a41965b0485b75",
+      "status": "selected",
+      "reason": "External withdraw uses msg.sender.call and updates balances; this creates a plausible reentrancy/unsafe ether-send hypothesis that needs source confirmation.",
+      "included": true,
+      "incomplete_metadata": false
+    }
+  ],
+  "usage": {
+    "input_tokens": 4478,
+    "output_tokens": 660,
+    "total_tokens": 5138,
+    "api_calls": 2,
+    "unknown_usage_calls": 0
+  },
+  "discovery_errors": [],
+  "efficiency": {
+    "discovery": {
+      "input_tokens": 1114,
+      "output_tokens": 258,
+      "total_tokens": 1372,
+      "api_calls": 1
+    },
+    "verification": {
+      "input_tokens": 3364,
+      "output_tokens": 402,
+      "total_tokens": 3766,
+      "api_calls": 1
+    },
+    "total": {
+      "input_tokens": 4478,
+      "output_tokens": 660,
+      "total_tokens": 5138,
+      "api_calls": 2
+    },
+    "verification_this_invocation": {
+      "input_tokens": 3364,
+      "output_tokens": 402,
+      "total_tokens": 3766,
+      "api_calls": 1
+    },
+    "unknown_usage_calls": 0,
+    "rounds": 1,
+    "retrieved_fragments": 0,
+    "selected_source_estimated_tokens": 70,
+    "full_source_baseline_tokens": 128,
+    "verification_context_reduction": 0.453125
+  },
+  "settings": {
+    "model": "gpt-5.4-mini-2026-03-17",
+    "max_rounds": 3,
+    "max_candidates": 1,
+    "max_batches": 6,
+    "max_verification_tokens": 60000
+  }
+}

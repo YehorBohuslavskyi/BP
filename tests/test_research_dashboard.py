@@ -66,6 +66,7 @@ class ResearchTests(unittest.TestCase):
         with patch('context_audit.app.session.analyze_upload') as analyze, \
              patch('context_audit.app.session.verify_selected') as verify:
             app = AppTest.from_file(str(ROOT / 'streamlit_app.py')).run()
+            app.radio(key='analysis_mode').set_value('Slither Verification').run()
             self.assertFalse(app.exception)
             self.assertEqual(app.segmented_control(key='workspace_page').value, 'Evaluation Dashboard')
             self.assertTrue(any(m.value == '60%' for m in app.metric))
@@ -77,5 +78,6 @@ class ResearchTests(unittest.TestCase):
         from streamlit.testing.v1 import AppTest
         with patch('context_audit.app.dashboard.load_research', return_value=dict(pilot=None, findings=None, cohort=None, smartbugs=None)):
             app = AppTest.from_file(str(ROOT / 'streamlit_app.py')).run()
+            app.radio(key='analysis_mode').set_value('Slither Verification').run()
         self.assertFalse(app.exception)
         self.assertTrue(any(w.value == 'Research result artifact not available' for w in app.warning))

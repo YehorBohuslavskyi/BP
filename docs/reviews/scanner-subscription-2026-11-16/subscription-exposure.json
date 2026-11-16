@@ -1,0 +1,80 @@
+{
+  "kind": "subscription_exposure",
+  "provider": "codex_chatgpt",
+  "model": "gpt-6-luna",
+  "plan_sha256": "f354df3699f453c7dc77e4e47fdd98df1506a39301f5fa699fec37f9915343e6",
+  "output": "/mnt/c/Users/Yehor/Documents/Codex/2026-11-16/referenced-chatgpt-conversation-this-is-an/outputs/dappscan-codex-evaluation-v3",
+  "attempted_cases": [
+    {
+      "case": "case-0003c41a88e2a81e8c54",
+      "source_sha256": "cc699056e365557e1243bad36244c6f88efd74816d1fc08569b598b52fe02ced",
+      "attempted_codex_turns": 1,
+      "status": "completed",
+      "completion_sha256": "e6970cca88b911ae6e6b80d837f6a27c13c805781cba88d73f1014bfd934877f"
+    },
+    {
+      "case": "case-05376fa69dc7d8b66d8c",
+      "source_sha256": "3c291f197263d8a5194573ddb7015c1ed2d2ca2dc42a8afea9a7e2566d21818f",
+      "attempted_codex_turns": 5,
+      "status": "partial",
+      "completion_sha256": "8b45d231c79e5856480e7131e2dbdbcc0b9819b759ec7e20b860df533215dc57"
+    },
+    {
+      "case": "case-081674824dce8e20f20e",
+      "source_sha256": "f835153fc3d6b90e0ba058c2a50d049cc46bd2a23c2844ff0c6cb547b87e5b15",
+      "attempted_codex_turns": 6,
+      "status": "partial",
+      "completion_sha256": "1211e23405cebdc45329de1456fdc2ad913ef26aba79dcdb77d71baf758024cd"
+    },
+    {
+      "case": "case-0d00159e0200805147a2",
+      "source_sha256": "2e611c5bf9eb6a9908b26655efed18332933e71c25315db05e73120a89515bc3",
+      "attempted_codex_turns": 3,
+      "status": "completed",
+      "completion_sha256": "4cacea4dbe78d301d748b9abb4cd44d171df6a48765be802584cec16aca6cdac"
+    },
+    {
+      "case": "case-14657db825d0febe3c99",
+      "source_sha256": "36d5ec6840a0fa19ade7f077b0e316f89d1241db9d6f54596242cc8e4f8f70b0",
+      "attempted_codex_turns": 6,
+      "status": "partial",
+      "completion_sha256": "accb98321af0123f72429e8c6092721a4b50061972ccead3105c6c0a8e7e79ec"
+    },
+    {
+      "case": "case-262032cfb35b6e5a1612",
+      "source_sha256": "28985a25fb8f40328f45ec41dc41bf4bc04c749f7e49e65c6c56f201279101f5",
+      "attempted_codex_turns": 5,
+      "status": "partial",
+      "completion_sha256": "cf933efbc54b4443d5f1a52d91b0d81f4521dfadd5fa897323e901ac71d96036"
+    },
+    {
+      "case": "case-2e00b77ead55c4169a6e",
+      "source_sha256": "a4c260bddd56b2264ef371c6d220a73cc37c782772d6df859fbf8d2ac57a0f6a",
+      "attempted_codex_turns": 4,
+      "status": "partial",
+      "completion_sha256": "766519b0c3266a2a8c2ff380c66b5221315d72b0b01728acd06c953130b4a253"
+    },
+    {
+      "case": "case-3765825bbd71fd0afb65",
+      "source_sha256": "3c0b11eb20e40c8a9504af7dc89d83ad2b28be35f4c1af6c66b284088f32ce1f",
+      "attempted_codex_turns": 7,
+      "status": "partial",
+      "completion_sha256": "f4247550d3eaaa390664f7c284e0086d86b671767a99ea26b4fca33482dfd828"
+    },
+    {
+      "case": "case-38222342720a6c9c2089",
+      "source_sha256": "22bdb082c5a0837b959f136704f8be34a0a202f093e46c10cbdd8d0b8f0a7d33",
+      "attempted_codex_turns": 2,
+      "status": "completed",
+      "completion_sha256": "f221aa3380ca0720e55707beb7d3202cd9a875b47c79791eaf403e8d7ff40223"
+    },
+    {
+      "case": "case-480c3ba6e75bb9cd9eed",
+      "source_sha256": "f46dca1eeade8c0a286f950d86ecaefb6cb882ac63ad68f7a7478077148c9452",
+      "attempted_codex_turns": 1,
+      "status": "partial",
+      "completion_sha256": "22557387dd08e78d9720365adf9ea1eb1fefa688f44cd4a220fb5d0e19d21342"
+    }
+  ],
+  "automatic_replay_authorized": false
+}

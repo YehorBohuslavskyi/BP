@@ -1,0 +1,37 @@
+{
+  "source": "/home/coca-cola/projects/DAppSCAN/DAppSCAN-source/contracts/SlowMist-ForTube2.0 Smart Contract Security Audit Report/bond-854527d0ea7ad2ddd3504b4d4ae3fcb57cb6445d/contracts/Oracle.sol",
+  "source_sha256": "9a93a25bce13a7d6b344bff301430fbbe09747eb013e5dce0c3ab944d7916cfc",
+  "project_root": "/home/coca-cola/projects/DAppSCAN/DAppSCAN-source/contracts/SlowMist-ForTube2.0 Smart Contract Security Audit Report",
+  "functions_in_source": 8,
+  "characters": 1794,
+  "imports": 0,
+  "selection_basis": "Development-project source; no GT/outcome selection; non-test contract; manageable size.",
+  "dataset": "DAppSCAN",
+  "purpose": "Separate user-requested real-contract demonstration; not frozen evaluation",
+  "model_input_sha256": "9a93a25bce13a7d6b344bff301430fbbe09747eb013e5dce0c3ab944d7916cfc",
+  "compiler": "0.6.12",
+  "contracts": [
+    "IACL",
+    "Oracle"
+  ],
+  "function_rows": 9,
+  "discovery_batches": 2,
+  "source_identity": {
+    "source_sha256": "9a93a25bce13a7d6b344bff301430fbbe09747eb013e5dce0c3ab944d7916cfc",
+    "source_name": "source.sol",
+    "sanitized_project_sha256": "0b0ca0568319b432cf295521acd63611443bad5f5029f6337e450b53f6ddecbc",
+    "catalog_sha256": "8e8d3756f77dc9e0518903f56b253d65548109cc65187760531a81b60b48d732",
+    "structure_sha256": "d51507cad09e4acf9db2d84a587ceb8a0ecc674e16668db4414346c87a306976",
+    "locations_sha256": "44b355a470aeb52989079b88ec119578da9473503f431cf94207aeebf3f1cff0",
+    "compiler": "0.6.12",
+    "preparation_sha256": "e96df93fd43afc166de6467d7dde5715827059c9b388c3a8a0bbe0734dbe9b3b",
+    "sanitizer_sha256": "e093a3c2338cf4d5d6e705aa49270d36a3694a3d6f33924b567b6466a8e2e671"
+  },
+  "ground_truth_read_or_used": false,
+  "planned_model": "gpt-5.4-mini-2026-03-17",
+  "max_candidates": 3,
+  "max_rounds_per_candidate": 3,
+  "max_generation_requests": 11,
+  "max_token_count_requests": 0,
+  "automatic_retries": 0
+}

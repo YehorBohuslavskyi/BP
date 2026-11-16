@@ -1,0 +1,684 @@
+{
+  "protocol": "verdict-consistency-v2",
+  "api_requests": 0,
+  "token_count_requests": 0,
+  "gt_used_for_diagnosis": false,
+  "historical_files_checked": 2386,
+  "changed_historical_files": [],
+  "source_identity_matches_frozen_pra_plan": true,
+  "reviews": [
+    {
+      "case": "PRA",
+      "function": "unlock()",
+      "session": "runs/mode-b-v2-consistency-development-2026-11-10/case-68aeb9008f95441250d8/analysis/sessions/1cae1c855a8ff1a6a34836fe55fae5b0b4869611be30bdc0b99da15da3c9089b.json",
+      "candidate": {
+        "candidate_id": "batch-0002:PRA-1",
+        "contract": "PRA",
+        "primary_function": "unlock()",
+        "primary_fragment_id": "fragment-8e9624214674b68971ae",
+        "suspected_type": "unsafe token interaction / authorization",
+        "reason": "Unlock performs an external token transfer and depends on deposits/gov/raters state; source is needed to confirm who may withdraw and whether the transfer amount/state update order is safe.",
+        "related_fragment_ids": [
+          "fragment-df5db37edf2e637a896c",
+          "fragment-2797623962237512b3f7"
+        ],
+        "requested_context_ids": [
+          "fragment-a96c3b532c2247326736",
+          "fragment-4f32eac8d50283751be6",
+          "fragment-be9714fb9d6401a502fe"
+        ],
+        "uncertainty": "Medium; exact authorization and accounting logic are not visible.",
+        "model_candidate_id": "PRA-1"
+      },
+      "original_assessment": {
+        "action": "final",
+        "requested_ids": [],
+        "verdict": "confirmed",
+        "severity": "medium",
+        "explanation": "The source shows unlock() lets msg.sender withdraw their recorded deposit amount after two checks, then zeroes the stored amount and transfers gov tokens to them. The dangerous behavior is that the external token transfer occurs after state is cleared, with no additional authentication beyond the caller being the depositor and not marked as a rater. This supports the candidate\u2019s unsafe token interaction / authorization concern, though the snippet alone does not establish a concrete theft path beyond authorized self-withdrawal.",
+        "evidence_ids": [
+          "fragment-8e9624214674b68971ae"
+        ],
+        "execution_flow": [
+          "Caller invokes unlock().",
+          "Contract checks !raters[who] and deposits[who].reviewed.",
+          "It reads deposits[who].amount, clears reviewed and amount, then calls IERC20(gov).safeTransfer(who, amount)."
+        ],
+        "incomplete_evidence": [],
+        "verdict_basis": {
+          "mechanism_status": "supported",
+          "core_conditions": "established",
+          "mitigation_status": "none_identified",
+          "mechanism": "unlock() clears the caller's deposit record and then performs an external token transfer of gov tokens to msg.sender.",
+          "mitigation_reason": "No effective mitigation against the candidate mechanism is visible in the supplied function beyond the simple raters/reviewed checks, which do not address the token transfer risk itself.",
+          "unresolved_conditions": [],
+          "evidence_claims": [
+            {
+              "fragment_id": "fragment-8e9624214674b68971ae",
+              "source_quote": "require(!raters[who], \"raters is not broken\");",
+              "role": "uncertainty"
+            },
+            {
+              "fragment_id": "fragment-8e9624214674b68971ae",
+              "source_quote": "require(deposits[who].reviewed, \"not submitted for review\");",
+              "role": "uncertainty"
+            },
+            {
+              "fragment_id": "fragment-8e9624214674b68971ae",
+              "source_quote": "deposits[who].reviewed = false;\n        deposits[who].amount = 0;\n        IERC20(gov).safeTransfer(who, amount);",
+              "role": "dangerous_behavior"
+            }
+          ]
+        }
+      },
+      "supplied": [
+        {
+          "id": "fragment-8e9624214674b68971ae",
+          "kind": "function",
+          "name": "unlock()",
+          "source": "function unlock() external {\n        address who = msg.sender;\n        require(!raters[who], \"raters is not broken\");\n        require(deposits[who].reviewed, \"not submitted for review\");\n        uint256 amount = deposits[who].amount;\n        deposits[who].reviewed = false;\n        deposits[who].amount = 0;\n        IERC20(gov).safeTransfer(who, amount);\n        emit MonitorEvent(who, address(0), \"unlock\", abi.encodePacked(amount));\n    }"
+        }
+      ],
+      "old_consistency": {
+        "version": "verdict-consistency-v1",
+        "mode": "structured",
+        "passed": false,
+        "failed_rules": [
+          "MECHANISM_NOT_IN_EXPLANATION"
+        ],
+        "original_model_verdict": "confirmed",
+        "evidence_ids": [
+          "fragment-8e9624214674b68971ae"
+        ]
+      },
+      "review": {
+        "kind": "offline_consistency_review",
+        "saved_result_sha256": "da7b223cafe9e2e452625487126fd5ff8bbe284f7e9c46da8bbe67fa20d5b462",
+        "response_sha256": "b887d4d87e755c4f5533b8d9c981c36e17081efd1429e2d30d52d76541f18d7b",
+        "candidate_id": "batch-0002:PRA-1",
+        "original_processing_status": "processing_failed",
+        "original_model_verdict": "confirmed",
+        "consistency_validation": {
+          "version": "verdict-consistency-v2",
+          "mode": "structured",
+          "passed": false,
+          "failed_rules": [
+            "EXPLICIT_CORE_UNCERTAINTY"
+          ],
+          "original_model_verdict": "confirmed",
+          "evidence_ids": [
+            "fragment-8e9624214674b68971ae"
+          ]
+        },
+        "eligible_model_verdict": null,
+        "historical_artifact_changed": false,
+        "authorizes_resume": false
+      }
+    },
+    {
+      "case": "PRA",
+      "function": "set(address,bool)",
+      "session": "runs/mode-b-v2-consistency-development-2026-11-10/case-68aeb9008f95441250d8/analysis/sessions/3aba39c96989d36847089bc3371b437e1fbf98520f8aeac6c6c9965817f18119.json",
+      "candidate": {
+        "candidate_id": "batch-0002:PRA-3",
+        "contract": "PRA",
+        "primary_function": "set(address,bool)",
+        "primary_fragment_id": "fragment-2797623962237512b3f7",
+        "suspected_type": "access control / authorization",
+        "reason": "This function mutates raters and deposits and is auth-gated; source is needed to confirm whether the modifier and caller checks correctly restrict state changes and whether a misconfiguration can overgrant access.",
+        "related_fragment_ids": [
+          "fragment-8e9624214674b68971ae",
+          "fragment-4a54d10da7f3826de7c9"
+        ],
+        "requested_context_ids": [
+          "fragment-be9714fb9d6401a502fe",
+          "fragment-a96c3b532c2247326736",
+          "fragment-9508061b231c3fbcd183"
+        ],
+        "uncertainty": "Medium; access-control semantics are hidden in the modifier and helper logic.",
+        "model_candidate_id": "PRA-3"
+      },
+      "original_assessment": {
+        "action": "final",
+        "requested_ids": [],
+        "verdict": "rejected",
+        "severity": null,
+        "explanation": "The hypothesis is that `set(address,bool)` can be abused to overgrant access or mutate authorization state improperly. The supplied function is explicitly access-controlled with `auth`, and it only flips `raters[who]` after enforcing a deposit threshold; this contradicts a free-form authorization bypass. There is no evidence in the supplied source that an unprivileged caller can reach the state changes, and the visible checks constrain who can be enabled as a rater. The candidate is therefore not supported by the provided source.",
+        "evidence_ids": [
+          "fragment-2797623962237512b3f7"
+        ],
+        "execution_flow": [
+          "Caller reaches `set(address who, bool enable)` only through `external auth` gating.",
+          "Function requires `deposits[who].amount >= line` before any state mutation.",
+          "If enabling, it additionally requires `!raters[who]`.",
+          "Only then does it set `deposits[who].reviewed = true;` and `raters[who] = enable;`."
+        ],
+        "incomplete_evidence": [],
+        "verdict_basis": {
+          "mechanism_status": "contradicted",
+          "core_conditions": "not_established",
+          "mitigation_status": "effective",
+          "mechanism": "An unauthorized caller can overgrant access by invoking `set(address,bool)` to change `raters[who]` without proper authorization.",
+          "mitigation_reason": "The function is gated by `auth` and also requires `deposits[who].amount >= line` before mutating `raters[who]`, with an additional check preventing re-enabling an already-rater account.",
+          "unresolved_conditions": [],
+          "evidence_claims": [
+            {
+              "fragment_id": "fragment-2797623962237512b3f7",
+              "source_quote": "function set(address who, bool enable) external auth {\n        require(deposits[who].amount >= line, \"insufficient deposit token\");",
+              "role": "protection"
+            },
+            {
+              "fragment_id": "fragment-2797623962237512b3f7",
+              "source_quote": "if (enable)\n            require(\n                !raters[who],\n                \"set account already is a professional rater\"\n            );",
+              "role": "protection"
+            },
+            {
+              "fragment_id": "fragment-2797623962237512b3f7",
+              "source_quote": "deposits[who].reviewed = true;\n        raters[who] = enable;",
+              "role": "dangerous_behavior"
+            }
+          ]
+        }
+      },
+      "supplied": [
+        {
+          "id": "fragment-2797623962237512b3f7",
+          "kind": "function",
+          "name": "set(address,bool)",
+          "source": "function set(address who, bool enable) external auth {\n        require(deposits[who].amount >= line, \"insufficient deposit token\");\n\n        if (enable)\n            require(\n                !raters[who],\n                \"set account already is a professional rater\"\n            );\n        deposits[who].reviewed = true;\n        raters[who] = enable;\n\n        emit MonitorEvent(who, address(0), \"set\", abi.encodePacked(enable));\n    }"
+        }
+      ],
+      "old_consistency": {
+        "version": "verdict-consistency-v1",
+        "mode": "structured",
+        "passed": false,
+        "failed_rules": [
+          "MECHANISM_NOT_IN_EXPLANATION",
+          "REJECTION_UNRESOLVED_OR_DANGEROUS_CLAIM"
+        ],
+        "original_model_verdict": "rejected",
+        "evidence_ids": [
+          "fragment-2797623962237512b3f7"
+        ]
+      },
+      "review": {
+        "kind": "offline_consistency_review",
+        "saved_result_sha256": "1405b7e38814884af0d635bad43090acde0d13c45a9579c21cb5141b2bf986b4",
+        "response_sha256": "9d6f8b64526eb6edaa260aa1a929dc037c262218e82dc2ff3375e444bf6421a4",
+        "candidate_id": "batch-0002:PRA-3",
+        "original_processing_status": "processing_failed",
+        "original_model_verdict": "rejected",
+        "consistency_validation": {
+          "version": "verdict-consistency-v2",
+          "mode": "structured",
+          "passed": false,
+          "failed_rules": [
+            "REJECTION_UNRESOLVED_OR_DANGEROUS_CLAIM"
+          ],
+          "original_model_verdict": "rejected",
+          "evidence_ids": [
+            "fragment-2797623962237512b3f7"
+          ]
+        },
+        "eligible_model_verdict": null,
+        "historical_artifact_changed": false,
+        "authorizes_resume": false
+      }
+    },
+    {
+      "case": "PRA",
+      "function": "lock()",
+      "session": "runs/mode-b-v2-consistency-development-2026-11-10/case-68aeb9008f95441250d8/analysis/sessions/e6d6ca097605194389e3cb9b725b3268c316c3918d41eb7cece1bcb905c3fd5c.json",
+      "candidate": {
+        "candidate_id": "batch-0002:PRA-2",
+        "contract": "PRA",
+        "primary_function": "lock()",
+        "primary_fragment_id": "fragment-df5db37edf2e637a896c",
+        "suspected_type": "accounting / unsafe token interaction",
+        "reason": "Lock reads allowance/balance and performs a token transferFrom while writing deposits; source is needed to confirm deposit accounting and whether external token behavior can break invariants.",
+        "related_fragment_ids": [
+          "fragment-8e9624214674b68971ae"
+        ],
+        "requested_context_ids": [
+          "fragment-a96c3b532c2247326736",
+          "fragment-4f32eac8d50283751be6",
+          "fragment-1f4545eb3067f2b83c6e"
+        ],
+        "uncertainty": "Medium; the visible metadata suggests token-accounting logic but not the full invariants.",
+        "model_candidate_id": "PRA-2"
+      },
+      "original_assessment": {
+        "action": "final",
+        "requested_ids": [],
+        "verdict": "inconclusive",
+        "severity": null,
+        "explanation": "The supplied lock() implementation shows deposit accounting and an external ERC20 transfer, but the key conditions for an unsafe accounting failure are not established from the available source. The function checks that the caller has zero prior deposit, verifies allowance and balance are at least line, writes deposits[who].amount = line before calling safeTransferFrom, and emits an event. Without the definitions of deposits, gov, and line from the contract state, and without the surrounding accounting/withdrawal logic, I cannot confirm a reachable invariant break or show that the token interaction is exploitable rather than just standard ERC20 custody flow.",
+        "evidence_ids": [
+          "fragment-df5db37edf2e637a896c"
+        ],
+        "execution_flow": [
+          "msg.sender is checked to have no existing deposit",
+          "ERC20 allowance and balance are checked against line",
+          "deposits[who].amount is set to line before the token transfer",
+          "safeTransferFrom moves line tokens from the caller to the contract"
+        ],
+        "incomplete_evidence": [
+          "Source for deposits(address), gov(), and line()",
+          "Any withdrawal/unlock or accounting code that depends on deposits",
+          "Any assumptions about token behavior beyond standard ERC20 semantics"
+        ],
+        "verdict_basis": {
+          "mechanism_status": "unknown",
+          "core_conditions": "unknown",
+          "mitigation_status": "unknown",
+          "mechanism": "A caller can reach lock(), which updates deposit accounting and then performs an external ERC20 transferFrom, but the source provided is insufficient to establish a harmful accounting inconsistency.",
+          "mitigation_reason": "The function includes precondition checks on prior deposit, allowance, and balance, and the available source does not show a bypass of those checks or a failing accounting path.",
+          "unresolved_conditions": [
+            "Whether deposits.amount is later trusted as proof of successful transfer",
+            "Whether gov and line are configured in a way that makes the checks meaningful",
+            "Whether any later withdraw/unlock logic can be desynchronized by token behavior"
+          ],
+          "evidence_claims": [
+            {
+              "fragment_id": "fragment-df5db37edf2e637a896c",
+              "source_quote": "require(deposits[who].amount == 0, \"sender already locked\");",
+              "role": "uncertainty"
+            },
+            {
+              "fragment_id": "fragment-df5db37edf2e637a896c",
+              "source_quote": "require(\n            IERC20(gov).allowance(who, address(this)) >= line,\n            \"insufficient allowance to lock\"\n        );",
+              "role": "uncertainty"
+            },
+            {
+              "fragment_id": "fragment-df5db37edf2e637a896c",
+              "source_quote": "require(\n            IERC20(gov).balanceOf(who) >= line,\n            \"insufficient balance to lock\"\n        );",
+              "role": "uncertainty"
+            },
+            {
+              "fragment_id": "fragment-df5db37edf2e637a896c",
+              "source_quote": "deposits[who].amount = line;",
+              "role": "uncertainty"
+            },
+            {
+              "fragment_id": "fragment-df5db37edf2e637a896c",
+              "source_quote": "IERC20(gov).safeTransferFrom(who, address(this), line);",
+              "role": "uncertainty"
+            }
+          ]
+        }
+      },
+      "supplied": [
+        {
+          "id": "fragment-df5db37edf2e637a896c",
+          "kind": "function",
+          "name": "lock()",
+          "source": "function lock() external {\n        address who = msg.sender;\n        require(deposits[who].amount == 0, \"sender already locked\");\n        require(\n            IERC20(gov).allowance(who, address(this)) >= line,\n            \"insufficient allowance to lock\"\n        );\n        require(\n            IERC20(gov).balanceOf(who) >= line,\n            \"insufficient balance to lock\"\n        );\n        deposits[who].amount = line;\n        IERC20(gov).safeTransferFrom(who, address(this), line);\n        emit MonitorEvent(who, address(0), \"lock\", abi.encodePacked(line));\n    }"
+        }
+      ],
+      "old_consistency": {
+        "version": "verdict-consistency-v1",
+        "mode": "structured",
+        "passed": false,
+        "failed_rules": [
+          "MECHANISM_NOT_IN_EXPLANATION"
+        ],
+        "original_model_verdict": "inconclusive",
+        "evidence_ids": [
+          "fragment-df5db37edf2e637a896c"
+        ]
+      },
+      "review": {
+        "kind": "offline_consistency_review",
+        "saved_result_sha256": "a8440d44069ff2662b578c981f0eaebd670f26432ceae17a7ea411926fcfae42",
+        "response_sha256": "e49d5937d5b60c383cdb1438c6a4fab8bfd3cb5829be398baf849ae27b71692b",
+        "candidate_id": "batch-0002:PRA-2",
+        "original_processing_status": "processing_failed",
+        "original_model_verdict": "inconclusive",
+        "consistency_validation": {
+          "version": "verdict-consistency-v2",
+          "mode": "structured",
+          "passed": true,
+          "failed_rules": [],
+          "original_model_verdict": "inconclusive",
+          "evidence_ids": [
+            "fragment-df5db37edf2e637a896c"
+          ]
+        },
+        "eligible_model_verdict": "inconclusive",
+        "historical_artifact_changed": false,
+        "authorizes_resume": false
+      }
+    },
+    {
+      "case": "wallet",
+      "function": "setAuthoriser(address)",
+      "old_consistency": {
+        "version": "verdict-consistency-v1",
+        "mode": "historical_limited",
+        "passed": true,
+        "failed_rules": [],
+        "original_model_verdict": "inconclusive",
+        "evidence_ids": [
+          "fragment-e68e7f5f180ed6cbf7e5"
+        ]
+      },
+      "review": {
+        "kind": "offline_consistency_review",
+        "saved_result_sha256": "dcd851b35615ff0ee3489be96ac6937f0ccf673b3dc074c84c760b6927da2f4f",
+        "response_sha256": "1ae4ea998313cbab019ef313f43bbad5950459132005669d01dd8d45a294a5ac",
+        "candidate_id": "batch-0001:cand-1",
+        "original_processing_status": "completed",
+        "original_model_verdict": "inconclusive",
+        "consistency_validation": {
+          "version": "verdict-consistency-v2",
+          "mode": "historical_limited",
+          "passed": true,
+          "failed_rules": [],
+          "original_model_verdict": "inconclusive",
+          "evidence_ids": [
+            "fragment-e68e7f5f180ed6cbf7e5"
+          ]
+        },
+        "eligible_model_verdict": "inconclusive",
+        "historical_artifact_changed": false,
+        "authorizes_resume": false
+      }
+    },
+    {
+      "case": "wallet",
+      "function": "transfer(address,address,uint256)",
+      "old_consistency": {
+        "version": "verdict-consistency-v1",
+        "mode": "historical_limited",
+        "passed": true,
+        "failed_rules": [],
+        "original_model_verdict": "confirmed",
+        "evidence_ids": [
+          "fragment-29920ba34bff663be35e"
+        ]
+      },
+      "review": {
+        "kind": "offline_consistency_review",
+        "saved_result_sha256": "23cd2d7368312bbb23073eeaf825c310b1f587fe5904feffb16f771e94d264e2",
+        "response_sha256": "0b6c499a7725092361e895037dcdf2e82129ed7fdca353c2174c2caee3cc2893",
+        "candidate_id": "batch-0001:cand-2",
+        "original_processing_status": "completed",
+        "original_model_verdict": "confirmed",
+        "consistency_validation": {
+          "version": "verdict-consistency-v2",
+          "mode": "historical_limited",
+          "passed": true,
+          "failed_rules": [],
+          "original_model_verdict": "confirmed",
+          "evidence_ids": [
+            "fragment-29920ba34bff663be35e"
+          ]
+        },
+        "eligible_model_verdict": "confirmed",
+        "historical_artifact_changed": false,
+        "authorizes_resume": false
+      }
+    },
+    {
+      "case": "wallet",
+      "function": "_transferOwnership(address)",
+      "old_consistency": {
+        "version": "verdict-consistency-v1",
+        "mode": "historical_limited",
+        "passed": true,
+        "failed_rules": [],
+        "original_model_verdict": "rejected",
+        "evidence_ids": [
+          "fragment-e7e34ed536fda9f66b18"
+        ]
+      },
+      "review": {
+        "kind": "offline_consistency_review",
+        "saved_result_sha256": "116fb2a3d8912e310959ba431d0c8299a1d488336cc466036860f87ab1ee98fc",
+        "response_sha256": "bfd790214360bbfd3516746f2b4a161665e9437ce429d85942b06cec67519479",
+        "candidate_id": "batch-0001:cand-3",
+        "original_processing_status": "completed",
+        "original_model_verdict": "rejected",
+        "consistency_validation": {
+          "version": "verdict-consistency-v2",
+          "mode": "historical_limited",
+          "passed": true,
+          "failed_rules": [],
+          "original_model_verdict": "rejected",
+          "evidence_ids": [
+            "fragment-e7e34ed536fda9f66b18"
+          ]
+        },
+        "eligible_model_verdict": "rejected",
+        "historical_artifact_changed": false,
+        "authorizes_resume": false
+      }
+    },
+    {
+      "case": "voting",
+      "function": "execute(uint256,address[],bytes[])",
+      "old_consistency": {
+        "version": "verdict-consistency-v1",
+        "mode": "historical_limited",
+        "passed": true,
+        "failed_rules": [],
+        "original_model_verdict": "confirmed",
+        "evidence_ids": [
+          "fragment-15ec3d99d14cb25e371a"
+        ]
+      },
+      "review": {
+        "kind": "offline_consistency_review",
+        "saved_result_sha256": "f64e1c72da0fae001894822bf0b7279d660543b1bad55233dfc8a5ca8bcd4231",
+        "response_sha256": "5312d7e234c911b9cef4689061eb71d7653ecd759d49c550174e4c30748e2df2",
+        "candidate_id": "batch-0001:C1",
+        "original_processing_status": "completed",
+        "original_model_verdict": "confirmed",
+        "consistency_validation": {
+          "version": "verdict-consistency-v2",
+          "mode": "historical_limited",
+          "passed": true,
+          "failed_rules": [],
+          "original_model_verdict": "confirmed",
+          "evidence_ids": [
+            "fragment-15ec3d99d14cb25e371a"
+          ]
+        },
+        "eligible_model_verdict": "confirmed",
+        "historical_artifact_changed": false,
+        "authorizes_resume": false
+      }
+    },
+    {
+      "case": "voting",
+      "function": "vote(address[],bytes[],uint256,CoreVoting.Ballot)",
+      "old_consistency": {
+        "version": "verdict-consistency-v1",
+        "mode": "historical_limited",
+        "passed": true,
+        "failed_rules": [],
+        "original_model_verdict": "rejected",
+        "evidence_ids": [
+          "fragment-9a9a6791365437f8c0fb"
+        ]
+      },
+      "review": {
+        "kind": "offline_consistency_review",
+        "saved_result_sha256": "afb9d115f72f0ecd1cdcebbd6af8115e56fd8395d0a8b3fd596f83047b635d03",
+        "response_sha256": "179d5643607845cbf1c15ca842a843bc3d69adc56cafa04bfd65c66939e75037",
+        "candidate_id": "batch-0002:CoreVoting-1",
+        "original_processing_status": "completed",
+        "original_model_verdict": "rejected",
+        "consistency_validation": {
+          "version": "verdict-consistency-v2",
+          "mode": "historical_limited",
+          "passed": true,
+          "failed_rules": [],
+          "original_model_verdict": "rejected",
+          "evidence_ids": [
+            "fragment-9a9a6791365437f8c0fb"
+          ]
+        },
+        "eligible_model_verdict": "rejected",
+        "historical_artifact_changed": false,
+        "authorizes_resume": false
+      }
+    },
+    {
+      "case": "owner",
+      "function": "removeOwner(address,address,uint256)",
+      "old_consistency": {
+        "version": "verdict-consistency-v1",
+        "mode": "historical_limited",
+        "passed": true,
+        "failed_rules": [],
+        "original_model_verdict": "rejected",
+        "evidence_ids": [
+          "fragment-8f824b146879ab6e0e97"
+        ]
+      },
+      "review": {
+        "kind": "offline_consistency_review",
+        "saved_result_sha256": "2e6bc5751bb3f1d90d38d97015a90bf562c340bcab1e112768023361954a06ad",
+        "response_sha256": "0e394fb2267de61c4e3901a72dd283c2795f33dae34041b88cdcdb290c79c73d",
+        "candidate_id": "batch-0001:OwnerManager-removeOwner-authorization-accounting",
+        "original_processing_status": "completed",
+        "original_model_verdict": "rejected",
+        "consistency_validation": {
+          "version": "verdict-consistency-v2",
+          "mode": "historical_limited",
+          "passed": true,
+          "failed_rules": [],
+          "original_model_verdict": "rejected",
+          "evidence_ids": [
+            "fragment-8f824b146879ab6e0e97"
+          ]
+        },
+        "eligible_model_verdict": "rejected",
+        "historical_artifact_changed": false,
+        "authorizes_resume": false
+      }
+    },
+    {
+      "case": "owner",
+      "function": "addOwnerWithThreshold(address,uint256)",
+      "old_consistency": {
+        "version": "verdict-consistency-v1",
+        "mode": "historical_limited",
+        "passed": false,
+        "failed_rules": [
+          "EXPLICIT_CORE_UNCERTAINTY",
+          "NO_EXPLICIT_DANGEROUS_BEHAVIOR",
+          "PROTECTION_WITHOUT_RESIDUAL_DANGER"
+        ],
+        "original_model_verdict": "confirmed",
+        "evidence_ids": [
+          "fragment-68508bc43bbbdc482f4d"
+        ]
+      },
+      "review": {
+        "kind": "offline_consistency_review",
+        "saved_result_sha256": "62fab8cf2eed5f7e9f73a4f5a65924872fecdf41bc10ca599ea601642af8e694",
+        "response_sha256": "818b4c4f38c51563fc2f905f64e8276b8fb05122adc7faa50cda35ce0964004a",
+        "candidate_id": "batch-0001:OwnerManager-addOwner-threshold-invariant",
+        "original_processing_status": "completed",
+        "original_model_verdict": "confirmed",
+        "consistency_validation": {
+          "version": "verdict-consistency-v2",
+          "mode": "historical_limited",
+          "passed": false,
+          "failed_rules": [
+            "EXPLICIT_CORE_UNCERTAINTY",
+            "NO_EXPLICIT_DANGEROUS_BEHAVIOR",
+            "PROTECTION_WITHOUT_RESIDUAL_DANGER"
+          ],
+          "original_model_verdict": "confirmed",
+          "evidence_ids": [
+            "fragment-68508bc43bbbdc482f4d"
+          ]
+        },
+        "eligible_model_verdict": null,
+        "historical_artifact_changed": false,
+        "authorizes_resume": false
+      }
+    },
+    {
+      "case": "owner",
+      "function": "setupOwners(address[],uint256)",
+      "old_consistency": {
+        "version": "verdict-consistency-v1",
+        "mode": "historical_limited",
+        "passed": true,
+        "failed_rules": [],
+        "original_model_verdict": "rejected",
+        "evidence_ids": [
+          "fragment-b9a3d4cf4421119bbc5e"
+        ]
+      },
+      "review": {
+        "kind": "offline_consistency_review",
+        "saved_result_sha256": "42bca7e578b3f1a59b23eadd57f0579ac886ff2d9b1203621bae1a8ed9698c8e",
+        "response_sha256": "eacf2bd18df86f936705926578214fdfcef238d5cf9c3ad07bb4932e46c2878c",
+        "candidate_id": "batch-0001:OwnerManager-setupOwners-initialization",
+        "original_processing_status": "completed",
+        "original_model_verdict": "rejected",
+        "consistency_validation": {
+          "version": "verdict-consistency-v2",
+          "mode": "historical_limited",
+          "passed": true,
+          "failed_rules": [],
+          "original_model_verdict": "rejected",
+          "evidence_ids": [
+            "fragment-b9a3d4cf4421119bbc5e"
+          ]
+        },
+        "eligible_model_verdict": "rejected",
+        "historical_artifact_changed": false,
+        "authorizes_resume": false
+      }
+    },
+    {
+      "case": "transfers",
+      "function": "safeTransfer(IERC20,address,uint256)",
+      "old_consistency": {
+        "version": "verdict-consistency-v1",
+        "mode": "historical_limited",
+        "passed": false,
+        "failed_rules": [
+          "EXPLICIT_HYPOTHESIS_DENIAL",
+          "NO_EXPLICIT_DANGEROUS_BEHAVIOR",
+          "PROTECTION_WITHOUT_RESIDUAL_DANGER"
+        ],
+        "original_model_verdict": "confirmed",
+        "evidence_ids": [
+          "fragment-c00b31da650fb14d318e"
+        ]
+      },
+      "review": {
+        "kind": "offline_consistency_review",
+        "saved_result_sha256": "de35741bc49fea10f4801384bac1c708a9b0331d6ec8c7e7c1b55976c3275397",
+        "response_sha256": "d508eeb21a4206a6788d7b0418a133c18a65eb067e281073d65ab10dea85b738",
+        "candidate_id": "batch-0001:Transfers.safeTransfer(IERC20,address,uint256)",
+        "original_processing_status": "completed",
+        "original_model_verdict": "confirmed",
+        "consistency_validation": {
+          "version": "verdict-consistency-v2",
+          "mode": "historical_limited",
+          "passed": false,
+          "failed_rules": [
+            "EXPLICIT_HYPOTHESIS_DENIAL",
+            "NO_EXPLICIT_DANGEROUS_BEHAVIOR",
+            "PROTECTION_WITHOUT_RESIDUAL_DANGER"
+          ],
+          "original_model_verdict": "confirmed",
+          "evidence_ids": [
+            "fragment-c00b31da650fb14d318e"
+          ]
+        },
+        "eligible_model_verdict": null,
+        "historical_artifact_changed": false,
+        "authorizes_resume": false
+      }
+    }
+  ]
+}

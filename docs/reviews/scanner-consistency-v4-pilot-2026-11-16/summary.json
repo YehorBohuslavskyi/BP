@@ -1,0 +1,58 @@
+{
+  "planned_cases": 2,
+  "finished_cases": 2,
+  "model_turns": 16,
+  "reported_tokens": 286822,
+  "api_key_requests": 0,
+  "provider": "codex_chatgpt",
+  "model": "gpt-6-luna",
+  "evaluation_labels_loaded": false,
+  "status": "finished",
+  "confirmed_findings": 0,
+  "partial_cases": 2,
+  "consistency_version": "verdict-consistency-v4",
+  "counts": {
+    "total_functions": 65,
+    "included": 65,
+    "examined": 65,
+    "incomplete_metadata": 0,
+    "selected": 17,
+    "not_selected": 48,
+    "unevaluable": 0,
+    "pending": 0,
+    "candidates_generated": 9,
+    "unique_candidates": 9,
+    "candidates_verified": 4,
+    "confirmed_candidates": 0,
+    "rejected_candidates": 0,
+    "inconclusive_candidates": 4,
+    "processing_failures": 0,
+    "semantic_consistency_failures": 0,
+    "skipped_candidates": 5,
+    "pending_candidates": 0
+  },
+  "processing_errors": {
+    "CANDIDATE_BUDGET": 5
+  },
+  "input_tokens": 279359,
+  "output_tokens": 7463,
+  "unknown_usage_turns": 0,
+  "per_split": {
+    "development": {
+      "planned": 2,
+      "attempted": 2
+    },
+    "validation": {
+      "planned": 0,
+      "attempted": 0
+    },
+    "held_out": {
+      "planned": 0,
+      "attempted": 0
+    }
+  },
+  "prior_artifacts_unchanged": 2674,
+  "precision": null,
+  "recall": null,
+  "exploit_validation": false
+}

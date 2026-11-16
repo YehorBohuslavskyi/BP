@@ -84,13 +84,20 @@ class DirectFragmentCatalog(FragmentCatalog):
     def add(self, element, kind, name):
         if not safe_source(element):
             raise ValueError('Unsafe compiler source mapping')
-        return super().add(element, kind, name)
+        fid = super().add(element, kind, name)
+        if hasattr(self, 'fragment_locations'):
+            mapping = element.source_mapping
+            self.fragment_locations[fid] = {'file': self.fragments[fid]['file'],
+                'lines': list(mapping.lines), 'start': mapping.start, 'length': mapping.length}
+        return fid
 
 
-def _prepare_sanitized(source, root, kwargs):
+def _prepare_sanitized(source, root, kwargs, *, discovery=False):
     # Parse compiler ASTs without the all-or-nothing whole-project IR pass.
     parsed = Slither(str(source), skip_analyze=True, **kwargs)
     catalog = DirectFragmentCatalog(root)
+    if discovery:
+        catalog.fragment_locations = {}
     contexts = []
     readiness = []
     warnings = []
@@ -149,6 +156,11 @@ def _prepare_sanitized(source, root, kwargs):
     catalog.preparation_metadata = {'total_source_functions': len(readiness),
         'function_readiness': readiness, 'preparation_warnings': warnings, **counts,
         'preparation_status': ('PARTIALLY_READY' if counts['SOURCE_FALLBACK'] or counts['UNEVALUABLE'] else 'READY') if contexts else 'NO_ANALYZABLE_FUNCTIONS'}
+    if discovery:
+        from context_audit.function_index import build_index
+        from context_audit.direct_discovery import collect_contracts
+        catalog.function_index = build_index(parsed, catalog, failures, safe_source)
+        catalog.discovery_contracts = collect_contracts(parsed, source, catalog, failures)
     excluded = {fid for fid, fragment in catalog.fragments.items() if fragment['name'] in ('slitherConstructorVariables()', 'slitherConstructorConstantVariables()')}
     catalog.fragments = {fid: fragment for fid, fragment in catalog.fragments.items() if fid not in excluded}
     for context in contexts:
@@ -166,6 +178,12 @@ def _prepare_sanitized(source, root, kwargs):
         return value
     catalog.fragments = {aliases[fid]: {**fragment, 'id': aliases[fid]} for fid, fragment in catalog.fragments.items()}
     contexts = remap(contexts)
+    if discovery:
+        catalog.discovery_contracts = remap(catalog.discovery_contracts)
+        catalog.function_index = remap(catalog.function_index)
+        catalog.function_index['nodes'] = {aliases.get(fid, fid): node for fid, node in catalog.function_index['nodes'].items()}
+        catalog.function_index['state_writers'] = {aliases.get(fid, fid): writers for fid, writers in catalog.function_index['state_writers'].items()}
+        catalog.fragment_locations = {aliases[fid]: location for fid, location in catalog.fragment_locations.items() if fid in aliases}
     for context in contexts:
         context['file'] = source.name
     report = {'functions': contexts}

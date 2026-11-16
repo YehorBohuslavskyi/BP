@@ -1,0 +1,202 @@
+{
+  "$defs": {
+    "EvidenceClaim": {
+      "additionalProperties": false,
+      "properties": {
+        "fragment_id": {
+          "title": "Fragment Id",
+          "type": "string"
+        },
+        "source_quote": {
+          "minLength": 1,
+          "title": "Source Quote",
+          "type": "string"
+        },
+        "role": {
+          "enum": [
+            "dangerous_behavior",
+            "protection",
+            "uncertainty"
+          ],
+          "title": "Role",
+          "type": "string"
+        }
+      },
+      "required": [
+        "fragment_id",
+        "source_quote",
+        "role"
+      ],
+      "title": "EvidenceClaim",
+      "type": "object"
+    },
+    "VerdictBasis": {
+      "additionalProperties": false,
+      "properties": {
+        "mechanism_status": {
+          "enum": [
+            "supported",
+            "contradicted",
+            "unknown"
+          ],
+          "title": "Mechanism Status",
+          "type": "string"
+        },
+        "core_conditions": {
+          "enum": [
+            "established",
+            "not_established",
+            "unknown"
+          ],
+          "title": "Core Conditions",
+          "type": "string"
+        },
+        "mitigation_status": {
+          "enum": [
+            "none_identified",
+            "effective",
+            "ineffective",
+            "unknown"
+          ],
+          "title": "Mitigation Status",
+          "type": "string"
+        },
+        "mechanism": {
+          "minLength": 1,
+          "title": "Mechanism",
+          "type": "string"
+        },
+        "mitigation_reason": {
+          "title": "Mitigation Reason",
+          "type": "string"
+        },
+        "unresolved_conditions": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Unresolved Conditions",
+          "type": "array"
+        },
+        "evidence_claims": {
+          "items": {
+            "$ref": "#/$defs/EvidenceClaim"
+          },
+          "title": "Evidence Claims",
+          "type": "array"
+        }
+      },
+      "required": [
+        "mechanism_status",
+        "core_conditions",
+        "mitigation_status",
+        "mechanism",
+        "mitigation_reason",
+        "unresolved_conditions",
+        "evidence_claims"
+      ],
+      "title": "VerdictBasis",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "enum": [
+        "request_context",
+        "final"
+      ],
+      "title": "Action",
+      "type": "string"
+    },
+    "requested_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Requested Ids",
+      "type": "array"
+    },
+    "verdict": {
+      "anyOf": [
+        {
+          "enum": [
+            "confirmed",
+            "rejected",
+            "inconclusive"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Verdict"
+    },
+    "severity": {
+      "anyOf": [
+        {
+          "enum": [
+            "critical",
+            "high",
+            "medium",
+            "low",
+            "informational"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Severity"
+    },
+    "explanation": {
+      "minLength": 1,
+      "title": "Explanation",
+      "type": "string"
+    },
+    "evidence_ids": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Evidence Ids",
+      "type": "array"
+    },
+    "execution_flow": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Execution Flow",
+      "type": "array"
+    },
+    "incomplete_evidence": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Incomplete Evidence",
+      "type": "array"
+    },
+    "verdict_basis": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/VerdictBasis"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "action",
+    "requested_ids",
+    "verdict",
+    "severity",
+    "explanation",
+    "evidence_ids",
+    "execution_flow",
+    "incomplete_evidence",
+    "verdict_basis"
+  ],
+  "title": "VerificationResponse",
+  "type": "object"
+}

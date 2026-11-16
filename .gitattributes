@@ -1,0 +1,2 @@
+# Preserve saved research bytes, including original generated whitespace.
+docs/reviews/** -whitespace

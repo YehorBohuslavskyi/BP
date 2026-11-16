@@ -34,3 +34,14 @@ Thumbs.db
 .coverage
 .coverage.*
 htmlcov/
+
+# Local experiment bundles and generated dependency/runtime trees.
+# Research history remains on disk; compact public evidence lives in docs/reviews.
+/experiments/
+/node_modules/
+/scanner-output/
+/.aws/
+/.codex/
+
+# Legacy empty local scratch file; not application source.
+/source

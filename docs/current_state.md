@@ -1,98 +1,74 @@
-# Current state and next session
+# Current state — 16 November 2026
 
-## Current thesis direction
+## Implementation
 
-Primary goal: **Mode B — direct LLM vulnerability detection from Solidity source
-using selective context**.
+Mode B direct detection is the main research method. It combines structural
+hypothesis discovery with source-grounded selective verification. Mode A local
+Slither and Mode C Slither-plus-LLM verification remain available for comparison.
 
-Comparison modes: **A — Slither static baseline** and **C — Slither + selective-context
-LLM verification**. Mode C retains its existing confirmed/false_positive/inconclusive
-protocol. Mode B independently discovers findings without a Slither hypothesis.
+Current code includes `function-index-v1`, `verdict-consistency-v4` and
+`investigation-limits-v1`. The compiler index links exact source IDs for calls,
+callers, modifiers, state declarations and direct writers. Verification receives
+navigation metadata and explicitly requests source before citing it. Unresolved
+dynamic targets and incomplete caller sets remain unknown.
 
-## Completed
+The scanner provides local preparation, Codex subscription or optional API
+execution, explicit consent, JSON/HTML reports and configurable limits. Source-only
+reindexing rebuilds explicit development cases without loading evaluation labels.
+See [navigation and limits](function_navigation.md) and
+[subscription setup](scanner_subscription.md).
 
-- SmartBugs baseline and its existing regression checks.
-- CGT false-positive-reduction pilot.
-- DeFiHackLabs hybrid evaluation.
-- Scalability experiments and their existing tooling.
-- Direct Detection infrastructure: GUI, CLI, multi-round context requests,
-  compiler selection, local dependency resolution, sanitized source staging,
-  FULL_INDEX/SOURCE_FALLBACK sessions and function-level readiness.
-- Clean DAppSCAN pilot3 and saved additional-finding manual adjudication.
+## Latest validated result
 
-These experiments have different populations and metrics; do not combine them.
+- Full local offline suite: **575 tests passed**, no failures, errors or skips
+  after the documentation/import cleanup using `scripts/run_offline_tests.py`.
+- All **2,386 historical files** under `runs/` and `experiments/` remain unchanged.
+- Twelve separate historical saved-response reviews retain their prior outcomes.
+- One authorized handcrafted LinkedWithdrawal control confirmed high-severity
+  reentrancy through an unguarded caller after seven retrieved fragments and four
+  verification rounds. Five Codex turns used 73,863 reported tokens, with no
+  processing/consistency failures or skips. The one-time approval is consumed.
+- Compact [summary](reviews/function-navigation-2026-11-16/summary.json) and exact
+  [final evidence view](reviews/function-navigation-2026-11-16/final-assessment.json)
+  accompany the source. Full original journals remain separate locally.
 
-## Frozen current Mode B pilot
+This control establishes the analysis path works. It does not measure independent
+precision/recall, prove a model-wide improvement or demonstrate an executed exploit.
 
-Authoritative artifacts:
+## Preserved limitations and research gates
 
-- `examples/dappscan/evaluation/direct_detection/clean-pilot3-run-v2/`
-- `examples/dappscan/evaluation/direct_detection/clean-pilot3-prepared-v2/`
-- Manual review: `additional_findings_adjudication.json` and `.csv` in the run directory.
+PRA remains finalized partial. Its saved `unlock()` confirmation and `set(...)`
+rejection remain blocked; `lock()` passes only as the original inconclusive
+assessment in a separate read-only review. `setACL` remains skipped.
 
-| Measure | Frozen result |
-| --- | ---: |
-| Analyzed files | 3 |
-| Function sessions | 45 |
-| FULL_INDEX / SOURCE_FALLBACK | 43 / 2 |
-| Evaluable GT labels / selected labels | 6 / 6 |
-| Evaluation coverage | 100% |
-| Detected / missed / inconclusive / unevaluable | 0 / 4 / 2 / 0 |
-| Raw additional findings | 14 |
-| API calls | 90 |
-| Tokens | 342,564 |
-| Average rounds | 2.0 |
-| Average requested fragments | 4.4 |
-| Estimated context reduction | 92.43374417268024% |
-| Detected GT annotation leakage | None in the clean pilot |
+The malformed historical report at
+`runs/mode-b-v2-verification-retry-2026-11-09-01/analysis/report.json` remains
+unchanged. The original reuse audit still fails closed on it. Isolated unit
+fixtures allow the remaining scope tests to run; a green suite does not remove
+that integrity gate. No historical artifact was repaired to obtain passing tests.
 
-Manual review currently suggests 7 VALID, 1 PLAUSIBLE, 4 DUPLICATE and
-2 LIKELY_FALSE_POSITIVE findings: **8 unique VALID/PLAUSIBLE issue instances**.
-These are manual judgments, not a clean-negative-set precision estimate.
+The latest larger saved v4 pilot examined 65 function rows across two development
+files: four inconclusive results, five budget skips and no accepted confirmations
+or rejections. The navigation update retains all 65 rows but needs seven summary
+batches instead of five. Frozen preparations and approvals cannot be reused under
+the changed implementation; regenerate source-only proposals into new directories.
 
-The two relevant inconclusive sessions received model responses and then ended
-with context-request protocol errors. They remain evaluable abstentions, with
-errors preserved, rather than preparation failures. UNEVALUABLE is reserved for
-missing/invalid relevant analysis sessions. Preparation readiness and model
-verdicts are separate concepts.
+## Next step
 
-## Known limitation
+After cleanup and publication, prepare a small three-contract development plan.
+Use predeclared source-only ordering, distinct projects and exposure registries.
+Do not use labels or prior model verdicts to choose convenient cases. Keep all
+three outside validation/held-out cohorts, preserve source and compiler proofs,
+freeze model/backend, code and limits, and obtain fresh execution approval.
 
-The clean pilot has **0 strict GT detections, 4 misses and 2 inconclusive labels**,
-alongside multiple additional plausible findings. Infrastructure works, but the
-vulnerability discovery methodology needs improvement. This small development
-pilot does not establish general detection performance.
+Track confirmed, rejected, inconclusive, processing failures, skipped candidates
+and full usage separately. Accuracy evaluation comes after the protocol and
+evaluation plan are frozen. No automatic PRA rerun, retry or cohort advancement.
 
-Preserve `clean-small-run`, clean pilot3 preparation/results, all prompt journals,
-contract/evaluation reports and adjudication files. Preserve pre-fix/debug runs
-as historical evidence. In particular, `pilot10` is `pilot10_debug_prefixed` in
-status: incomplete preparation coverage and possible annotation leakage make it
-unsuitable as a clean thesis result. Never edit inference outputs to improve metrics.
+## Historical context
 
-## Offline validation and commit hygiene
-
-Run the unittest suite with OpenAI clients mocked/blocked; no experiments or
-saved summaries need rerunning. Sanitization tests cover developer-comment
-preservation, line/source mappings, requested fragments and source fallback.
-Compiler binaries are selected locally without global state changes or downloads.
-
-Keep local virtual environments, credentials, editor caches and scratch output
-out of commits. Keep intentional evaluation artifacts and historical empty logs.
-Large reports repeat sessions by design; review size without deleting evidence.
-No automatic formatter is configured; use compilation and `git diff --check`.
-
-## NEXT SESSION: MODE B — DIRECT DETECTOR V2
-
-Research direction only; not implemented in this cleanup:
-
-1. Contract-level discovery pass.
-2. Compact structural contract summary.
-3. Systematic vulnerability-category sweep.
-4. Cross-function reasoning.
-5. Candidate vulnerability generation.
-6. Selective-context candidate verification.
-7. Whole-contract aggregation.
-8. Separate development and held-out evaluation sets before experimentation.
-
-Mode B is the next primary development target. Preserve Mode A/C comparisons,
-GT isolation, frozen pilot evidence and bounded explicit execution controls.
+Earlier pilot metrics and the chronological development record are preserved in
+[the pre-cleanup state](history/current_state_before_cleanup_2026-11-16.md),
+[the previous README](history/README_before_cleanup_2026-11-16.md), and the original
+protocol/review documents. Those records describe different study conditions;
+do not combine their metrics with the current development control.

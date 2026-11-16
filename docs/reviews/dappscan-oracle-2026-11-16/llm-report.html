@@ -1,0 +1,89 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Smart contract scan report</title><style>body{font:16px/1.6 system-ui,sans-serif;color:#14213d;background:#f4f6fa;margin:0}main{max-width:1000px;margin:auto;padding:40px 24px}article,section{background:white;border:1px solid #dce3ee;border-radius:12px;padding:24px;margin:20px 0}h1{font-size:36px;line-height:1.15}h2{font-size:22px;overflow-wrap:anywhere}.tag{font-weight:700;color:#1d4ed8}pre{padding:16px;background:#f1f5f9;overflow:auto;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}small{color:#475569}dl{display:grid;grid-template-columns:180px 1fr;gap:8px}dd{margin:0;overflow-wrap:anywhere}</style><main><small>CONTEXT AUDIT · SCAN REPORT</small><h1>Smart contract analysis</h1><p>Direct LLM scanner · v2</p><section><dl><dt>Status</dt><dd>partial</dd><dt>Compiler</dt><dd>0.6.12</dd><dt>Model</dt><dd>gpt-5.4-mini-2026-03-17</dd><dt>Created</dt><dd>2026-11-16T10:17:15.426235+00:00</dd><dt>Source SHA-256</dt><dd>9a93a25bce13a7d6b344bff301430fbbe09747eb013e5dce0c3ab944d7916cfc</dd><dt>API requests</dt><dd>3</dd><dt>Reported tokens</dt><dd>8112</dd></dl></section><article><h2>setACL(address)</h2><p class="tag">processing failed · unspecified severity</p><h3>access_control</h3><p>Function changes the ACL state and is gated only by msg.sender checks; configuration functions that control later authorization are high-risk without source confirmation.</p><p>Errors: SEMANTIC_CONSISTENCY_FAILED</p></article><section><h2>Coverage and counts</h2><pre>{
+  &quot;total_functions&quot;: 9,
+  &quot;included&quot;: 9,
+  &quot;examined&quot;: 9,
+  &quot;incomplete_metadata&quot;: 0,
+  &quot;selected&quot;: 4,
+  &quot;not_selected&quot;: 5,
+  &quot;unevaluable&quot;: 0,
+  &quot;pending&quot;: 0,
+  &quot;candidates_generated&quot;: 1,
+  &quot;unique_candidates&quot;: 1,
+  &quot;candidates_verified&quot;: 0,
+  &quot;confirmed_candidates&quot;: 0,
+  &quot;rejected_candidates&quot;: 0,
+  &quot;inconclusive_candidates&quot;: 0,
+  &quot;processing_failures&quot;: 1,
+  &quot;semantic_consistency_failures&quot;: 1,
+  &quot;skipped_candidates&quot;: 0,
+  &quot;pending_candidates&quot;: 0
+}</pre></section><section><h2>Limitations</h2><ul><li>Findings require review. No findings does not prove that the contract is secure.</li><li>Static warnings and LLM assessments are different forms of evidence.</li><li>This scanner does not execute exploits.</li></ul></section><section><h2>Analyzed source</h2><pre><code>pragma solidity ^0.6.0;
+pragma experimental ABIEncoderV2;
+
+interface IACL {
+    function accessible(address sender, address to, bytes4 sig)
+        external
+        view
+        returns (bool);
+}
+
+
+contract Oracle {
+    address public ACL;
+
+    constructor (address _ACL) public {
+        ACL = _ACL;
+    }
+
+    modifier auth {
+        require(IACL(ACL).accessible(msg.sender, address(this), msg.sig), &quot;access unauthorized&quot;);
+        _;
+    }
+
+    function setACL(
+        address _ACL) external {
+        require(msg.sender == ACL, &quot;require ACL&quot;);
+        ACL = _ACL;
+    }
+
+    struct Price {
+        uint price;
+        uint  expiration;
+    }
+
+    mapping (address =&gt; Price) public prices;
+
+    function getExpiration(address token) external view returns (uint) {
+        return prices[token].expiration;
+    }
+
+    function getPrice(address token) external view returns (uint) {
+        return prices[token].price;
+    }
+
+    function get(address token) external view returns (uint, bool) {
+        return (prices[token].price, valid(token));
+    }
+
+    function valid(address token) public view returns (bool) {
+        return now &lt; prices[token].expiration;
+    }
+
+    // 设置价格为 @val, 保持有效时间为 @exp second.
+    function set(address token, uint val, uint exp) external auth {
+        prices[token].price = val;
+        prices[token].expiration = now + exp;
+    }
+
+    //批量设置，减少gas使用
+    function batchSet(address[] calldata tokens, uint[] calldata vals, uint[] calldata exps) external auth {
+        uint nToken = tokens.length;
+        require(nToken == vals.length &amp;&amp; vals.length == exps.length, &quot;invalid array length&quot;);
+        for (uint i = 0; i &lt; nToken; ++i) {
+            prices[tokens[i]].price = vals[i];
+            prices[tokens[i]].expiration = now + exps[i];
+        }
+    }
+}
+</code></pre></section></main></html>

@@ -1,0 +1,41 @@
+{
+  "kind": "single_synthetic_development_navigation_check",
+  "plan_sha256": "53ea6a29a6380b0ca14cb3c53284bda0b89e72639fdc29bd64ecf0cacb6d04a0",
+  "status": "completed",
+  "provider": "codex_chatgpt",
+  "model": "gpt-6-luna",
+  "examined_functions": 5,
+  "model_turns": 5,
+  "reported_tokens": 73863,
+  "unknown_usage_turns": 0,
+  "api_key_requests": 0,
+  "token_count_requests": 0,
+  "verdict": "confirmed",
+  "severity": "high",
+  "explanation": "withdrawFor sends the full recorded balance before clearing it. During the low-level call, an unguarded withdraw() entry point can reenter and repeat the withdrawal while the balance remains unchanged. guardedWithdraw applies a guard only to that entry point; it does not protect withdraw().",
+  "verification_rounds": 4,
+  "retrieved_fragments": 7,
+  "consistency_validation": {
+    "version": "verdict-consistency-v4",
+    "mode": "structured",
+    "passed": true,
+    "failed_rules": [],
+    "original_model_verdict": "confirmed",
+    "evidence_ids": [
+      "fragment-dac4613e7f12dc3780d8",
+      "fragment-b751a53877288a219e08",
+      "fragment-bc188ded24777bcf2f77",
+      "fragment-25b190671badeb5206f3",
+      "fragment-e8a559d2de5a3c08c2db"
+    ]
+  },
+  "processing_failures": 0,
+  "skipped_candidates": 0,
+  "source_and_session_envelope_validated": true,
+  "request_envelopes_validated": true,
+  "dynamic_exploit_executed": false,
+  "precision": null,
+  "recall": null,
+  "limitations": "One handcrafted development control, not independent benchmark accuracy or an old/new model comparison.",
+  "repeat_or_next_case_authorized": false
+}

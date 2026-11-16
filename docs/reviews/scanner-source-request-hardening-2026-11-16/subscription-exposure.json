@@ -1,0 +1,24 @@
+{
+  "kind": "subscription_exposure",
+  "provider": "codex_chatgpt",
+  "model": "gpt-6-luna",
+  "plan_sha256": "6b9039bf200dd94fe65aa56be8154b4cebbf0e327a3a38d71d2784a9e8a2f786",
+  "output": "/mnt/c/Users/Yehor/Documents/Codex/2026-11-16/referenced-chatgpt-conversation-this-is-an/outputs/dappscan-development-pilot-v4-ready",
+  "attempted_cases": [
+    {
+      "case": "case-48e3c497af397f2ed833",
+      "source_sha256": "94d36a1a4f9821f44bacca30ababf624b8ff0a59ace3e574e4ed6bb75f99ede8",
+      "attempted_codex_turns": 3,
+      "status": "partial",
+      "completion_sha256": "aca58033fb0d9708b75816bf7e71b120a7752e9a9cd5d386c8ca0edb6d1d7426"
+    },
+    {
+      "case": "case-4ad2bf7ed791e2b4ecf9",
+      "source_sha256": "5805992ffdace1b7bc74b8c44702e2ff2c8ec891d37bccb223e957c4a17564b1",
+      "attempted_codex_turns": 4,
+      "status": "completed",
+      "completion_sha256": "92a41c23126065e48047c25209092fcd572eb9c09a4bc7a1084e9a22f552a205"
+    }
+  ],
+  "automatic_replay_authorized": false
+}

@@ -1,0 +1,24 @@
+{
+  "kind": "subscription_exposure",
+  "provider": "codex_chatgpt",
+  "model": "gpt-6-luna",
+  "plan_sha256": "b2cc6bc629bf7152dce8c79a50920c3ef493291c7353b2f8f957cd872b7dc2aa",
+  "output": "/mnt/c/Users/Yehor/Documents/Codex/2026-11-16/referenced-chatgpt-conversation-this-is-an/outputs/dappscan-consistency-v4-pilot-2026-11-16",
+  "attempted_cases": [
+    {
+      "case": "case-577ece42189577e30507",
+      "source_sha256": "fd4b188aace0139d4b263cdd59e51b9736ea79f3e17ac2bd4061a00eb7361fe2",
+      "attempted_codex_turns": 8,
+      "status": "partial",
+      "completion_sha256": "c8a58c8e8646437c41a85c419a6fc39d2d38e79f3b85712508ce181bffd0b241"
+    },
+    {
+      "case": "case-5c164d0f1f1aaf4b9009",
+      "source_sha256": "0ff5a0c7f70ceb9b6ffd4d4b7bc50077926b9d00af1a37bdc09b179e68bf9162",
+      "attempted_codex_turns": 8,
+      "status": "partial",
+      "completion_sha256": "32340f937b195dac915a06cb09abc0e51f33d2ec16b93f32baa52fc2381f545a"
+    }
+  ],
+  "automatic_replay_authorized": false
+}

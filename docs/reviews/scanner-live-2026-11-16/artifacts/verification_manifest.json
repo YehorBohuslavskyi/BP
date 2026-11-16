@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "source": {
+    "source_sha256": "d512c1fcc3d91b7e1a32d99389f7b9ba5964c2e65d5cebb0dd014e33ad3471ee",
+    "source_name": "source.sol",
+    "sanitized_project_sha256": "e5f94d019be432e5cbb8fb914f6ff7319a1410882affaddf6dbad52ecb47a213",
+    "catalog_sha256": "02b2f0336335da3774e5d16aebceed7c27f3c8916e799677aeb602740d6d8e06",
+    "structure_sha256": "ddee673466ae2b6313fba139f2d832c96ea7bb6e29960ef211b8d613b5d87dd9",
+    "locations_sha256": "49719e0fb9c8f0a5d817194f68925de028a22e7630d945a99778e9fc51ae40ef",
+    "compiler": "0.8.24",
+    "preparation_sha256": "e96df93fd43afc166de6467d7dde5715827059c9b388c3a8a0bbe0734dbe9b3b",
+    "sanitizer_sha256": "e093a3c2338cf4d5d6e705aa49270d36a3694a3d6f33924b567b6466a8e2e671"
+  },
+  "discovery_sha256": "cb6566b67c65f55365b1438079d32b663f80f2bacfe5c23fc6eeb2060aafd3d8",
+  "configuration": {
+    "model": "gpt-5.4-mini-2026-03-17",
+    "limits": {
+      "max_rounds": 3,
+      "max_fragments": 20,
+      "max_source_tokens": 16000,
+      "max_input_tokens": 24000,
+      "max_output_tokens": 2000,
+      "max_candidates": 1,
+      "max_total_tokens": 60000
+    },
+    "consistency_version": "verdict-consistency-v2",
+    "prompt_sha256": "ff1e624287a77293054c20972d6dc84273f7b94007d12bcd51ed147f620d53b0",
+    "schema_sha256": "f262b2361fb9a7d9e1e095b7c264ea027a2df48a2df05e4e2ae028b16e5fcfdb",
+    "implementation_sha256": "c2a285b62a4ebffdb04a8da1a3b8757bbcc693b7b1a9bda06a10d706b9720472"
+  }
+}

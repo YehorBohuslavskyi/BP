@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "purpose": "development engineering smoke test; not accuracy benchmark",
+  "source": "/home/coca-cola/projects/BP/examples/AccessDemoUnrestricted.sol",
+  "source_identity": {
+    "source_sha256": "cdb6e03a3fb2fe6eacccd9dfa85ad5c9584c31e8678e76a21d24e69033f20d6f",
+    "source_name": "AccessDemoUnrestricted.sol",
+    "sanitized_project_sha256": "622a0ee2115e2a373a6b0c9d0fe219871028641c1c45f5d52ff240b1714371b0",
+    "catalog_sha256": "56d92116ac797a6a628bbb3f0e299d857cc0e9b24e12cb2bd1e7245a0281f089",
+    "structure_sha256": "7b7ea283d44dc8ca63179f0cfb78b5766e5814b935a1b6cabfab9a9470b77593",
+    "locations_sha256": "26242bbfd674908144e7042e680d83c34e5e38f8918d91b97c5db5ed9f8d3ce7",
+    "compiler": "0.8.24",
+    "preparation_sha256": "e96df93fd43afc166de6467d7dde5715827059c9b388c3a8a0bbe0734dbe9b3b",
+    "sanitizer_sha256": "e093a3c2338cf4d5d6e705aa49270d36a3694a3d6f33924b567b6466a8e2e671"
+  },
+  "output": "/home/coca-cola/projects/BP/runs/mode-b-v2-smoke-2026-11-09-01",
+  "model": "gpt-5.4-mini-2026-03-17",
+  "active_model_at_preflight": null,
+  "credential_present_at_preflight": false,
+  "configuration": {
+    "modules": "2a985097b0c2b65a5c2323543888d687eb82e33464bef121629110d400e16293",
+    "runner": "1e0fa80395366c3977ba6c8f04702fea54ba930d1da0821e3b0ac12784766ca7",
+    "openai_sdk": "3.29.0"
+  },
+  "limits": {
+    "max_rounds": 3,
+    "max_fragments": 4,
+    "max_source_tokens": 4000,
+    "max_input_tokens": 6000,
+    "max_output_tokens": 2500,
+    "max_candidates": 2,
+    "max_total_tokens": 40000
+  },
+  "budget": {
+    "max_discovery_calls": 1,
+    "max_generation_calls": 7,
+    "max_count_calls": 7,
+    "max_reserved_tokens": 40000,
+    "max_input_tokens_per_call": 6000
+  },
+  "discovery_batches": 1,
+  "coverage": [
+    {
+      "contract": "AccessDemoUnrestricted",
+      "signature": "changeOwner(address)",
+      "fragment_id": "fragment-c3c5ea4d5f3e78f4bb3e",
+      "status": "pending",
+      "reason": "Not executed",
+      "included": true,
+      "incomplete_metadata": false
+    },
+    {
+      "contract": "AccessDemoUnrestricted",
+      "signature": "constructor()",
+      "fragment_id": "fragment-5559ad776e1e95f2949e",
+      "status": "pending",
+      "reason": "Not executed",
+      "included": true,
+      "incomplete_metadata": false
+    },
+    {
+      "contract": "AccessDemoUnrestricted",
+      "signature": "getValue()",
+      "fragment_id": "fragment-da15718b39299dd9ade3",
+      "status": "pending",
+      "reason": "Not executed",
+      "included": true,
+      "incomplete_metadata": false
+    },
+    {
+      "contract": "AccessDemoUnrestricted",
+      "signature": "setValue(uint256)",
+      "fragment_id": "fragment-b4cffbd8eb19f65c1033",
+      "status": "pending",
+      "reason": "Not executed",
+      "included": true,
+      "incomplete_metadata": false
+    }
+  ],
+  "compiler_readiness": {
+    "selected": true,
+    "pragma": "0.8.24",
+    "compiler_used": "0.8.24",
+    "compiler_version_attempted": "0.8.24",
+    "total_source_functions": 4,
+    "function_readiness": [
+      {
+        "contract": "AccessDemoUnrestricted",
+        "signature": "constructor()",
+        "lines": [
+          7,
+          8,
+          9
+        ],
+        "preparation_mode": "FULL_INDEX"
+      },
+      {
+        "contract": "AccessDemoUnrestricted",
+        "signature": "setValue(uint256)",
+        "lines": [
+          16,
+          17,
+          18
+        ],
+        "preparation_mode": "FULL_INDEX"
+      },
+      {
+        "contract": "AccessDemoUnrestricted",
+        "signature": "getValue()",
+        "lines": [
+          20,
+          21,
+          22
+        ],
+        "preparation_mode": "FULL_INDEX"
+      },
+      {
+        "contract": "AccessDemoUnrestricted",
+        "signature": "changeOwner(address)",
+        "lines": [
+          24,
+          25,
+          26
+        ],
+        "preparation_mode": "FULL_INDEX"
+      }
+    ],
+    "preparation_warnings": [],
+    "FULL_INDEX": 4,
+    "SOURCE_FALLBACK": 0,
+    "UNEVALUABLE": 0,
+    "preparation_status": "READY"
+  },
+  "discovery_prompt_estimated_tokens": 1361,
+  "status": "AWAITING_USER_APPROVAL_AND_CONFIGURATION"
+}

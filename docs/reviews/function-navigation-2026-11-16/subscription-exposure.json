@@ -1,0 +1,16 @@
+{
+  "kind": "subscription_exposure",
+  "provider": "codex_chatgpt",
+  "model": "gpt-6-luna",
+  "plan_sha256": "53ea6a29a6380b0ca14cb3c53284bda0b89e72639fdc29bd64ecf0cacb6d04a0",
+  "attempted_cases": [
+    {
+      "case": "synthetic-linked-withdrawal",
+      "source_sha256": "fad55f1c2257c8d87d16bd671ab4adc631c444584332d4b6504e719f5206fbf4",
+      "attempted_codex_turns": 5,
+      "status": "completed",
+      "completion_sha256": "afb7b5f5de0832c4bbdb77d0200c8ef04c0eaf5ab2004ad1122b5ec60804c62e"
+    }
+  ],
+  "automatic_replay_authorized": false
+}

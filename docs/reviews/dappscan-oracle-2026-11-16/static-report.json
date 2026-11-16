@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "analysis_kind": "local_static",
+  "created_utc": "2026-11-16T10:12:16.545563+00:00",
+  "source_sha256": "9a93a25bce13a7d6b344bff301430fbbe09747eb013e5dce0c3ab944d7916cfc",
+  "source": "pragma solidity ^0.6.0;\npragma experimental ABIEncoderV2;\n\ninterface IACL {\n    function accessible(address sender, address to, bytes4 sig)\n        external\n        view\n        returns (bool);\n}\n\n\ncontract Oracle {\n    address public ACL;\n\n    constructor (address _ACL) public {\n        ACL = _ACL;\n    }\n\n    modifier auth {\n        require(IACL(ACL).accessible(msg.sender, address(this), msg.sig), \"access unauthorized\");\n        _;\n    }\n\n    function setACL(\n        address _ACL) external {\n        require(msg.sender == ACL, \"require ACL\");\n        ACL = _ACL;\n    }\n\n    struct Price {\n        uint price;\n        uint  expiration;\n    }\n\n    mapping (address => Price) public prices;\n\n    function getExpiration(address token) external view returns (uint) {\n        return prices[token].expiration;\n    }\n\n    function getPrice(address token) external view returns (uint) {\n        return prices[token].price;\n    }\n\n    function get(address token) external view returns (uint, bool) {\n        return (prices[token].price, valid(token));\n    }\n\n    function valid(address token) public view returns (bool) {\n        return now < prices[token].expiration;\n    }\n\n    // 设置价格为 @val, 保持有效时间为 @exp second.\n    function set(address token, uint val, uint exp) external auth {\n        prices[token].price = val;\n        prices[token].expiration = now + exp;\n    }\n\n    //批量设置，减少gas使用\n    function batchSet(address[] calldata tokens, uint[] calldata vals, uint[] calldata exps) external auth {\n        uint nToken = tokens.length;\n        require(nToken == vals.length && vals.length == exps.length, \"invalid array length\");\n        for (uint i = 0; i < nToken; ++i) {\n            prices[tokens[i]].price = vals[i];\n            prices[tokens[i]].expiration = now + exps[i];\n        }\n    }\n}\n",
+  "compiler": "0.6.12",
+  "model": null,
+  "consistency_version": null,
+  "limitations": [
+    "Findings require review. No findings does not prove that the contract is secure.",
+    "Static warnings and LLM assessments are different forms of evidence.",
+    "This scanner does not execute exploits."
+  ],
+  "status": "completed",
+  "findings": [
+    {
+      "id": "c944b4c6fd97fd87cf1a5aeeaed8b9cd8d2a4045e97dfaf2bf6171829c7b2140",
+      "function": "setACL(address)",
+      "type": "events-access",
+      "severity": "low",
+      "status": "static_warning",
+      "verdict": null,
+      "explanation": "Oracle.setACL(address) (source.sol#24-28) should emit an event for: \n\t- ACL = _ACL (source.sol#27) \n",
+      "lines": [
+        27
+      ],
+      "evidence": [],
+      "errors": []
+    },
+    {
+      "id": "603b1f96b7589ad3a8a231cd47ee2fc4d95b9e65e59033711d7eb394af0be918",
+      "function": "setACL(address)",
+      "type": "missing-zero-check",
+      "severity": "low",
+      "status": "static_warning",
+      "verdict": null,
+      "explanation": "Oracle.setACL(address)._ACL (source.sol#25) lacks a zero-check on :\n\t\t- ACL = _ACL (source.sol#27)\n",
+      "lines": [
+        27
+      ],
+      "evidence": [],
+      "errors": []
+    },
+    {
+      "id": "93598c92f36705d12c7691ee66380eea4efa583f510351195f4e4763d2f79181",
+      "function": "constructor(address)",
+      "type": "missing-zero-check",
+      "severity": "low",
+      "status": "static_warning",
+      "verdict": null,
+      "explanation": "Oracle.constructor(address)._ACL (source.sol#15) lacks a zero-check on :\n\t\t- ACL = _ACL (source.sol#16)\n",
+      "lines": [
+        16
+      ],
+      "evidence": [],
+      "errors": []
+    },
+    {
+      "id": "3ac2803047aa03ddef0acc586615d2d51bdfe59b58c4eaa48364e4881e71e717",
+      "function": "valid(address)",
+      "type": "timestamp",
+      "severity": "low",
+      "status": "static_warning",
+      "verdict": null,
+      "explanation": "Oracle.valid(address) (source.sol#49-51) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- now < prices[token].expiration (source.sol#50)\n",
+      "lines": [
+        50
+      ],
+      "evidence": [],
+      "errors": []
+    },
+    {
+      "id": "5401a01c54ef714d9b2286d5ff588c299006201dadd6c162acae9224d327fa4e",
+      "function": "File-level warning",
+      "type": "solc-version",
+      "severity": "informational",
+      "status": "static_warning",
+      "verdict": null,
+      "explanation": "Version constraint ^0.6.0 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- AbiReencodingHeadOverflowWithStaticArrayCleanup\n\t- DirtyBytesArrayToStorage\n\t- NestedCalldataArrayAbiReencodingSizeValidation\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- MissingEscapingInFormatting\n\t- ArraySliceDynamicallyEncodedBaseType\n\t- ImplicitConstructorCallvalueCheck\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- YulOptimizerRedundantAssignmentBreakContinue.\nIt is used by:\n\t- ^0.6.0 (source.sol#1)\n",
+      "lines": [
+        1
+      ],
+      "evidence": [],
+      "errors": []
+    },
+    {
+      "id": "dde195ef8d4d5c5489c6627531ef2ba10109e5f0768ce75d0cfbe826810ec83e",
+      "function": "File-level warning",
+      "type": "solc-version",
+      "severity": "informational",
+      "status": "static_warning",
+      "verdict": null,
+      "explanation": "solc-0.6.12 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+      "lines": [],
+      "evidence": [],
+      "errors": []
+    },
+    {
+      "id": "554c3cd401a16d3659a9ca235c8cbf21d4f78cf4607eb601ab3e6ff05abc701b",
+      "function": "File-level warning",
+      "type": "naming-convention",
+      "severity": "informational",
+      "status": "static_warning",
+      "verdict": null,
+      "explanation": "Variable Oracle.ACL (source.sol#13) is not in mixedCase\n",
+      "lines": [
+        13
+      ],
+      "evidence": [],
+      "errors": []
+    },
+    {
+      "id": "b94eaaf4f8defee1dbd8b4a1488989a1ba05d00ca37748f2bb52b65390a6d12a",
+      "function": "setACL(address)",
+      "type": "naming-convention",
+      "severity": "informational",
+      "status": "static_warning",
+      "verdict": null,
+      "explanation": "Parameter Oracle.setACL(address)._ACL (source.sol#25) is not in mixedCase\n",
+      "lines": [
+        25
+      ],
+      "evidence": [],
+      "errors": []
+    }
+  ],
+  "coverage": [],
+  "counts": {
+    "static_warnings": 8
+  },
+  "usage": {
+    "api_calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "total_tokens": 0,
+    "unknown_usage_calls": 0
+  }
+}

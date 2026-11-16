@@ -1,0 +1,45 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Smart contract scan report</title><style>body{font:16px/1.6 system-ui,sans-serif;color:#14213d;background:#f4f6fa;margin:0}main{max-width:1000px;margin:auto;padding:40px 24px}article,section{background:white;border:1px solid #dce3ee;border-radius:12px;padding:24px;margin:20px 0}h1{font-size:36px;line-height:1.15}h2{font-size:22px;overflow-wrap:anywhere}.tag{font-weight:700;color:#1d4ed8}pre{padding:16px;background:#f1f5f9;overflow:auto;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}small{color:#475569}dl{display:grid;grid-template-columns:180px 1fr;gap:8px}dd{margin:0;overflow-wrap:anywhere}</style><main><small>CONTEXT AUDIT · SCAN REPORT</small><h1>Smart contract analysis</h1><p>Direct LLM scanner · v2</p><section><dl><dt>Status</dt><dd>completed</dd><dt>Compiler</dt><dd>0.8.24</dd><dt>Model</dt><dd>gpt-5.4-mini-2026-03-17</dd><dt>Created</dt><dd>2026-11-16T00:59:28.573086+00:00</dd><dt>Source SHA-256</dt><dd>d512c1fcc3d91b7e1a32d99389f7b9ba5964c2e65d5cebb0dd014e33ad3471ee</dd><dt>API requests</dt><dd>2</dd><dt>Reported tokens</dt><dd>5138</dd></dl></section><article><h2>withdraw()</h2><p class="tag">confirmed · high</p><h3>reentrancy</h3><p>The source shows a classic reentrancy pattern in withdraw(): it reads the caller’s balance, makes a low-level external call to msg.sender before updating state, and only afterwards sets balances[msg.sender] to 0. Because the balance is not cleared before the external call, a malicious recipient can reenter withdraw() while their balance is still nonzero and withdraw again.</p><pre><code>function withdraw() external {
+        uint256 amount = balances[msg.sender];
+        require(amount &gt; 0, &quot;Nothing to withdraw&quot;);
+        (bool success, ) = msg.sender.call{value: amount}(&quot;&quot;);
+        require(success, &quot;Transfer failed&quot;);
+        balances[msg.sender] = 0;
+    }</code></pre></article><section><h2>Coverage and counts</h2><pre>{
+  &quot;total_functions&quot;: 2,
+  &quot;included&quot;: 2,
+  &quot;examined&quot;: 2,
+  &quot;incomplete_metadata&quot;: 0,
+  &quot;selected&quot;: 2,
+  &quot;not_selected&quot;: 0,
+  &quot;unevaluable&quot;: 0,
+  &quot;pending&quot;: 0,
+  &quot;candidates_generated&quot;: 1,
+  &quot;unique_candidates&quot;: 1,
+  &quot;candidates_verified&quot;: 1,
+  &quot;confirmed_candidates&quot;: 1,
+  &quot;rejected_candidates&quot;: 0,
+  &quot;inconclusive_candidates&quot;: 0,
+  &quot;processing_failures&quot;: 0,
+  &quot;semantic_consistency_failures&quot;: 0,
+  &quot;skipped_candidates&quot;: 0,
+  &quot;pending_candidates&quot;: 0
+}</pre></section><section><h2>Limitations</h2><ul><li>Findings require review. No findings does not prove that the contract is secure.</li><li>Static warnings and LLM assessments are different forms of evidence.</li><li>This scanner does not execute exploits.</li></ul></section><section><h2>Analyzed source</h2><pre><code>// SPDX-License-Identifier: MIT
+pragma solidity 0.8.24;
+
+contract VulnerableVault {
+    mapping(address =&gt; uint256) public balances;
+
+    function deposit() external payable {
+        balances[msg.sender] += msg.value;
+    }
+
+    function withdraw() external {
+        uint256 amount = balances[msg.sender];
+        require(amount &gt; 0, &quot;Nothing to withdraw&quot;);
+        (bool success, ) = msg.sender.call{value: amount}(&quot;&quot;);
+        require(success, &quot;Transfer failed&quot;);
+        balances[msg.sender] = 0;
+    }
+}
+</code></pre></section></main></html>

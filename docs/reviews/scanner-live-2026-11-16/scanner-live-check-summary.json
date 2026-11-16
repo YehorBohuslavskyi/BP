@@ -1,0 +1,30 @@
+{
+  "authorization": {
+    "authorized": true,
+    "model": "gpt-5.4-mini-2026-03-17",
+    "source": "examples/scanner/VulnerableVault.sol",
+    "max_generation_requests": 4,
+    "max_count_requests": 0,
+    "max_discovery_batches": 1,
+    "max_candidates": 1,
+    "max_verification_rounds": 3,
+    "automatic_retries": 0,
+    "executed": true,
+    "generation_requests": 2,
+    "token_count_requests": 0,
+    "input_tokens": 4478,
+    "output_tokens": 660,
+    "total_tokens": 5138,
+    "source_sha256": "d512c1fcc3d91b7e1a32d99389f7b9ba5964c2e65d5cebb0dd014e33ad3471ee",
+    "result": "completed_confirmed_reentrancy",
+    "session_key_cleared": true
+  },
+  "provider_response_ids": [
+    "resp_025f3487712cce82016afa5569382c87d284478cfa2fe20735",
+    "resp_0195fcef932de52b016afa556db6f087d29b96e6ea6d45a0a2"
+  ],
+  "offline_revalidation_passed": true,
+  "historical_files_unchanged": 2386,
+  "artifact_files_preserved": 9,
+  "new_api_requests_during_audit": 0
+}

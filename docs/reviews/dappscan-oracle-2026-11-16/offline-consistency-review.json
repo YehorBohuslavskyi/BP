@@ -1,0 +1,25 @@
+[
+  {
+    "kind": "offline_consistency_review",
+    "saved_result_sha256": "78d9ad8c0a8ed01f675815a073b29bb77103d35e1195d6445eb72f375e94dfcc",
+    "response_sha256": "cd41ba672d1a0fbf9328565972a124751a73ddd2d01a5dd8bf15e66da2ad1060",
+    "candidate_id": "batch-0002:oracle-access-control-001",
+    "original_processing_status": "processing_failed",
+    "original_model_verdict": "rejected",
+    "consistency_validation": {
+      "version": "verdict-consistency-v2",
+      "mode": "structured",
+      "passed": false,
+      "failed_rules": [
+        "REJECTION_UNRESOLVED_OR_DANGEROUS_CLAIM"
+      ],
+      "original_model_verdict": "rejected",
+      "evidence_ids": [
+        "fragment-0eb34657cac548556e68"
+      ]
+    },
+    "eligible_model_verdict": null,
+    "historical_artifact_changed": false,
+    "authorizes_resume": false
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "discovery.json": "664b8c389e0546426e5174dea7bcfb56fe1ca19cceee967931c0f0d9a0401fc6",
+  "protocol/discovery-prompt.txt": "986bb97190201c9cc7f98d18b0e14791eb01b73a8066483e8bc755976f920f1f",
+  "protocol/verification-prompt.txt": "ccbb9b6ea51d48659d5ef6c6f7cce1a1898d2eba401cc045c0e03e32cabbe93b",
+  "protocol/verification-schema.json": "2c3f2da8e0aef9027aa6956f2c371fd71c64028a08e8788a24ade30098c77eee",
+  "report.json": "5b4f2a349448206f1f564b0c99caf58fc3bdbe13a522b8893daca07215c429e8",
+  "report.md": "1cab9101a149cf40730b01803b27c969500502e6b44333f97e4bb703a268f353",
+  "sessions/f8495fc3e42f12451f6190ccd5309c51231e6f122c7c55af19093227241244d8.json": "38d448d820846cf3903663e25b473d95969b71d13fb5a5e695962e2431f2cc5e",
+  "source.sol": "d512c1fcc3d91b7e1a32d99389f7b9ba5964c2e65d5cebb0dd014e33ad3471ee",
+  "verification_manifest.json": "abde6d597d2f3f0e8ecb453a127a66cef14421b0cf423ea8f6ff33b768c035d1"
+}
