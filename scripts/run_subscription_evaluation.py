@@ -97,6 +97,30 @@ def known_source_hashes():
                 type(attempts) is not int or attempts<1):
                 raise ValueError('Invalid subscription exposure record')
             values.add(checksum)
+    # Legacy direct runs store the dataset file on each actual function result.
+    # A prepared manifest alone is not exposure; a nonempty request journal also
+    # counts when the response/usage is unknown. Never inspect labels or verdicts.
+    legacy=ROOT/'examples/dappscan/evaluation/direct_detection'
+    manifests={}
+    for result_path in sorted(legacy.glob('*/results/*.json')):
+        result=json.loads(result_path.read_text())
+        if not result.get('prompt_journal') and not result.get('round_count',0):
+            continue
+        directory=result_path.parent.parent
+        if directory not in manifests:
+            manifest=json.loads((directory/'pilot_manifest.json').read_text())
+            sources={}
+            for case in manifest['cases']:
+                name=case['file'];checksum=case.get('source_sha256')
+                if name in sources and sources[name]!=checksum:
+                    raise ValueError('AMBIGUOUS_LEGACY_EXPOSURE_SOURCE')
+                sources[name]=checksum
+            manifests[directory]=sources
+        checksum=manifests[directory].get(result.get('dataset_file'))
+        if (not isinstance(checksum,str) or len(checksum)!=64 or
+            any(c not in '0123456789abcdef' for c in checksum)):
+            raise ValueError('LEGACY_EXPOSURE_SOURCE_HASH_MISSING_OR_INVALID')
+        values.add(checksum)
     return values
 
 def prepare(proposal,output,development_pilot_size=None,limit_profile='baseline'):

@@ -61,3 +61,49 @@ class SubscriptionExposureTests(unittest.TestCase):
             self.assertEqual(plan['cases'][0]['budget']['token_count_requests'],0)
             self.assertEqual(plan['cases'][0]['budget']['max_verification_tokens'],200000)
             self.assertEqual(plan['cases'][0]['preparation_budget']['max_reserved_tokens'],60000)
+
+
+class LegacySourceExposureTests(unittest.TestCase):
+    def fixture(self,root,*,journal=None,round_count=0,source_hash='a'*64,dataset_file='p/one.sol'):
+        directory=root/'examples/dappscan/evaluation/direct_detection/old-run'
+        (directory/'results').mkdir(parents=True)
+        (directory/'pilot_manifest.json').write_text(json.dumps({'cases':[
+            {'file':'p/one.sol','source_sha256':source_hash,'labels':'NOT_USED'},
+            {'file':'p/unrun.sol','source_sha256':'b'*64,'labels':'NOT_USED'}]}))
+        (directory/'results/0000.json').write_text(json.dumps(dict(dataset_file=dataset_file,
+            prompt_journal=journal or [],round_count=round_count)))
+
+    def test_only_actual_legacy_source_is_excluded_not_unrun_manifest_case(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            self.fixture(root,journal=[[]],round_count=1)
+            with patch.object(runner,'ROOT',root):
+                self.assertEqual(runner.known_source_hashes(),{'a'*64})
+
+    def test_prepared_legacy_case_with_zero_requests_is_not_exposure(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            self.fixture(root)
+            with patch.object(runner,'ROOT',root):
+                self.assertEqual(runner.known_source_hashes(),set())
+
+    def test_legacy_request_with_unknown_response_counts_as_exposure(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            self.fixture(root,journal=[[]],round_count=0)
+            with patch.object(runner,'ROOT',root):
+                self.assertEqual(runner.known_source_hashes(),{'a'*64})
+
+    def test_missing_legacy_hash_fails_closed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            self.fixture(root,journal=[[]],source_hash=None)
+            with patch.object(runner,'ROOT',root),self.assertRaisesRegex(ValueError,'HASH_MISSING_OR_INVALID'):
+                runner.known_source_hashes()
+
+    def test_legacy_request_without_manifest_source_match_fails_closed(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            self.fixture(root,journal=[[]],dataset_file='unmapped.sol')
+            with patch.object(runner,'ROOT',root),self.assertRaisesRegex(ValueError,'HASH_MISSING_OR_INVALID'):
+                runner.known_source_hashes()

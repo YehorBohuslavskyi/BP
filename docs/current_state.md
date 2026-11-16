@@ -20,7 +20,7 @@ See [navigation and limits](function_navigation.md) and
 
 ## Latest validated result
 
-- Full local offline suite: **575 tests passed**, no failures, errors or skips
+- Full local offline suite: **580 tests passed**, no failures, errors or skips
   after the documentation/import cleanup using `scripts/run_offline_tests.py`.
 - All **2,386 historical files** under `runs/` and `experiments/` remain unchanged.
 - Twelve separate historical saved-response reviews retain their prior outcomes.
@@ -72,3 +72,10 @@ Earlier pilot metrics and the chronological development record are preserved in
 [the previous README](history/README_before_cleanup_2026-11-16.md), and the original
 protocol/review documents. Those records describe different study conditions;
 do not combine their metrics with the current development control.
+
+
+Exposure review during the next pilot preparation also checks legacy direct-run
+function request journals against their source hashes. Prepared/unrun manifest
+cases remain eligible; actual requests, including unknown outcomes, do not.
+The first preliminary plan was superseded before execution after this audit found
+prior ExchangeService exposure. No labels or model verdicts drive the replacement.

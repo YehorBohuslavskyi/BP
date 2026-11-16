@@ -32,7 +32,7 @@ separately billed OpenAI API backend is optional. See
 - JSON/HTML reports, local vulnerable/guarded examples and a read-only historical
   evidence page when the original local artifacts are available.
 
-All **575 offline tests** pass after project cleanup. A separately authorized
+All **580 offline tests** pass after project cleanup. A separately authorized
 handcrafted development check confirmed a reentrancy hypothesis after retrieving
 seven fragments across four verification rounds: five Codex turns, 73,863 reported
 tokens and no processing failures or skips. This is an end-to-end development
